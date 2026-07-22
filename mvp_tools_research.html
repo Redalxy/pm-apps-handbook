@@ -189,6 +189,41 @@
   </div>
 </section>
 
+<section>
+  <h2><span class="num">8</span> 🎨 Окремий ресьорч: "Примірка шпалер та фарби онлайн"</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Це вже інша категорія складності, ніж калькулятори з розділу 2.</b> Тут юзер фотографує свою стіну/кімнату і додаток "перефарбовує"/накладає шпалери на фото в реальному часі — потрібна хоч якась сегментація стіни (навіть спрощена, без повного AI), а не просто форма+формула. Перевірив конкуренцію по 6 гео.</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Гео / запит (мова)</th><th>iOS топ-конкурент</th><th>iOS відгуків</th><th>Play топ</th><th>Play інстали</th></tr></thead>
+    <tbody>
+      <tr><td>🇺🇸 US "wallpaper visualizer room"</td><td>Wallpaper Visualizer</td><td class="n">34,669</td><td>Paint My Wall・AI Home Interior</td><td class="n">10,000,000+</td></tr>
+      <tr><td>🇺🇸 US "paint visualizer wall color"</td><td>Paint AI - Color Visualizer</td><td class="n">6,997</td><td>Paint my Room - Try wall color</td><td class="n">1,000,000+</td></tr>
+      <tr><td>🇺🇸 US "wall color simulator"</td><td>Sherwin-Williams Color Expert™ <span class="tag giant">бренд-гігант</span></td><td class="n">11,504</td><td>Paint my Room - Try wall color</td><td class="n">1,000,000+</td></tr>
+      <tr><td>🇺🇸 US "interior design AR paint"</td><td>Arch - AI Home Design <span class="tag giant">широкий home-design</span></td><td class="n">23,700</td><td>Paint my Room - Try wall color</td><td class="n">50,000,000+</td></tr>
+      <tr><td>🇪🇸 ES "visualizador de pintura pared"</td><td>Visualizador Colores Pintura</td><td class="n">2</td><td>—</td><td class="n">0 (нема матчу)</td></tr>
+      <tr><td>🇵🇱 PL "wizualizacja tapet / farby ściany"</td><td>Paint Colour Match (не локаліз.)</td><td class="n">0-3</td><td>—</td><td class="n">0 (нема матчу)</td></tr>
+      <tr><td>🇮🇹 IT "visualizzatore pittura parete"</td><td>—</td><td class="n">0</td><td>—</td><td class="n">0 (нема жодного матчу)</td></tr>
+      <tr><td>🇹🇷 TR "boya/duvar kağıdı görselleştirici"</td><td>Paint my Room: Görselleştirici <span class="tag lead">лідер уже локалізований</span></td><td class="n">0-24</td><td>GRUBL™4D Duvar Kağıtları</td><td class="n">н/д (Play блок 0, потрібна ручна перевірка)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card" style="margin-top:12px;">
+    <p style="margin-top:0;"><b style="color:var(--warn)">Вердикт:</b> у США категорія вже зайнята одразу трьома типами гравців — нішевий лідер (Wallpaper Visualizer, 34.7K), фарбові бренди роблять власні безкоштовні додатки (Sherwin-Williams — це для них маркетинг, не монетизація, тому демпінгують якістю безкоштовно), і великі home-design AI-платформи (Arch, Planner 5D) додають це як одну з фіч. <b>Play повністю контролює один додаток</b> — "Paint my Room - Try wall color" (1M-50M+ інсталів у кожному запиті) — це і є справжній велетень категорії.</p>
+    <p style="margin:0;"><b style="color:var(--good)">Але ГЕО-гап реальний і чистіший, ніж у калькуляторів:</b> Італія — взагалі 0 результатів на обох платформах (унікальний випадок), Польща й Іспанія — по 0-3 випадкових відгуки без справжнього локалізованого конкурента. Туреччина вже частково зайнята (лідер "Paint my Room" туди локалізувався), тому TR тут гірший вибір, ніж був для калькулятора фарби.</p>
+  </div>
+  <div class="risk-box" style="margin-top:12px;">
+    <div class="title">Чому це складніше за калькулятор — чесно</div>
+    <ul style="margin:0;">
+      <li><b>Потрібна хоч якась сегментація стіни</b> — повний AI (Segment Anything / ML wall-detection) дорого рахувати на пристрої й довго інтегрувати. Швидкий MVP-обхід: юзер сам обводить/тапає стіну (lasso чи прямокутник з перспективною корекцією) → накладання кольору/текстури через blend-mode (multiply/overlay) на CPU — це вже реалістично зробити швидко з Claude Code (Core Image / OpenGL blend), без важкого ML.</li>
+      <li><b>Каталог текстур шпалер</b> — потрібно 20-50 патернів мінімум для MVP (генерація/закупка текстур), це додатковий контент-обсяг порівняно з калькулятором.</li>
+      <li><b>Конкуренція з безкоштовними брендовими додатками</b> (Sherwin-Williams і подібні) означає: юзер може безкоштовно піти до бренду напряму — потрібна явна відмінність (більше кольорів/брендів одразу, простіший UX, без реєстрації).</li>
+    </ul>
+  </div>
+  <div class="win-box" style="margin-top:12px;">
+    <p style="margin:0;"><b>Якщо все ж братись:</b> старт в Італії (найчистіший 0-результатний гап) з MVP на базі "tap-to-select стіна + перспективний color/texture overlay" (без повного AI-сегментування) — це найшвидший реалістичний шлях зробити саме ЦЮ категорію, а не Fence/Paint-калькулятор із розділу 4. Для першого досвіду конвеєра, втім, калькулятор усе одно швидший і безпечніший старт — цю нішу краще брати другою чи третьою ітерацією, коли вже є досвід релізу.</p>
+  </div>
+</section>
+
 <footer>Niche Scout Agent · MVP Tools Factory — дослідження ніші tools-додатків · 2026-07-22 · дані: iTunes Search API (публічний) + google-play-scraper, зібрано наживо для цього звіту</footer>
 
 </div>
