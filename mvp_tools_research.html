@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MVP Tools Factory — де вільна ніша серед tools-додатків</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#131a2e; --border:#232c47;
+    --text:#e8ecf7; --muted:#8b93ac; --accent:#ffd166; --accent2:#7ea8ff;
+    --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; padding:0; background:radial-gradient(ellipse at top,#101a30 0%,var(--bg) 60%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55;}
+  .wrap{max-width:960px; margin:0 auto; padding:44px 22px 90px;}
+  header{text-align:center; margin-bottom:40px;}
+  header .kicker{color:var(--accent2); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600;}
+  header h1{font-size:32px; margin:10px 0 8px; background:linear-gradient(90deg,#ffd166,#ff9a8b); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  header p{color:var(--muted); font-size:15px; max-width:640px; margin:0 auto;}
+  .badge-row{display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap;}
+  .badge{padding:6px 14px; border-radius:999px; font-size:13px; font-weight:600; border:1px solid var(--border); background:var(--card);}
+  .badge.bad{color:var(--bad); border-color:#4a2020;}
+  .badge.good{color:var(--good); border-color:#1f4a34;}
+  .badge.warn{color:var(--warn); border-color:#4a3f1f;}
+  section{margin-bottom:38px;}
+  h2{font-size:20px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); padding-bottom:12px; margin-bottom:18px;}
+  h2 .num{width:28px; height:28px; border-radius:8px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--accent2); flex-shrink:0;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;}
+  p,li{font-size:14.5px; color:#dfe3f2;}
+  .muted{color:var(--muted);}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:13px; min-width:640px;}
+  th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top;}
+  th{color:var(--accent2); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td.num,.n{font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tag{display:inline-block; padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600;}
+  .tag.lead{background:#12331f; color:var(--good);}
+  .tag.new{background:#1f2f4a; color:var(--accent2);}
+  .tag.giant{background:#4a2020; color:var(--bad);}
+  .tag.hidden{background:#3a2f1f; color:var(--warn);}
+  .axes{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:14px;}
+  .axis{background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+  .axis .name{font-size:12px; color:var(--muted); display:flex; justify-content:space-between; margin-bottom:6px;}
+  .axis .score{font-size:20px; font-weight:800; color:var(--accent2);}
+  .axis .bar{height:5px; background:#1c2338; border-radius:99px; margin-top:6px; overflow:hidden;}
+  .axis .bar span{display:block; height:100%; background:linear-gradient(90deg,var(--accent2),var(--accent));}
+  .risk-box{background:linear-gradient(135deg,#2a1414,#131a2e); border:1px solid #4a2020; border-radius:14px; padding:22px;}
+  .risk-box .title{color:var(--bad); font-weight:700; font-size:16px; margin-bottom:10px;}
+  .win-box{background:linear-gradient(135deg,#132a1f,#131a2e); border:1px solid #1f4a34; border-radius:14px; padding:22px;}
+  .win-box .title{color:var(--good); font-weight:700; font-size:16px; margin-bottom:10px;}
+  ul{padding-left:20px;} li{margin-bottom:6px;}
+  .flag{font-size:15px;}
+  .geo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;}
+  .geo{background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:15px 17px;}
+  .geo h4{margin:0 0 6px; font-size:15px;}
+  .geo .lvl{font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:6px;}
+  .lvl.hi{background:#12331f;color:var(--good);} .lvl.mid{background:#4a3f1f;color:var(--warn);} .lvl.lo{background:#4a2020;color:var(--bad);}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:50px; border-top:1px solid var(--border); padding-top:20px;}
+  b{color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Niche Scout Agent · MVP Factory</span>
+  <h1>Tools-додатки: де вчитись заводити конвеєр швидко</h1>
+  <p>Мета — не хіт, а перший ПУБЛІКОВАНИЙ додаток в App Store + Google Play, щоб відпрацювати весь конвеєр (білд → ASO → реліз → перший фідбек). Дані по конкуренції — реальні (iTunes Search API + Google Play, зібрано 2026-07-22).</p>
+  <div class="badge-row">
+    <span class="badge bad">⚠️ Класичні сенсорні тулзи — пересичені</span>
+    <span class="badge good">✅ Trade-калькулятори — вікно є</span>
+    <span class="badge warn">🌍 PL/TR/VN/IN — geo-gap підтверджено</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="num">0</span> 🎯 Короткий вердикт (TL;DR)</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Лінійка/лупа/рівень/компас/ліхтарик/шумомір/спідометр — НЕ вигравай ці. Дані це прямо показують.</b> Це перші ідеї, які спадають на думку кожному новачку, тому вони роками пересичені: у США топ-гравець кожної категорії має 74K-190K+ відгуків на iOS, у Google Play — 1M-100M+ інсталів, а частину (компас, лупа, ліхтарик, рівень, лінійка) Apple/Android уже вбудували в саму ОС. Навіть у "слабших" гео (Нігерія, В'єтнам) той самий топ-гравець з мільйонами інсталів усе одно там перший.</p>
+    <p><b style="color:var(--good)">Реальне вікно — вузькі trade/DIY-калькулятори</b> (фарба, плитка, бетон, паркан, гравій, шпалери): та сама складність білда (форма + формула, без сенсорів/камери), але топ-конкурент має у 5-40 разів МЕНШЕ відгуків (4.6K-40K замість 90K-190K), і в кількох гео (Польща, Туреччина, В'єтнам) для локалізованих запитів взагалі НЕМАЄ виділеного додатка — тільки випадкові збіги з загальними калькуляторами.</p>
+    <p style="margin-bottom:0;"><b>Для мети "набити руку на конвеєрі"</b> — обирай проєкт за швидкістю білда, не за розміром ринку: жоден tools-додаток тут не дасть значного доходу без paid UA, але деякі (calculator-класу) реально можна вивести в топ-10 по вузькому локалізованому запиту органічно за тижні, а не роки.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">1</span> 📊 Дані: класичні сенсорні тулзи (усюди пересичено)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Ідея</th><th>US iOS топ (відгуків)</th><th>US Play (інсталів)</th><th>NG iOS топ (відгуків)</th><th>Вбудовано в ОС?</th></tr></thead>
+    <tbody>
+      <tr><td>Лінійка / рулетка (AR)</td><td class="n">87,337</td><td class="n">10,000,000+</td><td class="n">66</td><td>iOS: Measure app</td></tr>
+      <tr><td>Лупа</td><td class="n">90,516</td><td class="n">10,000,000+</td><td class="n">6</td><td>iOS: Accessibility Magnifier</td></tr>
+      <tr><td>Рівень (bubble level)</td><td class="n">111,617</td><td class="n">1,000,000+</td><td class="n">28</td><td>iOS: Measure → Level</td></tr>
+      <tr><td>Компас</td><td class="n">74,093</td><td class="n">10,000,000+</td><td class="n">1,032</td><td>iOS: Compass app</td></tr>
+      <tr><td>Шумомір (децибел)</td><td class="n">159,738</td><td class="n">10,000,000+</td><td class="n">270</td><td>ні</td></tr>
+      <tr><td>Ліхтарик</td><td class="n">133,467</td><td class="n">100,000,000+</td><td class="n">994</td><td>iOS: Control Center toggle</td></tr>
+      <tr><td>Спідометр GPS</td><td class="n">121,753</td><td class="n">10,000,000+</td><td class="n">33</td><td>ні</td></tr>
+      <tr><td>Дзеркало</td><td class="n">193,466</td><td class="n">10,000,000+</td><td class="n">—</td><td>iOS: Camera front-flip</td></tr>
+      <tr><td>Метроном</td><td class="n">58,169</td><td class="n">10,000,000+</td><td class="n">—</td><td>ні</td></tr>
+      <tr><td>Кубики / вибір навмання</td><td class="n">92,839</td><td class="n">10,000,000+</td><td class="n">—</td><td>ні</td></tr>
+      <tr><td>Кутомір / протрактор</td><td class="n">10,412</td><td class="n">5,000,000+</td><td class="n">—</td><td>частково (Measure)</td></tr>
+      <tr><td>Універсальний конвертор одиниць</td><td class="n">189,502</td><td class="n">10,000,000+</td><td class="n">—</td><td>ні, але Google/Siri пошук закриває запит</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">🟥 Навіть у слабших гео (Нігерія — низька купівельна спроможність, менш конкурентний ASO) той самий глобальний лідер із мільйонами інсталів усе одно перший — місцевого "вільного вікна" тут немає, бо це один додаток на весь світ, не локалізований бізнес.</p>
+</section>
+
+<section>
+  <h2><span class="num">2</span> ✅ Дані: trade/DIY-калькулятори (вікно є)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Ідея</th><th>US iOS топ (відгуків)</th><th>US Play (інсталів)</th><th>Різниця vs сенсорні тулзи</th></tr></thead>
+    <tbody>
+      <tr><td>Паркан (Fence Calculator)</td><td class="n">4,671</td><td class="n">100,000+</td><td class="tag lead">×20-40 менше конкурентів</td></tr>
+      <tr><td>Гравій (Gravel Calculator)</td><td class="n">24,995</td><td class="n">100,000+</td><td class="tag lead">×4-7 менше</td></tr>
+      <tr><td>Плитка (Tile Calculator)</td><td class="n">3,059</td><td class="n">100,000+</td><td class="tag lead">×25-60 менше</td></tr>
+      <tr><td>Бетон (Concrete Calculator)</td><td class="n">39,000</td><td class="n">1,000,000+</td><td class="tag new">×2-5 менше</td></tr>
+      <tr><td>Мульча (Mulch Calculator)</td><td class="n">4,671</td><td class="n">50,000,000+*</td><td class="tag lead">iOS ×20-40 менше (*Play-цифра підозріло висока, схоже на неточний матч скрейпера — не довіряй сліпо)</td></tr>
+      <tr><td>Фарба (Paint Calculator)</td><td class="n">13,592</td><td class="n">50,000+</td><td class="tag new">×7-14 менше</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card" style="margin-top:12px;"><p style="margin:0;"><b style="color:var(--good)">Чому це та сама складність білда:</b> жодних сенсорів/камери/AR — це форма (довжина, ширина, товщина шару → множення + округлення до стандартного пакування матеріалу) + локальні одиниці. Claude Code будує таке за один прохід (SwiftUI/Flutter форма + калькулятор), тестувати — тривіально, апрувиться в App Store без жодних ризикованих permissions.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">3</span> 🌍 ГЕО-вікно: калькулятор фарби по країнах</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Гео / запит (мова)</th><th>iOS топ-конкурент</th><th>iOS відгуків</th><th>Play топ</th><th>Висновок</th></tr></thead>
+    <tbody>
+      <tr><td>🇺🇸 US "paint calculator"</td><td>Paint Calculator - Estimator</td><td class="n">13,592</td><td class="n">50K+ install</td><td>Помірна конкуренція, є з чого копіювати UX</td></tr>
+      <tr><td>🇵🇱 PL "kalkulator farby"</td><td>Paint Calculator & Estimator (не локалізований!)</td><td class="n">6</td><td class="n">0 (нема прямого матчу)</td><td class="tag lead">Практично порожньо — жодного виділеного PL-додатка</td></tr>
+      <tr><td>🇹🇷 TR "boya hesaplama"</td><td>Coattero / Calculator M+ (не по темі)</td><td class="n">27-5,382</td><td class="n">0 (не по темі)</td><td class="tag lead">Немає прямого TR-конкурента, тільки випадкові збіги</td></tr>
+      <tr><td>🇻🇳 VN "tính toán sơn nhà"</td><td>SnapCalc: Math Solver (не по темі)</td><td class="n">22,432</td><td class="n">0 (не по темі)</td><td class="tag new">Немає виділеного VN paint-калькулятора</td></tr>
+      <tr><td>🇮🇳 IN "wall paint calculator"</td><td>Construction Calculator: Pro² (загальний)</td><td class="n">4</td><td class="n">5,000,000+ (Play — Asian Paints/локальний бренд-додаток)</td><td class="tag new">iOS практично вільний, Play займає бренд-гігант</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">🟩 <b>Найчистіший сигнал — Польща:</b> глобальний лідер категорії ("Paint Calculator & Estimator") не має польської локалізації взагалі, і жодного нативного PL-конкурента не існує. Це рідкісний випадок реального "вільного вікна", а не просто малої країни.</p>
+</section>
+
+<section>
+  <h2><span class="num">4</span> 💡 Топ-3 MVP для старту конвеєра</h2>
+  <div class="win-box">
+    <p style="margin:0 0 10px;"><b>Рекомендація за швидкістю білда + реальним ASO-шансом:</b></p>
+    <ol style="margin:0; padding-left:20px;">
+      <li><b>Kalkulator Farby (PL)</b> — калькулятор фарби польською: площа стіни → літри/банки з урахуванням стандартної витрати (10-12 м²/л) і популярних розфасовок (0.75л/2.5л/5л/10л місцевих брендів типу Śnieżka/Dulux PL). Найчистіший ГЕО-гап з усіх перевірених.</li>
+      <li><b>Fence / Gravel Calculator (US, англ.)</b> — найнижча абсолютна конкуренція (3-5K відгуків), великий і зрозумілий англомовний ринок, простий скоуп для першого релізу.</li>
+      <li><b>Paint Calculator (IN, англ.)</b> — на iOS практично порожньо (макс. 4 відгуки у топ-конкурента), великий ринок домашнього ремонту; вихід на Android тут складніший (бренд-гігант), тому старт саме з App Store.</li>
+    </ol>
+  </div>
+  <div class="card" style="margin-top:14px;"><p style="margin:0;"><b>Build-нотатка під Claude Code:</b> кожен із трьох — це один екран форми (2-4 інпути: довжина/ширина/висота/тип покриття) + один екран результату (кількість матеріалу + округлення до упаковки) + локальні одиниці/мова. Без камери, без сенсорів, без permissions — найшвидший можливий шлях від коду до App Store review.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">5</span> 💰 Монетизація для tools-категорії</h2>
+  <div class="card">
+    <ul style="margin:0;">
+      <li><b>Не підписка.</b> Utility-калькулятор — разова дія, юзер не платитиме щомісяця за "порахувати фарбу". Підписки тут конвертують погано і викликають негативні відгуки/rejected за "misleading paywall".</li>
+      <li><b>AdMob banner + rewarded/interstitial</b> на екрані результату (не заважає першому використанню — це і є ASO-сигнал retention).</li>
+      <li><b>"Remove ads" one-time IAP</b> ($1.99-2.99) — простий, чесний, не потребує сервера/акаунтів.</li>
+      <li>Ціль MVP — НЕ дохід, а: пройти повний цикл (Xcode/Play Console акаунт → build → screenshot → опис → review → перший органічний завант.) і отримати перший реальний фідбек від App Store review team (permissions, metadata, guidelines).</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">6</span> ⚠️ Ризики й нюанси</h2>
+  <div class="risk-box">
+    <div class="title">На що зважати</div>
+    <ul style="margin:0;">
+      <li><b>Google Play дані по DE/PL іноді повертали 0 через обмеження скрейпера (не через реальну відсутність ринку)</b> — перед стартом варто перевірити вручну через Play Console Store Listing Experiments або прямий пошук у сторі з телефону в потрібному гео.</li>
+      <li><b>"Порожня ніша" по PL/TR/VN — це малий пошуковий обсяг за замовчуванням</b> (менші мовні ринки), тому і завантажень органічно буде менше, ніж у US-категорії — це нормально для мети "набити руку", але не варто очікувати великих чисел.</li>
+      <li><b>App Store Review guideline 4.3 (spam/дублікати)</b> — не роби прямий клон "ще один rulers/calculator" без жодної унікальної деталі (локальна мова, локальні бренди/розфасовки) — Apple банить очевидні template-клони.</li>
+      <li><b>ASO для нішевих запитів</b> — переклад назви й опису на мову гео (не просто EN) критично важливий, це і є весь "моут" цих локалізованих ідей.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">7</span> ✅ План на перший реліз</h2>
+  <div class="card">
+    <ol style="margin:0; padding-left:20px;">
+      <li>Обери одну ідею з розділу 4 (рекомендація: Kalkulator Farby PL — найчистіший гап).</li>
+      <li>Claude Code: SwiftUI/Flutter форма (2-4 інпути) + формула + локалізація (польська мова інтерфейсу, локальні одиниці м²/л).</li>
+      <li>ASO: назва+опис польською, 3-5 скріншотів, іконка (можна згенерувати).</li>
+      <li>Публікація: App Store Connect (перевір Apple Developer акаунт $99/рік) + Google Play Console ($25 одноразово).</li>
+      <li>AdMob banner на екрані результату + "Remove ads" IAP.</li>
+      <li>Після релізу — той самий підхід можна повторити для Fence/Gravel (US) і Paint (IN) паралельно, це вже конвеєр.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>Niche Scout Agent · MVP Tools Factory — дослідження ніші tools-додатків · 2026-07-22 · дані: iTunes Search API (публічний) + google-play-scraper, зібрано наживо для цього звіту</footer>
+
+</div>
+</body>
+</html>
