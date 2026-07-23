@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Маркетплейси мобільних додатків — де купувати/продавати</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#131a2e; --border:#232c47;
+    --text:#e8ecf7; --muted:#8b93ac; --accent:#ffd166; --accent2:#7ea8ff;
+    --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; padding:0; background:radial-gradient(ellipse at top,#101a30 0%,var(--bg) 60%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55;}
+  .wrap{max-width:960px; margin:0 auto; padding:44px 22px 90px;}
+  header{text-align:center; margin-bottom:40px;}
+  header .kicker{color:var(--accent2); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600;}
+  header h1{font-size:32px; margin:10px 0 8px; background:linear-gradient(90deg,#ffd166,#ff9a8b); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  header p{color:var(--muted); font-size:15px; max-width:640px; margin:0 auto;}
+  .badge-row{display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap;}
+  .badge{padding:6px 14px; border-radius:999px; font-size:13px; font-weight:600; border:1px solid var(--border); background:var(--card);}
+  .badge.bad{color:var(--bad); border-color:#4a2020;}
+  .badge.good{color:var(--good); border-color:#1f4a34;}
+  .badge.warn{color:var(--warn); border-color:#4a3f1f;}
+  section{margin-bottom:38px;}
+  h2{font-size:20px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); padding-bottom:12px; margin-bottom:18px;}
+  h2 .num{width:28px; height:28px; border-radius:8px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--accent2); flex-shrink:0;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;}
+  p,li{font-size:14.5px; color:#dfe3f2;}
+  .muted{color:var(--muted);}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:13px; min-width:640px;}
+  th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top;}
+  th{color:var(--accent2); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td.num,.n{font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tag{display:inline-block; padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600;}
+  .tag.lead{background:#12331f; color:var(--good);}
+  .tag.new{background:#1f2f4a; color:var(--accent2);}
+  .tag.giant{background:#4a2020; color:var(--bad);}
+  .tag.hidden{background:#3a2f1f; color:var(--warn);}
+  .risk-box{background:linear-gradient(135deg,#2a1414,#131a2e); border:1px solid #4a2020; border-radius:14px; padding:22px;}
+  .risk-box .title{color:var(--bad); font-weight:700; font-size:16px; margin-bottom:10px;}
+  .win-box{background:linear-gradient(135deg,#132a1f,#131a2e); border:1px solid #1f4a34; border-radius:14px; padding:22px;}
+  .win-box .title{color:var(--good); font-weight:700; font-size:16px; margin-bottom:10px;}
+  ul{padding-left:20px;} li{margin-bottom:6px;}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:50px; border-top:1px solid var(--border); padding-top:20px;}
+  b{color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Niche Scout Agent · Ринкова інфраструктура</span>
+  <h1>Де купують і продають мобільні додатки</h1>
+  <p>Каталог майданчиків для купівлі/продажу готових додатків-бізнесів (з юзерами/доходом) і окремо — маркетплейсів готового коду/шаблонів. Загальні "продай речі" застосунки (eBay, OfferUp, Facebook Marketplace) свідомо виключені — тут ідеться про додатки як цифровий актив/бізнес, не побутові товари.</p>
+  <div class="badge-row">
+    <span class="badge good">✅ Купівля готового бізнесу (з доходом)</span>
+    <span class="badge warn">📦 Купівля коду/шаблону (білд швидше)</span>
+    <span class="badge bad">⚠️ Деякі "легендарні" площадки вже мертві/перезапущені</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="num">0</span> 🎯 Короткий вердикт (TL;DR)</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Два зовсім різні ринки, не плутай:</b> (А) купівля/продаж ГОТОВОГО додатка-бізнесу з реальними юзерами/доходом/рейтингом в сторі — це M&A-майданчики (Acquire.com, Flippa, Empire Flippers, SideProjectors); (Б) купівля ГОТОВОГО КОДУ/ШАБЛОНУ для швидшого білда з нуля — це CodeCanyon і подібні. Для твоєї мети "конвеєр MVP" (розділ з мультикалькулятором) — категорія Б корисніша ЗАРАЗ (прискорює білд), категорія А стане релевантною, коли з'явиться перший реальний застосунок з трохи трафіку/доходу для продажу чи коли захочеш купити готовий актив замість білда з нуля.</p>
+    <p style="margin-bottom:0;"><b style="color:var(--bad)">Обережно з legacy-назвами:</b> Chupamobile і SellMyApp (класика "app source code" маркетплейсів 2015-2019) — обидва або мертві, або перезапущені новими власниками з невідомою якістю в 2026. Перевіряй свіжі відгуки перед оплатою, не покладайся на стару репутацію бренду.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">1</span> 💰 Категорія А: купити/продати ГОТОВИЙ додаток-бізнес</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Платформа</th><th>Формат</th><th>Ціновий діапазон</th><th>Верифікація</th><th>Комісія</th></tr></thead>
+    <tbody>
+      <tr><td><b>Acquire.com</b> <span class="tag lead">колишній MicroAcquire</span></td><td>Курована маркетплейс-вітрина, підключення живих даних (Stripe/аналітика)</td><td>від дрібних side-project'ів до великих SaaS</td><td>Високий поріг — кожен лістинг перевіряють, дані важко підробити</td><td>—</td></tr>
+      <tr><td><b>Flippa</b></td><td>Наймасовіший загальний маркетплейс, є окремий розділ <code>/apps</code> для iOS/Android</td><td>від сотень $ до 7-значних сум</td><td>Опційна, лістинг можна опублікувати в той самий день</td><td>Пакети від $29, success fee 3-10%</td></tr>
+      <tr><td><b>Empire Flippers</b></td><td>Курований брокер, ~90% заявок відхиляють</td><td class="tag giant">мінімум ~$60K</td><td>Дуже висока — не для MVP-стадії</td><td>—</td></tr>
+      <tr><td><b>FE International</b> / <b>Investors Club</b></td><td>Повний M&A-консалтинг, не самообслуговуюча вітрина</td><td class="tag giant">мід-маркет і вище</td><td>Дуже висока, ручний супровід</td><td>—</td></tr>
+      <tr><td><b>SideProjectors</b></td><td>Неформальна вітрина для side-project'ів/маленьких додатків</td><td class="tag lead">низький — саме під MVP-стадію</td><td>Мінімальна, дружня до новачків</td><td>—</td></tr>
+      <tr><td><b>Quiet Light Brokerage</b></td><td>Брокер середніх онлайн-бізнесів (контент/e-com/деякі apps)</td><td>мід-маркет</td><td>Висока</td><td>—</td></tr>
+      <tr><td><b>Swapd</b></td><td>B2B форум-маркетплейс цифрових активів (більше про соцмережі/сайти, іноді додатки)</td><td>різний</td><td>Модерована спільнота, верифікація активу</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="win-box" style="margin-top:12px;"><p style="margin:0;"><b>Для твого рівня (MVP щойно з нуля):</b> SideProjectors — найдружніший вхід, якщо колись захочеш продати малий tools-додаток без значного трафіку. Flippa — наступний крок, коли зʼявиться реальний дохід/рейтинг (там і купити щось маленьке можна). Acquire.com/Empire Flippers/FE International — це вже наступний рівень (реальний MRR, для яких MVP-калькулятор поки не підходить).</p></div>
+</section>
+
+<section>
+  <h2><span class="num">2</span> 📦 Категорія Б: купити ГОТОВИЙ КОД / шаблон додатка</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Платформа</th><th>Статус 2026</th><th>Що пропонує</th><th>Модель оплати</th></tr></thead>
+    <tbody>
+      <tr><td><b>CodeCanyon</b> (Envato Market)</td><td class="tag lead">активний, найбільший</td><td>13,800+ шаблонів мобільних додатків (Flutter/React Native/native), в т.ч. готові multi-vendor marketplace/e-com/NFT UI-кіти</td><td>Разова оплата за шаблон</td></tr>
+      <tr><td><b>Envato Elements</b></td><td class="tag lead">активний</td><td>Той самий пул + AI-інструменти, за підпискою (безліміт завантажень)</td><td>Місячна підписка</td></tr>
+      <tr><td><b>Codester</b></td><td class="tag new">активний, менший за CodeCanyon</td><td>Альтернатива CodeCanyon, ширше окрім мобільних (веб-скрипти теж)</td><td>Разова оплата</td></tr>
+      <tr><td><b>SellMyApp</b></td><td class="tag warn">оригінал закрився; Daggerless LLC перезапускає під тією ж назвою</td><td>Раніше — готові apps + revenue-generating apps + повні бізнеси</td><td>невідомо, перевіряти перед оплатою</td></tr>
+      <tr><td><b>Chupamobile</b></td><td class="tag bad">неоднозначний статус — домен викуплено Sell My App ще у 2019, згадки 2026 суперечливі</td><td>Історично 3500+ шаблонів ігор/додатків</td><td>не покладайся без свіжої перевірки</td></tr>
+    </tbody>
+  </table></div>
+  <div class="risk-box" style="margin-top:12px;">
+    <div class="title">Чому це прискорює конвеєр, але має підводні камені</div>
+    <ul style="margin:0;">
+      <li><b>Готовий шаблон економить тижні білда</b>, особливо для складніших категорій (розділ 8 попереднього звіту — AR-примірка шпалер/фарби — точно швидше стартувати з готового UI-кіта, ніж писати сегментацію стіни з нуля).</li>
+      <li><b>App Store review guideline 4.3 (spam/шаблонні клони)</b> — той самий ризик, що й у власного мультикалькулятора: голий нередагований шаблон Apple може відхилити як "template app" без унікальності. Потрібна власна доробка (брендинг, локалізація, хоч одна унікальна фіча).</li>
+      <li><b>Ліцензія</b> — перевіряй, чи дозволяє ліцензія публікацію під власним брендом у сторі (звичайний "regular license" на CodeCanyon зазвичай дозволяє, але читай умови перед покупкою).</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">3</span> ✅ Як це лягає на план BuildCalc / MVP-конвеєр</h2>
+  <div class="card">
+    <ul style="margin:0;">
+      <li><b>Зараз (білд):</b> якщо хочеш пришвидшити мультикалькулятор чи майбутню AR-примірку — перевір CodeCanyon на готові UI-кіти "calculator app" / "AR wall paint" перед білдом з нуля через Claude Code. Це не заміна Claude Code, а стартовий каркас UI, який Claude Code довершить.</li>
+      <li><b>Після першого релізу (продаж/оцінка):</b> коли BuildCalc матиме перші реальні завантаження/відгуки — SideProjectors чи Flippa це місце, де можна або продати весь актив, або просто помоніторити, скільки коштують подібні tools-додатки на реальному ринку (орієнтир для власної оцінки прогресу конвеєра).</li>
+      <li><b>Не купувати</b> готовий "revenue-generating app" з невідомого джерела на ранньому етапі — мета зараз саме навчитись будувати й публікувати самому, а не купувати чужий результат.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Niche Scout Agent · Ринкова інфраструктура: маркетплейси мобільних додатків · 2026-07-23 · дані: веб-пошук (Acquire.com, Flippa, Empire Flippers, FE International, SideProjectors, Swapd, CodeCanyon, SellMyApp/Chupamobile), зібрано наживо для цього звіту</footer>
+
+</div>
+</body>
+</html>
