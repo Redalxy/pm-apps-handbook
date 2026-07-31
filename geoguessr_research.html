@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessr — глибокий ресьорч ніші</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#131a2e; --border:#232c47;
+    --text:#e8ecf7; --muted:#8b93ac; --accent:#ffd166; --accent2:#7ea8ff;
+    --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; padding:0; background:radial-gradient(ellipse at top,#101a30 0%,var(--bg) 60%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55;}
+  .wrap{max-width:960px; margin:0 auto; padding:44px 22px 90px;}
+  header{text-align:center; margin-bottom:40px;}
+  header .kicker{color:var(--accent2); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600;}
+  header h1{font-size:32px; margin:10px 0 8px; background:linear-gradient(90deg,#ffd166,#ff9a8b); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  header p{color:var(--muted); font-size:15px; max-width:640px; margin:0 auto;}
+  .badge-row{display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap;}
+  .badge{padding:6px 14px; border-radius:999px; font-size:13px; font-weight:600; border:1px solid var(--border); background:var(--card);}
+  .badge.bad{color:var(--bad); border-color:#4a2020;}
+  .badge.good{color:var(--good); border-color:#1f4a34;}
+  .badge.warn{color:var(--warn); border-color:#4a3f1f;}
+  section{margin-bottom:38px;}
+  h2{font-size:20px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); padding-bottom:12px; margin-bottom:18px;}
+  h2 .num{width:28px; height:28px; border-radius:8px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--accent2); flex-shrink:0;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;}
+  p,li{font-size:14.5px; color:#dfe3f2;}
+  .muted{color:var(--muted);}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:13px; min-width:640px;}
+  th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top;}
+  th{color:var(--accent2); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td.num,.n{font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tag{display:inline-block; padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600;}
+  .tag.lead{background:#12331f; color:var(--good);}
+  .tag.new{background:#1f2f4a; color:var(--accent2);}
+  .tag.giant{background:#4a2020; color:var(--bad);}
+  .tag.hidden{background:#3a2f1f; color:var(--warn);}
+  .risk-box{background:linear-gradient(135deg,#2a1414,#131a2e); border:1px solid #4a2020; border-radius:14px; padding:22px;}
+  .risk-box .title{color:var(--bad); font-weight:700; font-size:16px; margin-bottom:10px;}
+  .win-box{background:linear-gradient(135deg,#132a1f,#131a2e); border:1px solid #1f4a34; border-radius:14px; padding:22px;}
+  .win-box .title{color:var(--good); font-weight:700; font-size:16px; margin-bottom:10px;}
+  ul{padding-left:20px;} li{margin-bottom:6px;}
+  .geo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;}
+  .geo{background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:15px 17px;}
+  .geo h4{margin:0 0 6px; font-size:15px;}
+  .geo .lvl{font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:6px;}
+  .lvl.hi{background:#12331f;color:var(--good);} .lvl.mid{background:#4a3f1f;color:var(--warn);} .lvl.lo{background:#4a2020;color:var(--bad);}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:50px; border-top:1px solid var(--border); padding-top:20px;}
+  b{color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Niche Scout Agent · GeoGuessr / geography-guessing games</span>
+  <h1>Ринок геолокейшн-угадайок: де реальна ніша на мобільному</h1>
+  <p>Максимальний ресьорч по темі GeoGuessr — сам продукт, конкуренти на App Store/Play, реальні дані по гео, і головне — чому вартість зображень (не код) є справжнім бар'єром входу в цю нішу.</p>
+  <div class="badge-row">
+    <span class="badge bad">💸 Street View imagery коштує грошей — саме тому GeoGuessr перейшов на підписку</span>
+    <span class="badge good">✅ Мобільний гап: веб-альтернативи майже не мають мобільних застосунків</span>
+    <span class="badge warn">🇹🇷 Туреччина — єдиний підтверджений локальний конкурент</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="num">0</span> 🎯 Короткий вердикт (TL;DR)</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Головна знахідка ресьорчу:</b> ніша розпадається на 3 категорії з абсолютно різною економікою, і плутати їх — головна помилка. (1) "Справжні" фото/street-view угадайки (як сам GeoGuessr) — тут бар'єр НЕ код, а <b>вартість зображень</b> (Google стягує $7 за 1000 запитів Street View, і саме через це GeoGuessr у 2024 перейшов з фрімієм на повністю платну підписку). (2) Геозагадки без фото (прапори/столиці/контури країн — Worldle, GeoExpert, World Geography Quiz) — код тривіальний, але ринок вже перенасичений (10M+ інсталів у топ-гравця). (3) Веб-альтернативи GeoGuessr на інших джерелах зображень (OpenGuessr, MapiGuessr, CamGuessr, Geotastic) — популярні як САЙТИ, але <b>майже НЕ мають мобільних застосунків взагалі</b> — це і є найчистіший знайдений гап.</p>
+    <p style="margin-bottom:0;"><b style="color:var(--good)">Практичний висновок:</b> копіювати офіційний GeoGuessr на мобільному — програшна битва (бренд+31.5K відгуків+мережевий ефект мультиплеєра). Копіювати flag/quiz-формат — теж перенасичено. Але <b>перенести один із популярних безкоштовних веб-клонів (інша модель зображень) у нормальний нативний мобільний застосунок</b> — це ніша, де на практиці конкурентів майже нема.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">1</span> 📊 Сам GeoGuessr: бізнес-модель і чому це важливо</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Показник</th><th>Значення</th></tr></thead>
+    <tbody>
+      <tr><td>Заснування / реліз мобільного застосунку</td><td class="n">2015-12-18 (iOS)</td></tr>
+      <tr><td>Річний дохід (оцінка)</td><td class="n">≈$7.87M</td></tr>
+      <tr><td>Оцінка компанії (valuation)</td><td class="n">≈$25.2M</td></tr>
+      <tr><td>Останній фінансовий раунд</td><td>Private Equity, 11.04.2025 (інвестор — Orkila Capital)</td></tr>
+      <tr><td>Штат</td><td class="n">≈98 співробітників (2026)</td></tr>
+      <tr><td>US iOS відгуків</td><td class="n">31,507 (★4.50)</td></tr>
+      <tr><td>UK iOS відгуків</td><td class="n">12,854 (★4.49)</td></tr>
+      <tr><td>DE iOS відгуків</td><td class="n">11,682 (★4.46)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="risk-box" style="margin-top:12px;">
+    <div class="title">Чому GeoGuessr перейшов з free на 100% платну підписку (2024)</div>
+    <p style="margin:0;">Google стягує плату за Street View Static API — <b>$7 за кожні 1000 запитаних зображень</b>. GeoGuessr платить Google щоразу, коли гравець переміщується між точками на карті. При мільйонах ігрових сесій на добу це виливається в реальні операційні витрати, які фрімієм-модель (реклама + дрібні покупки) вже не покривала — тому в 2024 GeoGuessr прибрав безкоштовний режим повністю і перейшов на підписку з необмеженою грою + мультиплеєр-режими (Battle Royale, Duels).</p>
+  </div>
+  <div class="card" style="margin-top:12px;"><p style="margin:0;"><b>Це і є головний урок для будь-кого, хто хоче зробити "свій GeoGuessr":</b> собівартість не в коді гри (угадати точку на карті — тривіальна логіка), а в джерелі фотографій. Якщо копіювати підхід GeoGuessr 1:1 (Google Street View API), той самий рахунок за зображення прилетить і тобі з перших тисяч ігрових сесій.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">2</span> 🗺️ Як клони обходять вартість зображень</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Підхід</th><th>Приклад</th><th>Джерело зображень</th><th>Компроміс</th></tr></thead>
+    <tbody>
+      <tr><td>Google Street View API (як оригінал)</td><td>GeoGuessr сам</td><td>Офіційний платний API</td><td>Найякісніше покриття, але дорого — саме тому GeoGuessr став платним</td></tr>
+      <tr><td>Безкоштовний Google embed (iframe)</td><td>OpenGuessr</td><td>Вбудований Street View без прямого API-рахунку</td><td class="tag hidden">Сіра зона ToS — Google може закрити доступ будь-коли, і сайт "ляже" за ніч</td></tr>
+      <tr><td>Краудсорсна фотобаза</td><td>MapiGuessr</td><td>Mapillary (безкоштовні вуличні фото від спільноти)</td><td>Безкоштовно, але нерівномірне покриття (густо в Європі, рідко деінде)</td></tr>
+      <tr><td>OpenStreetMap-дані</td><td>Lost Locale</td><td>OSM (без фото Street View)</td><td>Повністю безкоштовно й легально, але візуально бідніше</td></tr>
+      <tr><td>Живі трафік-камери</td><td>CamGuessr</td><td>Публічні дорожні камери в реальному часі</td><td>Оригінальна ніша, нуль ліцензійних витрат, але обмежений набір локацій (лише де є камери)</td></tr>
+      <tr><td>Без фото взагалі — контур/прапор/столиця</td><td>Worldle, GeoExpert, World Geography Quiz</td><td>Статичні SVG-карти/прапори (власний ассет)</td><td class="tag lead">Найдешевше побудувати, нуль витрат на зображення — але й найперенасиченіший сегмент</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="num">3</span> 📱 Дані: хто насправді є на мобільному (не на вебі)</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Критична різниця між "популярний GeoGuessr-клон" і "популярний МОБІЛЬНИЙ GeoGuessr-клон":</b> статті-рейтинги "10 найкращих безкоштовних альтернатив GeoGuessr" рясніють назвами (OpenGuessr, MapiGuessr, CamGuessr, Geotastic, GeoPeek), але переважна більшість із них — <b>виключно веб-сайти, без жодного застосунку в App Store чи Google Play</b>. Перевірив кожен окремо:</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Назва (веб-альтернатива)</th><th>iOS застосунок?</th><th>Play застосунок?</th><th>Відгуків (якщо є)</th></tr></thead>
+    <tbody>
+      <tr><td>OpenGuessr</td><td class="tag hidden">Нема</td><td class="tag hidden">Нема</td><td>—</td></tr>
+      <tr><td>MapiGuessr</td><td class="tag hidden">Нема</td><td class="tag hidden">Нема</td><td>—</td></tr>
+      <tr><td>CamGuessr</td><td class="tag hidden">Нема</td><td class="tag hidden">Нема</td><td>—</td></tr>
+      <tr><td>Geotastic</td><td class="tag hidden">Нема</td><td class="tag hidden">Нема</td><td>—</td></tr>
+      <tr><td>GeoPeek</td><td class="tag hidden">Нема</td><td class="tag hidden">Нема</td><td>—</td></tr>
+      <tr><td>WorldGuessr</td><td class="tag new">Є (крихітний)</td><td class="tag new">Є</td><td class="n">21</td></tr>
+      <tr><td>Panomap Game</td><td class="tag new">Є (крихітний)</td><td class="tag hidden">Нема</td><td class="n">18</td></tr>
+      <tr><td>Geo Guesser 2: Cities (незалежний клон, US)</td><td class="tag new">Є</td><td>—</td><td class="n">62</td></tr>
+      <tr><td>Earthle (прапор/контур-формат, не street view)</td><td class="tag new">Є</td><td class="tag new">Є (як Worldle: Earthle)</td><td class="n">4,932</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">🟩 Кожна назва вище — реальний, популярний як веб-продукт бренд (є у "best alternatives" статтях 2026 року), але на мобільному — або взагалі відсутній, або має мізерну кількість відгуків (18-62). Це і є конкретний, вимірюваний гап.</p>
+</section>
+
+<section>
+  <h2><span class="num">4</span> ⚠️ Важлива методологічна примітка</h2>
+  <div class="risk-box">
+    <div class="title">Обережно з "шумом" у пошукових даних</div>
+    <p style="margin:0;">Загальні запити типу "city guesser game" повертають фальшиві збіги — наприклад, у пошуку по Великобританії топ-результат за кількістю відгуків (256,825) виявився <b>Township</b> — грою-містобудівником, що не має жодного стосунку до геолокейшн-угадайок, а просто збігся по слову "city". Усі цифри в цьому звіті перевірені вручну на релевантність, а не взяті сліпо з топу видачі за ключовим словом.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">5</span> 🌍 ГЕО-аналіз</h2>
+  <div class="geo-grid">
+    <div class="geo"><h4><span class="flag">🇹🇷</span> Туреччина <span class="lvl lo">вже зайнято локально</span></h4><p style="margin:6px 0 0;" class="muted">"Harita Oyunu: 81 İl Tahmin Et" (вгадай одну з 81 турецької провінції) — 21,508 відгуків. Єдиний підтверджений реальний локальний конкурент з-поміж усіх перевірених гео — це формат карти-власної-країни, не street-view.</p></div>
+    <div class="geo"><h4><span class="flag">🇩🇪</span> Німеччина · <span class="flag">🇵🇱</span> Польща <span class="lvl mid">неоднозначно</span></h4><p style="margin:6px 0 0;" class="muted">Нативні запити повернули 0 результатів по обох платформах — але це може бути як реальна відсутність локалізованого продукту, так і обмеження перекладу запиту (потребує ручної перевірки в сторі з телефону перед висновком).</p></div>
+    <div class="geo"><h4><span class="flag">🇪🇸</span> Іспанія <span class="lvl hi">майже порожньо</span></h4><p style="margin:6px 0 0;" class="muted">"Place Guesser" — лише 44 відгуки в топі, реального іспаномовного конкурента немає.</p></div>
+    <div class="geo"><h4><span class="flag">🇻🇳</span> В'єтнам <span class="lvl mid">дані зашумлені</span></h4><p style="margin:6px 0 0;" class="muted">Пошук в'єтнамською не дав релевантних збігів (топ — непов'язана гра Nonogram) — потрібен ручний прохід з носієм мови для точного висновку.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">6</span> 💡 Що можна реально зробити (build-нотатка під Claude Code)</h2>
+  <div class="win-box">
+    <p style="margin:0 0 10px;"><b>Найреалістичніший шлях:</b></p>
+    <ol style="margin:0; padding-left:20px;">
+      <li><b>Обрати джерело зображень БЕЗ рахунку за API з першого дня</b> — Mapillary (безкоштовний API, атрибуція обов'язкова) або живі трафік-камери (CamGuessr-модель) — обидва варіанти уникають проблеми, яка змусила сам GeoGuessr стати платним.</li>
+      <li><b>Мобільний-first, а не порт із вебу</b> — жоден із популярних веб-клонів не інвестував у нормальний нативний UX (push-нагадування про щоденний виклик, офлайн-режим, свайпи для мультиплеєра) — тут і є реальна відмінність від "просто ще один сайт у WebView".</li>
+      <li><b>Ігровий цикл простий</b> (показати фото/панораму → тап на мапі → показати відстань/бали) — сама логіка гри БЕЗ мультиплеєра будується швидко, складність саме в наборі якісних зображень і UX карти.</li>
+      <li><b>Монетизація:</b> той самий підхід, що і в GeoGuessr, тут недоречний для MVP (підписка вимагає маси контенту й довіри бренду). Краще: ad-supported free + невеликий one-time "Pro" (більше локацій/категорій/офлайн-паків), як у типового tools/casual додатка.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">7</span> ⚠️ Ризики</h2>
+  <div class="risk-box">
+    <div class="title">На що зважати</div>
+    <ul style="margin:0;">
+      <li><b>Юридична сіра зона Google Street View embed</b> — якщо копіювати підхід OpenGuessr (безкоштовний iframe-embed без прямого API-рахунку), Google може будь-коли обмежити доступ — не будувати на цьому бізнес-модель, якщо є амбіція на довгостроковий проєкт.</li>
+      <li><b>Mapillary-покриття нерівномірне</b> — густо в Європі/Північній Америці, рідко в Африці/Азії — це впливає на різноманітність локацій у грі й може розчаровувати досвідчених GeoGuessr-гравців, які звикли до глобального покриття оригіналу.</li>
+      <li><b>Бренд-впізнаваність GeoGuessr настільки сильний</b> (31.5K+ відгуків, 10 років на ринку), що пряме позиціонування "клон GeoGuessr" в описі й ключових словах може викликати проблеми з App Store review (trademark) — потрібне власне позиціонування/назва, не паразитування на чужому бренді в метаданих.</li>
+      <li><b>Мультиплеєр-механіки</b> (Battle Royale/Duels, які роблять GeoGuessr залипучим) — це вже інфраструктурна складність (real-time сервер), не MVP-рівень; для першої версії краще single-player daily challenge (як Worldle/Earthle), мультиплеєр — апдейт пізніше.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">8</span> ✅ Наступні кроки</h2>
+  <div class="card">
+    <ol style="margin:0; padding-left:20px;">
+      <li>Обрати джерело зображень: Mapillary API (рекомендовано — офіційний, безкоштовний, є документація) чи трафік-камери (нішевіше, менше конкурентів).</li>
+      <li>MVP-скоуp: single-player, щоденний виклик (5 локацій/день), тап на карті → бали за близькість — без мультиплеєра.</li>
+      <li>Позиціонування: власний бренд/назва, не "GeoGuessr clone" у метаданих (trademark-ризик).</li>
+      <li>Монетизація: ads + one-time "більше локацій" IAP, не підписка (для MVP-стадії).</li>
+      <li>ASO: враховуючи, що Туреччина вже має сильного локального конкурента (карта своєї країни) — цей кут краще уникати там; фокус на EN-ринок + мобільний гап, знайдений у розділі 3.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>Niche Scout Agent · GeoGuessr / geography-guessing games — глибокий ресьорч ніші · 2026-07-31 · дані: веб-пошук (Dealroom/Crunchbase/PitchBook/Trek View/EraGuessr/EarthGuessr) + iTunes Search API + google-play-scraper, зібрано наживо для цього звіту</footer>
+
+</div>
+</body>
+</html>
