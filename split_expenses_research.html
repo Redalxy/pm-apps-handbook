@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спліт витрат (Splid, Splitwise, Tricount) — глибокий ресьорч ніші</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#131a2e; --border:#232c47;
+    --text:#e8ecf7; --muted:#8b93ac; --accent:#ffd166; --accent2:#7ea8ff;
+    --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; padding:0; background:radial-gradient(ellipse at top,#101a30 0%,var(--bg) 60%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55;}
+  .wrap{max-width:960px; margin:0 auto; padding:44px 22px 90px;}
+  header{text-align:center; margin-bottom:40px;}
+  header .kicker{color:var(--accent2); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600;}
+  header h1{font-size:32px; margin:10px 0 8px; background:linear-gradient(90deg,#ffd166,#ff9a8b); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  header p{color:var(--muted); font-size:15px; max-width:640px; margin:0 auto;}
+  .badge-row{display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap;}
+  .badge{padding:6px 14px; border-radius:999px; font-size:13px; font-weight:600; border:1px solid var(--border); background:var(--card);}
+  .badge.bad{color:var(--bad); border-color:#4a2020;}
+  .badge.good{color:var(--good); border-color:#1f4a34;}
+  .badge.warn{color:var(--warn); border-color:#4a3f1f;}
+  section{margin-bottom:38px;}
+  h2{font-size:20px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); padding-bottom:12px; margin-bottom:18px;}
+  h2 .num{width:28px; height:28px; border-radius:8px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--accent2); flex-shrink:0;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;}
+  p,li{font-size:14.5px; color:#dfe3f2;}
+  .muted{color:var(--muted);}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:13px; min-width:640px;}
+  th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top;}
+  th{color:var(--accent2); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td.num,.n{font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tag{display:inline-block; padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600;}
+  .tag.lead{background:#12331f; color:var(--good);}
+  .tag.new{background:#1f2f4a; color:var(--accent2);}
+  .tag.giant{background:#4a2020; color:var(--bad);}
+  .tag.hidden{background:#3a2f1f; color:var(--warn);}
+  .risk-box{background:linear-gradient(135deg,#2a1414,#131a2e); border:1px solid #4a2020; border-radius:14px; padding:22px;}
+  .risk-box .title{color:var(--bad); font-weight:700; font-size:16px; margin-bottom:10px;}
+  .win-box{background:linear-gradient(135deg,#132a1f,#131a2e); border:1px solid #1f4a34; border-radius:14px; padding:22px;}
+  .win-box .title{color:var(--good); font-weight:700; font-size:16px; margin-bottom:10px;}
+  ul{padding-left:20px;} li{margin-bottom:6px;}
+  .geo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;}
+  .geo{background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:15px 17px;}
+  .geo h4{margin:0 0 6px; font-size:15px;}
+  .geo .lvl{font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:6px;}
+  .lvl.hi{background:#12331f;color:var(--good);} .lvl.mid{background:#4a3f1f;color:var(--warn);} .lvl.lo{background:#4a2020;color:var(--bad);}
+  details{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px 18px; margin-top:6px;}
+  details summary{cursor:pointer; font-weight:700; color:var(--accent2); font-size:14.5px; list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary::before{content:"▸ "; color:var(--accent2);}
+  details[open] summary::before{content:"▾ "; }
+  details .table-wrap{margin-top:12px;}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:50px; border-top:1px solid var(--border); padding-top:20px;}
+  b{color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Niche Scout Agent · Спліт витрат / Splid, Splitwise, Tricount</span>
+  <h1>Ринок спліт-витрат-додатків: топ-10, гео, і чи існує вже твоя killer-фіча</h1>
+  <p>Максимальний ресьорч по ніші «розділити витрати в подорожі/групі» — топ-10 гравців з реальними даними, повний список конкурентів, гео-концентрація трьох лідерів по домашніх ринках, і окрема перевірка: чи вже хтось робить бота в Telegram/WhatsApp/Viber для логування витрат без встановлення застосунку.</p>
+  <div class="badge-row">
+    <span class="badge bad">⚠️ Бот-в-чаті — вже ціла категорія продуктів, не унікальна ідея</span>
+    <span class="badge warn">🇩🇪🇫🇷🇪🇸 Топ-3 мають сильні домашні ринки — там важко зайти</span>
+    <span class="badge good">✅ UA/SE/TR/PL — жоден лідер не домінує</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="num">0</span> 🎯 Короткий вердикт (TL;DR)</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Ринок розділений на два зовсім різні світи.</b> (1) Класичні app-first спліт-додатки (Splitwise, Splid, Tricount, Settle Up тощо) — конкурують через App Store/Play, мають сильні <b>домашні ринки</b>: Splitwise домінує в англомовних країнах (26.9K відгуків US), <b>Splid — у Німеччині</b> (37,944 відгуки — у 10 разів більше, ніж у США!), <b>Tricount — у Франції та Іспанії</b> (89,990 і 38,537 відгуків відповідно). (2) Нова хвиля <b>чат-native бот-спліттерів</b> (Lightsplit, Splitsheet, SplitFast, SmartPie Bot, We Split Bot, Splitty) — живуть виключно всередині Telegram, <b>взагалі не мають застосунків у сторах</b> (перевірив кожен — 0 результатів чи 0 відгуків).</p>
+    <p style="margin-bottom:0;"><b style="color:var(--bad)">Про твою killer-фічу чесно:</b> ідея «бот у групі чату для логування витрат без встановлення застосунку» — <b>вже реалізована й комерціалізована кількома продуктами</b> (розділ 5). Це не унікальний хід, а ціла існуюча підкатегорія. Твоя відмінність (бот як мостик у ПОВНОЦІННИЙ застосунок одного власника, а не бот-заміна застосунку для всіх) — реальна, але вузька: потрібно чітко відповісти, чому людині варто мати повний застосунок + бот, а не просто безкоштовний бот (як SplitFast), який взагалі не вимагає застосунку ні від кого.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">1</span> 🏆 Топ-10 класичних спліт-додатків (за відгуками US iOS)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Додаток</th><th>Розробник</th><th>US відгуків</th><th>Домашній ринок (де насправді велетень)</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td><b>Splitwise</b> <span class="tag lead">категорійний лідер</span></td><td>Splitwise, Inc.</td><td class="n">26,890</td><td>US/EN-ринки; ES 3,949, IT 3,880 — рівномірно міцний глобально</td></tr>
+      <tr><td class="n">2</td><td><b>Tricount</b></td><td>Tricount SA (Бельгія)</td><td class="n">6,595</td><td class="tag giant">FR 89,990 · ES 38,537 · BE 22,866 · IT 12,071 · DE 13,352</td></tr>
+      <tr><td class="n">3</td><td><b>Splid</b></td><td>Nicolas Jersch (солодев, Німеччина)</td><td class="n">3,895</td><td class="tag giant">DE 37,944 · ES 7,127 · IT 6,755</td></tr>
+      <tr><td class="n">4</td><td>Settle Up</td><td>Step Up Labs, Inc.</td><td class="n">1,687</td><td>—</td></tr>
+      <tr><td class="n">5</td><td>Tab - The simple bill splitter</td><td>bring10, LLC</td><td class="n">1,136</td><td>—</td></tr>
+      <tr><td class="n">6</td><td>Splittr</td><td>RWichmann GmbH</td><td class="n">609</td><td>—</td></tr>
+      <tr><td class="n">7</td><td>Splitser (WieBetaaltWat)</td><td>Splitser BV (Нідерланди)</td><td class="n">556</td><td>ймовірно NL/BE</td></tr>
+      <tr><td class="n">8</td><td>Split – Pay Together</td><td>Split Mobile Inc.</td><td class="n">522</td><td>—</td></tr>
+      <tr><td class="n">9</td><td>splitty: Split Bills & Tip</td><td>splitty, inc.</td><td class="n">83</td><td>—</td></tr>
+      <tr><td class="n">10</td><td>Bill Splitter: SplitMyExpenses</td><td>VuxByte LLC</td><td class="n">42</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">🟥 Виключено як шум: Deferit, Flex, Tabby, Zip — усі спливли в пошуку "split bills app", але це buy-now-pay-later/rent-фінтех додатки, не спліттери витрат (аналогічно Township у GeoGuessr-звіті).</p>
+</section>
+
+<section>
+  <h2><span class="num">2</span> 📋 Повний список знайдених конкурентів</h2>
+  <details>
+    <summary>Показати всіх перевірених конкурентів (20+)</summary>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Назва</th><th>US iOS відгуків</th><th>Нотатка</th></tr></thead>
+      <tbody>
+        <tr><td>Splitwise</td><td class="n">26,890</td><td>Категорійний лідер, єдиний з веб-версією</td></tr>
+        <tr><td>Tricount</td><td class="n">6,595</td><td>21M+ юзерів заявлено, безкоштовний, велетень FR/BE/ES/IT</td></tr>
+        <tr><td>Splid</td><td class="n">3,895</td><td>Соло-розробник (Nicolas Jersch), 150+ валют, офлайн-режим, без акаунту</td></tr>
+        <tr><td>Settle Up</td><td class="n">1,687</td><td>—</td></tr>
+        <tr><td>Tab - The simple bill splitter</td><td class="n">1,136</td><td>—</td></tr>
+        <tr><td>Splittr</td><td class="n">609</td><td>—</td></tr>
+        <tr><td>Splitser (WieBetaaltWat)</td><td class="n">556</td><td>Нідерландський бренд</td></tr>
+        <tr><td>Split – Pay Together</td><td class="n">522</td><td>—</td></tr>
+        <tr><td>splitty: Split Bills & Tip</td><td class="n">83</td><td>Не плутати з Telegram-ботом @splittybot — різні продукти</td></tr>
+        <tr><td>Bill Splitter: SplitMyExpenses</td><td class="n">42</td><td>Також веде блог-порівняння (джерело частини цього ресьорчу)</td></tr>
+        <tr><td>Splital - Bill Splitter</td><td class="n">13</td><td>—</td></tr>
+        <tr><td>Splitup: Split Bills</td><td class="n">2</td><td>—</td></tr>
+        <tr><td>ShareCost: Bill Splitter</td><td class="n">2</td><td>BudgetBakers s.r.o.</td></tr>
+        <tr><td>Wesplit - IOU expense tracker</td><td class="n">3</td><td>—</td></tr>
+        <tr><td>Divvy Bikes</td><td class="n">658</td><td class="tag hidden">Шум — велосипеди Lyft, не спліттер</td></tr>
+        <tr><td>Deferit</td><td class="n">30,928</td><td class="tag hidden">Шум — buy-now-pay-later, не спліттер</td></tr>
+        <tr><td>Flex - Rent On Your Schedule</td><td class="n">451,547</td><td class="tag hidden">Шум — гнучка оплата оренди, не спліттер</td></tr>
+        <tr><td>Tabby / Zip</td><td class="n">83,752 / 847,331</td><td class="tag hidden">Шум — BNPL-фінтех, не спліттер</td></tr>
+        <tr><td>Lightsplit</td><td class="n">0 (немає застосунку)</td><td>Чат-native, Telegram+LINE, AI receipt-скан</td></tr>
+        <tr><td>Splitsheet</td><td class="n">0 (немає застосунку)</td><td>Чат-native, Telegram-бот</td></tr>
+        <tr><td>SplitFast</td><td class="n">0 (немає застосунку)</td><td>Чат-native, "Splitwise-alternative у Telegram"</td></tr>
+        <tr><td>SmartPie Bot</td><td class="n">0 (немає застосунку)</td><td>Чат-native, безкоштовний, AI receipt-скан</td></tr>
+        <tr><td>We Split Bot</td><td class="n">0 (немає застосунку)</td><td>Чат-native, Telegram-бот</td></tr>
+        <tr><td>@splittybot (Splitty Bot)</td><td class="n">0 (немає застосунку)</td><td>Чат-native, команда "хто кому скільки винен"</td></tr>
+        <tr><td>Tallycents</td><td class="n">0 (немає застосунку)</td><td>Чат-native, Telegram</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+</section>
+
+<section>
+  <h2><span class="num">3</span> 🌍 ГЕО-аналіз: домашні ринки vs вільні зони</h2>
+  <div class="geo-grid">
+    <div class="geo"><h4><span class="flag">🇩🇪</span> Німеччина <span class="lvl lo">велетень Splid</span></h4><p style="margin:6px 0 0;" class="muted">37,944 відгуки — рідний ринок соло-розробника Splid, найважчий вхід у категорії.</p></div>
+    <div class="geo"><h4><span class="flag">🇫🇷</span> Франція · <span class="flag">🇪🇸</span> Іспанія <span class="lvl lo">велетень Tricount</span></h4><p style="margin:6px 0 0;" class="muted">89,990 і 38,537 відгуків — Tricount тут майже монополіст, набагато сильніший за свій же US-показник (6,595).</p></div>
+    <div class="geo"><h4><span class="flag">🇺🇦</span> Україна <span class="lvl hi">найслабша конкуренція з перевірених</span></h4><p style="margin:6px 0 0;" class="muted">Splitwise 346 · Splid 56 · Tricount 187 — абсолютно наймeнші цифри серед усіх гео, жоден лідер не закріпився.</p></div>
+    <div class="geo"><h4><span class="flag">🇸🇪</span> Швеція · <span class="flag">🇹🇷</span> Туреччина <span class="lvl mid">помірно вільно</span></h4><p style="margin:6px 0 0;" class="muted">SE: 1,276/377/354 · TR: 477/227/783 — жоден із топ-3 не досяг домашньо-ринкового масштабу, хоча базовий попит є.</p></div>
+    <div class="geo"><h4><span class="flag">🇵🇱</span> Польща <span class="lvl mid">помірно вільно</span></h4><p style="margin:6px 0 0;" class="muted">Splitwise 1,114 · Splid 306 · Tricount 2,678 — Tricount трохи попереду, але без домашньо-ринкового домінування.</p></div>
+  </div>
+  <div class="card" style="margin-top:12px;"><p style="margin:0;" class="muted"><b>Обережно:</b> низькі абсолютні цифри в UA/SE/TR/PL можуть означати як реальний гоп, так і просто менший ринок/культуру відгуків у сторі — це сигнал для подальшої перевірки (реальний обсяг завантажень, не тільки відгуки), а не остаточний висновок.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">4</span> 💰 Монетизація й позиціонування топ-3</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Модель</th><th>Ключова відмінність</th></tr></thead>
+    <tbody>
+      <tr><td>Splitwise</td><td>Freemium + платна Pro-підписка (експорт, кастомні категорії, більше груп)</td><td>Єдиний з веб-версією, найкращий для довгострокового спліту (сусіди на місяці/роки)</td></tr>
+      <tr><td>Splid</td><td>Реклама + IAP (прибрати рекламу, розширений експорт)</td><td>Без акаунту, офлайн-режим, 150+ валют — заточений під подорожі без інтернету</td></tr>
+      <tr><td>Tricount</td><td>Повністю безкоштовний (жодних Pro-фіч)</td><td>21M+ юзерів, максимально простий, найкраще для короткої поїздки/події</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="num">5</span> 🤖 Killer-фіча: чи вже є бот у Telegram/WhatsApp/Viber?</h2>
+  <div class="risk-box">
+    <div class="title">Коротка відповідь: так, і це вже ціла підкатегорія</div>
+    <p style="margin:0;">Перевірив кожен продукт окремо в App Store — <b>жоден із чат-native ботів не має власного мобільного застосунку</b> (0 результатів або 0 відгуків): вони живуть виключно як Telegram-боти/веб-сайти. Це саме та функціональність, яку ти описав — "тегаєш бота в груповому чаті, він логує витрату, не потрібно нікому встановлювати додаток":</p>
+    <ul style="margin:10px 0 0;">
+      <li><b>SplitFast</b> — прямо заявляє в описі: "does everything Splitwise does... without forcing your friends to download a separate app".</li>
+      <li><b>Lightsplit</b> і <b>SmartPie Bot</b> — уже мають AI-розпізнавання фото чеків (авто-детект товарів/цін і розподіл витрат) — це вже за межами твого запиту, конкуренти йдуть далі.</li>
+      <li><b>Splitsheet</b>, <b>We Split Bot</b>, <b>@splittybot</b>, <b>Tallycents</b> — той самий базовий флоу команд у Telegram-групі.</li>
+    </ul>
+  </div>
+  <div class="table-wrap" style="margin-top:14px;"><table>
+    <thead><tr><th>Платформа</th><th>Технічна складність</th><th>Ключове обмеження 2026</th></tr></thead>
+    <tbody>
+      <tr><td><b>Telegram</b> <span class="tag lead">найпростіше</span></td><td>Відкритий Bot API, tag-команди в групі — стандартний, добре документований підхід</td><td>Немає суттєвих обмежень — саме тому ВСІ знайдені чат-native конкуренти обрали Telegram першим</td></tr>
+      <tr><td><b>WhatsApp</b></td><td>Потрібен WhatsApp Business API (не звичайний номер), офіційна верифікація</td><td class="tag hidden">З 15.01.2026 Meta забороняє <b>general-purpose AI чат-боти</b> на Business API — дозволені лише "структуровані" боти (конкретні команди/завдання). Бот треба будувати як команда-орієнтований інструмент, НЕ подавати як "AI-асистент" з відкритим діалогом</td></tr>
+      <tr><td><b>Viber</b></td><td>Публічний акаунт + Bot API + webhook, схоже на Telegram технічно</td><td>Значно менша й вужча аудиторія (сильний лише в окремих гео — Білорусь, частини Східної Європи/Ізраїлю) — низький пріоритет для MVP</td></tr>
+    </tbody>
+  </table></div>
+  <div class="win-box" style="margin-top:12px;">
+    <div class="title">Що реально відрізняє твою ідею від конкурентів</div>
+    <p style="margin:0;">Усі знайдені боти — <b>бот-ЗАМІНЮЄ-застосунок</b> (organiser теж не має власного апку, усе живе в Telegram). Твоя модель — <b>бот-як-МОСТИК</b> у повноцінний застосунок власника (історія по всіх поїздках, звіти, можливо інтеграція з рештою фіч застосунку типу планування бюджету подорожі). Це вужчий, але реальний кут: не "ще один Splitwise-бот", а "спліт-фіча твого власного трипланер-застосунку, посилена ботом для не-власників". Головне — не продавати це як заміну повноцінному застосунку (тоді ти просто повторюєш SplitFast), а як розширення цінності ЙОГО.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">6</span> ⚠️ Ризики</h2>
+  <div class="risk-box">
+    <div class="title">На що зважати</div>
+    <ul style="margin:0;">
+      <li><b>WhatsApp Business API-верифікація</b> — бюрократичний і не миттєвий процес (Meta review), плюс політика 2026 обмежує "AI-асистент"-фреймінг — дизайнити бота як команда-орієнтований інструмент з першого дня.</li>
+      <li><b>Конкуренція вже існує й безкоштовна</b> — SplitFast/Splitsheet/SmartPie роблять базовий флоу безкоштовно; переконати юзера поставити ще й твій застосунок понад безкоштовний бот-only варіант вимагає явної додаткової цінності (звіти/історія/бюджет подорожі), не просто "той самий бот".</li>
+      <li><b>Домашні ринки топ-3 (DE/FR/ES/BE/IT) — дуже важкий вхід</b>, конкурувати напряму з Splid у Німеччині чи Tricount у Франції на їхньому полі безглуздо; фокус краще на UA/SE/TR/PL чи на самій бот-нішевій відмінності, не на копіюванні класичного app-first флоу.</li>
+      <li><b>Виберіть один канал для MVP</b> — Telegram технічно найпростіший і вже підтверджений ринком (усі конкуренти там), WhatsApp/Viber — після валідації, не одночасно.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">7</span> ✅ Наступні кроки</h2>
+  <div class="card">
+    <ol style="margin:0; padding-left:20px;">
+      <li>MVP-бот тільки в Telegram (найпростіший API, весь ринок конкурентів уже там) — команди для тегання й логування витрати з групового чату.</li>
+      <li>Сфокусувати позиціонування на "мостик у застосунок", не на "ще один Splitwise-бот" — інакше пряма й безкоштовна конкуренція з SplitFast/Splitsheet.</li>
+      <li>Розглянути гео поза домашніми ринками топ-3 — Україна/Швеція/Туреччина/Польща для запуску власного застосунку без прямого бою з місцевим велетнем.</li>
+      <li>WhatsApp/Viber — окремі апдейти після валідації Telegram-версії, з урахуванням Business API верифікації та політики "структурованого бота" 2026 для WhatsApp.</li>
+      <li>Розглянути AI receipt-скан (як у Lightsplit/SmartPie) як наступну фічу після MVP — конкуренти вже туди рухаються, це може стати необхідним "table stakes", не диференціатором.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>Niche Scout Agent · Спліт витрат (Splid/Splitwise/Tricount) — глибокий ресьорч ніші · 2026-08-07 · дані: веб-пошук (SplitMyExpenses, Splital, squadtrip, splittalo, Owler, Tracxn, Grokipedia) + iTunes Search API, зібрано наживо для цього звіту</footer>
+
+</div>
+</body>
+</html>
