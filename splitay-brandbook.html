@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EFF1F6;font-family:Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2148C9}a:hover{color:#F2622E}
+*{box-sizing:border-box}
+::-webkit-scrollbar{width:0;height:0}
+</style>
+</helmet>
+
+<div style="padding:0 0 90px">
+
+<div style="position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;padding:14px 40px;pointer-events:none">
+<div style="pointer-events:auto;display:flex;gap:4px;padding:4px;background:#101A3D;border-radius:999px;box-shadow:0 6px 22px rgba(16,26,61,.28)">
+<button onClick="{{ setEn }}" style="{{ enStyle }}">EN</button>
+<button onClick="{{ setUa }}" style="{{ uaStyle }}">UA</button>
+</div>
+</div>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section style="position:relative;margin:-62px 0 0;padding:96px 64px 88px;background:#101A3D;overflow:hidden">
+<div style="position:absolute;inset:0;background:linear-gradient(115deg,#F2622E 0%,#F2622E 38%,transparent 38.2%);opacity:.14"></div>
+<div style="position:absolute;right:-140px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#2148C9,transparent 62%);opacity:.55"></div>
+<div style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:60px;flex-wrap:wrap">
+<div style="max-width:640px">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:34px">
+<svg width="46" height="46" viewBox="0 0 100 100"><defs><clipPath id="q11"><rect x="0" y="0" width="48" height="50"/></clipPath><clipPath id="q12"><rect x="52" y="0" width="48" height="50"/></clipPath><clipPath id="q13"><rect x="0" y="50" width="48" height="50"/></clipPath><clipPath id="q14"><rect x="52" y="50" width="48" height="50"/></clipPath></defs><g clip-path="url(#q11)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g><g clip-path="url(#q12)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#5B87FF">S</text></g><g clip-path="url(#q13)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#F2622E">S</text></g><g clip-path="url(#q14)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#FF8A5B">S</text></g></svg>
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#fff">Splitay</span>
+</div>
+<div style="font:600 12px/1 Figtree;letter-spacing:.22em;text-transform:uppercase;color:#F2622E;margin-bottom:18px" data-t="Brand book & UI kit — v1.0">Brand book &amp; UI kit — v1.0</div>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:64px;line-height:1.02;letter-spacing:-2.6px;color:#fff;margin:0 0 22px;text-wrap:balance" data-t="Group expenses, settled before you land.">Group expenses, settled before you land.</h1>
+<p style="font-size:19px;line-height:1.55;color:#A9B2CC;margin:0 0 30px;max-width:520px" data-t="hero-sub">Splitay is a split-the-bill app for trips and friend groups — plus a chat bot your friends can use without installing anything.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<span style="padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;font-size:13px;font-weight:600" data-t="No ads">No ads</span>
+<span style="padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;font-size:13px;font-weight:600" data-t="No fees">No fees</span>
+<span style="padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;font-size:13px;font-weight:600" data-t="No limits">No limits</span>
+<span style="padding:9px 16px;border-radius:999px;background:#F2622E;color:#fff;font-size:13px;font-weight:700" data-t="Groups Chat Bot — premium">Groups Chat Bot — premium</span>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;min-width:280px">
+<div style="padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)"><div style="font:800 26px/1 'Bricolage Grotesque';color:#F2622E">10</div><div style="font-size:12.5px;color:#A9B2CC;margin-top:6px" data-t="screens designed">screens designed</div></div>
+<div style="padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)"><div style="font:800 26px/1 'Bricolage Grotesque';color:#7E9BFF">12+</div><div style="font-size:12.5px;color:#A9B2CC;margin-top:6px" data-t="category icons">category icons</div></div>
+<div style="padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)"><div style="font:800 26px/1 'Bricolage Grotesque';color:#fff">2</div><div style="font-size:12.5px;color:#A9B2CC;margin-top:6px" data-t="brand fonts">brand fonts</div></div>
+<div style="padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)"><div style="font:800 26px/1 'Bricolage Grotesque';color:#fff">390×844</div><div style="font-size:12.5px;color:#A9B2CC;margin-top:6px" data-t="base artboard">base artboard</div></div>
+</div>
+</div>
+</section>
+
+<!-- ── 1. LOGO (PRIMARY) ─────────────────── -->
+<section style="padding:72px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">01</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Logo — primary">Logo — primary</h2></div>
+<p style="font-size:15px;color:#6A748F;margin:0 0 28px;max-width:660px" data-t="logo-desc">Concept T3, Quartered S. Bricolage Grotesque 700 at text optical size, cut once vertically and once horizontally. Each quarter carries one flat brand colour — no gradients, no tints. Two approved lockup colourways: <b>on light</b> Ink / Tide 400 / Ember 500 / Ember 400 · <b>on dark</b> White / Tide 400 / Ember 500 / Ember 400. The app icon uses U1 on the Tide field: White / Tide 300 / Ember 100 / Ember 400. Quartered at 24px and up; below that the two-colour kerf mark, Ink for 1-colour. On Ember the mark goes solid white.</p>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+
+<div style="width:400px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;align-items:center;gap:14px">
+<svg width="44" height="44" viewBox="0 0 100 100"><defs><clipPath id="q21"><rect x="0" y="0" width="48" height="50"/></clipPath><clipPath id="q22"><rect x="52" y="0" width="48" height="50"/></clipPath><clipPath id="q23"><rect x="0" y="50" width="48" height="50"/></clipPath><clipPath id="q24"><rect x="52" y="50" width="48" height="50"/></clipPath></defs><g clip-path="url(#q21)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#101A3D">S</text></g><g clip-path="url(#q22)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#5B87FF">S</text></g><g clip-path="url(#q23)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#F2622E">S</text></g><g clip-path="url(#q24)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#FF8A5B">S</text></g></svg>
+<span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:32px;letter-spacing:-1.2px;color:#101A3D">Splitay</span>
+</div>
+<div style="height:1px;background:#EFF1F6"></div>
+<div style="display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;background:#101A3D">
+<svg width="30" height="30" viewBox="0 0 100 100"><defs><clipPath id="q31"><rect x="0" y="0" width="48" height="50"/></clipPath><clipPath id="q32"><rect x="52" y="0" width="48" height="50"/></clipPath><clipPath id="q33"><rect x="0" y="50" width="48" height="50"/></clipPath><clipPath id="q34"><rect x="52" y="50" width="48" height="50"/></clipPath></defs><g clip-path="url(#q31)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g><g clip-path="url(#q32)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#5B87FF">S</text></g><g clip-path="url(#q33)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#F2622E">S</text></g><g clip-path="url(#q34)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#FF8A5B">S</text></g></svg>
+<span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.8px;color:#fff">Splitay</span>
+</div>
+<div style="display:flex;gap:18px;align-items:center">
+<svg width="24" height="24" viewBox="0 0 100 100"><defs><clipPath id="sm24a"><rect x="0" y="0" width="48.6" height="100"/></clipPath><clipPath id="sm24b"><rect x="51.4" y="0" width="48.6" height="100"/></clipPath></defs><g clip-path="url(#sm24a)" transform="translate(-1.6,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#2148C9">S</text></g><g clip-path="url(#sm24b)" transform="translate(1.6,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#F2622E">S</text></g></svg>
+<svg width="18" height="18" viewBox="0 0 100 100"><defs><clipPath id="sm18a"><rect x="0" y="0" width="48.6" height="100"/></clipPath><clipPath id="sm18b"><rect x="51.4" y="0" width="48.6" height="100"/></clipPath></defs><g clip-path="url(#sm18a)" transform="translate(-1.6,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#101A3D">S</text></g><g clip-path="url(#sm18b)" transform="translate(1.6,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#6A748F">S</text></g></svg>
+<span style="font-size:12.5px;color:#6A748F" data-t="minsize">Quartered mark ≥24px · two-colour kerf mark below · 1-colour Ink fallback</span>
+</div>
+</div>
+
+<div style="width:320px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:36px;display:flex;flex-direction:column;align-items:center;gap:18px">
+<div style="width:170px;height:170px;border-radius:38px;background:linear-gradient(150deg,#2148C9,#1734A0);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(33,72,201,.3);position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:linear-gradient(200deg,transparent 60%,#F2622E 60.2%)"></div>
+<svg width="104" height="104" viewBox="0 0 100 100" style="position:relative"><defs><clipPath id="q61"><rect x="0" y="0" width="48" height="50"/></clipPath><clipPath id="q62"><rect x="52" y="0" width="48" height="50"/></clipPath><clipPath id="q63"><rect x="0" y="50" width="48" height="50"/></clipPath><clipPath id="q64"><rect x="52" y="50" width="48" height="50"/></clipPath></defs><g clip-path="url(#q61)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g><g clip-path="url(#q62)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#8AA6FF">S</text></g><g clip-path="url(#q63)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#FFE9DF">S</text></g><g clip-path="url(#q64)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#FF8A5B">S</text></g></svg>
+</div>
+<div style="text-align:center"><div style="font-weight:700;font-size:14px;color:#101A3D" data-t="App icon · 1024×1024">App icon · 1024×1024</div><div style="font-size:12.5px;color:#6A748F;margin-top:4px" data-t="icon-note">Tide field with the Ember corner wedge — U1 colourway: White · Tide 300 · Ember 100 · Ember 400. Safe area 820px.</div></div>
+</div>
+
+<div style="width:300px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:28px 30px">
+<div style="font-weight:700;font-size:14px;color:#101A3D;margin-bottom:16px" data-t="Don't">Don't</div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:13.5px;color:#6A748F">
+<div style="display:flex;gap:10px"><span style="color:#F2622E;font-weight:800">×</span><span data-t="dont-1">Recolour the halves outside the duotone</span></div>
+<div style="display:flex;gap:10px"><span style="color:#F2622E;font-weight:800">×</span><span data-t="dont-2">Add stroke, shadow or gradient to the mark</span></div>
+<div style="display:flex;gap:10px"><span style="color:#F2622E;font-weight:800">×</span><span data-t="dont-3">Set the wordmark in anything but Bricolage 800</span></div>
+<div style="display:flex;gap:10px"><span style="color:#F2622E;font-weight:800">×</span><span data-t="dont-4">Place the mark on busy photography without a scrim</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── 2. COLOR ─────────────────────────────── -->
+<section style="padding:64px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">02</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Colour">Colour</h2></div>
+<p style="font-size:15px;color:#6A748F;margin:0 0 28px;max-width:660px" data-t="color-desc">A warm duotone. Ember Orange carries brand and marketing surfaces; Tide Blue carries every action and every amount owed to you. Amounts you owe are always Ember.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-bottom:16px">
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#F2622E"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Ember 500</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#F2622E</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="Brand, you owe, alerts">Brand, you owe, alerts</div></div></div>
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#FF8A5B"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Ember 400</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#FF8A5B</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="Gradients, hover">Gradients, hover</div></div></div>
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#FFE9DF"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Ember 100</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#FFE9DF</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="Chips, icon wells">Chips, icon wells</div></div></div>
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#2148C9"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Tide 600</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#2148C9</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="Primary action, owed to you">Primary action, owed to you</div></div></div>
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#5B87FF"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Tide 400</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#5B87FF</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="On dark, links">On dark, links</div></div></div>
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#A9C2FF"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Tide 300</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#A9C2FF</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="Logo quadrant on Ink">Logo quadrant on Ink</div></div></div>
+<div style="border-radius:18px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:120px;background:#E5EBFF"></div><div style="padding:14px 16px"><div style="font-weight:700;font-size:14px;color:#101A3D">Tide 100</div><div style="font:600 12.5px 'JetBrains Mono';color:#6A748F;margin-top:3px">#E5EBFF</div><div style="font-size:11.5px;color:#98A1B8;margin-top:6px" data-t="Selected states">Selected states</div></div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px">
+<div style="border-radius:16px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:64px;background:#101A3D"></div><div style="padding:11px 14px"><div style="font-weight:700;font-size:13px;color:#101A3D">Ink</div><div style="font:600 11.5px 'JetBrains Mono';color:#6A748F">#101A3D</div></div></div>
+<div style="border-radius:16px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:64px;background:#6A748F"></div><div style="padding:11px 14px"><div style="font-weight:700;font-size:13px;color:#101A3D">Slate</div><div style="font:600 11.5px 'JetBrains Mono';color:#6A748F">#6A748F</div></div></div>
+<div style="border-radius:16px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:64px;background:#E8EBF3"></div><div style="padding:11px 14px"><div style="font-weight:700;font-size:13px;color:#101A3D">Line</div><div style="font:600 11.5px 'JetBrains Mono';color:#6A748F">#E8EBF3</div></div></div>
+<div style="border-radius:16px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:64px;background:#F5F6FA"></div><div style="padding:11px 14px"><div style="font-weight:700;font-size:13px;color:#101A3D">Canvas</div><div style="font:600 11.5px 'JetBrains Mono';color:#6A748F">#F5F6FA</div></div></div>
+<div style="border-radius:16px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:64px;background:#12A47B"></div><div style="padding:11px 14px"><div style="font-weight:700;font-size:13px;color:#101A3D">Settled</div><div style="font:600 11.5px 'JetBrains Mono';color:#6A748F">#12A47B</div></div></div>
+<div style="border-radius:16px;overflow:hidden;border:1px solid #E8EBF3;background:#fff"><div style="height:64px;background:linear-gradient(120deg,#F2622E,#2148C9)"></div><div style="padding:11px 14px"><div style="font-weight:700;font-size:13px;color:#101A3D" data-t="Bot gradient">Bot gradient</div><div style="font:600 11.5px 'JetBrains Mono';color:#6A748F">120° F2622E→2148C9</div></div></div>
+</div>
+</section>
+
+<!-- ── 3. TYPE + VOICE ──────────────────────── -->
+<section style="padding:64px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:28px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">03</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Type & voice">Type &amp; voice</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<div style="flex:1 1 480px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:34px 36px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #EFF1F6;padding-bottom:16px;margin-bottom:20px"><div><span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;color:#101A3D">Bricolage Grotesque</span><div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#F2622E;margin-top:5px" data-t="Display">Display</div></div><span style="font:600 12px 'JetBrains Mono';color:#6A748F">600 · 700 · 800</span></div>
+<p style="font-size:14px;line-height:1.55;color:#6A748F;margin:0 0 18px" data-t="font-1-use">Variable grotesque with a display optical size. Used for the wordmark, the S mark, every screen title, section header and any number we want to feel like a headline (big balances, onboarding statements). Never for body copy or UI labels. Google Fonts, free for commercial use.</p>
+<div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:46px;line-height:1.03;letter-spacing:-1.8px;color:#101A3D;margin-bottom:6px" data-t="Who owes what,">Who owes what,</div>
+<div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:46px;line-height:1.03;letter-spacing:-1.8px;color:#F2622E;margin-bottom:22px" data-t="in one tap.">in one tap.</div>
+<div style="display:grid;gap:8px;font:500 13px/1.5 Figtree;color:#6A748F">
+<div>Display / 34px · 800 · -1.2px</div>
+<div>Title / 24px · 800 · -0.6px</div>
+<div>Section / 17px · 700 · -0.2px</div>
+</div>
+</div>
+<div style="flex:1 1 480px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:34px 36px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #EFF1F6;padding-bottom:16px;margin-bottom:20px"><div><span style="font-weight:800;font-size:22px;color:#101A3D">Figtree</span><div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#2148C9;margin-top:5px" data-t="Interface & body">Interface &amp; body</div></div><span style="font:600 12px 'JetBrains Mono';color:#6A748F">400 · 500 · 600 · 700</span></div>
+<p style="font-size:14px;line-height:1.55;color:#6A748F;margin:0 0 18px" data-t="font-2-use">Humanist sans with open apertures and true tabular figures. Everything the user reads or taps: list rows, buttons, form labels, captions, amounts. Turn on <code style="font:600 12.5px 'JetBrains Mono';color:#101A3D">font-variant-numeric: tabular-nums</code> for every currency value. Google Fonts, free for commercial use.</p>
+<p style="font-size:17px;line-height:1.6;color:#101A3D;margin:0 0 18px" data-t="type-body">Body 17/27 · 400. Used for every list row, form label and paragraph. Tabular figures on for all amounts, so columns of money always line up.</p>
+<div style="display:grid;gap:8px;font:500 13px/1.5 Figtree;color:#6A748F">
+<div>Body / 17px · 400 · 1.6</div>
+<div>Label / 13px · 600 · +0.2px</div>
+<div>Caption / 12px · 500 · #6A748F</div>
+<div style="font-variant-numeric:tabular-nums">Amount / 17–34px · 700 · tabular-nums</div>
+</div>
+</div>
+<div style="flex:1 1 300px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:34px 36px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #EFF1F6;padding-bottom:16px;margin-bottom:20px"><div><span style="font:600 22px 'JetBrains Mono';color:#101A3D">JetBrains Mono</span><div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#6A748F;margin-top:5px" data-t="Utility">Utility</div></div><span style="font:600 12px 'JetBrains Mono';color:#6A748F">400 · 600</span></div>
+<p style="font-size:14px;line-height:1.55;color:#6A748F;margin:0 0 18px" data-t="font-3-use">Only for machine strings: pairing codes, hex values, screen ids, API references in handoff. Never in the product UI outside the bot pairing code.</p>
+<div style="font:600 20px 'JetBrains Mono';color:#101A3D;letter-spacing:3px">K7-2QW</div>
+</div>
+</div>
+<div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:20px">
+<div style="flex:1 1 420px;background:#101A3D;border-radius:20px;padding:34px 36px">
+<div style="font:600 11.5px/1 Figtree;letter-spacing:.2em;text-transform:uppercase;color:#FF8A5B;margin-bottom:18px" data-t="Tone of voice">Tone of voice</div>
+<div style="display:grid;gap:14px">
+<div style="font-family:'Bricolage Grotesque';font-weight:700;font-size:21px;color:#fff;letter-spacing:-.5px" data-t="voice-1">“Short sentences. Confident. Never corporate.”</div>
+<div style="font-size:14.5px;line-height:1.6;color:#A9B2CC" data-t="voice-2">Say the number first, the explanation second. Use “you” and first names, never “the user”. Money words stay plain: owes, paid, settled. No exclamation marks in balances — only in celebrations.</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+<span style="padding:8px 14px;border-radius:10px;background:rgba(18,164,123,.16);color:#4BD9AC;font-size:13px;font-weight:600" data-t="v-do">✓ “Ivan owes you €42.50”</span>
+<span style="padding:8px 14px;border-radius:10px;background:rgba(242,98,46,.16);color:#FF9F78;font-size:13px;font-weight:600" data-t="v-dont">× “Outstanding receivable balance”</span>
+</div>
+</div>
+</div>
+<div style="flex:1 1 420px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:34px 36px">
+<div style="font:600 11.5px/1 Figtree;letter-spacing:.2em;text-transform:uppercase;color:#6A748F;margin-bottom:18px" data-t="Names considered">Names considered</div>
+<div style="display:grid;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:12px;background:#101A3D"><span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:18px;color:#fff">Splitay</span><span style="font-size:12px;font-weight:700;color:#FF8A5B" data-t="LOCKED — final">LOCKED — final</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:12px;background:#F5F6FA"><span style="font-weight:700;font-size:16px;color:#101A3D">Tabby</span><span style="font-size:12px;color:#6A748F" data-t="n-1">warm, but crowded in fintech</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:12px;background:#F5F6FA"><span style="font-weight:700;font-size:16px;color:#101A3D">Evenly</span><span style="font-size:12px;color:#6A748F" data-t="n-2">clear meaning, weak trademark</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:12px;background:#F5F6FA"><span style="font-weight:700;font-size:16px;color:#101A3D">Tallyo</span><span style="font-size:12px;color:#6A748F" data-t="n-3">playful, reads as a game</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:12px;background:#F5F6FA"><span style="font-weight:700;font-size:16px;color:#101A3D">Wayfare</span><span style="font-size:12px;color:#6A748F" data-t="n-4">travel-only, blocks other use cases</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── 4. CATEGORY ICONS ────────────────────── -->
+<section style="padding:64px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">04</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Category icons">Category icons</h2></div>
+<p style="font-size:15px;color:#6A748F;margin:0 0 28px;max-width:700px" data-t="icons2-desc">Custom geometric set, 24×24 grid, 1.9px Tide stroke with a single Ember accent per icon. Round caps and joins, no fills except the accent. Ships as one SVG sprite. 44px circle in lists, 56px in the expense sheet, tinted well at 12% of the hue.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px">
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19V7"/><path d="M21 19v-5a3 3 0 0 0-3-3h-8v4"/><path d="M3 15h18"/><circle cx="7" cy="11" r="1.9" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Stay">Stay</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#FFE9DF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 16h16.8v-3.4l-1.7-4.1A2 2 0 0 0 16.8 7H7.2a2 2 0 0 0-1.9 1.3L3.6 12.6V16z"/><path d="M5 16v2M19 16v2"/><circle cx="7.6" cy="13.4" r="1.5" fill="#F2622E" stroke="none"/><circle cx="16.4" cy="13.4" r="1.5" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Transport">Transport</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#FFF0D6;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6a2.2 2.2 0 0 0 4.4 0V3"/><path d="M9.2 11.2V21"/><path d="M16.6 21V3.6c2 1.1 3 3 3 5.8 0 2.3-1 3.7-3 3.9" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Food">Food</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#F3E4FF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16l-8 8z"/><path d="M12 13.5V19"/><path d="M8.6 19h6.8"/><circle cx="15.4" cy="8.2" r="1.6" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Drinks">Drinks</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#DFF6EA;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.4h16l-1.5 9.2a1.4 1.4 0 0 1-1.4 1.2H6.9a1.4 1.4 0 0 1-1.4-1.2L4 9.4z"/><path d="M8.8 9.4 11 4M15.2 9.4 13 4" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Groceries">Groceries</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#FFE1EC;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.6V6.4h18v2.2a2.4 2.4 0 0 0 0 6.8v2.2H3v-2.2a2.4 2.4 0 0 0 0-6.8z"/><path d="M14.4 8v2.4M14.4 13.6V16" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Fun">Fun</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#E3F1FF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 8.4h13.2l-1.1 11.2a1.3 1.3 0 0 1-1.3 1.1H7.8a1.3 1.3 0 0 1-1.3-1.1L5.4 8.4z"/><path d="M9.2 8.4V6.6a2.8 2.8 0 0 1 5.6 0v1.8" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Shopping">Shopping</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#EDEFF5;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4.4 20 11v8.6H4V11z"/><path d="M12.6 10.6 10 14.8h2.6L11.8 18.6 15 13.9h-2.6l.2-3.3z" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Rent & bills">Rent &amp; bills</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#FFE3E3;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2S4.4 15.6 4.4 10.4A3.9 3.9 0 0 1 12 8.7a3.9 3.9 0 0 1 7.6 1.7c0 5.2-7.6 9.8-7.6 9.8z"/><path d="M6.4 12.4h3l1.4-2.2 1.8 4 1.4-1.8h3.4" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Health">Health</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#FDE8D2;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6h16v10.4H4V9.6z"/><path d="M4 13.8h16"/><path d="M12 9.6V20"/><path d="M12 9.6C10.6 6.4 9.6 5 8.2 5a1.9 1.9 0 0 0 0 3.8M12 9.6c1.4-3.2 2.4-4.6 3.8-4.6a1.9 1.9 0 0 1 0 3.8" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Gifts">Gifts</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#E6F7F6;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 20V5.8A1.8 1.8 0 0 1 6.4 4h5.2a1.8 1.8 0 0 1 1.8 1.8V20"/><path d="M3.4 20h11.2"/><path d="M7 8.6h4"/><path d="M13.4 9.4h2.8a1.4 1.4 0 0 1 1.4 1.4v5.4a1.6 1.6 0 0 0 3.2 0v-5.1l-1.8-2.5" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Fuel">Fuel</div></div>
+
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:#EDEFF5;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="12" r="2" fill="#2148C9"/><circle cx="12" cy="12" r="2" fill="#F2622E"/><circle cx="18" cy="12" r="2" fill="#2148C9"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Other">Other</div></div>
+
+<div style="background:#101A3D;border:1px solid #101A3D;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(120deg,#F2622E,#2148C9);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(242,98,46,.35)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.6" y="8" width="16.8" height="11" rx="4"/><path d="M12 4.4V8"/><circle cx="12" cy="3.4" r="1.4" fill="#fff" stroke="none"/><path d="M8.6 19v2.6L12 19"/><circle cx="9" cy="13.4" r="1.5" fill="#fff" stroke="none"/><circle cx="15" cy="13.4" r="1.5" fill="#fff" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:700;color:#fff" data-t="Groups Chat Bot">Groups Chat Bot</div><div style="font:600 10.5px 'JetBrains Mono';color:#FF9F78" data-t="premium">premium</div></div>
+
+</div>
+</section>
+
+<!-- ── 4b. UI ICONS ─────────────────────────── -->
+<section style="padding:64px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">04b</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Navigation & settings icons">Navigation &amp; settings icons</h2></div>
+<p style="font-size:15px;color:#6A748F;margin:0 0 28px;max-width:700px" data-t="uiicons-desc">Same drawn language as the category set: 24×24 grid, Tide 600 stroke, one Ember accent per icon. Used for the bottom tab bar and every settings row — never emoji in the shipped product.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px">
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-7.5z"/><circle cx="12" cy="14.5" r="1.1" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Groups (nav)">Groups (nav)</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14"/><path d="M10 20V9"/><path d="M16 20v-7"/><path d="M20 20V5" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Activity (nav)">Activity (nav)</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="8" width="15" height="11" rx="4"/><path d="M12 4.4V8"/><circle cx="12" cy="3.4" r="1.3" fill="#F2622E" stroke="none"/><circle cx="9.4" cy="13.2" r="1.3" fill="#F2622E" stroke="none"/><circle cx="14.6" cy="13.2" r="1.3" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Bot (nav)">Bot (nav)</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.3"/><path d="M5 19.2c0-3.6 3.1-6 7-6s7 2.4 7 6"/><circle cx="12" cy="8.2" r="1.1" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="You (nav)">You (nav)</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.6" cy="12" r="5.6"/><circle cx="15.4" cy="12" r="5.6" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Default currency">Default currency</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8"/><path d="M12 3.6c2.6 2.3 4 5.3 4 8.4s-1.4 6.1-4 8.4c-2.6-2.3-4-5.3-4-8.4s1.4-6.1 4-8.4z" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Language">Language</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10.4a6 6 0 0 1 12 0c0 3.6 1.2 5.2 2 6.2H4c.8-1 2-2.6 2-6.2z"/><path d="M9.6 19.6a2.4 2.4 0 0 0 4.8 0" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Reminders">Reminders</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.6" r="3.2"/><path d="M2.8 19c0-3.4 2.8-5.6 6.2-5.6s6.2 2.2 6.2 5.6"/><circle cx="17" cy="9.2" r="2.6" stroke="#F2622E"/><path d="M16 13.6c2.6.2 4.8 2.1 4.8 5.4" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Friends">Friends</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 8.4 12 4l7.4 4.4v8.2a1.4 1.4 0 0 1-1.4 1.4H6a1.4 1.4 0 0 1-1.4-1.4V8.4z"/><path d="M4.8 8.6 12 13l7.2-4.4" stroke="#F2622E"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Export CSV">Export CSV</div></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:16px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M9.6 9.4a2.4 2.4 0 1 1 3.4 2.2c-.9.4-1.4 1-1.4 2v.4" stroke="#F2622E"/><circle cx="12" cy="16.6" r="1" fill="#F2622E" stroke="none"/></svg></div><div style="font-size:12.5px;font-weight:600;color:#101A3D" data-t="Help & feedback">Help & feedback</div></div>
+</div>
+</section>
+
+<!-- ── 5. SCREENS ───────────────────────────── -->
+<section style="padding:72px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">05</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Screens">Screens</h2></div>
+<p style="font-size:15px;color:#6A748F;margin:0 0 34px;max-width:660px" data-t="screens-desc">iPhone 14 artboard, 390×844pt. Safe areas: 59pt top, 34pt bottom. All tap targets ≥44pt.</p>
+
+<div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+<!-- Onboarding 1 -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-01</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Onboarding · Welcome">Onboarding · Welcome</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#F2622E">
+<div style="position:absolute;left:0;right:0;bottom:0;height:340px;background:#fff;clip-path:polygon(0 68px,100% 0,100% 100%,0 100%)"></div>
+<div style="position:relative;height:100%;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 26px 0;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="padding:44px 30px 0">
+<svg width="40" height="40" viewBox="0 0 100 100"><defs><clipPath id="q211"><rect x="0" y="0" width="48" height="50"/></clipPath><clipPath id="q212"><rect x="52" y="0" width="48" height="50"/></clipPath><clipPath id="q213"><rect x="0" y="50" width="48" height="50"/></clipPath><clipPath id="q214"><rect x="52" y="50" width="48" height="50"/></clipPath></defs><g clip-path="url(#q211)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g><g clip-path="url(#q212)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g><g clip-path="url(#q213)" transform="translate(-2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g><g clip-path="url(#q214)" transform="translate(2,0)"><text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Bricolage Grotesque',sans-serif" font-weight="700" font-size="88" font-variation-settings="'opsz' 40" fill="#fff">S</text></g></svg>
+<h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:44px;line-height:1.03;letter-spacing:-1.8px;color:#fff;margin:26px 0 14px" data-t="ob1-title">Group expenses, made painless.</h3>
+<p style="font-size:17px;line-height:1.5;color:rgba(255,255,255,.86);margin:0" data-t="ob1-sub">Add what you paid. Splitay does the maths, the currencies and the awkward reminders.</p>
+</div>
+<div style="flex:1"></div>
+<div style="position:relative;padding:0 26px 40px">
+<div style="display:flex;gap:12px;margin-bottom:26px">
+<div style="flex:1;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 8px 24px rgba(16,26,61,.1)"><div style="font-size:12px;font-weight:600;color:#6A748F" data-t="You are owed">You are owed</div><div style="font:700 24px 'Bricolage Grotesque';color:#2148C9;font-variant-numeric:tabular-nums;margin-top:4px">€128.40</div></div>
+<div style="flex:1;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 8px 24px rgba(16,26,61,.1)"><div style="font-size:12px;font-weight:600;color:#6A748F" data-t="You owe">You owe</div><div style="font:700 24px 'Bricolage Grotesque';color:#F2622E;font-variant-numeric:tabular-nums;margin-top:4px">€36.00</div></div>
+</div>
+<div style="display:flex;gap:7px;justify-content:center;margin-bottom:20px"><span style="width:22px;height:6px;border-radius:3px;background:#101A3D"></span><span style="width:6px;height:6px;border-radius:3px;background:#C9CFDE"></span><span style="width:6px;height:6px;border-radius:3px;background:#C9CFDE"></span></div>
+<div style="height:56px;border-radius:16px;background:#2148C9;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700" data-t="Next">Next</div>
+<div style="text-align:center;margin-top:16px;font-size:15px;font-weight:600;color:#6A748F" data-t="Skip">Skip</div>
+<div style="width:140px;height:5px;border-radius:3px;background:#101A3D;opacity:.25;margin:24px auto 0"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Onboarding 2 -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-02</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Onboarding · Bot">Onboarding · Bot</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#2148C9">
+<div style="position:absolute;left:0;right:0;top:0;height:300px;background:#F2622E;clip-path:polygon(0 0,100% 0,100% 210px,0 292px);opacity:.95"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:330px;background:#fff;clip-path:polygon(0 0,100% 62px,100% 100%,0 100%)"></div>
+<div style="position:relative;height:100%;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 26px 0;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="padding:52px 30px 0">
+<div style="display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;font-size:12.5px;font-weight:700;margin-bottom:18px" data-t="PREMIUM FEATURE">PREMIUM FEATURE</div>
+<h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:42px;line-height:1.04;letter-spacing:-1.7px;color:#fff;margin:0 0 14px" data-t="ob2-title">Your friends never install a thing.</h3>
+<p style="font-size:17px;line-height:1.5;color:rgba(255,255,255,.9);margin:0" data-t="ob2-sub">Drop the Splitay bot into your Telegram, WhatsApp or Viber chat. Anyone tags it — the expense lands in your app.</p>
+</div>
+<div style="flex:1"></div>
+<div style="position:relative;padding:0 26px 40px">
+<div style="background:#fff;border-radius:20px;padding:16px;box-shadow:0 10px 30px rgba(16,26,61,.14);margin-bottom:24px">
+<div style="display:flex;gap:10px;margin-bottom:10px"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,#8AA6FF,#2148C9);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700">MK</div><div style="background:#F5F6FA;border-radius:14px 14px 14px 4px;padding:10px 13px;font-size:14px;color:#101A3D">@splitay taxi 24€ <span style="color:#2148C9;font-weight:600">split 4</span></div></div>
+<div style="display:flex;gap:10px;justify-content:flex-end"><div style="background:#E5EBFF;border-radius:14px 14px 4px 14px;padding:10px 13px;font-size:14px;color:#101A3D">✅ <span data-t="bot-reply">Added to <b>Berlin weekend</b> · €6.00 each</span></div><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(120deg,#F2622E,#2148C9);display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="7" width="17" height="12" rx="4.5" fill="#fff"/><circle cx="9" cy="13" r="1.7" fill="#101A3D"/><circle cx="15" cy="13" r="1.7" fill="#101A3D"/></svg></div></div>
+</div>
+<div style="display:flex;gap:7px;justify-content:center;margin-bottom:20px"><span style="width:6px;height:6px;border-radius:3px;background:#C9CFDE"></span><span style="width:22px;height:6px;border-radius:3px;background:#101A3D"></span><span style="width:6px;height:6px;border-radius:3px;background:#C9CFDE"></span></div>
+<div style="height:56px;border-radius:16px;background:#2148C9;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700" data-t="Next">Next</div>
+<div style="text-align:center;margin-top:16px;font-size:15px;font-weight:600;color:#6A748F" data-t="Skip">Skip</div>
+<div style="width:140px;height:5px;border-radius:3px;background:#101A3D;opacity:.25;margin:24px auto 0"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Onboarding 3 -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-03</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Onboarding · Proof">Onboarding · Proof</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#101A3D">
+<div style="position:absolute;left:0;right:0;top:0;height:420px;background:linear-gradient(150deg,#F2622E,#FF8A5B);clip-path:polygon(0 0,100% 0,100% 330px,0 420px)"></div>
+<div style="position:relative;height:100%;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 26px 0;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="padding:60px 30px 0">
+<h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:44px;line-height:1.03;letter-spacing:-1.8px;color:#fff;margin:0 0 14px" data-t="ob3-title">Settle up, stay friends.</h3>
+<p style="font-size:17px;line-height:1.5;color:rgba(255,255,255,.9);margin:0" data-t="ob3-sub">We shrink 14 payments down to 3. One tap, everyone square.</p>
+</div>
+<div style="padding:70px 26px 0;display:flex;gap:12px">
+<div style="flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:18px 14px;text-align:center"><div style="font-size:26px">🏅</div><div style="font-size:12.5px;font-weight:700;color:#fff;margin-top:8px" data-t="App of the Year">App of the Year</div><div style="font:600 11px 'JetBrains Mono';color:#FF9F78;margin-top:3px">2024</div></div>
+<div style="flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:18px 14px;text-align:center"><div style="font-size:26px">🏅</div><div style="font-size:12.5px;font-weight:700;color:#fff;margin-top:8px" data-t="App of the Year">App of the Year</div><div style="font:600 11px 'JetBrains Mono';color:#FF9F78;margin-top:3px">2025</div></div>
+<div style="flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:18px 14px;text-align:center"><div style="font-size:26px">⭐</div><div style="font-size:12.5px;font-weight:700;color:#fff;margin-top:8px" data-t="App Store">App Store</div><div style="font:600 11px 'JetBrains Mono';color:#FF9F78;margin-top:3px">4.9 · 21k</div></div>
+</div>
+<div style="flex:1"></div>
+<div style="padding:0 26px 40px">
+<div style="display:flex;gap:7px;justify-content:center;margin-bottom:20px"><span style="width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.35)"></span><span style="width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.35)"></span><span style="width:22px;height:6px;border-radius:3px;background:#fff"></span></div>
+<div style="height:56px;border-radius:16px;background:#2148C9;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700" data-t="Create your first group">Create your first group</div>
+<div style="text-align:center;margin-top:16px;font-size:14px;color:#A9B2CC" data-t="ob3-note">No account needed yet — sign in when you want to sync.</div>
+<div style="width:140px;height:5px;border-radius:3px;background:#fff;opacity:.4;margin:22px auto 0"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Groups list -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-04</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Groups & trips">Groups &amp; trips</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#F5F6FA;display:flex;flex-direction:column">
+<div style="background:#F2622E;padding:16px 22px 26px;border-radius:0 0 26px 26px">
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff;margin-bottom:22px"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+<div><div style="font-size:13.5px;color:rgba(255,255,255,.8)" data-t="Hey, Olena">Hey, Olena</div><div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:30px;letter-spacing:-1.1px;color:#fff" data-t="Your groups">Your groups</div></div>
+<div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);border:2px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;font-weight:700;color:#7A2D0E;font-size:14px">OK</div>
+</div>
+<div style="background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-size:12.5px;color:rgba(255,255,255,.85)" data-t="Overall, you are owed">Overall, you are owed</div><div style="font:800 30px 'Bricolage Grotesque';color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-1px">€92.40</div></div>
+<div style="padding:10px 16px;border-radius:12px;background:#fff;color:#2148C9;font-size:14px;font-weight:700" data-t="Settle">Settle</div>
+</div>
+</div>
+<div style="flex:1;overflow:hidden;padding:20px 18px 0;display:flex;flex-direction:column;gap:12px">
+<div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 16px rgba(16,26,61,.06)">
+<div style="height:104px;background:linear-gradient(125deg,#2148C9,#5B87FF 60%,#8AA6FF);position:relative;display:flex;align-items:flex-end;padding:12px 16px"><div style="position:absolute;right:14px;top:12px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.9);font-size:11.5px;font-weight:700;color:#2148C9">4 <span data-t="people">people</span></div><span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;color:#fff;letter-spacing:-.7px">Berlin weekend</span></div>
+<div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:-8px"><div style="display:flex"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7A2D0E">OK</div><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(140deg,#8AA6FF,#2148C9);border:2px solid #fff;margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">MK</div><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(140deg,#A8E6CF,#12A47B);border:2px solid #fff;margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0A4F3B">IV</div><div style="width:30px;height:30px;border-radius:50%;background:#EDEFF5;border:2px solid #fff;margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#6A748F">+1</div></div></div>
+<div style="text-align:right"><div style="font-size:11.5px;color:#6A748F" data-t="you are owed">you are owed</div><div style="font:700 18px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€64.20</div></div>
+</div>
+</div>
+<div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 16px rgba(16,26,61,.06)">
+<div style="height:104px;background:linear-gradient(125deg,#F2622E,#FF8A5B 65%,#FFC48A);position:relative;display:flex;align-items:flex-end;padding:12px 16px"><div style="position:absolute;right:14px;top:12px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.9);font-size:11.5px;font-weight:700;color:#F2622E;white-space:nowrap">🤖 <span data-t="bot on">bot on</span></div><span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;color:#fff;letter-spacing:-.7px">Flat 12B</span></div>
+<div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7A2D0E">OK</div><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(140deg,#D9C6FF,#7A4BD9);border:2px solid #fff;margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">AN</div></div>
+<div style="text-align:right"><div style="font-size:11.5px;color:#6A748F" data-t="you owe">you owe</div><div style="font:700 18px Figtree;color:#F2622E;font-variant-numeric:tabular-nums">€36.00</div></div>
+</div>
+</div>
+<div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 16px rgba(16,26,61,.06)">
+<div style="height:88px;background:linear-gradient(125deg,#12A47B,#4BD9AC);position:relative;display:flex;align-items:flex-end;padding:12px 16px"><span style="font-family:'Bricolage Grotesque';font-weight:800;font-size:20px;color:#fff;letter-spacing:-.7px">Ski trip · Bukovel</span></div>
+<div style="padding:13px 16px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;color:#6A748F" data-t="Closed 12 Mar">Closed 12 Mar</div><div style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:#12A47B">✓ <span data-t="Settled">Settled</span></div></div>
+</div>
+</div>
+<div style="position:absolute;right:22px;bottom:132px;width:60px;height:60px;border-radius:22px;background:#2148C9;box-shadow:0 12px 26px rgba(33,72,201,.42);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:300">+</div>
+<div style="background:#fff;border-top:1px solid #E8EBF3;padding:12px 26px 26px;display:flex;justify-content:space-between">
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#2148C9"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-7.5z"/><circle cx="12" cy="14.5" r="1.1" fill="#F2622E" stroke="none"/></svg><span style="font-size:11px;font-weight:700" data-t="Groups">Groups</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#98A1B8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#98A1B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14"/><path d="M10 20V9"/><path d="M16 20v-7"/><path d="M20 20V5" stroke="#B7BEd1"/></svg><span style="font-size:11px;font-weight:600" data-t="Activity">Activity</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#98A1B8"><div style="position:relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#98A1B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="8" width="15" height="11" rx="4"/><path d="M12 4.4V8"/><circle cx="12" cy="3.4" r="1.3" fill="#B7BEd1" stroke="none"/><circle cx="9.4" cy="13.2" r="1.3" fill="#B7BEd1" stroke="none"/><circle cx="14.6" cy="13.2" r="1.3" fill="#B7BEd1" stroke="none"/></svg><span style="position:absolute;top:-5px;right:-9px;padding:1.5px 4px;border-radius:5px;background:linear-gradient(120deg,#F2622E,#2148C9);font:700 7px Figtree;color:#fff;letter-spacing:.02em" data-t="PRO">PRO</span></div><span style="font-size:11px;font-weight:600" data-t="Bot">Bot</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#98A1B8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#98A1B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.3"/><path d="M5 19.2c0-3.6 3.1-6 7-6s7 2.4 7 6" fill="none"/><circle cx="12" cy="8.2" r="1.1" fill="#B7BEd1" stroke="none"/></svg><span style="font-size:11px;font-weight:600" data-t="You">You</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Group detail: Expenses -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-05</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Group · Expenses tab">Group · Expenses tab</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#F5F6FA;display:flex;flex-direction:column">
+<div style="height:196px;background:linear-gradient(125deg,#2148C9,#5B87FF 60%,#8AA6FF);padding:16px 22px 0;position:relative">
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:#fff;font-size:20px">‹ <span style="font-size:20px">⋯</span></div>
+<div style="margin-top:14px"><div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:28px;color:#fff;letter-spacing:-1px">Berlin weekend</div><div style="font-size:13px;color:rgba(255,255,255,.85);margin-top:2px">12–15 Jun · 4 <span data-t="people">people</span> · €612.80</div></div>
+</div>
+<div style="margin:-26px 18px 0;background:#fff;border-radius:20px;padding:16px 18px;box-shadow:0 8px 24px rgba(16,26,61,.1);display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-size:12.5px;color:#6A748F" data-t="You are owed">You are owed</div><div style="font:800 28px 'Bricolage Grotesque';color:#2148C9;letter-spacing:-.9px;font-variant-numeric:tabular-nums">€64.20</div></div>
+<div style="padding:11px 16px;border-radius:12px;background:#2148C9;color:#fff;font-size:14px;font-weight:700" data-t="Settle up">Settle up</div>
+</div>
+<div style="display:flex;gap:6px;margin:16px 18px 0;padding:4px;background:#E8EBF3;border-radius:14px">
+<div style="flex:1;text-align:center;padding:9px;border-radius:11px;background:#fff;font-size:14px;font-weight:700;color:#101A3D;box-shadow:0 2px 6px rgba(16,26,61,.08)" data-t="Expenses">Expenses</div>
+<div style="flex:1;text-align:center;padding:9px;font-size:14px;font-weight:600;color:#6A748F" data-t="Balances">Balances</div>
+<div style="flex:1;text-align:center;padding:9px;font-size:14px;font-weight:600;color:#6A748F;display:flex;align-items:center;justify-content:center;gap:5px" data-t="Bot">Bot</div>
+</div>
+<div style="flex:1;overflow:hidden;padding:16px 18px 0;display:flex;flex-direction:column;gap:8px">
+<div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#98A1B8;padding-left:4px" data-t="Today">Today</div>
+<div style="background:#fff;border-radius:16px;padding:13px 15px;display:flex;align-items:center;gap:13px"><div style="width:44px;height:44px;border-radius:50%;background:#FFE9DF;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 16h16.8v-3.4l-1.7-4.1A2 2 0 0 0 16.8 7H7.2a2 2 0 0 0-1.9 1.3L3.6 12.6V16z"/><path d="M5 16v2M19 16v2"/><circle cx="7.6" cy="13.4" r="1.5" fill="#F2622E" stroke="none"/><circle cx="16.4" cy="13.4" r="1.5" fill="#F2622E" stroke="none"/></svg></div><div style="flex:1"><div style="font-size:15.5px;font-weight:600;color:#101A3D">Taxi to Mitte</div><div style="font-size:12.5px;color:#6A748F;margin-top:2px;display:flex;align-items:center;gap:5px"><span style="padding:1px 6px;border-radius:5px;background:linear-gradient(120deg,#F2622E,#2148C9);color:#fff;font-size:10px;font-weight:700">BOT</span> <span data-t="Maks paid €24.00">Maks paid €24.00</span></div></div><div style="text-align:right"><div style="font-size:11.5px;color:#6A748F" data-t="you lent">you lent</div><div style="font:700 15.5px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€6.00</div></div></div>
+<div style="background:#fff;border-radius:16px;padding:13px 15px;display:flex;align-items:center;gap:13px"><div style="width:44px;height:44px;border-radius:50%;background:#FFF0D6;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6a2.2 2.2 0 0 0 4.4 0V3"/><path d="M9.2 11.2V21"/><path d="M16.6 21V3.6c2 1.1 3 3 3 5.8 0 2.3-1 3.7-3 3.9" stroke="#F2622E"/></svg></div><div style="flex:1"><div style="font-size:15.5px;font-weight:600;color:#101A3D">Dinner · Katz</div><div style="font-size:12.5px;color:#6A748F;margin-top:2px" data-t="You paid €148.60">You paid €148.60</div></div><div style="text-align:right"><div style="font-size:11.5px;color:#6A748F" data-t="you lent">you lent</div><div style="font:700 15.5px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€111.45</div></div></div>
+<div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#98A1B8;padding:8px 0 0 4px" data-t="Yesterday">Yesterday</div>
+<div style="background:#fff;border-radius:16px;padding:13px 15px;display:flex;align-items:center;gap:13px"><div style="width:44px;height:44px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19V7"/><path d="M21 19v-5a3 3 0 0 0-3-3h-8v4"/><path d="M3 15h18"/><circle cx="7" cy="11" r="1.9" fill="#F2622E" stroke="none"/></svg></div><div style="flex:1"><div style="font-size:15.5px;font-weight:600;color:#101A3D">Apartment · 2 nights</div><div style="font-size:12.5px;color:#6A748F;margin-top:2px" data-t="Iryna paid €320.00">Iryna paid €320.00</div></div><div style="text-align:right"><div style="font-size:11.5px;color:#6A748F" data-t="you owe">you owe</div><div style="font:700 15.5px Figtree;color:#F2622E;font-variant-numeric:tabular-nums">€80.00</div></div></div>
+<div style="background:#fff;border-radius:16px;padding:13px 15px;display:flex;align-items:center;gap:13px"><div style="width:44px;height:44px;border-radius:50%;background:#F3E4FF;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16l-8 8z"/><path d="M12 13.5V19"/><path d="M8.6 19h6.8"/><circle cx="15.4" cy="8.2" r="1.6" fill="#F2622E" stroke="none"/></svg></div><div style="flex:1"><div style="font-size:15.5px;font-weight:600;color:#101A3D">Bar · Klunkerkranich</div><div style="font-size:12.5px;color:#6A748F;margin-top:2px" data-t="Anna paid €72.00">Anna paid €72.00</div></div><div style="text-align:right"><div style="font-size:11.5px;color:#6A748F" data-t="you owe">you owe</div><div style="font:700 15.5px Figtree;color:#F2622E;font-variant-numeric:tabular-nums">€18.00</div></div></div>
+</div>
+<div style="position:absolute;right:22px;bottom:44px;height:56px;padding:0 22px;border-radius:18px;background:#F2622E;box-shadow:0 12px 26px rgba(242,98,46,.4);display:flex;align-items:center;gap:9px;color:#fff;font-size:16px;font-weight:700"><span style="font-size:22px;font-weight:300">+</span><span data-t="Add expense">Add expense</span></div>
+</div>
+</div>
+</div>
+
+<!-- Group detail: Balances -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-06</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Group · Balances tab">Group · Balances tab</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#F5F6FA;display:flex;flex-direction:column">
+<div style="height:140px;background:linear-gradient(125deg,#2148C9,#5B87FF);padding:16px 22px 0">
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:#fff;font-size:20px">‹ <span style="font-size:20px">⋯</span></div>
+<div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:24px;color:#fff;letter-spacing:-.9px;margin-top:8px">Berlin weekend</div>
+</div>
+<div style="display:flex;gap:6px;margin:14px 18px 0;padding:4px;background:#E8EBF3;border-radius:14px">
+<div style="flex:1;text-align:center;padding:9px;font-size:14px;font-weight:600;color:#6A748F" data-t="Expenses">Expenses</div>
+<div style="flex:1;text-align:center;padding:9px;border-radius:11px;background:#fff;font-size:14px;font-weight:700;color:#101A3D;box-shadow:0 2px 6px rgba(16,26,61,.08)" data-t="Balances">Balances</div>
+<div style="flex:1;text-align:center;padding:9px;font-size:14px;font-weight:600;color:#6A748F" data-t="Bot">Bot</div>
+</div>
+<div style="padding:18px 18px 0;flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="background:#101A3D;border-radius:20px;padding:18px 20px">
+<div style="font-size:12.5px;color:#A9B2CC" data-t="minimised">Minimised from 9 payments to 3</div>
+<div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:26px;color:#fff;letter-spacing:-.9px;margin-top:4px" data-t="3 transfers to be square">3 transfers to be square</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px">
+<div style="background:#fff;border-radius:16px;padding:14px 15px;display:flex;align-items:center;gap:11px">
+<div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(140deg,#D9C6FF,#7A4BD9);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:#fff">AN</div>
+<div style="flex:1;font-size:14.5px;color:#101A3D"><b>Anna</b> <span data-t="owes">owes</span> <b data-t="you">you</b></div>
+<div style="font:700 16px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€41.20</div>
+<div style="margin-left:10px;padding:8px 12px;border-radius:10px;background:#E5EBFF;color:#2148C9;font-size:12.5px;font-weight:700" data-t="Remind">Remind</div>
+</div>
+<div style="background:#fff;border-radius:16px;padding:14px 15px;display:flex;align-items:center;gap:11px">
+<div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(140deg,#8AA6FF,#2148C9);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:#fff">MK</div>
+<div style="flex:1;font-size:14.5px;color:#101A3D"><b>Maks</b> <span data-t="owes">owes</span> <b data-t="you">you</b></div>
+<div style="font:700 16px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€23.00</div>
+<div style="margin-left:10px;padding:8px 12px;border-radius:10px;background:#E5EBFF;color:#2148C9;font-size:12.5px;font-weight:700" data-t="Remind">Remind</div>
+</div>
+<div style="background:#fff;border-radius:16px;padding:14px 15px;display:flex;align-items:center;gap:11px">
+<div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:#7A2D0E">OK</div>
+<div style="flex:1;font-size:14.5px;color:#101A3D"><b data-t="You">You</b> <span data-t="owe">owe</span> <b>Iryna</b></div>
+<div style="font:700 16px Figtree;color:#F2622E;font-variant-numeric:tabular-nums">€19.80</div>
+<div style="margin-left:10px;padding:8px 12px;border-radius:10px;background:#FFE9DF;color:#F2622E;font-size:12.5px;font-weight:700" data-t="Pay">Pay</div>
+</div>
+</div>
+<div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#98A1B8;padding-left:4px" data-t="Per person">Per person</div>
+<div style="background:#fff;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:14px">
+<div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="color:#101A3D;font-weight:600">Olena</span><span style="color:#2148C9;font-weight:700;font-variant-numeric:tabular-nums">+€64.20</span></div><div style="height:8px;border-radius:4px;background:#EFF1F6;overflow:hidden"><div style="width:78%;height:100%;background:#2148C9;border-radius:4px"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="color:#101A3D;font-weight:600">Iryna</span><span style="color:#2148C9;font-weight:700;font-variant-numeric:tabular-nums">+€19.80</span></div><div style="height:8px;border-radius:4px;background:#EFF1F6;overflow:hidden"><div style="width:28%;height:100%;background:#5B87FF;border-radius:4px"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="color:#101A3D;font-weight:600">Anna</span><span style="color:#F2622E;font-weight:700;font-variant-numeric:tabular-nums">−€41.20</span></div><div style="height:8px;border-radius:4px;background:#EFF1F6;overflow:hidden"><div style="width:52%;height:100%;background:#F2622E;border-radius:4px"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="color:#101A3D;font-weight:600">Maks</span><span style="color:#F2622E;font-weight:700;font-variant-numeric:tabular-nums">−€42.80</span></div><div style="height:8px;border-radius:4px;background:#EFF1F6;overflow:hidden"><div style="width:54%;height:100%;background:#F2622E;border-radius:4px"></div></div></div>
+</div>
+</div>
+<div style="padding:14px 18px 34px"><div style="height:56px;border-radius:16px;background:#2148C9;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700" data-t="Settle all balances">Settle all balances</div></div>
+</div>
+</div>
+</div>
+
+<!-- Add expense -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-07</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Add expense">Add expense</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#fff;display:flex;flex-direction:column">
+<div style="background:#F2622E;padding:16px 22px 22px;flex:none">
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;color:#fff;font-size:15px;font-weight:600"><span data-t="Cancel">Cancel</span><span style="font-size:16px;font-weight:700" data-t="New expense">New expense</span><span style="opacity:.5" data-t="Save">Save</span></div>
+<div style="margin-top:18px;text-align:center">
+<div style="font-size:13px;color:rgba(255,255,255,.8)" data-t="Amount">Amount</div>
+<div style="display:flex;align-items:baseline;justify-content:center;gap:6px;margin-top:2px"><span style="font:700 26px 'Bricolage Grotesque';color:rgba(255,255,255,.7)">€</span><span style="font:800 48px 'Bricolage Grotesque';color:#fff;letter-spacing:-2px;font-variant-numeric:tabular-nums">148.60</span></div>
+<div style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.2);color:#fff;font-size:12.5px;font-weight:600">EUR ▾</div>
+</div>
+</div>
+<div style="flex:1;min-height:0;overflow:hidden;padding:16px 18px 0;display:flex;flex-direction:column;gap:11px;background:#F5F6FA">
+<div style="flex:none;background:#fff;border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;border:1.5px solid #2148C9"><span style="font-size:19px">✎</span><div style="flex:1;font-size:16px;color:#101A3D;font-weight:600">Dinner · Katz</div></div>
+<div style="flex:none">
+<div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#98A1B8;padding:0 0 8px 4px" data-t="Category">Category</div>
+<div style="display:flex;gap:9px;overflow:hidden">
+<div style="width:56px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:52px;height:52px;border-radius:50%;background:#FFF0D6;border:2.5px solid #F2622E;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6a2.2 2.2 0 0 0 4.4 0V3"/><path d="M9.2 11.2V21"/><path d="M16.6 21V3.6c2 1.1 3 3 3 5.8 0 2.3-1 3.7-3 3.9" stroke="#F2622E"/></svg></div><span style="font-size:11px;font-weight:700;color:#101A3D" data-t="Food">Food</span></div>
+<div style="width:56px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:52px;height:52px;border-radius:50%;background:#FFE9DF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 16h16.8v-3.4l-1.7-4.1A2 2 0 0 0 16.8 7H7.2a2 2 0 0 0-1.9 1.3L3.6 12.6V16z"/><path d="M5 16v2M19 16v2"/><circle cx="7.6" cy="13.4" r="1.5" fill="#F2622E" stroke="none"/><circle cx="16.4" cy="13.4" r="1.5" fill="#F2622E" stroke="none"/></svg></div><span style="font-size:11px;color:#6A748F" data-t="Ride">Ride</span></div>
+<div style="width:56px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:52px;height:52px;border-radius:50%;background:#E9EDFF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19V7"/><path d="M21 19v-5a3 3 0 0 0-3-3h-8v4"/><path d="M3 15h18"/><circle cx="7" cy="11" r="1.9" fill="#F2622E" stroke="none"/></svg></div><span style="font-size:11px;color:#6A748F" data-t="Stay">Stay</span></div>
+<div style="width:56px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:52px;height:52px;border-radius:50%;background:#F3E4FF;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16l-8 8z"/><path d="M12 13.5V19"/><path d="M8.6 19h6.8"/><circle cx="15.4" cy="8.2" r="1.6" fill="#F2622E" stroke="none"/></svg></div><span style="font-size:11px;color:#6A748F" data-t="Bar">Bar</span></div>
+<div style="width:56px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:52px;height:52px;border-radius:50%;background:#EDEFF5;display:flex;align-items:center;justify-content:center;font-size:19px;color:#6A748F">•••</div><span style="font-size:11px;color:#6A748F" data-t="All">All</span></div>
+</div>
+</div>
+<div style="flex:none;background:#fff;border-radius:16px;overflow:hidden">
+<div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #EFF1F6"><span style="font-size:15px;color:#6A748F" data-t="Paid by">Paid by</span><span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#101A3D"><span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#7A2D0E">OK</span><span data-t="You">You</span> ›</span></div>
+<div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #EFF1F6"><span style="font-size:15px;color:#6A748F" data-t="Split">Split</span><span style="font-size:15px;font-weight:600;color:#101A3D" data-t="Equally · 4 people">Equally · 4 people ›</span></div>
+<div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;color:#6A748F" data-t="Date">Date</span><span style="font-size:15px;font-weight:600;color:#101A3D">14 Jun 2026 ›</span></div>
+</div>
+<div style="flex:none;background:#fff;border-radius:16px;padding:6px 16px">
+<div style="padding:11px 0;display:flex;align-items:center;gap:11px;border-bottom:1px solid #EFF1F6"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7A2D0E">OK</div><span style="flex:1;font-size:15px;color:#101A3D" data-t="You">You</span><span style="font-size:15px;font-weight:600;color:#101A3D;font-variant-numeric:tabular-nums">€37.15</span><span style="margin-left:10px;width:22px;height:22px;border-radius:7px;background:#2148C9;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px">✓</span></div>
+<div style="padding:11px 0;display:flex;align-items:center;gap:11px;border-bottom:1px solid #EFF1F6"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,#8AA6FF,#2148C9);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">MK</div><span style="flex:1;font-size:15px;color:#101A3D">Maks</span><span style="font-size:15px;font-weight:600;color:#101A3D;font-variant-numeric:tabular-nums">€37.15</span><span style="margin-left:10px;width:22px;height:22px;border-radius:7px;background:#2148C9;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px">✓</span></div>
+<div style="padding:11px 0;display:flex;align-items:center;gap:11px"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(140deg,#A8E6CF,#12A47B);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0A4F3B">IV</div><span style="flex:1;font-size:15px;color:#101A3D">Iryna</span><span style="font-size:15px;font-weight:600;color:#101A3D;font-variant-numeric:tabular-nums">€37.15</span><span style="margin-left:10px;width:22px;height:22px;border-radius:7px;background:#2148C9;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px">✓</span></div>
+</div>
+</div>
+<div style="padding:14px 18px 34px;background:#F5F6FA;flex:none"><div style="height:56px;border-radius:16px;background:#2148C9;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700" data-t="Save expense">Save expense</div></div>
+</div>
+</div>
+</div>
+
+<!-- Settle up -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-08</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Settle up sheet">Settle up sheet</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#101A3D;display:flex;flex-direction:column;justify-content:flex-end">
+<div style="position:absolute;inset:0;background:linear-gradient(125deg,#2148C9,#5B87FF);opacity:.32"></div>
+<div style="position:absolute;top:0;left:0;right:0;padding:16px 22px;display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="position:relative;background:#fff;border-radius:30px 30px 0 0;padding:12px 20px 34px">
+<div style="width:44px;height:5px;border-radius:3px;background:#D6DAE6;margin:0 auto 18px"></div>
+<div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:28px;letter-spacing:-1.1px;color:#101A3D;margin-bottom:6px" data-t="Settle up">Settle up</div>
+<p style="font-size:14.5px;line-height:1.5;color:#6A748F;margin:0 0 18px" data-t="settle-sub">We rearranged 9 debts into the smallest number of transfers. Mark each one done when the money moves.</p>
+<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px">
+<div style="border:1px solid #E8EBF3;border-radius:18px;padding:15px 16px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#D9C6FF,#7A4BD9);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff">AN</div>
+<span style="font-size:19px;color:#98A1B8">→</span>
+<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#7A2D0E">OK</div>
+<div style="flex:1;font-size:14.5px;color:#101A3D"><b>Anna</b> → <b data-t="you">you</b></div>
+<div style="font:700 17px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€41.20</div>
+</div>
+<div style="display:flex;gap:8px"><div style="flex:1;height:42px;border-radius:12px;background:#E5EBFF;color:#2148C9;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center" data-t="Request">Request</div><div style="flex:1;height:42px;border-radius:12px;background:#F5F6FA;color:#6A748F;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center" data-t="Mark paid">Mark paid</div></div>
+</div>
+<div style="border:1px solid #E8EBF3;border-radius:18px;padding:15px 16px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#8AA6FF,#2148C9);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff">MK</div>
+<span style="font-size:19px;color:#98A1B8">→</span>
+<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#7A2D0E">OK</div>
+<div style="flex:1;font-size:14.5px;color:#101A3D"><b>Maks</b> → <b data-t="you">you</b></div>
+<div style="font:700 17px Figtree;color:#2148C9;font-variant-numeric:tabular-nums">€23.00</div>
+</div>
+<div style="display:flex;gap:8px"><div style="flex:1;height:42px;border-radius:12px;background:#E5EBFF;color:#2148C9;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center" data-t="Request">Request</div><div style="flex:1;height:42px;border-radius:12px;background:#F5F6FA;color:#6A748F;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center" data-t="Mark paid">Mark paid</div></div>
+</div>
+<div style="border:1px solid #FFD9C6;background:#FFF7F3;border-radius:18px;padding:15px 16px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#7A2D0E">OK</div>
+<span style="font-size:19px;color:#F2622E">→</span>
+<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#A8E6CF,#12A47B);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0A4F3B">IV</div>
+<div style="flex:1;font-size:14.5px;color:#101A3D"><b data-t="You">You</b> → <b>Iryna</b></div>
+<div style="font:700 17px Figtree;color:#F2622E;font-variant-numeric:tabular-nums">€19.80</div>
+</div>
+<div style="height:42px;border-radius:12px;background:#F2622E;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center" data-t="Pay €19.80">Pay €19.80</div>
+</div>
+</div>
+<div style="height:56px;border-radius:16px;background:#2148C9;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700" data-t="Mark everything settled">Mark everything settled</div>
+<div style="width:140px;height:5px;border-radius:3px;background:#101A3D;opacity:.2;margin:20px auto 0"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Bot management -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:linear-gradient(120deg,#F2622E,#2148C9);color:#fff;border-radius:5px">S-09</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Groups Chat Bot · premium">Groups Chat Bot · premium</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#0B1027;display:flex;flex-direction:column">
+<div style="position:absolute;top:-90px;right:-70px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#F2622E,transparent 65%);opacity:.6"></div>
+<div style="position:absolute;top:120px;left:-110px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#2148C9,transparent 66%);opacity:.7"></div>
+<div style="position:relative;padding:16px 22px 0;display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="position:relative;padding:20px 22px 0;flex:1;overflow:hidden">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+<div style="width:52px;height:52px;border-radius:18px;background:linear-gradient(120deg,#F2622E,#2148C9);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(242,98,46,.4)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="7" width="17" height="12" rx="4.5" fill="#fff"/><circle cx="9" cy="13" r="1.7" fill="#101A3D"/><circle cx="15" cy="13" r="1.7" fill="#101A3D"/><path d="M12 3.2v3.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="2.6" r="1.5" fill="#fff"/></svg></div>
+<div><div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:24px;color:#fff;letter-spacing:-.8px" data-t="Groups Chat Bot">Groups Chat Bot</div><div style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4BD9AC"><span style="width:7px;height:7px;border-radius:50%;background:#4BD9AC"></span><span data-t="Active · renews 3 Sep">Active · renews 3 Sep</span></div></div>
+</div>
+<div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:16px 18px;margin-bottom:14px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:13px;font-weight:700;color:#fff" data-t="Splitay Plus">Splitay Plus</span><span style="font:700 13px Figtree;color:#FF9F78">€2.99 / <span data-t="mo">mo</span></span></div>
+<div style="height:7px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;margin-bottom:9px"><div style="width:62%;height:100%;background:linear-gradient(90deg,#F2622E,#5B87FF)"></div></div>
+<div style="display:flex;justify-content:space-between;font-size:12px;color:#A9B2CC"><span data-t="124 of 200 bot expenses this month">124 of 200 bot expenses this month</span><span data-t="Upgrade">Upgrade</span></div>
+</div>
+<div style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#7E88A6;margin:18px 0 10px" data-t="Connected chats">Connected chats</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="background:#fff;border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+<div style="width:40px;height:40px;border-radius:12px;background:#E8F4FD;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#2AABEE"/><path d="M5.6 11.9l11-4.3c.5-.2 1 .1.8.9l-1.9 8.9c-.1.6-.5.7-1 .5l-2.8-2.1-1.3 1.3c-.2.2-.3.3-.6.3l.2-3 5.1-4.6c.2-.2-.05-.3-.3-.1l-6.3 4-2.7-.8c-.6-.2-.6-.6.2-.9z" fill="#fff"/></svg></div>
+<div style="flex:1"><div style="font-size:15px;font-weight:600;color:#101A3D">Berlin weekend 🇩🇪</div><div style="font-size:12.5px;color:#6A748F">Telegram · 4 <span data-t="members">members</span></div></div>
+<div style="padding:6px 11px;border-radius:999px;background:#DFF6EA;color:#12A47B;font-size:11.5px;font-weight:700" data-t="Live">Live</div>
+</div>
+<div style="background:#fff;border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+<div style="width:40px;height:40px;border-radius:12px;background:#E6F7EC;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#25D366"/><path d="M8 7.5c-.6 0-1.2.5-1.3 1.3-.2 1.6.7 3.4 2.1 4.9 1.5 1.5 3.3 2.4 4.9 2.2.8-.1 1.3-.7 1.3-1.3 0-.4-.2-.6-.5-.8l-1.3-.7c-.3-.2-.6-.1-.8.1l-.5.6c-.9-.4-1.9-1.4-2.4-2.4l.6-.5c.2-.2.3-.5.1-.8l-.7-1.3c-.2-.3-.4-.5-.8-.5z" fill="#fff"/></svg></div>
+<div style="flex:1"><div style="font-size:15px;font-weight:600;color:#101A3D">Flat 12B</div><div style="font-size:12.5px;color:#6A748F">WhatsApp · 2 <span data-t="members">members</span></div></div>
+<div style="padding:6px 11px;border-radius:999px;background:#FFF0D6;color:#B87400;font-size:11.5px;font-weight:700" data-t="Pending">Pending</div>
+</div>
+<div style="background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.25);border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+<div style="width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#7360F2"/><path d="M12 5.5c-3.3 0-5.5 2-5.5 4.8 0 1.9 1 3.4 2.7 4.2l-.4 2.4c-.05.3.2.5.5.3l2.4-1.6c.1 0 .2.01.3.01 3.3 0 5.5-2 5.5-4.8S15.3 5.5 12 5.5z" fill="#fff"/></svg></div>
+<div style="flex:1"><div style="font-size:15px;font-weight:600;color:#fff" data-t="Add Viber chat">Add Viber chat</div><div style="font-size:12.5px;color:#A9B2CC" data-t="3 platforms supported">3 platforms supported</div></div>
+<span style="font-size:22px;color:#fff;font-weight:300">+</span>
+</div>
+</div>
+<div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:16px 18px;margin-top:16px">
+<div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:12px" data-t="How to add the bot">How to add the bot</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="width:20px;height:20px;border-radius:50%;background:#F2622E;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none">1</span><span style="font-size:13px;color:#C7CEE0;line-height:1.45" data-t="step-1">Open your group chat and invite <b style="color:#fff">@splitay_bot</b></span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="width:20px;height:20px;border-radius:50%;background:#F2622E;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none">2</span><span style="font-size:13px;color:#C7CEE0;line-height:1.45" data-t="step-2">Send the pairing code below in that chat</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="width:20px;height:20px;border-radius:50%;background:#F2622E;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none">3</span><span style="font-size:13px;color:#C7CEE0;line-height:1.45" data-t="step-3">Everyone types <b style="color:#fff">@splitay 24€ taxi</b> — done</span></div>
+</div>
+<div style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.09);border:1px dashed rgba(255,255,255,.3)"><span style="font:600 18px 'JetBrains Mono';color:#fff;letter-spacing:3px">K7-2QW</span><span style="font-size:12.5px;font-weight:700;color:#FF9F78" data-t="Copy">Copy</span></div>
+</div>
+</div>
+<div style="position:relative;padding:12px 22px 34px"><div style="height:56px;border-radius:16px;background:linear-gradient(120deg,#F2622E,#2148C9);display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:700;box-shadow:0 10px 26px rgba(242,98,46,.35)" data-t="Connect a new chat">Connect a new chat</div></div>
+</div>
+</div>
+</div>
+
+<!-- Profile -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:9px"><span style="font:600 10.5px 'JetBrains Mono';padding:3px 7px;background:#101A3D;color:#fff;border-radius:5px">S-10</span><span style="font-size:13px;font-weight:600;color:#101A3D" data-t="Profile & settings">Profile &amp; settings</span></div>
+<div style="padding:10px;background:#0B0F1E;border-radius:52px;box-shadow:0 22px 50px rgba(16,26,61,.22)">
+<div style="width:390px;height:844px;border-radius:42px;overflow:hidden;position:relative;background:#F5F6FA;display:flex;flex-direction:column">
+<div style="background:#F2622E;padding:16px 22px 70px;position:relative">
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff"><span>9:41</span><span style="letter-spacing:2px">▮▮▮ ⌁ ▰</span></div>
+<div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:26px;color:#fff;letter-spacing:-1px;margin-top:16px" data-t="You">You</div>
+</div>
+<div style="margin:-52px 18px 0;background:#fff;border-radius:20px;padding:18px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 24px rgba(16,26,61,.08)">
+<div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(140deg,#FFD9C6,#FF8A5B);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#7A2D0E">OK</div>
+<div style="flex:1"><div style="font-size:18px;font-weight:700;color:#101A3D">Olena Kovalenko</div><div style="font-size:13px;color:#6A748F">olena@splitay.app</div></div>
+<span style="font-size:20px;color:#98A1B8">›</span>
+</div>
+<div style="padding:16px 18px 0;display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="border-radius:20px;padding:16px 18px;background:linear-gradient(120deg,#F2622E,#2148C9);display:flex;align-items:center;gap:13px">
+<div style="width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="7" width="17" height="12" rx="4.5" fill="#fff"/><circle cx="9" cy="13" r="1.7" fill="#101A3D"/><circle cx="15" cy="13" r="1.7" fill="#101A3D"/></svg></div>
+<div style="flex:1"><div style="font-size:15px;font-weight:700;color:#fff" data-t="Splitay Plus">Splitay Plus</div><div style="font-size:12.5px;color:rgba(255,255,255,.85)" data-t="Bot active on 2 chats">Bot active on 2 chats</div></div>
+<span style="font-size:20px;color:#fff">›</span>
+</div>
+<div style="background:#fff;border-radius:18px;overflow:hidden">
+<div style="padding:15px 16px;display:flex;align-items:center;gap:13px;border-bottom:1px solid #EFF1F6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.6" cy="12" r="5.6"/><circle cx="15.4" cy="12" r="5.6" stroke="#F2622E"/></svg><span style="flex:1;font-size:15.5px;color:#101A3D" data-t="Default currency">Default currency</span><span style="font-size:14.5px;color:#6A748F">EUR ›</span></div>
+<div style="padding:15px 16px;display:flex;align-items:center;gap:13px;border-bottom:1px solid #EFF1F6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8"/><path d="M12 3.6c2.6 2.3 4 5.3 4 8.4s-1.4 6.1-4 8.4c-2.6-2.3-4-5.3-4-8.4s1.4-6.1 4-8.4z" stroke="#F2622E"/></svg><span style="flex:1;font-size:15.5px;color:#101A3D" data-t="Language">Language</span><span style="font-size:14.5px;color:#6A748F" data-t="lang-value">English ›</span></div>
+<div style="padding:15px 16px;display:flex;align-items:center;gap:13px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10.4a6 6 0 0 1 12 0c0 3.6 1.2 5.2 2 6.2H4c.8-1 2-2.6 2-6.2z"/><path d="M9.6 19.6a2.4 2.4 0 0 0 4.8 0" stroke="#F2622E"/></svg><span style="flex:1;font-size:15.5px;color:#101A3D" data-t="Reminders">Reminders</span><div style="width:46px;height:28px;border-radius:14px;background:#2148C9;display:flex;align-items:center;justify-content:flex-end;padding:3px"><div style="width:22px;height:22px;border-radius:50%;background:#fff"></div></div></div>
+</div>
+<div style="background:#fff;border-radius:18px;overflow:hidden">
+<div style="padding:15px 16px;display:flex;align-items:center;gap:13px;border-bottom:1px solid #EFF1F6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.6" r="3.2"/><path d="M2.8 19c0-3.4 2.8-5.6 6.2-5.6s6.2 2.2 6.2 5.6"/><circle cx="17" cy="9.2" r="2.6" stroke="#F2622E"/><path d="M16 13.6c2.6.2 4.8 2.1 4.8 5.4" stroke="#F2622E"/></svg><span style="flex:1;font-size:15.5px;color:#101A3D" data-t="Friends">Friends</span><span style="font-size:14.5px;color:#6A748F">12 ›</span></div>
+<div style="padding:15px 16px;display:flex;align-items:center;gap:13px;border-bottom:1px solid #EFF1F6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 8.4 12 4l7.4 4.4v8.2a1.4 1.4 0 0 1-1.4 1.4H6a1.4 1.4 0 0 1-1.4-1.4V8.4z"/><path d="M4.8 8.6 12 13l7.2-4.4" stroke="#F2622E"/></svg><span style="flex:1;font-size:15.5px;color:#101A3D" data-t="Export CSV">Export CSV</span><span style="font-size:14.5px;color:#6A748F">›</span></div>
+<div style="padding:15px 16px;display:flex;align-items:center;gap:13px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M9.6 9.4a2.4 2.4 0 1 1 3.4 2.2c-.9.4-1.4 1-1.4 2v.4" stroke="#F2622E"/><circle cx="12" cy="16.6" r="1" fill="#F2622E" stroke="none"/></svg><span style="flex:1;font-size:15.5px;color:#101A3D" data-t="Help & feedback">Help &amp; feedback</span><span style="font-size:14.5px;color:#6A748F">›</span></div>
+</div>
+<div style="text-align:center;font-size:13px;color:#98A1B8;padding-top:6px" data-t="footer-note">Splitay 2.4.0 · No ads. No fees.</div>
+</div>
+<div style="background:#fff;border-top:1px solid #E8EBF3;padding:12px 26px 26px;display:flex;justify-content:space-between">
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#98A1B8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#98A1B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-7.5z"/><circle cx="12" cy="14.5" r="1.1" fill="#B7BEd1" stroke="none"/></svg><span style="font-size:11px;font-weight:600" data-t="Groups">Groups</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#98A1B8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#98A1B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14"/><path d="M10 20V9"/><path d="M16 20v-7"/><path d="M20 20V5" stroke="#B7BEd1"/></svg><span style="font-size:11px;font-weight:600" data-t="Activity">Activity</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#98A1B8"><div style="position:relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#98A1B8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="8" width="15" height="11" rx="4"/><path d="M12 4.4V8"/><circle cx="12" cy="3.4" r="1.3" fill="#B7BEd1" stroke="none"/><circle cx="9.4" cy="13.2" r="1.3" fill="#B7BEd1" stroke="none"/><circle cx="14.6" cy="13.2" r="1.3" fill="#B7BEd1" stroke="none"/></svg><span style="position:absolute;top:-5px;right:-9px;padding:1.5px 4px;border-radius:5px;background:linear-gradient(120deg,#F2622E,#2148C9);font:700 7px Figtree;color:#fff;letter-spacing:.02em" data-t="PRO">PRO</span></div><span style="font-size:11px;font-weight:600" data-t="Bot">Bot</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#2148C9"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2148C9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.3"/><path d="M5 19.2c0-3.6 3.1-6 7-6s7 2.4 7 6" fill="none"/><circle cx="12" cy="8.2" r="1.1" fill="#F2622E" stroke="none"/></svg><span style="font-size:11px;font-weight:700" data-t="You">You</span></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ── 6. FLOW ──────────────────────────────── -->
+<section style="padding:72px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:28px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">06</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Screen flow">Screen flow</h2></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:34px;display:flex;flex-wrap:wrap;gap:26px;align-items:center">
+<div style="display:flex;align-items:center;gap:14px"><div style="padding:14px 18px;border-radius:14px;background:#FFE9DF;border:1px solid #FFD0BB"><div style="font:600 10.5px 'JetBrains Mono';color:#F2622E">S-01→03</div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Onboarding">Onboarding</div></div><span style="font-size:22px;color:#C9CFDE">→</span></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="padding:14px 18px;border-radius:14px;background:#E5EBFF;border:1px solid #C9D6FF"><div style="font:600 10.5px 'JetBrains Mono';color:#2148C9">S-04</div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Groups list">Groups list</div></div><span style="font-size:22px;color:#C9CFDE">→</span></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="padding:14px 18px;border-radius:14px;background:#E5EBFF;border:1px solid #C9D6FF"><div style="font:600 10.5px 'JetBrains Mono';color:#2148C9">S-05 / 06</div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Group detail">Group detail</div></div><span style="font-size:22px;color:#C9CFDE">→</span></div>
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+<div style="padding:14px 18px;border-radius:14px;background:#F5F6FA;border:1px solid #E8EBF3"><div style="font:600 10.5px 'JetBrains Mono';color:#6A748F">S-07</div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Add expense">Add expense</div></div>
+<div style="padding:14px 18px;border-radius:14px;background:#F5F6FA;border:1px solid #E8EBF3"><div style="font:600 10.5px 'JetBrains Mono';color:#6A748F">S-08</div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Settle up">Settle up</div></div>
+<div style="padding:14px 18px;border-radius:14px;background:linear-gradient(120deg,#F2622E,#2148C9)"><div style="font:600 10.5px 'JetBrains Mono';color:rgba(255,255,255,.8)">S-09</div><div style="font-size:14px;font-weight:700;color:#fff" data-t="Groups Chat Bot">Groups Chat Bot</div></div>
+<div style="padding:14px 18px;border-radius:14px;background:#F5F6FA;border:1px solid #E8EBF3"><div style="font:600 10.5px 'JetBrains Mono';color:#6A748F">S-10</div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Profile">Profile</div></div>
+</div>
+<div style="width:100%;height:1px;background:#EFF1F6"></div>
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span style="font:600 11.5px Figtree;letter-spacing:.14em;text-transform:uppercase;color:#98A1B8" data-t="Bot path">Bot path</span><span style="font-size:14px;color:#101A3D" data-t="bot-path">Telegram chat → “@splitay 24€ taxi” → parse → group matched by chat id → expense created → push to owner → appears in S-05 with BOT badge</span></div>
+</div>
+</section>
+
+<!-- ── 7. COMPONENTS ────────────────────────── -->
+<section style="padding:64px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:28px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">07</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Components & states">Components &amp; states</h2></div>
+<div style="background:#fff;border:1px solid #E8EBF3;border-radius:20px;overflow:hidden">
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;gap:0;font:600 11.5px Figtree;letter-spacing:.12em;text-transform:uppercase;color:#98A1B8;background:#F5F6FA;padding:14px 22px"><span data-t="Component">Component</span><span data-t="Size">Size</span><span data-t="States">States</span><span data-t="Notes">Notes</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Button / primary</b><span style="color:#6A748F">h56 · r16 · 17/700</span><span style="color:#6A748F">default #2148C9 · pressed #1734A0 · disabled #C9D6FF · loading spinner</span><span style="color:#6A748F" data-t="One per screen">One per screen</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Button / bot</b><span style="color:#6A748F">h56 · r16 · gradient</span><span style="color:#6A748F">default 120° gradient · pressed −8% lum · locked → paywall</span><span style="color:#6A748F" data-t="Premium only">Premium only</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Expense row</b><span style="color:#6A748F">h70 · r16 · pad 13/15</span><span style="color:#6A748F">default · pressed #F5F6FA · swipe-left delete · BOT badge variant</span><span style="color:#6A748F" data-t="Amount tabular">Amount tabular</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Group card</b><span style="color:#6A748F">w354 · r20 · cover 104</span><span style="color:#6A748F">owed (blue) · owe (ember) · settled (green, 88px cover)</span><span style="color:#6A748F" data-t="Cover = photo or gradient">Cover = photo or gradient</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Balance banner</b><span style="color:#6A748F">r20 · pad 16/18 · −26 overlap</span><span style="color:#6A748F">positive · negative · zero (“All settled”, green)</span><span style="color:#6A748F" data-t="Amount 28/800">Amount 28/800</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Segmented tabs</b><span style="color:#6A748F">h44 · r14 · pad4</span><span style="color:#6A748F">selected white+shadow · idle #6A748F · badge dot on Bot</span><span style="color:#6A748F" data-t="3 tabs max">3 tabs max</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Category chip</b><span style="color:#6A748F">52 circle · 2.5px ring</span><span style="color:#6A748F">idle tint · selected ring #F2622E · disabled 40% opacity</span><span style="color:#6A748F" data-t="12 + bot">12 + bot</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Avatar</b><span style="color:#6A748F">30 / 38 / 60 · 2px white ring</span><span style="color:#6A748F">photo · initials gradient · +N overflow</span><span style="color:#6A748F" data-t="Stack overlap −9">Stack overlap −9</span></div>
+<div style="display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr;padding:15px 22px;border-top:1px solid #EFF1F6;font-size:13.5px;color:#101A3D"><b>Chat card</b><span style="color:#6A748F">r18 · icon 40/r12</span><span style="color:#6A748F">Live (green) · Pending (amber) · Error (ember) · Add (dashed)</span><span style="color:#6A748F" data-t="Bot screen only">Bot screen only</span></div>
+</div>
+</section>
+
+<!-- ── 8. BOT SPEC + TOKENS ─────────────────── -->
+<section style="padding:64px 64px 0">
+<div style="display:flex;align-items:baseline;gap:14px;margin-bottom:28px"><span style="font:700 12px/1 'JetBrains Mono',monospace;color:#F2622E">08</span><h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-1.2px;color:#101A3D;margin:0" data-t="Handoff">Handoff</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+<div style="flex:1 1 460px;background:#101A3D;border-radius:20px;padding:26px 28px;overflow:hidden">
+<div style="font:600 11.5px Figtree;letter-spacing:.2em;text-transform:uppercase;color:#FF8A5B;margin-bottom:16px" data-t="tokens.json">tokens.json</div>
+<pre style="margin:0;font:400 12.5px/1.7 'JetBrains Mono',monospace;color:#C7CEE0;white-space:pre-wrap">{
+  "color": {
+    "ember500": "#F2622E", "ember400": "#FF8A5B", "ember100": "#FFE9DF",
+    "tide600":  "#2148C9", "tide400":  "#5B87FF", "tide300": "#A9C2FF", "tide100":  "#E5EBFF",
+    "ink": "#101A3D", "slate": "#6A748F", "line": "#E8EBF3",
+    "canvas": "#F5F6FA", "surface": "#FFFFFF", "settled": "#12A47B",
+    "botGradient": "linear-gradient(120deg,#F2622E,#2148C9)",
+    "logoOnWhite": ["#2148C9","#5B87FF","#FF8A5B","#F2622E"],
+    "logoOnInk":   ["#5B87FF","#A9C2FF","#FF8A5B","#F2622E"],
+    "logoOnEmber": ["#fff","#E5EBFF","#5B87FF","#2148C9"],
+    "logoMono":    ["#101A3D","#6A748F"],
+    "owedToYou": "tide600", "youOwe": "ember500"
+  },
+  "font": {
+    "display": "Bricolage Grotesque", "body": "Figtree", "mono": "JetBrains Mono",
+    "scale": { "d1": [44,800,-1.8], "d2": [34,800,-1.2], "t1": [28,800,-1.1],
+               "t2": [24,800,-0.9], "s1": [17,700,-0.2], "body": [17,400,0],
+               "label": [13,600,0.2], "caption": [12,500,0] }
+  },
+  "radius": { "sm": 10, "md": 14, "lg": 16, "xl": 20, "sheet": 30, "pill": 999 },
+  "space":  { "xs": 6, "sm": 10, "md": 14, "lg": 18, "xl": 26, "xxl": 40 },
+  "screen": { "w": 390, "h": 844, "gutter": 18, "safeTop": 59, "safeBottom": 34 },
+  "elevation": {
+    "card": "0 4px 16px rgba(16,26,61,.06)",
+    "raised": "0 8px 24px rgba(16,26,61,.10)",
+    "fab": "0 12px 26px rgba(33,72,201,.42)"
+  },
+  "motion": { "tap": "120ms ease-out", "sheet": "320ms cubic-bezier(.2,.8,.2,1)" }
+}</pre>
+</div>
+<div style="flex:1 1 380px;background:#fff;border:1px solid #E8EBF3;border-radius:20px;padding:26px 28px">
+<div style="font:600 11.5px Figtree;letter-spacing:.2em;text-transform:uppercase;color:#6A748F;margin-bottom:16px" data-t="Groups Chat Bot — states">Groups Chat Bot — states</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px"><span style="width:9px;height:9px;border-radius:50%;background:#98A1B8;margin-top:6px;flex:none"></span><div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Not connected">Not connected</div><div style="font-size:13px;color:#6A748F;line-height:1.5" data-t="st-1">Show paywall card + 3-step instructions. CTA “Connect a new chat”.</div></div></div>
+<div style="display:flex;gap:12px"><span style="width:9px;height:9px;border-radius:50%;background:#E5A200;margin-top:6px;flex:none"></span><div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Pending pairing">Pending pairing</div><div style="font-size:13px;color:#6A748F;line-height:1.5" data-t="st-2">Pairing code valid 10 min, amber chip, live countdown, “Resend code”.</div></div></div>
+<div style="display:flex;gap:12px"><span style="width:9px;height:9px;border-radius:50%;background:#12A47B;margin-top:6px;flex:none"></span><div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Live">Live</div><div style="font-size:13px;color:#6A748F;line-height:1.5" data-t="st-3">Green chip, member count, per-chat mute and “Unlink”.</div></div></div>
+<div style="display:flex;gap:12px"><span style="width:9px;height:9px;border-radius:50%;background:#F2622E;margin-top:6px;flex:none"></span><div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Parse failed">Parse failed</div><div style="font-size:13px;color:#6A748F;line-height:1.5" data-t="st-4">Bot replies in chat with the expected format; app shows an inbox item to fix manually.</div></div></div>
+<div style="display:flex;gap:12px"><span style="width:9px;height:9px;border-radius:50%;background:#F2622E;margin-top:6px;flex:none"></span><div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Quota reached">Quota reached</div><div style="font-size:13px;color:#6A748F;line-height:1.5" data-t="st-5">200/mo on Plus. Bot posts one warning at 90%, then stops silently; app shows upgrade banner.</div></div></div>
+<div style="display:flex;gap:12px"><span style="width:9px;height:9px;border-radius:50%;background:#F2622E;margin-top:6px;flex:none"></span><div><div style="font-size:14px;font-weight:700;color:#101A3D" data-t="Subscription lapsed">Subscription lapsed</div><div style="font-size:13px;color:#6A748F;line-height:1.5" data-t="st-6">Chats stay linked read-only for 14 days, then unlink. Existing expenses never disappear.</div></div></div>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { lang: 'en' };
+
+  dict = {
+    "Brand book & UI kit — v1.0": "Бренд-бук і UI-кіт — v1.0",
+    "Group expenses, settled before you land.": "Спільні витрати, закриті ще до посадки.",
+    "hero-sub": "Splitay — застосунок для розділення витрат у подорожах і компаніях, плюс чат-бот, яким друзі користуються без встановлення.",
+    "No ads": "Без реклами", "No fees": "Без комісій", "No limits": "Без лімітів",
+    "Groups Chat Bot — premium": "Chat Groups Chat Bot — преміум",
+    "screens designed": "екранів", "category icons": "іконок категорій",
+    "brand fonts": "шрифти бренду", "base artboard": "базовий артборд",
+    "Logo v1 — retired": "Логотип v1 — відхилено",
+    "Logo — new directions": "Логотип — нові напрямки",
+    "logo2-desc": "Раунд 1. Чотири знаки на основі літери S — краплі прибрано. A привів до F, F — до T3, який зараз основний. Кожен буквально каже «поділ»: розрізана літера, літера як гроші або літера з передачі. Поле іконки лишається Ember/Tide.",
+    "ROUND 1 PICK": "ВИБІР РАУНДУ 1", "NOW PRIMARY": "ЗАРАЗ ОСНОВНИЙ",
+    "A · Split S": "A · Розрізана S",
+    "lgA-note": "Одна S, розрізана по діагоналі й розсунута. Проміжок і є поділ.",
+    "B · S-dollar": "B · S-долар",
+    "lgB-note": "S із рискою наскрізь — читається і як S, і як гроші на будь-якому розмірі.",
+    "C · Handover S": "C · S-передача",
+    "lgC-note": "Два відкриті штрихи, що зустрічаються посередині: гроші з рук у руки.",
+    "D · Sliced coin": "D · Розрізана монета",
+    "lgD-note": "Монета з вирізаним сектором і S усередині. Найсильніша на 16px.",
+    
+    "icons2-desc": "Власний геометричний сет, сітка 24×24, штрих Tide 1.9px і один Ember-акцент на іконку. Круглі кінці, без заливок окрім акценту. Постачається одним SVG-спрайтом. Коло 44px у списках, 56px у формі витрати, підкладка — 12% відтінку.",
+    "Logo — primary": "Логотип — основний",
+    "Logo — explorations, round 1": "Логотип — пошук, раунд 1",
+    "Logo — explorations, round 2": "Логотип — пошук, раунд 2",
+    "logo3-desc": "Ще чотири підходи: кожен змінює одну змінну основного знака — куди йде розріз, що лежить у проміжку, чи S у контейнері, і чи стає поділ знаком рівності.",
+    "E · Vertical kerf": "E · Вертикальний розріз",
+    "lgE-note": "Розріз іде прямо вниз, а не по діагоналі, тепер тонкий — холодніше, більш «бухгалтерськи», тримається на 16px.",
+    "F · The shared cent": "F · Спільний цент",
+    "lgF-note": "У проміжку крапка: сума, яку ділять обидві половини. Працює і як якір лоадера.",
+    "G · Contained badge": "G · Контейнер-бейдж",
+    "lgG-note": "S вирізана зі сквіркла з кутовим зрізом. Найбільш «сторівський», найменш унікальний.",
+    "H · S equals": "H · S-дорівнює",
+    "lgH-note": "Штрихова S, перекреслена знаком рівності — «ділимо порівну» прямим текстом. Мінімум 20px.",
+    "Logo — explorations, round 3": "Логотип — пошук, раунд 3",
+    "logo4-desc": "Побудовано на F. Кожен варіант питає, що має нести проміжок: повну лінійку реєстру, крапку-сателіт, по крапці на людину, чи всю літеру в монеті.",
+    "I · Ledger rule": "I · Лінія реєстру",
+    "lgI-note": "Розріз виходить за межі літери повною лінією — S стоїть на рядку рахунків. Найсильніше у великому розмірі.",
+    "J · Satellite cent": "J · Цент-сателіт",
+    "lgJ-note": "Крапка виходить із проміжку й стає намистиною-нотифікацією — гарно римується з лічильниками.",
+    "K · Two heads": "K · Двоє",
+    "lgK-note": "По крапці з кожного боку: двоє людей, один рахунок. Найтепліший, але метушливий менше 24px.",
+    "L · Cut coin": "L · Розрізана монета",
+    "lgL-note": "S усередині монети, розріз перетинає її. Читається спершу як гроші, потім як літера.",
+    "Logo — explorations, round 4": "Логотип — пошук, раунд 4",
+    "logo5-desc": "Чотири варіанти, які змінюють не вигляд поділу, а його зміст: частка, надірваний чек, напрям платежу і горизонтальний розріз.",
+    "M · Percent S": "M · S-відсоток",
+    "lgM-note": "Дві намистини на діагоналі перетворюють S на знак відсотка — це вже частка, а не просто розріз. Найкраща історія в сеті.",
+    "N · Torn receipt": "N · Надірваний чек",
+    "lgN-note": "Проміжок перфорований: рахунок, розірваний навпіл. Пунктиру треба мінімум 24px.",
+    "O · Payment arrow": "O · Стрілка платежу",
+    "lgO-note": "Розріз завершується вістрям — гроші рухаються в один бік. Напрямлений, тож ніколи не дзеркалиться.",
+    "P · Flat cut": "P · Рівний розріз",
+    "lgP-note": "Горизонтальний поділ із центом по центру. Найспокійніший і найлегший для анімації розкриття.",
+    "Logo — E with more colour": "Логотип — E з більшою кількістю кольору",
+    "logo6-desc": "Вертикальний розріз E, зроблений кілька разів: кожна плита бере свій відтінок із палітри. Літера сама стає поділом — по шматку на людину. Смуги йдуть Tide 600 → Tide 400 → Ember 400 → Ember 500 зліва направо.",
+    "E2 · Four slabs": "E2 · Чотири плити",
+    "lgE2-note": "По шматку на людину при поділі на чотирьох. Від холодного до теплого — гроші переходять із рук у руки.",
+    "E3 · Three slabs": "E3 · Три плити",
+    "lgE3-note": "Спокійніше, лишає домінантну масу Tide, тож знак усе ще читається як синій.",
+    "E4 · Slabs + cent": "E4 · Плити + цент",
+    "lgE4-note": "Спільний цент із F опущений у середній проміжок — дві ідеї разом.",
+    "E5 · With Settled green": "E5 · Із зеленим Settled",
+    "lgE5-note": "Вводить третій функційний колір: винні, закрито, ти винен — увесь стан балансу в одній літері.",
+    "Logo — E across the brand font": "Логотип — E у брендовому шрифті",
+    "logo7-desc": "S лишається Bricolage Grotesque — наш власний дисплейний шрифт. Змінюються вага, оптичний розмір і ширина розрізу. Локап набрано відповідною вагою.",
+    "S1 · 800 · hairline kerf": "S1 · 800 · тонкий розріз",
+    "lgS1-note": "Наша поточна вага в дисплейному оптичному розмірі, розріз доведено до волосини. Найбільша маса, найтихіший поділ.",
+    "S2 · 800 · open kerf": "S2 · 800 · широкий розріз",
+    "lgS2-note": "Та сама літера, проміжок удвічі більший. Поділ безпомилковий, але S починає читатися як дві форми.",
+    "S3 · 700 · text optical size": "S3 · 700 · текстовий оптичний розмір",
+    "lgS3-note": "Легша вага й текстовий оптичний розмір: ширші апертури, більше повітря. Найкраща читабельність на 16px.",
+    "S4 · 600 · small optical size": "S4 · 600 · малий оптичний розмір",
+    "lgS4-note": "Найлегший різ, який дає Bricolage — найближче до монолінії, найскромніший із чотирьох.",
+    "Logo — S3 in colour": "Логотип — S3 у кольорі",
+    "logo8-desc": "Одне накреслення всюди: Bricolage Grotesque 700, текстовий оптичний розмір, вертикальний розріз. Змінюється тільки колір. На кольоровій плитці палітру освітлено, щоб знак пережив оранжевий клин; локапи показують справжні значення.",
+    "T1 · Four slabs": "T1 · Чотири плити",
+    "lgT1-note": "Tide 600 → Tide 400 → Ember 400 → Ember 500. По плиті на людину при поділі на чотирьох.",
+    "T2 · Balance states": "T2 · Стани балансу",
+    "lgT2-note": "Три функційні кольори: тобі винні, закрито, ти винен. Читається як статус-бар у формі S.",
+    "T3 · Quartered": "T3 · На чверті",
+    "lgT3-note": "Розріз по вертикалі й горизонталі: чотири квадранти, холодне вгорі, тепле внизу. Найметушливіший, найкращий від 64px.",
+    "T4 · Duotone gradient": "T4 · Дуотон-градієнт",
+    "lgT4-note": "Один перехід Tide→Ember на обидві половини. Сучасно, але єдиний варіант, якому потрібен плаский фолбек для друку.",
+    "Logo quadrant on Ink": "Чверть логотипа на Ink",
+    "Logo — R8, quartered S recolours": "Логотип — R8, перефарбування розділеної на чверті S",
+    "logo9-desc": "Ті самі чверті T3 — верхня ліва, верхня права, нижня ліва, нижня права — у кожному варіанті свій набір із чотирьох суцільних кольорів без градієнтів. U1 — твоя специфікація: біла верхня ліва, Tide 300 верхня права, Ember 100 нижня ліва, Ember 400 нижня права. У локапах на білому тлі біла чверть стає Ink, щоб лишатись видимою; на кольоровій плитці вона справді біла.",
+    "U1 · Your spec": "U1 · Твоя специфікація",
+    "lgU1-note": "Білий · Tide 300 · Ember 100 · Ember 400. Найм'якіший у наборі — Ember 100 майже не читається як колір, більше як тон паперу.",
+    "U2 · Full contrast": "U2 · Повний контраст",
+    "lgU2-note": "Білий · Tide 600 · Ember 100 · Ember 500. Найглибші Tide й Ember замість світлих — найсильніше, найнасиченіше читання.",
+    "U3 · Diagonal swap": "U3 · Діагональна заміна",
+    "lgU3-note": "Білий · Tide 400 · Ember 500 · Ember 100. Ставить найяскравіший Ember навпроти найм'якшого — навмисно нерівний баланс.",
+    "U4 · No white": "U4 · Без білого",
+    "lgU4-note": "Ember 100 · Tide 300 · Tide 600 · Ember 500. Прибирає білий узагалі — лише чотири бренд-тони, тепло-холодна діагональ.",
+    "U5 · Two-tone halves": "U5 · Двотонові половини",
+    "lgU5-note": "Білий · Білий · Ember 500 · Ember 500. Знову читається як дві плоскі половини, але горизонтальна риска S усе одно проступає.",
+    "U6 · TR/BL swapped": "U6 · Обмін ВП/НЛ",
+    "lgU6-note": "Та сама палітра U1 з обміном верхньої правої та нижньої лівої: Ember 100 йде вгору, Tide 300 — униз, холодне тепер по діагоналі саме до себе.",
+    "U6 · U1 with TR/BL swapped": "U6 · U1 з обміном ВП/НЛ",
+    "lgU6-note": "Білий · Ember 100 · Tide 300 · Ember 400. Той самий U1, але верхня права й нижня ліва чверті помінялись місцями — теплий тон піднявся, холодний опустився.",
+    "NEW": "НОВЕ",
+    "Display": "Дисплейний",
+    "font-1-use": "Змінний гротеск з дисплейним оптичним розміром. Використовується для вордмарка, знака S, усіх заголовків екранів, секційних заголовків і будь-яких чисел, які мають звучати як заголовок (великі баланси, твердження в онбордингу). Ніколи для основного тексту чи підписів UI. Google Fonts, вільний для комерційного використання.",
+    "Interface & body": "Інтерфейс і текст",
+    "font-2-use": "Гуманістичний гротеск із відкритими апертурами та справжніми табличними цифрами. Усе, що користувач читає або тапає: рядки списків, кнопки, підписи форм, капшени, суми. Для кожного грошового значення вмикай <code style=\"font:600 12.5px 'JetBrains Mono';color:#101A3D\">font-variant-numeric: tabular-nums</code>. Google Fonts, вільний для комерційного використання.",
+    "Utility": "Службовий",
+    "font-3-use": "Лише для машинних рядків: коди звірки, hex-значення, ідентифікатори екранів, посилання на API у хендовері. Ніколи в продуктовому UI, окрім коду звірки бота.",
+    "PRO": "PRO",
+    "Navigation & settings icons": "Іконки навігації та налаштувань",
+    "uiicons-desc": "Та сама мова, що й у категоріях: сітка 24×24, штрих Tide 600, один Ember-акцент на іконку. Використовуються для нижньої панелі табів і кожного рядка налаштувань — ніяких емодзі у продукті.",
+    "Groups (nav)": "Groups (нав.)",
+    "Activity (nav)": "Activity (нав.)",
+    "Bot (nav)": "Bot (нав.)",
+    "You (nav)": "You (нав.)",
+    "Default currency": "Валюта за замовчуванням",
+    "Friends": "Друзі",
+    "Export CSV": "Експорт CSV",
+    "Help & feedback": "Допомога і відгук",
+    "Logo": "Логотип",
+    "logo-desc": "Концепт T3, «Розділена на чверті S». Bricolage Grotesque 700 у текстовому оптичному розмірі, один розріз по вертикалі й один по горизонталі. Кожна чверть — один суцільний бренд-колір, за годинниковою від верхнього лівого: холодне вгорі, тепле внизу. Чотири дозволені колірні набори, без градієнтів: <b>на білому</b> Tide 600 / Tide 400 / Ember 400 / Ember 500 · <b>на Ink</b> Tide 400 / Tide 300 / Ember 400 / Ember 500 · <b>на Ember</b> білий / Tide 100 / Tide 400 / Tide 600 · <b>однокольоровий</b> Ink / Slate. На чверті — від 24px; менше — двоколірний знак з одним розрізом.",
+    "App icon · 1024×1024": "Іконка застосунку · 1024×1024",
+    "icon-note": "Поле Tide з оранжевим кутовим клином — колірна схема U1: білий · Tide 300 · Ember 100 · Ember 400. Safe area 820px.",
+    "minsize": "Знак на чверті від 24px · нижче — двоколірний знак із розрізом · однокольоровий Ink-фолбек",
+    "Don't": "Не можна",
+    "dont-1": "Перефарбовувати половини поза дуотоном",
+    "dont-2": "Додавати обведення, тінь чи градієнт до знака",
+    "dont-3": "Набирати вордмарк не Bricolage 800",
+    "dont-4": "Ставити знак на строкате фото без підкладки",
+    "Colour": "Колір",
+    "color-desc": "Теплий дуотон. Ember Orange несе бренд і маркетинг; Tide Blue — усі дії та всі суми, які винні тобі. Суми, які винен ти, завжди Ember.",
+    "Brand, you owe, alerts": "Бренд, ти винен, алерти",
+    "Gradients, hover": "Градієнти, hover",
+    "Chips, icon wells": "Чипи, підкладки іконок",
+    "Primary action, owed to you": "Головна дія, тобі винні",
+    "On dark, links": "На темному, лінки",
+    "Selected states": "Вибраний стан",
+    "Bot gradient": "Градієнт бота",
+    "Type & voice": "Типографіка й голос",
+    "Who owes what,": "Хто кому винен —",
+    "in one tap.": "в один тап.",
+    "type-body": "Основний текст 17/27 · 400. Використовується у кожному рядку списку, підписі форми й абзаці. Табличні цифри увімкнені всюди, де є суми.",
+    "Tone of voice": "Тон голосу",
+    "voice-1": "«Короткі речення. Впевнено. Ніколи не корпоративно.»",
+    "voice-2": "Спочатку число, потім пояснення. Звертання на «ти» й на імʼя, ніколи «користувач». Грошові слова прості: винен, сплатив, закрито. Жодних знаків оклику в балансах — тільки у святкуваннях.",
+    "v-do": "✓ «Іван винен тобі €42,50»",
+    "v-dont": "× «Непогашена дебіторська заборгованість»",
+    "Names considered": "Розглянуті назви",
+    "LOCKED — final": "ЗАКРІПЛЕНО — фінал",
+    "n-1": "тепло, але тісно у фінтеху",
+    "n-2": "зрозуміло, але слабкий знак",
+    "n-3": "грайливо, читається як гра",
+    "n-4": "лише про подорожі, звужує продукт",
+    "Category icons": "Іконки категорій",
+    "icons-desc": "Коло 44px, гліф 22px, підкладка — 12% відтінку. У списках 40px, у формі витрати 56px. Бот — не категорія: у нього дуотон-градієнт.",
+    "Stay": "Житло", "Transport": "Транспорт", "Food": "Їжа", "Drinks": "Напої",
+    "Groceries": "Продукти", "Fun": "Розваги", "Shopping": "Шопінг",
+    "Rent & bills": "Оренда й рахунки", "Health": "Здоровʼя", "Gifts": "Подарунки",
+    "Fuel": "Паливо", "Other": "Інше", "Groups Chat Bot": "Groups Chat Bot", "premium": "преміум",
+    "Screens": "Екрани",
+    "screens-desc": "Артборд iPhone 14, 390×844pt. Safe area: 59pt зверху, 34pt знизу. Усі тап-таргети ≥44pt.",
+    "Onboarding · Welcome": "Онбординг · Вітання",
+    "Onboarding · Bot": "Онбординг · Бот",
+    "Onboarding · Proof": "Онбординг · Доказ",
+    "ob1-title": "Спільні витрати без болю.",
+    "ob1-sub": "Додай, що ти заплатив. Splitay зробить математику, валюти й незручні нагадування.",
+    "You are owed": "Тобі винні", "You owe": "Ти винен",
+    "Next": "Далі", "Skip": "Пропустити",
+    "PREMIUM FEATURE": "ПРЕМІУМ-ФІЧА",
+    "ob2-title": "Друзям не треба нічого встановлювати.",
+    "ob2-sub": "Додай бота Splitay у чат Telegram, WhatsApp чи Viber. Будь-хто тегає його — витрата зʼявляється у твоєму застосунку.",
+    "bot-reply": "Додано до <b>Berlin weekend</b> · €6,00 кожному",
+    "ob3-title": "Розрахуйтесь і лишіться друзями.",
+    "ob3-sub": "Ми стискаємо 14 платежів до 3. Один тап — і всі квити.",
+    "App of the Year": "Застосунок року", "App Store": "App Store",
+    "Create your first group": "Створити першу групу",
+    "ob3-note": "Реєстрація не потрібна — увійдеш, коли захочеш синхронізацію.",
+    "Groups & trips": "Групи й подорожі",
+    "Hey, Olena": "Привіт, Олено", "Your groups": "Твої групи",
+    "Overall, you are owed": "Загалом тобі винні", "Settle": "Закрити",
+    "people": "учасники", "bot on": "бот", "you are owed": "тобі винні",
+    "you owe": "ти винен", "Closed 12 Mar": "Закрито 12 бер", "Settled": "Розраховано",
+    "Groups": "Групи", "Activity": "Активність", "Bot": "Бот", "You": "Ти",
+    "Group · Expenses tab": "Група · Таб витрат",
+    "Group · Balances tab": "Група · Таб балансів",
+    "Settle up": "Розрахуватись", "Expenses": "Витрати", "Balances": "Баланси",
+    "Today": "Сьогодні", "Yesterday": "Вчора",
+    "Maks paid €24.00": "Макс сплатив €24,00",
+    "You paid €148.60": "Ти сплатила €148,60",
+    "Iryna paid €320.00": "Ірина сплатила €320,00",
+    "Anna paid €72.00": "Анна сплатила €72,00",
+    "you lent": "ти позичила", "Add expense": "Додати витрату",
+    "minimised": "Стиснуто з 9 платежів до 3",
+    "3 transfers to be square": "3 перекази — і всі квити",
+    "owes": "винна", "you": "тобі", "owe": "винна", "Remind": "Нагадати", "Pay": "Сплатити",
+    "Per person": "По людях", "Settle all balances": "Закрити всі баланси",
+    "Cancel": "Скасувати", "New expense": "Нова витрата", "Save": "Зберегти",
+    "Amount": "Сума", "Category": "Категорія", "Ride": "Таксі", "Bar": "Бар", "All": "Усі",
+    "Paid by": "Платив", "Split": "Поділ", "Equally · 4 people": "Порівну · 4 особи ›",
+    "Date": "Дата", "Equally": "Порівну", "Shares": "Частки", "Exact": "Точно",
+    "Save expense": "Зберегти витрату", "Settle up sheet": "Шит розрахунку",
+    "settle-sub": "Ми перебудували 9 боргів у мінімальну кількість переказів. Познач кожен, коли гроші пішли.",
+    "Request": "Запросити", "Mark paid": "Позначити сплаченим",
+    "Pay €19.80": "Сплатити €19,80", "Mark everything settled": "Позначити все закритим",
+    "Groups Chat Bot · premium": "Groups Chat Bot · преміум",
+    "Active · renews 3 Sep": "Активно · поновиться 3 вер",
+    "Splitay Plus": "Splitay Plus", "mo": "міс",
+    "124 of 200 bot expenses this month": "124 з 200 бот-витрат цього місяця",
+    "Upgrade": "Підвищити", "Connected chats": "Підключені чати",
+    "members": "учасники", "Live": "Активний", "Pending": "Очікує",
+    "Add Viber chat": "Додати чат Viber", "3 platforms supported": "3 платформи підтримуються",
+    "How to add the bot": "Як додати бота",
+    "step-1": "Відкрий груповий чат і додай <b style=\"color:#fff\">@splitay_bot</b>",
+    "step-2": "Надішли код звірки з цього екрана в чат",
+    "step-3": "Усі пишуть <b style=\"color:#fff\">@splitay 24€ таксі</b> — готово",
+    "Copy": "Копіювати", "Connect a new chat": "Підключити новий чат",
+    "Profile & settings": "Профіль і налаштування",
+    "Bot active on 2 chats": "Бот активний у 2 чатах",
+    "Default currency": "Валюта за замовчуванням", "Language": "Мова",
+    "lang-value": "Українська ›", "Reminders": "Нагадування",
+    "Friends": "Друзі", "Export CSV": "Експорт CSV", "Help & feedback": "Допомога і відгук",
+    "footer-note": "Splitay 2.4.0 · Без реклами. Без комісій.",
+    "Screen flow": "Флоу екранів", "Onboarding": "Онбординг",
+    "Groups list": "Список груп", "Group detail": "Деталі групи", "Profile": "Профіль",
+    "Bot path": "Шлях бота",
+    "bot-path": "Чат у Telegram → «@splitay 24€ таксі» → парсинг → група за chat id → створення витрати → пуш власнику → зʼявляється в S-05 з бейджем BOT",
+    "Components & states": "Компоненти й стани",
+    "Component": "Компонент", "Size": "Розмір", "States": "Стани", "Notes": "Нотатки",
+    "One per screen": "Одна на екран", "Premium only": "Лише преміум",
+    "Amount tabular": "Сума табличними", "Cover = photo or gradient": "Обкладинка — фото або градієнт",
+    "Amount 28/800": "Сума 28/800", "3 tabs max": "Максимум 3 таби",
+    "12 + bot": "12 + бот", "Stack overlap −9": "Наліт у стеку −9",
+    "Bot screen only": "Лише екран бота",
+    "Handoff": "Хендовер", "tokens.json": "tokens.json",
+    "Groups Chat Bot — states": "Groups Chat Bot — стани",
+    "Not connected": "Не підключено",
+    "st-1": "Показати картку підписки + 3 кроки інструкції. CTA «Підключити новий чат».",
+    "Pending pairing": "Очікує звірки",
+    "st-2": "Код дійсний 10 хв, бурштиновий чип, зворотний відлік, «Надіслати ще раз».",
+    "st-3": "Зелений чип, кількість учасників, мʼют по чату і «Відвʼязати».",
+    "Parse failed": "Не розпізнано",
+    "st-4": "Бот відповідає у чаті очікуваним форматом; у застосунку зʼявляється айтем для ручного виправлення.",
+    "Quota reached": "Ліміт вичерпано",
+    "st-5": "200/міс на Plus. Бот попереджає один раз на 90%, далі мовчить; у застосунку банер апгрейду.",
+    "Subscription lapsed": "Підписка закінчилась",
+    "st-6": "Чати лишаються звʼязані у read-only 14 днів, потім відвʼязуються. Наявні витрати не зникають."
+  };
+
+  apply(lang) {
+    document.querySelectorAll('[data-t]').forEach(el => {
+      if (el.__en === undefined) el.__en = el.innerHTML;
+      const k = el.getAttribute('data-t');
+      const ua = this.dict[k];
+      el.innerHTML = (lang === 'ua' && ua) ? ua : el.__en;
+    });
+  }
+
+  btn(active) {
+    return 'padding:8px 18px;border:none;border-radius:999px;cursor:pointer;font:700 13px Figtree;letter-spacing:.04em;'
+      + (active ? 'background:#F2622E;color:#fff;' : 'background:transparent;color:#8892AC;');
+  }
+
+  renderVals() {
+    const set = l => { this.setState({ lang: l }); setTimeout(() => this.apply(l), 0); };
+    return {
+      setEn: () => set('en'),
+      setUa: () => set('ua'),
+      enStyle: this.btn(this.state.lang === 'en'),
+      uaStyle: this.btn(this.state.lang === 'ua')
+    };
+  }
+}
+</script>
+</body>
+</html>
