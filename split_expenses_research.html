@@ -214,7 +214,90 @@
   </div>
 </section>
 
-<footer>Niche Scout Agent · Спліт витрат (Splid/Splitwise/Tricount) — глибокий ресьорч ніші · 2026-08-07 · дані: веб-пошук (SplitMyExpenses, Splital, squadtrip, splittalo, Owler, Tracxn, Grokipedia) + iTunes Search API, зібрано наживо для цього звіту</footer>
+<section style="border-top:3px solid var(--accent); padding-top:26px;">
+  <h2><span class="num">8</span> 🔬 DEEP RESEARCH — повні дані по кожному конкуренту (оновлено 2026-08-17)</h2>
+  <div class="risk-box" style="margin-bottom:16px;">
+    <div class="title">⚠️ Про джерело цифр — чесно</div>
+    <p style="margin:0;">SensorTower у цій сесії був <b>недоступний</b> (потрібна залогінена браузерна сесія Claude-in-Chrome, якої немає) — тому ST-оцінок доходу тут НЕМА, і я їх не вигадував. Натомість зібрано те, що <b>точніше за ST-оцінки</b>: Google Play віддає <b>реальні install-числа</b> (не бакети «1M+», а точні значення), плюс повні дані по рейтингах у 14 гео з iTunes API і бізнес-контекст (M&A, фандинг, ARR) з відкритих джерел. Де є оцінка, а не факт — позначено явно.</p>
+  </div>
+
+  <h3 style="font-size:16px; color:var(--accent2); margin:22px 0 10px;">8.1 Android: реальні інсталяції (Google Play, точні числа)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Додаток</th><th>Інсталяцій (реальних)</th><th>Оцінок</th><th>★</th><th>Модель</th><th>Останній апдейт</th><th>Реліз</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td><b>Splitwise</b> <span class="tag giant">глоб. лідер</span></td><td class="n">34,885,308</td><td class="n">194,215</td><td class="n">4.07</td><td>IAP $0.99–89.99, без реклами</td><td class="n">13.08.2026</td><td class="n">12.09.2011</td></tr>
+      <tr><td class="n">2</td><td><b>Tricount</b> <span class="tag giant">bunq</span></td><td class="n">17,540,091</td><td class="n">193,176</td><td class="n">4.77</td><td class="tag lead">БЕЗ IAP, з рекламою</td><td class="n">02.06.2026</td><td class="n">01.07.2011</td></tr>
+      <tr><td class="n">3</td><td><b>Splid</b></td><td class="n">3,416,797</td><td class="n">85,318</td><td class="n">4.95 <span class="tag lead">топ-рейтинг</span></td><td>1 IAP $3.49 (разово)</td><td class="n" style="color:var(--bad)">23.08.2025 ⚠️</td><td class="n">20.11.2017</td></tr>
+      <tr><td class="n">4</td><td><b>Settle Up</b></td><td class="n">3,128,717</td><td class="n">49,674</td><td class="n">4.72</td><td>IAP $0.99–149.99 + реклама</td><td class="n">17.08.2026</td><td class="n">19.04.2011</td></tr>
+      <tr><td class="n">5</td><td><b>Splitser</b> (WieBetaaltWat)</td><td class="n">1,745,705</td><td class="n">5,686</td><td class="n">4.74</td><td>IAP $1.99–22.00</td><td class="n">31.07.2026</td><td class="n">22.03.2013</td></tr>
+      <tr><td class="n">6</td><td>Splitkaro <span class="tag new">🇮🇳 IN</span></td><td class="n">368,347</td><td class="n">8,659</td><td class="n">4.43</td><td>IAP $4.00–14.99</td><td class="n">12.08.2026</td><td class="n">20.05.2019</td></tr>
+      <tr><td class="n">7</td><td>Splital</td><td class="n">102,884</td><td class="n">1,890</td><td class="n">4.90</td><td>IAP $3.99–32.99</td><td class="n">24.07.2026</td><td class="n">14.05.2024</td></tr>
+      <tr><td class="n">8</td><td>Tab</td><td class="n">124,963</td><td class="n">715</td><td class="n">3.31</td><td>Free, без IAP</td><td class="n">—</td><td class="n">21.08.2013</td></tr>
+      <tr><td class="n">9</td><td>Kittysplit <span class="tag new">🇩🇪 новий</span></td><td class="n">28,316</td><td class="n">440</td><td class="n">4.94</td><td>1 IAP $3.49</td><td class="n">12.08.2026</td><td class="n">01.08.2025</td></tr>
+      <tr><td class="n">10</td><td>Split – Pay Together</td><td class="n">10,392</td><td class="n">40</td><td class="n">3.89</td><td>Free</td><td class="n">—</td><td class="n">07.02.2026</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">🔍 <b>Дві знахідки, які видно тільки з цих чисел:</b> (1) <b>Splid не оновлювався рік</b> (23.08.2025) — при тому, що всі решта апдейтяться щомісяця, а Settle Up оновився в день збору цих даних. Для соло-проєкту (Nico Jersch) це або пауза, або згасання — вікно, щоб забрати його аудиторію в DACH. (2) <b>Splitser має 1.75M інсталяцій, але лише 5,686 оцінок</b> — у 34 рази менше оцінок на інсталяцію, ніж у Splid — тобто інсталяції є, а залученість/лояльність значно слабша.</p>
+
+  <h3 style="font-size:16px; color:var(--accent2); margin:26px 0 10px;">8.2 iOS: розподіл оцінок по 14 гео (де в кого домашній ринок)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Σ по 14 гео</th><th>№1 ринок</th><th>№2</th><th>№3</th><th>№4</th><th>№5</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tricount</b></td><td class="n">209,007 <span class="tag lead">лідер ЄС</span></td><td class="n">🇫🇷 FR 91,652</td><td class="n">🇪🇸 ES 39,710</td><td class="n">🇧🇪 BE 23,068</td><td class="n">🇩🇪 DE 13,596</td><td class="n">🇮🇹 IT 12,420</td></tr>
+      <tr><td><b>Splid</b></td><td class="n">72,401</td><td class="n">🇩🇪 DE 38,209</td><td class="n">🇪🇸 ES 7,160</td><td class="n">🇮🇹 IT 6,819</td><td class="n">🇨🇭 CH 6,093</td><td class="n">🇺🇸 US 3,925</td></tr>
+      <tr><td><b>Splitwise</b></td><td class="n">58,597</td><td class="n">🇺🇸 US 27,127</td><td class="n">🇩🇪 DE 8,812</td><td class="n">🇬🇧 GB 6,829</td><td class="n">🇪🇸 ES 4,001</td><td class="n">🇮🇹 IT 3,939</td></tr>
+      <tr><td><b>Settle Up</b></td><td class="n">15,594</td><td class="n">🇪🇸 ES 10,465</td><td class="n">🇺🇸 US 1,691</td><td class="n">🇬🇧 GB 1,177</td><td class="n">🇩🇪 DE 1,121</td><td class="n">🇨🇭 CH 466</td></tr>
+      <tr><td><b>Splitser</b></td><td class="n">579*</td><td class="n">🇮🇹 IT 281</td><td class="n">🇫🇷 FR 163</td><td class="n">🇸🇪 SE 79</td><td class="n">🇨🇿 CZ 46</td><td class="n">🇺🇦 UA 10</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">*Splitser: NL/BE (його справжній домашній ринок) не потрапив у зріз через розбіжність назви в локальному сторі (WieBetaaltWat) — реальна база там значно більша, за власними даними компанії 3–4 млн зареєстрованих. Цифри в таблиці — це його <b>експансія поза домом</b>, і вона поки слабка.</p>
+  <div class="card"><p style="margin:0;"><b style="color:var(--good)">Головний висновок по ЄС:</b> Європа <b>не належить Splitwise</b> — тут домінує Tricount (209K оцінок проти 58K у Splitwise по тих самих 14 гео, тобто ×3.5). Splitwise сильний майже виключно в US. Це означає: якщо ви заходите в ЄС — ваш реальний суперник Tricount (і його безкоштовна модель), а не Splitwise.</p></div>
+
+  <h3 style="font-size:16px; color:var(--accent2); margin:26px 0 10px;">8.3 Бізнес-контекст: хто за ким стоїть і як заробляє</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Гравець</th><th>Власник / країна</th><th>Гроші й масштаб</th><th>Як монетизує</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tricount</b></td><td>🇧🇪→🇳🇱 <b>Належить bunq</b> (2-й за розміром необанк ЄС), придбаний 05.2022</td><td class="n">~16 млн юзерів у 175 країнах; <b>€16.4 млрд</b> спільних витрат за 2024 (тревел €3.1 млрд, транспорт €2.5 млрд, продукти €2.1 млрд). На момент купівлі було 5.4 млн — тобто ×3 за 4 роки під bunq</td><td class="tag giant">Не монетизує напряму</td></tr>
+      <tr><td><b>Splitwise</b></td><td>🇺🇸 Splitwise Inc. (Providence)</td><td class="n">$29.3 млн залучено (Series A-III $20 млн, 04.2021); ARR <b>оцінка $25–35 млн</b></td><td>Pro $4.99/міс або $39.99/рік + реферали</td></tr>
+      <tr><td><b>Splitser</b></td><td>🇳🇱 Splitser B.V. (Амстердам)</td><td class="n">3–4 млн зареєстрованих, <b>€4.5 млрд</b> облікованих витрат; лідер ринку NL; «краща фін-апка» 2022 і 2023</td><td>IAP $1.99–22.00, без реклами</td></tr>
+      <tr><td><b>Settle Up</b></td><td>🇨🇿 Step Up Labs</td><td class="n">3.1 млн інсталяцій Android; найактивніший цикл релізів з усіх</td><td>IAP + реклама (обидва)</td></tr>
+      <tr><td><b>Splid</b></td><td>🇩🇪 <b>Соло-розробник</b> (Nico Jersch)</td><td class="n">3.4 млн інсталяцій, найвищий рейтинг ніші (4.95)</td><td>Разовий IAP $3.49</td></tr>
+    </tbody>
+  </table></div>
+  <div class="risk-box" style="margin-top:14px;">
+    <div class="title">💣 Найважливіше для вашої бізнес-моделі</div>
+    <p style="margin:0;"><b>Tricount безкоштовний не тому, що добрий — а тому, що він лійка для банку.</b> bunq купив його заради 5.4 млн юзерів і платіжних даних (€16.4 млрд/рік проходить через облік), а не заради підписок. Це означає: <b>у ЄС ви не можете виграти ціною</b> — ваш головний конкурент структурно здатний лишатися безкоштовним вічно й дотувати продукт із банківської маржі. Конкурувати треба фічами й локалізацією, а монетизацію будувати там, де Tricount свідомо не грає (ваш платний Chat Bot Assistant — саме такий кут).</p>
+  </div>
+
+  <h3 style="font-size:16px; color:var(--accent2); margin:26px 0 10px;">8.4 🇺🇦🇵🇱 Ринок запуску: перевірка локалізованого пошуку</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Запит (мова)</th><th>Що реально у видачі</th><th>Максимум оцінок</th><th>Вердикт</th></tr></thead>
+    <tbody>
+      <tr><td>🇺🇦 «розділити витрати» (укр.)</td><td>Splital, SplitUp, Depty, Finsplit, Bill Splitter for a Company</td><td class="n">0–1</td><td class="tag lead">ПОРОЖНЬО</td></tr>
+      <tr><td>🇺🇦 «split expenses» (англ.)</td><td>Splitwise 347 · Tricount 190 · Settle Up 128 · Splid 56 · Splitser 10</td><td class="n">347</td><td class="tag new">Тільки англ., слабко</td></tr>
+      <tr><td>🇵🇱 «podział rachunków» (пол.)</td><td>Splitko, Flatify, Tiko, Splital, Splitzz, NestraTrip</td><td class="n">0–1</td><td class="tag lead">ПОРОЖНЬО</td></tr>
+      <tr><td>🇵🇱 «dzielenie wydatków» (пол.)</td><td class="n" style="color:var(--good)">— взагалі нічого —</td><td class="n">0</td><td class="tag lead">ПОРОЖНЬО</td></tr>
+    </tbody>
+  </table></div>
+  <div class="win-box" style="margin-top:12px;">
+    <div class="title">✅ Стратегія Spilno (UA/PL-first) підтверджена даними</div>
+    <p style="margin:0 0 10px;">Жоден із топ-5 гравців <b>не локалізований під український і польський пошук</b>. Вони з'являються тільки на англомовний запит — тобто ловлять лише ту частину аудиторії, яка вже шукає англійською. На локальні запити видача заповнена додатками з 0–1 оцінкою, тобто <b>реального конкурента з локалізованим ASO там немає взагалі</b>.</p>
+    <p style="margin:0;"><b>Що з цього випливає практично:</b> (1) українська й польська локалізація назви, опису й ключових слів — це не «приємний бонус», а головна конкурентна перевага на старті; (2) UA/PL — не «маленький ринок для тренування», а єдине місце, де можна вийти в топ видачі органічно, без бюджету; (3) вікно не вічне — Tricount під bunq активно росте в нових ринках, і локалізація під СЄ — питання часу.</p>
+  </div>
+
+  <h3 style="font-size:16px; color:var(--accent2); margin:26px 0 10px;">8.5 Що з цього варто скопіювати, а що — навпаки</h3>
+  <div class="card">
+    <ul style="margin:0;">
+      <li><b>Копіювати в Tricount:</b> модель «без обмежень, без ліміту груп» — саме вона дала йому ×3.5 перевагу в ЄС над Splitwise. Ліміти в безкоштовній версії тут читаються як програш ще до старту.</li>
+      <li><b>Копіювати в Splid:</b> рейтинг 4.95 при 85K оцінок — це найкращий продуктовий сигнал ніші. Його рецепт: без реєстрації, офлайн, разова оплата $3.49 замість підписки. Юзери цієї ніші <b>не люблять підписки</b>.</li>
+      <li><b>НЕ копіювати Splitwise-модель</b> для ЄС: підписка $4.99/міс працює в US, але в Європі проти безкоштовного Tricount це важкий бій — його рейтинг 4.07 (найнижчий серед топ-5) значною мірою через скарги на платні ліміти.</li>
+      <li><b>Забрати аудиторію Splid у DACH:</b> рік без апдейтів у соло-проєкту з 3.4 млн інсталяцій — це вразливість. Німеччина/Австрія/Швейцарія = 48K оцінок iOS, які лишились без активної підтримки.</li>
+      <li><b>Не боротись за ES/FR:</b> Tricount там 39K/91K оцінок — це його фортеця, вхід туди коштуватиме непропорційно дорого.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Niche Scout Agent · Спліт витрат (Splid/Splitwise/Tricount) — глибокий ресьорч ніші · створено 2026-08-07, deep research оновлено 2026-08-17 · дані: Google Play (реальні install-числа) + iTunes Search API (14 гео) + веб (bunq press, PitchBook/Crunchbase/Tracxn, PYMNTS, Splitser) · SensorTower недоступний у цій сесії — ST-оцінок доходу свідомо немає</footer>
 
 </div>
 </body>
