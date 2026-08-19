@@ -106,7 +106,7 @@
   <h2><span class="num">2</span> 🔬 DEEP RESEARCH — повні дані по кожному конкуренту (оновлено 2026-08-17)</h2>
   <div class="risk-box" style="margin-bottom:16px;">
     <div class="title">⚠️ Про джерело цифр — чесно</div>
-    <p style="margin:0;">SensorTower у цій сесії був <b>недоступний</b> (потрібна залогінена браузерна сесія Claude-in-Chrome, якої немає) — тому ST-оцінок доходу тут НЕМА, і я їх не вигадував. Натомість зібрано те, що <b>точніше за ST-оцінки</b>: Google Play віддає <b>реальні install-числа</b> (не бакети «1M+», а точні значення), плюс повні дані по рейтингах у 14 гео з iTunes API і бізнес-контекст (M&A, фандинг, ARR) з відкритих джерел. Де є оцінка, а не факт — позначено явно.</p>
+    <p style="margin:0;">SensorTower тепер доступний (залогінена сесія) — у підсекції <b>2.6</b> додано ST-оцінки завантажень/міс і доходу/міс по кожному додатку. Решта таблиць нижче й далі базується на тому, що <b>точніше за ST-оцінки</b> там, де це можливо: Google Play віддає <b>реальні install-числа</b> (не бакети «1M+», а точні значення), плюс повні дані по рейтингах у 14 гео з iTunes API і бізнес-контекст (M&A, фандинг, ARR) з відкритих джерел. Де є оцінка, а не факт — позначено явно.</p>
   </div>
 
   <h3 style="font-size:16px; color:var(--accent2); margin:22px 0 10px;">8.1 Android: реальні інсталяції (Google Play, точні числа)</h3>
@@ -183,6 +183,25 @@
       <li><b>Не боротись за ES/FR:</b> Tricount там 39K/91K оцінок — це його фортеця, вхід туди коштуватиме непропорційно дорого.</li>
     </ul>
   </div>
+
+  <h3 style="font-size:16px; color:var(--accent2); margin:26px 0 10px;">2.6 SensorTower: завантаження/міс і дохід/міс</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Downloads (міс, WW)</th><th>Revenue (міс, WW)</th><th>Install Range</th><th>Advertised</th><th>Топ-країни (ST)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Splitwise</b> <span class="tag giant">лідер за доходом</span></td><td class="n">iOS 700K + Android 400K ≈ 1.1M</td><td class="n">iOS $600K + Android $200K ≈ <b>$800K</b></td><td class="n">10M–50M</td><td class="tag lead">Активна</td><td>US, Індія, Німеччина</td></tr>
+      <tr><td><b>Tricount</b> <span class="tag giant">bunq</span></td><td class="n">iOS 700K + Android 400K ≈ 1.1M</td><td class="n">iOS &lt;$5K + Android &lt;$5K ≈ &lt;$10K</td><td class="n">10M–50M</td><td>Вимкнена (обидві платформи)</td><td>Франція, Іспанія, Німеччина</td></tr>
+      <tr><td><b>Splid</b></td><td class="n">iOS 80K + Android 50K = 130K</td><td class="n">iOS $7K + Android $20K = <b>$27K</b></td><td class="n">1M–5M</td><td>Не виявлено ST-трекером</td><td>Німеччина, Іспанія/Італія</td></tr>
+      <tr><td><b>Settle Up</b></td><td class="n">iOS 30K + Android 20K = 50K</td><td class="n">iOS $6K + Android $10K = $16K</td><td class="n">1M–5M</td><td>Не виявлено ST-трекером</td><td>Іспанія, Чехія, Індія</td></tr>
+      <tr><td><b>Splitser</b> (WieBetaaltWat)</td><td class="n">iOS 50K + Android 30K = 80K</td><td class="n">iOS &lt;$5K + Android $6K ≈ &lt;$11K</td><td class="n">1M–5M</td><td class="tag lead">Активна (iOS) / нова (Android)</td><td>Нідерланди, Бельгія, Німеччина</td></tr>
+      <tr><td>Splitkaro <span class="tag new">🇮🇳 IN</span></td><td class="n">iOS &lt;5K + Android &lt;5K ≈ &lt;10K</td><td class="n">iOS &lt;$5K + Android &lt;$5K ≈ &lt;$10K</td><td class="n">100K–500K</td><td>Вимкнена (iOS)</td><td>Індія, Коста-Рика, Словаччина</td></tr>
+      <tr><td>Splital</td><td class="n">iOS &lt;5K + Android &lt;5K ≈ &lt;10K</td><td class="n">iOS &lt;$5K + Android $6K ≈ &lt;$11K</td><td class="n">100K–500K</td><td>Не виявлено ST-трекером</td><td>Аргентина, Чилі/Колумбія, Італія</td></tr>
+      <tr><td>Tab</td><td class="n">iOS &lt;5K + Android &lt;5K ≈ &lt;10K</td><td class="n">iOS &lt;$5K + Android &lt;$5K ≈ &lt;$10K</td><td class="n">100K–500K</td><td>Не виявлено ST-трекером</td><td>US, Канада, Австралія</td></tr>
+      <tr><td>Kittysplit <span class="tag new">🇩🇪 новий</span></td><td class="n">iOS &lt;5K + Android &lt;5K ≈ &lt;10K</td><td class="n">iOS &lt;$5K + Android &lt;$5K ≈ &lt;$10K</td><td class="n">10K–50K</td><td>Не виявлено ST-трекером</td><td>Німеччина, Австрія, Швейцарія</td></tr>
+      <tr><td>Split – Pay Together</td><td class="n">iOS 30K + Android &lt;5K ≈ 35K</td><td class="n">iOS &lt;$5K + Android &lt;$5K ≈ &lt;$10K</td><td class="n">10K–50K</td><td>Не виявлено ST-трекером</td><td>US, Канада, Нідерланди/Хорватія</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">📊 <b>Головна ST-знахідка:</b> Splitwise і Tricount практично однакові за завантаженнями (~1.1M/міс кожен), але Splitwise монетизує на порядок ефективніше — <b>$800K/міс проти &lt;$10K/міс</b> у Tricount, який структурно безкоштовний (лійка для bunq, без прямої монетизації). Другий за доходом — <b>Splid ($27K/міс)</b>, хоча за завантаженнями він у 8 разів менший за Splitwise — розробник-соло монетизує разовою покупкою ефективніше, ніж 6 із 10 конкурентів разом узятих. Дрібні нішеві гравці (Splitkaro, Splital, Tab, Kittysplit, Split – Pay Together) усі в нижньому бакеті ST (&lt;5K завантажень, &lt;$5K доходу на платформу) — реальна виручка в них або мікроскопічна, або ще не досягла порогу, який ST фіксує окремо від бакета.</p>
+
 </section>
 
 <section>
@@ -297,7 +316,7 @@
   </div>
 </section>
 
-<footer>Niche Scout Agent · Спліт витрат (Splid/Splitwise/Tricount) — глибокий ресьорч ніші · створено 2026-08-07, deep research оновлено 2026-08-17 · дані: Google Play (реальні install-числа) + iTunes Search API (14 гео) + веб (bunq press, PitchBook/Crunchbase/Tracxn, PYMNTS, Splitser) · SensorTower недоступний у цій сесії — ST-оцінок доходу свідомо немає</footer>
+<footer>Niche Scout Agent · Спліт витрат (Splid/Splitwise/Tricount) — глибокий ресьорч ніші · створено 2026-08-07, deep research оновлено 2026-08-19 · дані: Google Play (реальні install-числа) + iTunes Search API (14 гео) + SensorTower (завантаження/дохід/міс) + веб (bunq press, PitchBook/Crunchbase/Tracxn, PYMNTS, Splitser)</footer>
 
 </div>
 </body>
