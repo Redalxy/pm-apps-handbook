@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гра «власник ферми» з реальними товарами агроринку — ресьорч ніші</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1424; --card:#131a2e; --border:#232c47;
+    --text:#e8ecf7; --muted:#8b93ac; --accent:#ffd166; --accent2:#7ea8ff;
+    --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; padding:0; background:radial-gradient(ellipse at top,#101a30 0%,var(--bg) 60%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55;}
+  .wrap{max-width:960px; margin:0 auto; padding:44px 22px 90px;}
+  header{text-align:center; margin-bottom:40px;}
+  header .kicker{color:var(--accent2); letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600;}
+  header h1{font-size:32px; margin:10px 0 8px; background:linear-gradient(90deg,#ffd166,#8ee06f); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  header p{color:var(--muted); font-size:15px; max-width:680px; margin:0 auto;}
+  .badge-row{display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap;}
+  .badge{padding:6px 14px; border-radius:999px; font-size:13px; font-weight:600; border:1px solid var(--border); background:var(--card);}
+  .badge.bad{color:var(--bad); border-color:#4a2020;}
+  .badge.good{color:var(--good); border-color:#1f4a34;}
+  .badge.warn{color:var(--warn); border-color:#4a3f1f;}
+  section{margin-bottom:38px;}
+  h2{font-size:20px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); padding-bottom:12px; margin-bottom:18px;}
+  h2 .num{width:28px; height:28px; border-radius:8px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--accent2); flex-shrink:0;}
+  h3{font-size:16px; margin:22px 0 10px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;}
+  p,li{font-size:14.5px; color:#dfe3f2;}
+  .muted{color:var(--muted);}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:13px; min-width:640px;}
+  th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top;}
+  th{color:var(--accent2); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td.num,.n{font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tag{display:inline-block; padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600;}
+  .tag.lead{background:#12331f; color:var(--good);}
+  .tag.new{background:#1f2f4a; color:var(--accent2);}
+  .tag.giant{background:#4a2020; color:var(--bad);}
+  .tag.hidden{background:#3a2f1f; color:var(--warn);}
+  .axes{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:14px;}
+  .axis{background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
+  .axis .name{font-size:12px; color:var(--muted); display:flex; justify-content:space-between; margin-bottom:6px;}
+  .axis .score{font-size:20px; font-weight:800; color:var(--accent2);}
+  .axis .bar{height:5px; background:#1c2338; border-radius:99px; margin-top:6px; overflow:hidden;}
+  .axis .bar span{display:block; height:100%; background:linear-gradient(90deg,var(--accent2),var(--accent));}
+  .risk-box{background:linear-gradient(135deg,#2a1414,#131a2e); border:1px solid #4a2020; border-radius:14px; padding:22px;}
+  .risk-box .title{color:var(--bad); font-weight:700; font-size:16px; margin-bottom:10px;}
+  .win-box{background:linear-gradient(135deg,#132a1f,#131a2e); border:1px solid #1f4a34; border-radius:14px; padding:22px;}
+  .win-box .title{color:var(--good); font-weight:700; font-size:16px; margin-bottom:10px;}
+  .warn-box{background:linear-gradient(135deg,#2a2414,#131a2e); border:1px solid #4a3f1f; border-radius:14px; padding:22px;}
+  .warn-box .title{color:var(--warn); font-weight:700; font-size:16px; margin-bottom:10px;}
+  ul{padding-left:20px;} li{margin-bottom:6px;}
+  .opt-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px;}
+  .opt{background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
+  .opt h4{margin:0 0 8px; font-size:15px;}
+  .opt .verdict{font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:6px; display:inline-block; margin-bottom:8px;}
+  .v-hi{background:#12331f;color:var(--good);} .v-mid{background:#4a3f1f;color:var(--warn);} .v-lo{background:#4a2020;color:var(--bad);}
+  .decay{display:flex; gap:6px; align-items:flex-end; margin:14px 0 6px; flex-wrap:wrap;}
+  .decay .step{flex:1; min-width:64px; text-align:center;}
+  .decay .bar2{background:linear-gradient(180deg,var(--accent2),#2c3e6b); border-radius:6px 6px 0 0; margin-bottom:6px;}
+  .decay .lbl{font-size:10.5px; color:var(--muted); line-height:1.3;}
+  .decay .val{font-size:11.5px; font-weight:700; color:var(--text);}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:50px; border-top:1px solid var(--border); padding-top:20px;}
+  b{color:#fff;}
+  code{background:var(--bg2); border:1px solid var(--border); border-radius:5px; padding:1px 6px; font-size:12.5px; color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Niche Scout Agent · Ресьорч ніші</span>
+  <h1>Гра «власник ферми» з реальними товарами агроринку</h1>
+  <p>Ідея: стратегія-симулятор, де гравець будує ферму, переробні цехи й хліви, а техніка, запчастини, насіння та міндобрива — <b>реальні товари українського агроринку</b>, які можна купити. ЦА — реальні фермери, працівники агрокомпаній і звичайні гравці в ферма-ігри.</p>
+  <div class="badge-row">
+    <span class="badge bad">🔴 «Реальні бренди» — вже фішка Farming Simulator</span>
+    <span class="badge bad">🔴 ЦА-фермери майже не ставлять додатки</span>
+    <span class="badge good">🟢 Вікно є в сегменті «менеджер ферми»</span>
+    <span class="badge warn">⚖️ composite ≈7/18</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="num">0</span> 🎯 Короткий вердикт (TL;DR)</h2>
+  <div class="card">
+    <p style="margin-top:0;"><b>Ніша «ферма» — це не один ринок, а три, і в двох із них немає чого робити.</b> Казуальна ферма намертво зайнята Playrix (Township, 500M інсталів) і Supercell (Hay Day, 100M). Реалістичні симулятори — монополія однієї студії GIANTS Software, яка конкурує сама з собою у всіх гео.</p>
+    <p><b style="color:var(--bad)">Найважливіше, що знайшлось:</b> «гра з реальними тракторами й запчастинами» — це <b>вже основна фішка Farming Simulator з 2008 року</b> (ліцензовані John Deere, Claas, Fendt, New Holland, Case IH). Тобто це не наша диференціація, це опис лідера підніші. Єдина справжня відмінність ідеї — саме <b>українські</b> товари й можливість реально <b>купити</b>, а не просто побачити.</p>
+    <p><b style="color:var(--bad)">Друге:</b> ЦА «реальні фермери» за даними стору майже не існує в цифрі. Найбільший український агро-додаток у видачі — АгроМон з 10K інсталів, а «Агроном Онлайн» має <b>50 інсталів</b>. Ця аудиторія не платитиме як гравець.</p>
+    <p style="margin-bottom:0;"><b style="color:var(--good)">Єдине живе вікно</b> — сегмент «менеджер/тайкун ферми» (не казуальна ферма, не важкий сим). Доказ: <b>Farm Manager – 2026</b> від маленької студії Xombat ApS зібрав 10M інсталів приблизно за рік із ★4.55 і тримає топ-1 по ключу в усіх п'яти перевірених гео. Але реальні українські товари цьому сегменту нічого не додають.</p>
+  </div>
+  <p class="muted" style="font-size:13px;">Дані зібрано наживо 2026-08-24: 77 зрізів Google Play (keyword × geo) + 156 зрізів iTunes Search API по 6 сторфронтах (UA / PL / US / DE / TR / BR).</p>
+</section>
+
+<section>
+  <h2><span class="num">1</span> 🧩 Три різні ринки під однією назвою</h2>
+  <p>Плутати їх не можна — у них різні гравці, різні гроші й різні шанси для соло-розробника.</p>
+
+  <h3>🟨 B. Казуальна ферма — <span class="tag giant">зайнято велетнями</span></h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Play lifetime</th><th>★</th><th>Розробник</th></tr></thead>
+    <tbody>
+      <tr><td>Township</td><td class="n"><b>500 000 000+</b></td><td class="n">4.68</td><td>Playrix</td></tr>
+      <tr><td>Klondike Adventures</td><td class="n">100 000 000+</td><td class="n">4.59</td><td>Vizor Apps</td></tr>
+      <tr><td>Hay Day</td><td class="n">100 000 000+</td><td class="n">4.37</td><td>Supercell</td></tr>
+      <tr><td>Farm Land – Farming life</td><td class="n">100 000 000+</td><td class="n">4.31</td><td>LolTap</td></tr>
+      <tr><td>Farm Heroes Saga</td><td class="n">100 000 000+</td><td class="n">4.70</td><td>King</td></tr>
+      <tr><td>Harvest.io</td><td class="n">100 000 000+</td><td class="n">4.36</td><td>AI Games FZ</td></tr>
+      <tr><td>FarmVille 2: Country Escape</td><td class="n">50 000 000+</td><td class="n">4.34</td><td>Zynga</td></tr>
+      <tr><td>Big Farm: Mobile Harvest</td><td class="n">50 000 000+</td><td class="n">4.12</td><td>Goodgame</td></tr>
+      <tr><td>Family Farm Seaside</td><td class="n">50 000 000+</td><td class="n">4.27</td><td>FunPlus</td></tr>
+      <tr><td>Family Island</td><td class="n">50 000 000+</td><td class="n">—</td><td>Melsoft</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">🟥 Winner-take-most. Заходити соло — виключено. І «реальні українські трактори» казуальному гравцю Township не потрібні взагалі: у нього інший мотив гри.</p>
+
+  <h3>🟩 A. Реалістичний симулятор — <span class="tag giant">монополія GIANTS</span></h3>
+  <p>По ключу <code>farming simulator</code> у <b>всіх</b> перевірених гео (UA / US / BR / TR / IN) топ-видача — це лінійка однієї студії. Вони конкурують самі з собою.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Play lifetime</th><th>iOS ★ (US)</th><th>Реліз</th></tr></thead>
+    <tbody>
+      <tr><td>Farming Simulator 14</td><td class="n"><b>100 000 000+</b></td><td class="n">4.1</td><td>2013-11</td></tr>
+      <tr><td>Farming Simulator 16</td><td class="n">50 000 000+</td><td class="n">3.9</td><td>2015-08</td></tr>
+      <tr><td>Farming Simulator 18</td><td class="n">10 000 000+</td><td class="n">4.1</td><td>2017-06</td></tr>
+      <tr><td>Farming Simulator 20</td><td class="n">1 000 000+</td><td class="n">3.9</td><td>2019-11</td></tr>
+      <tr><td>Farming Simulator 23 Mobile</td><td class="n">100 000+</td><td class="n">4.4</td><td>2023-05</td></tr>
+      <tr><td>Farming Simulator 26 Mobile</td><td class="n">50 000+</td><td class="n" style="color:var(--bad)"><b>3.0</b> (91 відгук)</td><td>2026-05</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="decay">
+    <div class="step"><div class="bar2" style="height:96px"></div><div class="val">100M</div><div class="lbl">FS14<br>2013</div></div>
+    <div class="step"><div class="bar2" style="height:80px"></div><div class="val">50M</div><div class="lbl">FS16<br>2015</div></div>
+    <div class="step"><div class="bar2" style="height:60px"></div><div class="val">10M</div><div class="lbl">FS18<br>2017</div></div>
+    <div class="step"><div class="bar2" style="height:42px"></div><div class="val">1M</div><div class="lbl">FS20<br>2019</div></div>
+    <div class="step"><div class="bar2" style="height:24px"></div><div class="val">100K</div><div class="lbl">FS23<br>2023</div></div>
+    <div class="step"><div class="bar2" style="height:14px"></div><div class="val">50K</div><div class="lbl">FS26<br>2026</div></div>
+  </div>
+  <p class="muted" style="font-size:12.5px; margin-top:0;">Lifetime-інстали Google Play по лінійці Farming Simulator. Логарифмічне падіння від частини до частини.</p>
+
+  <div class="risk-box" style="margin-top:16px;">
+    <div class="title">🔴 Головний удар по ідеї</div>
+    <p style="margin:0 0 10px;"><b>«Реальні бренди техніки» — це вже ключова фішка Farming Simulator, а не наша ідея.</b> FS будується саме на ліцензованій справжній техніці з 2008 року. Пропозиція «гра з реальними тракторами й запчастинами» описує лідера підніші, а не нову можливість.</p>
+    <p style="margin:0;">Наша єдина справжня відмінність — <b>українські</b> товари й можливість реально <b>купити</b>. Це вже не про гру, це про торгівлю (див. розділ 5, Варіант 2).</p>
+  </div>
+  <div class="win-box" style="margin-top:12px;">
+    <div class="title">🟢 Але є й хороша новина</div>
+    <p style="margin:0;">GIANTS <b>втрачає мобільний імпульс</b>: кожна наступна частина стартує на порядок гірше, а свіжий FS26 Mobile (травень 2026) має ★3.0 на iOS. Це не порожня ніша, але це <b>слабкий і невдоволений своїм лідером</b> сегмент — там є місце для когось уважнішого до гравця.</p>
+  </div>
+
+  <h3>🟧 C. Тайкун / менеджер ферми — <span class="tag lead">єдине реальне вікно</span></h3>
+  <p>Ключ <code>farming manager</code> дає максимум у видачі всього <b>50M</b> — проти 500M у <code>farm game</code>. На порядок слабший рівень конкуренції за той самий тип попиту.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Play lifetime</th><th>★</th><th>Розробник</th><th>Реліз</th></tr></thead>
+    <tbody>
+      <tr style="background:#12240f"><td><b>Farm Manager – 2026</b></td><td class="n"><b>10 000 000+</b></td><td class="n"><b>4.55</b></td><td><b>Xombat ApS</b></td><td><b>2025-06</b></td></tr>
+      <tr><td>Farmington – Farm game</td><td class="n">10 000 000+</td><td class="n">4.73</td><td>Ugo</td><td>2021</td></tr>
+      <tr><td>Royal Farm</td><td class="n">10 000 000+</td><td class="n">4.71</td><td>Ugo</td><td>—</td></tr>
+      <tr><td>Harvest Land</td><td class="n">10 000 000+</td><td class="n">4.08</td><td>—</td><td>—</td></tr>
+      <tr><td>Harvest Town</td><td class="n">10 000 000+</td><td class="n">4.70</td><td>Gaminpower</td><td>2020-12</td></tr>
+      <tr><td>Bud Farm: Idle Tycoon</td><td class="n">5 000 000+</td><td class="n">4.60</td><td>LDRLY</td><td>2019</td></tr>
+      <tr><td>My Perfect Farm (лінійка ×4)</td><td class="n">1 000 000+</td><td class="n">4.06–4.38</td><td>Elite Games</td><td>—</td></tr>
+      <tr><td>Milk Farm Tycoon</td><td class="n">500 000+</td><td class="n">4.23</td><td>—</td><td>2022</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <p style="margin:0;"><b style="color:var(--good)">Ключовий бенчмарк:</b> <b>Farm Manager – 2026</b> (Xombat ApS, реліз червень 2025) — 10M інсталів приблизно за рік, ★4.55, топ-1 по ключу <code>farming manager</code> в усіх п'яти гео. Це <b>маленька студія, не Playrix</b>. Ось реальна стеля того, що досяжно в цій ніші без бюджету велетня.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">2</span> 🚜 ЦА «реальні фермери» — найслабше місце ідеї</h2>
+  <p>Окремо просканував <b>реальні агро-інструменти</b> (не ігри) в українському Google Play. Це прямий тест гіпотези «фермери ставлять додатки».</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>Play lifetime (UA-видача)</th><th>Що це</th></tr></thead>
+    <tbody>
+      <tr><td>АгроМон</td><td class="n">10 000+</td><td>скаутинг полів</td></tr>
+      <tr><td>AgroResult. Агрокалькулятор</td><td class="n">10 000+</td><td>калькулятор добрив</td></tr>
+      <tr><td>Soft.Farm Eye – Agronomist</td><td class="n">5 000+</td><td>агроном-помічник</td></tr>
+      <tr><td>Мобильный агроном</td><td class="n">5 000+</td><td>довідник</td></tr>
+      <tr><td>Облік зерна</td><td class="n">1 000+</td><td>облік урожаю</td></tr>
+      <tr><td>Agro Marketplace</td><td class="n">1 000+</td><td>маркетплейс</td></tr>
+      <tr><td>АРМ Агронома</td><td class="n">100+</td><td>робоче місце агронома</td></tr>
+      <tr><td>Агроном Онлайн</td><td class="n" style="color:var(--bad)"><b>50+</b></td><td>консультації</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:13px;">Для контрасту — глобальні агро-тули: OneSoil Scouting 500K, Plantix 10M (переважно Індія), TractorJunction 1M (Індія), TractorHouse 100K (США).</p>
+  <div class="risk-box">
+    <div class="title">🔴 Що це означає</div>
+    <ul style="margin:0;">
+      <li>Український агро-софт — це <b>десятки тисяч інсталів у кращому разі</b>, а найпрофільніші додатки (агроном, облік) — <b>сотні</b>.</li>
+      <li>ЦА «реальні фермери / працівники агрокомпаній» у цифрі <b>мала й неактивна</b>.</li>
+      <li>Вона майже точно <b>не монетизується через IAP</b> — фермер не купує алмази в грі.</li>
+    </ul>
+    <p style="margin:12px 0 0;">Отже гроші з цієї ЦА можуть прийти <b>тільки з B2B</b> — агродилери платять за розміщення своїх тракторів і добрив у грі. А B2B-продаж — це вже не розробка додатка, це <b>відділ продажів у агросекторі</b>.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">3</span> 🌍 Розмір українського ринку — цифри, які варто прийняти заздалегідь</h2>
+  <p>Кількість відгуків у сторфронті App Store — проксі розміру аудиторії ніші в конкретній країні.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Додаток</th><th>🇺🇦 UA</th><th>🇵🇱 PL</th><th>🇩🇪 DE</th><th>🇹🇷 TR</th><th>🇧🇷 BR</th></tr></thead>
+    <tbody>
+      <tr><td>Township</td><td class="n">43 088</td><td class="n">27 164</td><td class="n"><b>216 327</b></td><td class="n">—</td><td class="n">233 836</td></tr>
+      <tr><td>Hay Day</td><td class="n">31 391</td><td class="n">14 469</td><td class="n"><b>215 198</b></td><td class="n">154 263</td><td class="n">137 076</td></tr>
+      <tr><td>Klondike Adventures</td><td class="n">15 791</td><td class="n">7 460</td><td class="n">23 384</td><td class="n">—</td><td class="n">16 929</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn-box">
+    <div class="title">⚖️ Висновок по гео</div>
+    <p style="margin:0;"><b>UA приблизно у 5 разів менший за DE по цій самій ніші, а PL — ще вдвічі менший за UA.</b> Ставити Україну основним гео для ігрового продукту означає свідомо обрати найменший з доступних ринків. UA має сенс лише як <b>тестове</b> гео — дешевий трафік, рідна мова, швидкий фідбек від справжніх фермерів — але не як ринок збуту.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">4</span> 📐 Прогін через рубрику Niche Scout</h2>
+  <div class="card" style="margin-bottom:14px;">
+    <p style="margin:0;"><b>ad_policy: <span style="color:var(--good)">safe</span></b> — ігри/хобі, жодних медичних чи фінансових обіцянок. Meta акаунт не банить. Це єдина вісь, де все добре.</p>
+  </div>
+  <div class="axes">
+    <div class="axis"><div class="name"><span>demand</span><span>3/3</span></div><div class="score">3</div><div class="bar"><span style="width:100%"></span></div></div>
+    <div class="axis"><div class="name"><span>competition_weakness</span><span>1/3</span></div><div class="score">1</div><div class="bar"><span style="width:33%"></span></div></div>
+    <div class="axis"><div class="name"><span>big_player_absence</span><span>0/3</span></div><div class="score">0</div><div class="bar"><span style="width:3%"></span></div></div>
+    <div class="axis"><div class="name"><span>tam_fit</span><span>1/3</span></div><div class="score">1</div><div class="bar"><span style="width:33%"></span></div></div>
+    <div class="axis"><div class="name"><span>monetization</span><span>1/3</span></div><div class="score">1</div><div class="bar"><span style="width:33%"></span></div></div>
+    <div class="axis"><div class="name"><span>ad_leverage</span><span>1/3</span></div><div class="score">1</div><div class="bar"><span style="width:33%"></span></div></div>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Вісь</th><th>Оцінка</th><th>Чому саме так</th></tr></thead>
+    <tbody>
+      <tr><td>demand</td><td class="n">3</td><td>попит величезний і доведений — сотні мільйонів інсталів</td></tr>
+      <tr><td>competition_weakness</td><td class="n">1</td><td>A — монополія GIANTS, B — Playrix/Supercell. Слабкість лише в сегменті C</td></tr>
+      <tr><td>big_player_absence</td><td class="n">0</td><td>max_installs 500M у ключовій видачі — велетень сидить прямо тут</td></tr>
+      <tr><td>tam_fit</td><td class="n">1</td><td>якщо UA-фермери — TAM мізерний; якщо світ — TAM чужий і зайнятий</td></tr>
+      <tr><td>monetization</td><td class="n">1</td><td>ігровий IAP вимагає утримання рівня Playrix; ЦА-фермери не платять</td></tr>
+      <tr><td>ad_leverage</td><td class="n">1</td><td>нема before/after креативу; CPI ігор у UA/PL високий, ARPU низький</td></tr>
+      <tr style="background:#1a1420"><td><b>composite</b></td><td class="n"><b>≈7/18</b></td><td><b>нижче порогу, який зазвичай беремо в роботу</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="risk-box">
+    <div class="title">🔴 Головна проблема під ціль «перший прибутковий додаток на платному трафіку»</div>
+    <p style="margin:0;"><b>Гра — це найгірший клас продукту для платного трафіку соло-розробником.</b> Ігри окупають CPI тільки через довге утримання й LiveOps, тобто через команду. Утиліта (як BuildCalc) окупає інсталяцію за день — тут усе навпаки.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">5</span> 🔀 Три чесні варіанти, що з цим робити</h2>
+  <div class="opt-grid">
+    <div class="opt">
+      <span class="verdict v-mid">можливо, але дорого</span>
+      <h4>1. B2C-гра «менеджер ферми»</h4>
+      <p style="margin:0; font-size:13.5px;">Єдиний ігровий сегмент із живим вікном (<code>farming manager</code>, max 50M, і свіжий кейс Farm Manager – 2026: 10M за рік маленькою студією). Але це <b>повноцінна гра з LiveOps</b>, не MVP на кілька тижнів. Реальні українські товари тут — зайвий баласт: вони не потрібні гравцю в Бразилії.</p>
+    </div>
+    <div class="opt">
+      <span class="verdict v-hi">🎯 те, чим ідея є насправді</span>
+      <h4>2. B2B-адвергейм для агроринку</h4>
+      <p style="margin:0; font-size:13.5px;">Гра — не продукт, а <b>вітрина й лідген</b> для агродилерів: реальні трактори, запчастини, насіння, добрива всередині гри з переходом у покупку. Платить не гравець, а постачальник за розміщення й ліди.</p>
+      <ul style="margin:10px 0 0; font-size:13px;">
+        <li>➕ жодної конкуренції з Playrix — ми не на тому ринку</li>
+        <li>➕ фермер, який <i>насправді</i> купує трактор, — шалено дорогий лід</li>
+        <li>➖ успіх залежить не від коду, а від підписаних агрокомпаній</li>
+        <li>➖ не збігається з ціллю «прибуток на платному трафіку Meta»</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <span class="verdict v-mid">логічне продовження конвеєра</span>
+      <h4>3. Утиліта для тієї самої ЦА</h4>
+      <p style="margin:0; font-size:13.5px;">Дані розділу 2 показують: український агро-софт майже порожній (АгроМон 10K — це «лідер»). <b>Агрокалькулятор</b> — норма висіву, добрива, пальне, площа поля — це той самий клас продукту, що BuildCalc, з тією ж швидкістю збірки й реальною дірою на ринку. Не так весело, як ферма-стратегія, але логічно продовжує поточний конвеєр.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">6</span> ❓ Що ще треба дослідити</h2>
+  <div class="card">
+    <p style="margin-top:0;" class="muted">Цей блок ще не закритий — веб-ресьорч не встиг доїхати. Усе, що в розділах 1–5, — на живих даних сторів.</p>
+    <ol style="margin:0;">
+      <li><b>Ліцензування реальних брендів у Farming Simulator</b> (John Deere, Claas, Fendt): хто кому платить? Якщо бренди платять GIANTS за присутність — Варіант 2 отримує пряме підтвердження бізнес-моделі.</li>
+      <li><b>Розмір агро-ЦА в Україні</b>: скільки фермерських господарств, скільки агрономів, вплив війни. Джерела: Держстат, Мінагрополітики, Latifundist, UCAB, Agropolit.</li>
+      <li><b>B2B-рекламний ринок агро в UA/PL</b>: хто закуповує рекламу (дилери техніки, дистриб'ютори насіння й ЗЗР), які бюджети, вартість ліда.</li>
+      <li><b>Кейси Design Home / Redecor</b> — найближчий аналог «реальні товари всередині гри»: як монетизують розміщення реальних брендів меблів, який виторг.</li>
+      <li>Чи робили <b>самі агрокорпорації</b> (Bayer, Syngenta, Corteva, BASF) ігри чи адвергейми.</li>
+      <li><b>SensorTower по 37 конкурентах</b> — черга й промт готові, треба прогін через cowork.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">7</span> 🧾 Підсумок</h2>
+  <div class="card">
+    <p style="margin:0;">Ніша «ферма» величезна, але поділена: казуальна частина намертво зайнята Playrix і Supercell, реалістичні симулятори — монополія GIANTS, у якої «реальні бренди техніки» вже є головною фішкою з 2008 року. Єдине живе ігрове вікно — сегмент «менеджер/тайкун ферми», і там є свіжий доказ, що маленька студія може взяти 10M інсталів за рік. Але прив'язка до <b>українських</b> товарів ігрову цінність не додає, а ЦА «реальні фермери» за даними стору майже не користується додатками (топ-агро-софт UA — 5–10K інсталів) і не платитиме як гравець. Тому ідея в її нинішньому вигляді — це <b>не B2C-гра, а B2B-адвергейм</b>, де платять агродилери, і її успіх залежить від продажів у агросекторі, а не від розробки. Під заявлену ціль «перший прибутковий додаток на платному трафіку» вона не підходить.</p>
+  </div>
+</section>
+
+<footer>
+  Niche Scout Agent · ресьорч ніші «ферма / агро-симулятор» · 2026-08-24<br>
+  Дані: Google Play (77 зрізів keyword × geo) + iTunes Search API (156 зрізів, 6 сторфронтів). Розділ 6 — незакритий.
+</footer>
+
+</div>
+</body>
+</html>
