@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niche Scout — Риболовля: точки, клювання, погода, принада (18.09.2026)</title>
+<style>
+:root{
+  --bg:#0c1116; --panel:#141b23; --panel2:#1a232d; --line:#26333f;
+  --ink:#e8eef4; --dim:#8fa3b5; --accent:#3ddc97; --warn:#ffb648; --bad:#ff6b6b;
+  --blue:#5aa9e6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 22px 90px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:21px;margin:46px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+h3{font-size:16px;margin:26px 0 10px;color:var(--accent)}
+.sub{color:var(--dim);font-size:14px;margin-bottom:26px}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card .lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.card .val{font-size:26px;font-weight:650;letter-spacing:-.02em}
+.card .note{color:var(--dim);font-size:13px;margin-top:6px}
+.ok{color:var(--accent)} .wn{color:var(--warn)} .bd{color:var(--bad)} .bl{color:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;position:sticky;top:0;background:var(--bg)}
+tr:hover td{background:var(--panel2)}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.scroll table{margin:0}
+.scroll th{background:var(--panel)}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em}
+.t-core{background:rgba(61,220,151,.14);color:var(--accent)}
+.t-adj{background:rgba(255,182,72,.14);color:var(--warn)}
+.t-oth{background:rgba(255,107,107,.14);color:var(--bad)}
+.t-new{background:rgba(90,169,230,.16);color:var(--blue)}
+.yes{color:var(--accent);font-weight:700}
+.no{color:#48586a}
+.bar{height:9px;border-radius:5px;background:var(--panel2);overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;border-radius:5px}
+.verdict{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin:14px 0}
+.verdict.warn{border-left-color:var(--warn)}
+.verdict.bad{border-left-color:var(--bad)}
+.verdict b{color:var(--ink)}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+.axis{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13.5px}
+.axis .nm{width:210px;color:var(--dim);flex:none}
+.axis .tr{flex:1;height:8px;background:var(--panel2);border-radius:4px;overflow:hidden}
+.axis .tr i{display:block;height:100%}
+.axis .sc{width:34px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600;flex:none}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="kicker">Niche Scout · deep-dive</div>
+<h1>Риболовля: точки + прогноз клювання + погода/тиск + на що ловити</h1>
+<div class="sub">18 вересня 2026 · 28 застосунків · гео: US / GB / CA / AU · DE / PL · UA &nbsp;|&nbsp; джерела: Google Play, App Store, SensorTower (Downloads &amp; Revenue, Worldwide · Last Month), Meta Ad Library</div>
+
+<div class="grid g4">
+  <div class="card"><div class="lbl">Обсяг ринку (ядро)</div><div class="val ok">≈$3,26M</div><div class="note">на місяць, 11 додатків повного комбайна</div></div>
+  <div class="card"><div class="lbl">Велетень</div><div class="val bd">Є</div><div class="note">Fishbrain — $2,3M/міс = 70% ядра, 10–50M інсталів</div></div>
+  <div class="card"><div class="lbl">Аукціон Meta</div><div class="val wn">US гарячий<br><span style="font-size:15px">DE / PL / UA порожні</span></div><div class="note">29 оголошень у США, 0 у DE, 1 у PL, 0 в UA</div></div>
+  <div class="card"><div class="lbl">Свіжа хвиля</div><div class="val bl">8 нових SKU</div><div class="note">травень–вересень 2026; 3 увімкнули рекламу за 13 днів</div></div>
+</div>
+
+<h2>Головний висновок за 30 секунд</h2>
+<div class="verdict">
+<b>Ринок великий і платоспроможний — але гроші розподілені вкрай нерівномірно, і саме це визначає, куди заходити.</b>
+<ul>
+<li><b>Tier-1 EN (US/GB/CA/AU) — не заходити в лоб.</b> Fishbrain робить $2,3M/міс, тримає 70% усіх грошей ніші, має 10–50M інсталів і <i>соцграф уловів</i>: нові точки в нього додають користувачі, тож контентна база росте без витрат видавця. Це не просто велетень за інсталами — це велетень із мережевим ефектом. <b>composite 12/18</b></li>
+<li><b>DE / AT / CH + PL — ось вікно.</b> Meta-аукціон там <b>повністю порожній</b> (0 оголошень за «Beißzeiten», «Angel App», 1 за «brania ryb»), Fishbrain слабкий, а локальні лідери роблять лише $30–70K/міс. Критично: у німецького лідера <b>Fishbuddy ($70K/міс) взагалі немає прогнозу клювання й тиску</b>, а у найдорожчого гравця <b>Fish Deeper ($170K/міс) продукт прив'язаний до залізяки</b>. <b>composite 13/18</b></li>
+<li><b>Чистий «прогноз клювання» окремим продуктом — мертвий.</b> Два лідери обсягу (Lucky Fisher 20K і ddi.dev 20K завантажень/міс, обидва 1–5M інсталів) разом дають <b>&lt;$10K/міс</b>, а ddi.dev із 80 388 відгуками <b>взагалі не має IAP</b>. <b>composite 9/18</b></li>
+<li><b>UA + сусіди — монетарно порожньо.</b> Усі свіжі SKU в цьому гео &lt;$5K/міс; безкоштовна верхівка попиту зайнята ddi.dev. <b>composite 9/18</b></li>
+</ul>
+</div>
+
+<h2>Композит по трьох сценаріях (6 осей, 0–18)</h2>
+<div class="grid g3">
+
+<div class="card">
+<h3 style="margin-top:0">DE + PL, повний комбайн <span class="tag t-core">13/18 · найкраще</span></h3>
+<div class="axis"><span class="nm">Попит</span><span class="tr"><i style="width:66%;background:var(--accent)"></i></span><span class="sc">2</span></div>
+<div class="axis"><span class="nm">Слабкість конкурентів</span><span class="tr"><i style="width:66%;background:var(--accent)"></i></span><span class="sc">2</span></div>
+<div class="axis"><span class="nm">Відсутність велетня</span><span class="tr"><i style="width:66%;background:var(--accent)"></i></span><span class="sc">2</span></div>
+<div class="axis"><span class="nm">TAM-фіт</span><span class="tr"><i style="width:66%;background:var(--accent)"></i></span><span class="sc">2</span></div>
+<div class="axis"><span class="nm">Монетизація</span><span class="tr"><i style="width:66%;background:var(--accent)"></i></span><span class="sc">2</span></div>
+<div class="axis"><span class="nm">Рекламний важіль</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:10px">Стеля реалістична: <b class="ok">$30–70K/міс</b>. Аукціон порожній, платить €28–40/рік.</div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Tier-1 EN, повний комбайн <span class="tag t-adj">12/18</span></h3>
+<div class="axis"><span class="nm">Попит</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="axis"><span class="nm">Слабкість конкурентів</span><span class="tr"><i style="width:33%;background:var(--bad)"></i></span><span class="sc">1</span></div>
+<div class="axis"><span class="nm">Відсутність велетня</span><span class="tr"><i style="width:3%;background:var(--bad)"></i></span><span class="sc">0</span></div>
+<div class="axis"><span class="nm">TAM-фіт</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="axis"><span class="nm">Монетизація</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="axis"><span class="nm">Рекламний важіль</span><span class="tr"><i style="width:66%;background:var(--warn)"></i></span><span class="sc">2</span></div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:10px">Нуль по велетню — це вето. Але <b class="bl">Fish AI</b> довів, що новий кут пробиває.</div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Чистий прогноз клювання <span class="tag t-oth">9/18</span></h3>
+<div class="axis"><span class="nm">Попит</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="axis"><span class="nm">Слабкість конкурентів</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="axis"><span class="nm">Відсутність велетня</span><span class="tr"><i style="width:100%;background:var(--accent)"></i></span><span class="sc">3</span></div>
+<div class="axis"><span class="nm">TAM-фіт</span><span class="tr"><i style="width:66%;background:var(--warn)"></i></span><span class="sc">2</span></div>
+<div class="axis"><span class="nm">Монетизація</span><span class="tr"><i style="width:3%;background:var(--bad)"></i></span><span class="sc">0</span></div>
+<div class="axis"><span class="nm">Рекламний важіль</span><span class="tr"><i style="width:66%;background:var(--warn)"></i></span><span class="sc">2</span></div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:10px">Класична пастка: три високі осі й нуль по грошах. Це фіча, а не продукт.</div>
+</div>
+
+</div>
+
+<h2>Хто скільки заробляє (ядро, $/міс, iOS + Android)</h2>
+<div class="card">
+<div style="font-size:13.5px">
+<div style="margin:10px 0"><b>Fishbrain</b> <span style="float:right" class="ok">$2 300 000</span><div class="bar"><i style="width:100%;background:var(--bad)"></i></div></div>
+<div style="margin:10px 0"><b>Fishing Points</b> <span style="float:right">$270 000</span><div class="bar"><i style="width:11.7%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>Fish AI</b> <span style="float:right">$230 000</span><div class="bar"><i style="width:10%;background:var(--blue)"></i></div></div>
+<div style="margin:10px 0"><b>Fish Deeper</b> <span style="float:right">$170 000</span><div class="bar"><i style="width:7.4%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>Fishbox</b> <span style="float:right">$140 000</span><div class="bar"><i style="width:6.1%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>Fishbuddy</b> <span style="float:right">$70 000</span><div class="bar"><i style="width:3%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>FishAngler</b> <span style="float:right">$50 000</span><div class="bar"><i style="width:2.2%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>onWater</b> <span style="float:right">$35 000</span><div class="bar"><i style="width:1.5%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>ALLE ANGELN</b> <span style="float:right">$30 000</span><div class="bar"><i style="width:1.3%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Omnia Fishing</b> <span style="float:right">$9 000</span><div class="bar"><i style="width:.4%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>FISHSURFING</b> <span style="float:right">&lt;$5 000</span><div class="bar"><i style="width:.2%;background:var(--warn)"></i></div></div>
+</div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:14px">Топ-3 = 85% усіх грошей ядра. <span class="ok">Зеленим</span> — європейські софтверні гравці, на рівень яких реалістично цілитись соло.</div>
+</div>
+
+<h2>Матриця фіч — у кого що є</h2>
+<div class="scroll">
+<table>
+<thead><tr>
+<th>Додаток</th><th>Карта точок</th><th>Прогноз клювання</th><th>Тиск</th><th>Погода / вітер</th><th>Припливи</th><th>На що ловити</th><th>Журнал</th><th>ID риби</th><th>Соцмережа</th><th>Сонар</th><th>Правила / дозволи</th>
+</tr></thead>
+<tbody>
+<tr><td><b>Fishbrain</b> <span class="tag t-core">велетень</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>Fishing Calendar &amp; Tide Times</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>Hooksy</b> <span class="tag t-new">2026</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>BassForecast</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>Fishbox</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>ANGLR Logbook</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Fishing Points</b> <span class="tag t-core">велетень</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>Angler / Beißindex</b> <span class="tag t-adj">DE+PL</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>FishAngler</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Fish Deeper</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+<tr><td><b>HookIQ PREDATOR</b> <span class="tag t-new">2026</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>ALLE ANGELN</b> <span class="tag t-adj">DE</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Omnia Fishing</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Anglers' Log</b></td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>TipTop</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>onWater</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Fishbuddy</b> <span class="tag t-adj">DE+NO лідер</span></td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td><b>Nautide</b> <span class="tag t-adj">$50K без реклами</span></td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Fish AI</b> <span class="tag t-new">$230K за 20 міс</span></td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Solunar Time</b></td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>Łowik.pl</b> <span class="tag t-new">2026 PL</span></td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td><b>SpotFish</b> <span class="tag t-new">2026 PL</span></td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+</tbody>
+</table>
+</div>
+<div class="verdict warn" style="margin-top:14px">
+<b>Що видно з матриці.</b> Повний набір фіч мають четверо — і серед них лише один заробляє серйозно (Fishbrain). Натомість <b>Fish AI ($230K/міс) має лише 3 фічі з 11</b>, а <b>Nautide ($50K/міс без жодної реклами) — теж 4</b>. Кореляції «більше фіч → більше грошей» у цій ніші <b>немає</b>. Заробляють ті, хто має <i>одну причину відкривати додаток щодня</i>: припливи (Nautide), один вид риби (BassForecast), свої водойми (ALLE ANGELN), соцграф (Fishbrain).
+</div>
+
+<h2>Повна таблиця: ядро — повний комбайн</h2>
+<div class="scroll">
+<table>
+<thead><tr><th>Додаток</th><th class="num">Завант./міс</th><th class="num">Дохід/міс</th><th>Lifetime Android</th><th>Топ-гео</th><th>Реліз</th><th>Ціна</th><th>Реклама</th></tr></thead>
+<tbody>
+<tr><td><b>Fishbrain</b></td><td class="num">280K</td><td class="num bd">$2,3M</td><td>10M–50M</td><td>US, AU, CA</td><td>2013</td><td>$79.99/рік</td><td class="ok">Active</td></tr>
+<tr><td><b>Fishing Points</b></td><td class="num">150K</td><td class="num">$270K</td><td>10M–50M</td><td>US, AU, RU / ID</td><td>2017</td><td>$29.99–49.99/рік</td><td>iOS Active</td></tr>
+<tr><td><b>Fish AI</b></td><td class="num">150K</td><td class="num bl">$230K</td><td>100K–500K</td><td>US, CA, GB</td><td>2025-01</td><td>$19.99–79.99/рік</td><td class="ok">Active</td></tr>
+<tr><td><b>Fish Deeper</b></td><td class="num">40K</td><td class="num">$170K</td><td>1M–5M</td><td>DE, US, RU / PL</td><td>2019</td><td>$17.99–59.99/рік</td><td class="ok">Active</td></tr>
+<tr><td><b>Fishbox</b></td><td class="num">60K</td><td class="num">$140K</td><td>1M–5M</td><td>US, AU, CA</td><td>2015</td><td>$9.99/тиж · $35.99/рік</td><td class="ok">Active ×20 ads</td></tr>
+<tr><td><b>Fishbuddy</b></td><td class="num">29K</td><td class="num ok">$70K</td><td>100K–500K</td><td>NO, DE, DK</td><td>2023</td><td>$39.99/рік</td><td class="ok">Active</td></tr>
+<tr><td><b>FishAngler</b></td><td class="num">40K</td><td class="num">$50K</td><td>1M–5M</td><td>US, CA, AU</td><td>2016</td><td>$49.99/рік</td><td>iOS Active</td></tr>
+<tr><td><b>onWater</b></td><td class="num">22K</td><td class="num">$35K</td><td>100K–500K</td><td>US, CA, GE</td><td>2021</td><td>$49.99 / Pro $89.99/рік</td><td class="ok">Active</td></tr>
+<tr><td><b>ALLE ANGELN</b></td><td class="num">8K</td><td class="num ok">$30K</td><td>100K–500K</td><td>DE, AT, CH</td><td>2016</td><td>€27.99–34.99/рік</td><td>iOS Active</td></tr>
+<tr><td><b>Omnia Fishing</b></td><td class="num">&lt;10K</td><td class="num">$9K</td><td>100K–500K</td><td>US, CA</td><td>2022</td><td>без IAP · продаж снастей</td><td class="no">Inactive</td></tr>
+<tr><td><b>FISHSURFING</b></td><td class="num">&lt;5K</td><td class="num">&lt;$5K</td><td>1M+</td><td>PL, CZ, ES</td><td>2017</td><td>$34.99 разово</td><td class="ok">Active</td></tr>
+<tr style="border-top:2px solid var(--line)"><td><b>∑ ЯДРО</b></td><td class="num"><b>≈790K</b></td><td class="num"><b>≈$3,26M</b></td><td>до 10M–50M</td><td>US/AU/CA — гроші</td><td>2013–2025</td><td>10 з 11 на підписці</td><td>5 з 11 Active</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Повна таблиця: суміжні — чистий прогноз клювання</h2>
+<div class="scroll">
+<table>
+<thead><tr><th>Додаток</th><th class="num">Завант./міс</th><th class="num">Дохід/міс</th><th>Lifetime Android</th><th>Топ-гео</th><th>Ціна</th><th>Що продає насправді</th></tr></thead>
+<tbody>
+<tr><td><b>Nautide</b></td><td class="num">40K</td><td class="num ok">$50K</td><td>1M–5M</td><td>US, BR, VN</td><td>$44.99/рік</td><td>щоденні морські припливи, вітер, хвилі</td></tr>
+<tr><td><b>BassForecast</b></td><td class="num">13K</td><td class="num ok">$49K</td><td>500K–1M</td><td>US, CA, MX</td><td>$29.95/рік</td><td>вертикалізація під ОДИН вид риби</td></tr>
+<tr><td><b>Fishing Calendar &amp; Tide Times</b></td><td class="num">&lt;10K</td><td class="num">≈$12K</td><td>100K–500K</td><td>US, AU, CA</td><td>$18.99–49.99/рік</td><td>усе потроху, 15 років інерції</td></tr>
+<tr><td><b>Fishing forecast (MaxSaur)</b></td><td class="num">20K</td><td class="num bd">&lt;$5K</td><td>1M–5M</td><td>BR, UA, US</td><td>разово $4.99</td><td>нічого — разова покупка</td></tr>
+<tr><td><b>Fishing forecast (ddi.dev)</b></td><td class="num">20K</td><td class="num bd">&lt;$5K</td><td>1M–5M</td><td>RU, UA, PL</td><td><b>без IAP взагалі</b></td><td>нічого — 80 388 відгуків, 0 монетизації</td></tr>
+<tr><td><b>Solunar Time</b></td><td class="num">&lt;10K</td><td class="num bd">&lt;$5K</td><td>1M–5M</td><td>US, VN, TR</td><td>$4.99/рік</td><td>солунар за ціною, що себе вбиває</td></tr>
+<tr><td><b>Angler / Beißindex</b></td><td class="num">&lt;10K</td><td class="num bd">&lt;$5K</td><td>100K–500K</td><td>DE, PL, IT</td><td>$18.49/рік</td><td>індекс клювання без локальних водойм</td></tr>
+<tr><td><b>TipTop</b></td><td class="num">&lt;10K</td><td class="num bd">&lt;$5K</td><td>100K–500K</td><td>RU, UA, BY</td><td>$54.99/рік</td><td>дорога ціна в бідному гео</td></tr>
+<tr style="border-top:2px solid var(--line)"><td><b>∑ СУМІЖНІ</b></td><td class="num"><b>≈120K</b></td><td class="num"><b>≈$115K</b></td><td>велетня немає</td><td>US — гроші, RU/UA/PL — обсяг</td><td>4 з 8 дешевші $20/рік</td><td><b>Nautide + BassForecast = 85% грошей</b></td></tr>
+</tbody>
+</table>
+</div>
+<div class="verdict bad">
+<b>Головний антисигнал ніші.</b> Три найбільші за обсягом чисті прогнози — Lucky Fisher (20K/міс), ddi.dev (20K/міс), Solunar Time — мають разом <b>1–5M інсталів кожен</b> і дають <b>&lt;$15K/міс на трьох</b>. ddi.dev із 80 тисячами відгуків узагалі <b>не має жодного IAP</b>. Тобто безкоштовна верхівка попиту на «коли клює» вже зайнята, і зайнята назавжди. Гроші в цьому блоці заробляють лише двоє — і обидва <i>не за прогноз</i>: Nautide продає щоденні припливи, BassForecast — один вид риби в одній країні.
+</div>
+
+<h2>Хвиля 2026: ніша перезапускається просто зараз</h2>
+<div class="scroll">
+<table>
+<thead><tr><th>Додаток</th><th>Реліз</th><th>Топ-гео (ST)</th><th>Ціна</th><th>Реклама Meta</th><th>Кут</th></tr></thead>
+<tbody>
+<tr><td><b>Catch: Fishing Forecast</b></td><td>2026-07-10</td><td>TR, AZ, BG</td><td>$39.99/рік</td><td class="bl"><b>з 16.09.2026 — 2 дні тому</b></td><td>bite score з вітру/хвиль/течії/тиску/темп./припливів/солунара + принада + 120 000 водойм US/CA/TR</td></tr>
+<tr><td><b>Fishing Club AI</b></td><td>2026-08-17</td><td>TR, RU, UA</td><td>$59.99/рік</td><td class="bl">з 05.09.2026</td><td>BiteScore 0–100 погодинно + глибинні карти + AI-асистент + фото-ID + 50 вузлів</td></tr>
+<tr><td><b>Hooksy</b> (Pied Apps AB)</td><td>2026-09-08</td><td>UA, RO, GR</td><td>$2.99/тиж · $24.99/рік</td><td class="bl">щойно ввімкнув</td><td>гібрид: тижнева підписка + consumable-пакети розпізнавання риби</td></tr>
+<tr><td><b>HookIQ PREDATOR / CARP / TUNA</b></td><td>2026-07-07…14</td><td>DE</td><td>$22.99/рік</td><td class="no">немає</td><td>ТРИ окремі SKU за видом риби — повторення логіки BassForecast у Німеччині</td></tr>
+<tr><td><b>Łowik.pl</b></td><td>2026-06-01</td><td>PL, UA, DK</td><td>124,99 zł/рік</td><td class="no">немає</td><td>локальний PL: водойми + дозволи + журнал</td></tr>
+<tr><td><b>SpotFish</b></td><td>2026-05-11</td><td>PL, GB, DE</td><td>$0.99 + 8,99 zł/міс</td><td class="no">немає</td><td>локальний PL: карта точок</td></tr>
+<tr><td><b>Zimorodek</b></td><td>2026-06-03</td><td>PL, UA</td><td>без IAP</td><td class="no">немає</td><td>локальний PL: зезволення + мапи вод</td></tr>
+</tbody>
+</table>
+</div>
+<div class="verdict warn">
+<b>Два прочитання цієї таблиці — і обидва важливі.</b>
+<ul>
+<li><b class="ok">Добре:</b> щонайменше <b>8 нових SKU за травень–вересень 2026</b>, з них троє ввімкнули платний трафік за останні 13 днів. Ніша не «закрита» — соло-розробники активно в неї заходять просто зараз. <b>Catch: Fishing Forecast — це буквально твоя ідея</b>, зроблена одним турецьким розробником і запущена в рекламу позавчора. За ним можна спостерігати як за живим A/B-тестом гіпотези, не витрачаючи свій бюджет.</li>
+<li><b class="bd">Погано:</b> <b>жоден</b> із восьми не пробив $5K/міс, і в <b>усіх без винятку</b> топ-гео — дешеві країни (TR, AZ, BG, RO, GR, UA, PL), навіть коли реклама крутиться на США. Це і є головне попередження ніші: <i>дуже легко купити інстали на меседж «коли клює», і дуже важко купити їх там, де за це платять</i>.</li>
+</ul>
+</div>
+
+<h2>Аукціон Meta: де вільно, а де ні</h2>
+<div class="grid g4">
+<div class="card"><div class="lbl">США · «fishing forecast»</div><div class="val wn">≈29</div><div class="note">~20 із них — <b>Fishbox</b>, включно з whitelisting через персону «Brian Peterson – Pro Angler Series»</div></div>
+<div class="card"><div class="lbl">США · «fishing spots»</div><div class="val">≈610</div><div class="note">переважно e-comm (футболки, снасті) і чартери — не додатки</div></div>
+<div class="card"><div class="lbl">Німеччина · «Beißzeiten» / «Angel App»</div><div class="val ok">0 / 0</div><div class="note">аукціон повністю порожній</div></div>
+<div class="card"><div class="lbl">Польща «brania ryb» · Україна «прогноз клювання»</div><div class="val ok">1 / 0</div><div class="note">фактично порожньо</div></div>
+</div>
+
+<h3>Що саме крутить Fishbox (готовий шаблон креативу)</h3>
+<div class="card">
+<div style="color:var(--dim);font-size:13px;margin-bottom:10px">Дослівні тексти з активних оголошень, вересень 2026:</div>
+<ul style="font-size:14px">
+<li>«🎯 <b>Catch 3× More Fish This Weekend!</b>» → ⌚ Best fishing times in your area · 🌤 Weather Forecast · 📍 Fishing Secret Spots · 🌊 Tide Tables</li>
+<li>«🎣 <b>Catch more bass, trout &amp; crappie!</b> — 📊 Daily forecasts with 95% accuracy · 🧭 Map of 7,000+ fishing hotspots · ⏰ Find your <b>2 golden hours</b> · 📍 Discover hidden lakes near you»</li>
+<li>«🌤 <b>Stop guessing!</b> Get live weather, species info &amp; best lure tips for your exact location»</li>
+<li>Воронка не в стор, а на <code>wf.fishboxapp.com</code> → «<b>Take a 2 minutes quiz</b> 🎣» → підписка</li>
+</ul>
+<div class="note" style="margin-top:10px">І хуки новачків (UGC-стиль, Catch: Fishing Forecast, 16.09): «<i>Your buddy isn't lucky, he just checks first</i>», «<i>The bass has a point — fish move when the pressure changes</i>».</div>
+</div>
+
+<h2>Рекомендація</h2>
+<div class="verdict">
+<b>Якщо заходити — то так.</b>
+<ul>
+<li><b>Гео: DE / AT / CH, потім PL.</b> Аукціон порожній, платіжна готовність доведена (€27.99–34.99/рік у ALLE ANGELN), Fishbrain слабкий. Tier-1 EN відкладай — там Fishbox зробить твій CPI дорогим, а Fishbrain усе одно не обійти в лоб.</li>
+<li><b>Продукт: НЕ «ще один прогноз клювання».</b> Дані доводять, що прогноз — безкоштовна фіча. Треба додати одну з трьох речей, які реально монетизуються: <b>(а)</b> конкретний вид риби — короп/щука/форель окремими SKU (BassForecast $49K/міс, HookIQ вже це пробує в DE); <b>(б)</b> локальні водойми + дозволи/ліцензії (ALLE ANGELN $30K, три польські запуски 2026); <b>(в)</b> щоденна причина відкривати — припливи/рівень води/скид ГЕС (Nautide $50K взагалі без реклами).</li>
+<li><b>Ціна: не нижче €28–40/рік.</b> Усі, хто взяв $18–20/рік і менше, сидять на &lt;$5K/міс незалежно від обсягу. Дешева ціна в цій ніші — не спосіб набрати базу, а спосіб не заробити.</li>
+<li><b>Реалістична стеля: $30–70K/міс</b> за 2–3 роки на європейському локальному продукті. Це не $2M Fishbrain — але це і є той рівень, який соло-розробник справді бере.</li>
+<li><b>Що робити першим тижнем:</b> поставити на моніторинг <b>Catch: Fishing Forecast</b> (iOS 6774666774) і <b>Fishing Club AI</b> (iOS 6788373431) — обидва запустили рекламу на твою гіпотезу за останні 13 днів. Через 30–45 днів їхні цифри в SensorTower покажуть, чи конвертує цей меседж у платників, без жодної витрати з твого боку.</li>
+</ul>
+</div>
+<div class="verdict bad">
+<b>Чого точно не робити.</b> Не будувати повний комбайн під США/Британію — це пряме зіткнення з Fishbrain, у якого 70% грошей ніші й соцграф уловів як moat. Не будувати чистий журнал уловів — обидва найстаріші (Anglers' Log 2015, ANGLR 2017) сидять на &lt;$5K/міс і зупинили рекламу. Не заходити в UA/RU/PL із платним прогнозом — там безкоштовну верхівку тримає ddi.dev із 80 тисячами відгуків і нульовою монетизацією.
+</div>
+
+<div class="foot">
+Niche Scout · deep-dive від 18.09.2026 · 28 застосунків, 44 сторінки SensorTower, 6 запитів у Meta Ad Library.<br>
+Дані про завантаження й дохід — оцінки SensorTower (Worldwide · Last Month, iOS + Android, безкоштовний рівень доступу). «&lt;5K» / «&lt;$5K» — нижній бакет оцінки, не нуль. Lifetime-інстали — бакети Google Play. Дохід маркетплейсів і e-comm-моделей (Omnia Fishing) у SensorTower не видно, бо він проходить поза магазинними платежами.<br>
+Повний рядковий розбір дописано у вкладку «Niche Scout V2» Google-таблиці (30 рядків, підсвічено зеленим).
+</div>
+
+</div>
+</body>
+</html>
