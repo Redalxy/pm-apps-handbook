@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niche Scout — Екранний час за завдання (27.09.2026)</title>
+<link rel="icon" type="image/svg+xml" href="redlabs-favicon.svg">
+<style>
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --panel2:#eef2f6; --line:#dde5ec;
+  --ink:#182430; --dim:#5b6b7a; --accent:#0e9f6e; --warn:#d97706; --bad:#dc2626;
+  --blue:#2563eb;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 22px 90px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:22px;margin:52px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+h3{font-size:16px;margin:26px 0 10px;color:var(--accent)}
+.sub{color:var(--dim);font-size:14px;margin-bottom:26px}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.card .lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.card .val{font-size:26px;font-weight:650;letter-spacing:-.02em}
+.card .note{color:var(--dim);font-size:13px;margin-top:6px}
+.ok{color:var(--accent)} .wn{color:var(--warn)} .bd{color:var(--bad)} .bl{color:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--panel)}
+tr:hover td{background:var(--panel2)}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.scroll table{margin:0}
+.ic{width:22px;height:22px;border-radius:5px;vertical-align:-6px;margin-right:7px;border:1px solid var(--line);flex:none}
+.ic.no{display:inline-block;background:var(--panel2)}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em;vertical-align:middle}
+.t-core{background:rgba(14,159,110,.12);color:var(--accent)}
+.t-adj{background:rgba(217,119,6,.12);color:var(--warn)}
+.t-oth{background:rgba(220,38,38,.10);color:var(--bad)}
+.t-new{background:rgba(37,99,235,.10);color:var(--blue)}
+.verdict{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin:14px 0}
+.verdict.warn{border-left-color:var(--warn)}
+.verdict.bad{border-left-color:var(--bad)}
+.verdict b{color:var(--ink)}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.rl-mark{display:flex;align-items:flex-end;gap:1px;margin-bottom:18px}
+.rl-mark .wm{height:19px;width:86px;display:grid}
+.rl-mark .fl{height:38px;width:32px;display:grid;margin-bottom:-2px}
+.rl-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.pot{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:12px}
+.pot .m{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.pot .m .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.07em}
+.pot .m .v{font-size:21px;font-weight:650;letter-spacing:-.02em;margin-top:4px}
+.pot .m .n{color:var(--dim);font-size:12.5px;margin-top:5px;line-height:1.5}
+.share{height:11px;border-radius:6px;margin-top:9px;display:flex;gap:2px}
+.share span{display:block;height:100%;border-radius:6px}
+.share .lead{background:var(--blue)}
+.share .free{background:#cdd9e6;flex:1}
+.stage{display:inline-block;font-size:13px;font-weight:650;margin-top:2px}
+.cmp{display:grid;gap:11px;margin-top:6px}
+.cmp .row{display:grid;grid-template-columns:160px 1fr 110px;align-items:center;gap:12px;font-size:13.5px}
+.cmp .tr{height:13px;background:var(--panel2);border-radius:7px;overflow:hidden}
+.cmp .tr i{display:block;height:100%;border-radius:7px;background:var(--blue)}
+.cmp .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:650}
+@media(max-width:700px){.cmp .row{grid-template-columns:110px 1fr 86px;font-size:12.5px}}
+.app{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.app img{width:56px;height:56px;border-radius:13px;flex:none;border:1px solid var(--line)}
+.app .nm{font-weight:650;font-size:14.5px;line-height:1.3}
+.app .by{color:var(--dim);font-size:12px;margin-top:1px}
+.app .rev{font-size:19px;font-weight:700;margin-top:6px;letter-spacing:-.02em}
+.app .meta{color:var(--dim);font-size:12.5px;margin-top:4px;line-height:1.5}
+.star{color:var(--warn);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="rl-mark" title="RedLabs">
+  <span class="wm"><img src="logo/redlabs-word-light.svg" alt="RedLabs"></span>
+  <span class="fl"><img src="logo/redlabs-flame-anim-light.svg" alt=""></span>
+</span>
+<div class="kicker">Niche Scout · deep-dive однієї ідеї</div>
+<div style="display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;margin-bottom:12px;box-shadow:0 1px 2px rgba(24,36,48,.04)">
+  <b>Оновлено: 27.09.2026</b> · <span style="color:var(--dim)">усі рейтинги, відгуки й дати релізів — живий iTunes Search API 27.09.2026 · $/міс тут навмисно НЕМАЄ: цю нішу база Niche Scout ще не копала, прогін SensorTower — наступним кроком</span>
+</div>
+<h1>Екранний час за завдання: батьки блокують розваги, дитина розблоковує їх ділом</h1>
+<div class="sub">Ідея власника: батьки ставлять дитині застосунок, що блокує ігри й соцмережі; на екрані дитини — віджет із завданням (прочитати, прибрати, погуляти з собакою); зробила й підтвердила — розваги відкрились. Таймери й послідовність налаштовують батьки. Нижче — хто вже стоїть на цьому полі, наскільки поле гаряче і що в ідеї найризикованіше.</div>
+
+<div class="grid g4">
+  <div class="card"><div class="lbl">Точний збіг з ідеєю</div><div class="val wn">≥6 запусків</div><div class="note">«tasks → розблокування» для ДІТЕЙ: усі 2024–2026, і всі досі мікроскопічні (3–29 відгуків)</div></div>
+  <div class="card"><div class="lbl">Хвиля-2026</div><div class="val bd">11 релізів за 9 міс</div><div class="note">«earn screen time» у назвах: вікно вже помітили — черга біля входу росте</div></div>
+  <div class="card"><div class="lbl">Доказ платності</div><div class="val ok">88K відгуків</div><div class="note">Opal: дорослі платять за блокування себе; Joon (6.5K): батьки платять за завдання дітям</div></div>
+  <div class="card"><div class="lbl">Найшвидший свіжий</div><div class="val ok">~450 відг./міс</div><div class="note">Amelia (06.2026): «гроші за завдання» — та сама механіка, інша валюта нагороди</div></div>
+</div>
+
+<h2>Головний висновок за 30 секунд</h2>
+<div class="verdict">
+<b>Ідея валідна, попит доведений, але «геніальна і нічия» — вже ні: це найгарячіший підвид екранного часу 2026 року.</b> Ринок розпався на три табори, і між ними — рівно та щілина, яку описав власник. <b>(1) Батьківські комбайни</b> (Kidslox 40K відгуків, OurPact 37K, Bark 36K) — блокують і таймлять, але «завдання → розблокування» у них у кращому разі бічна фіча в меню на 30 пунктів. <b>(2) Дорослий self-control</b> (Opal 88K, BePresent 65K, Brick 55K, ScreenZen 50K) — довели, що ЗА БЛОКУВАННЯ ПЛАТЯТЬ добре, але це «я блокую себе», без батьків. <b>(3) Дитячі завдання</b> (Joon 6.5K, Chorsee 12K) — батьки платять ~$15/міс за те, щоб дитина робила справи, але БЕЗ блокування: морквина без палиці. Точний збіг «батько ставить завдання — телефон дитини замкнений, доки не зроблено» пробують ≥6 нових застосунків (Nudge 11.2024, taskr 12.2025, ACT+EARN 03.2026, Chirp, Screen Time Nanny, Piggy — усі літо 2026), і ЖОДЕН ще не виграв: у найбільшого 29 відгуків. Вікно відкрите. Але 11 релізів зі словами «earn screen time» за 9 місяців 2026-го означають: закриється воно не через роки, а через квартали.
+</div>
+
+<h2>Карта поля: три табори + свіжа хвиля <span class="tag t-core">живі дані стора 27.09.2026</span></h2>
+
+<h3>Свіжа хвиля «заслужи екранний час» — тут живе ідея власника</h3>
+<div class="grid g4">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/a1/c7/5da1c7f6-4c0e-a143-ac30-60aacb6f9dd9/AppIcon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6746537171">Unrot: Screen Time Battery</a> <span class="tag t-new">06.2025</span></div><div class="by">Unrot OU · <span class="star">★ 4.67</span> · 56 834</div><div class="rev ok">~3 800 відг./міс</div><div class="meta">Найбільший у хвилі — але це ТІНЕЙДЖЕР блокує себе сам (метафора «батарейки мозку»), не батьківський контроль. Показує масштаб попиту на механіку</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/05/03/e20503bb-e335-7531-dc85-d3076a2e8b20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6778936997">Amelia: Get Paid to Do Chores</a> <span class="tag t-new">06.2026</span></div><div class="by">404 Apps LLC · <span class="star">★ 4.82</span> · 1 566</div><div class="rev ok">~450 відг./міс</div><div class="meta">Та сама петля «завдання → нагорода», але валюта — кишенькові гроші, не екранний час. Найшвидший старт серед усіх свіжих — механіка працює</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/cd/0c/d1cd0ce1-ee34-91b3-c64f-e602f1caa3c8/AppIconGreen-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6755110504">Unglue: Screen Time Friend</a> <span class="tag t-new">01.2026</span></div><div class="by">Computer go beep AB · <span class="star">★ 4.68</span> · 2 677</div><div class="rev">~300 відг./міс</div><div class="meta">Self-control із «заслужи час»; знову без батьківського пульта — сам собі суддя</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1d/d8/11/1dd811d8-4530-b220-c180-d7153e3408cf/AppIcon-0-1x_U007epad-0-1-0-85-220-0.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6550918174">Nudge: Chores and Screen Time</a> <span class="tag t-core">точний збіг</span></div><div class="by">TECHYTECH LLC · <span class="star">★ 5.0</span> · 6</div><div class="rev bd">6 відгуків за 23 міс</div><div class="meta">Реліз 11.2024. Рівно ідея власника — і рівно нуль дистрибуції. Ідея сама себе не продає</div></div></div>
+</div>
+
+<h3>Уся свіжа хвиля (реліз ≤ 2 роки), відсортовано за швидкістю відгуків</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th>Реліз</th><th class="num">Відгуків</th><th class="num">★</th><th>Кому належить рішення</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/a1/c7/5da1c7f6-4c0e-a143-ac30-60aacb6f9dd9/AppIcon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6746537171">Unrot</a></td><td>06.2025</td><td class="num"><b>56 834</b></td><td class="num">4.67</td><td>тінейджер сам</td><td>Лідер хвилі; гейміфікація «батарейки» + віральний TikTok. НЕ батьківський</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/05/03/e20503bb-e335-7531-dc85-d3076a2e8b20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6778936997">Amelia</a> <span class="tag t-new">06.2026</span></td><td>06.2026</td><td class="num ok"><b>1 566</b></td><td class="num">4.82</td><td>батьки</td><td class="ok">Завдання за ГРОШІ (не екран): найшвидший батьківський старт — петля продається</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/cd/0c/d1cd0ce1-ee34-91b3-c64f-e602f1caa3c8/AppIconGreen-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6755110504">Unglue</a></td><td>01.2026</td><td class="num">2 677</td><td class="num">4.68</td><td>сам собі</td><td>Self-control з «заслужи час»</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b9/bd/92/b9bd9232-5aea-b2f9-af9f-973d12b50d3b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6758338291">Blocus: Earn Screen Time</a></td><td>02.2026</td><td class="num">226</td><td class="num">4.54</td><td>сам собі</td><td>Соло-розробник, без реклами</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/9e/53/ee9e53f1-fcab-dc7e-ee2e-d85cbb32447b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6777761287">Piggy - Earn Screen Time</a> <span class="tag t-core">точний збіг</span></td><td>06.2026</td><td class="num bd">29</td><td class="num">4.48</td><td>батьки</td><td>Дитина «накопичує» час завданнями</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/a0/c5/9aa0c521-6428-c8f5-0f83-c17be1eaccf8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6755744833">taskr: Chores &amp; Screen Time</a> <span class="tag t-core">точний збіг</span></td><td>12.2025</td><td class="num bd">20</td><td class="num">4.35</td><td>батьки</td><td>Рівно ідея власника, 10 міс — 20 відгуків</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ad/d0/62/add06222-87f5-c718-ab36-df0207f33cc7/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6751814929">Koia: Earn Your Screen Time</a></td><td>09.2025</td><td class="num bd">9</td><td class="num">4.89</td><td>сам собі</td><td>—</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/b0/a5/c4b0a5bd-3246-4579-2acd-db3015e349b1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6760570585">Chirp: Kids Earn Screen Time</a> <span class="tag t-core">точний збіг</span></td><td>06.2026</td><td class="num bd">7</td><td class="num">5.0</td><td>батьки</td><td>—</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1d/d8/11/1dd811d8-4530-b220-c180-d7153e3408cf/AppIcon-0-1x_U007epad-0-1-0-85-220-0.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6550918174">Nudge: Chores and Screen Time</a> <span class="tag t-core">точний збіг</span></td><td>11.2024</td><td class="num bd">6</td><td class="num">5.0</td><td>батьки</td><td>Найстаріший точний збіг — і мертва тиша: без каналу дистрибуції ідея не їде</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ad/6e/54/ad6e54ff-7910-77b0-7345-275a047ec67c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6695752946">ACT+EARN: Kids Screen Time</a> <span class="tag t-core">точний збіг</span></td><td>03.2026</td><td class="num bd">5</td><td class="num">5.0</td><td>батьки</td><td>—</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/ad/5e/3bad5e8d-090d-aa9d-f1c4-0ceeae87e4ac/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6782167373">Screen Time Nanny: Kids Earn</a> <span class="tag t-core">точний збіг</span></td><td>06.2026</td><td class="num bd">3</td><td class="num">5.0</td><td>батьки</td><td>—</td></tr>
+<tr><td><span class="ic no"></span>DoomIt · Atosuma · Focus Cat · OpenAppLock</td><td>06–07.2026</td><td class="num bd">0–6</td><td class="num">—</td><td>сам собі</td><td>Хвіст хвилі: чотири запуски за одне літо</td></tr>
+</tbody></table></div>
+
+<div class="verdict warn" style="margin-top:16px">
+<b>Що каже ця таблиця насправді.</b> Механіку «заслужи екран» валідували ДВІЧІ: Unrot (57K відгуків за 15 міс, тінейджери) і Amelia (1.5K за 3 міс, батьки — але нагорода грошима). А точний збіг з ідеєю власника — шість застосунків, і всі стоять на місці не тому, що ідея погана, а тому, що всі шість — соло-проєкти без жодного каналу: нуль реклами, нуль контенту, нуль ASO (перевірено нижче — по ключах хвилі позиції порожні). Це головний висновок дослідження: <b>у цій ніші виграє не той, хто перший придумав, а той, хто перший привів батьків.</b> Так само було в прибиранні: Nudge цієї ніші = Homsy тієї.
+</div>
+
+<h3>Батьківські комбайни — старі гроші, чужий периметр</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th>Реліз</th><th class="num">Відгуків</th><th class="num">★</th><th>Ціна (порядок)</th><th>Чи є «завдання → час»</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/c2/a1/00c2a1c7-90f6-9475-6f3f-6e7ae274b637/AppIcon-0-0-1x_U007emarketing-0-11-0-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id914825567">Kidslox</a></td><td>2014</td><td class="num"><b>40 144</b></td><td class="num">4.30</td><td>~$5–8/міс</td><td class="ok"><b>Так</b>, фіча в комбайні</td><td>Найближчий великий конкурент: у нього «завдання за час» — пункт меню, не продукт</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/36/45/22364570-b21d-4506-bc67-d3041913b651/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id954029412">OurPact</a></td><td>2015</td><td class="num">36 727</td><td class="num">4.39</td><td>~$7/міс</td><td>частково (schedules)</td><td>Класика блокування за розкладом; постраждав від чисток Apple 2019, вижив</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/39/a2/e839a223-4f7d-08e8-131b-b19be0a5d395/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1477619146">Bark</a></td><td>2019</td><td class="num">35 808</td><td class="num">4.25</td><td>~$14/міс</td><td>ні (моніторинг)</td><td>Компанія масштабу ~$100M ARR (разом із Bark Phone) — стеля категорії видима і висока</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/aa/30/94aa30e7-421c-89fb-d21c-746393fc5a3f/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1440668949">Circle</a></td><td>2019</td><td class="num">13 434</td><td class="num">4.20</td><td>$/рік + залізо</td><td>частково (rewards)</td><td>Роутер-коробка + застосунок; важка модель</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e3/5f/b7/e35fb73c-de04-d3d7-79aa-eb0ae499e62a/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1501720596">Qustodio</a></td><td>2012 (реліст 2020)</td><td class="num">9 359</td><td class="num">4.22</td><td>~$55/рік</td><td>ні</td><td>У складі Qoria; великий перформанс-бюджет роками</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/c7/85/94c785f4-1be8-5bc2-56e1-3432307ee59a/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1596059191">Kids360</a></td><td>2022</td><td class="num">8 928</td><td class="num">4.62</td><td>$/рік</td><td class="ok"><b>Так</b>, «завдання за хвилини»</td><td>Сімейство Findmykids (RU-коріння) — агресивний перформанс; для UA-власника ще й етичний аргумент проти них у маркетингу</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/e8/09/dae8097f-18a4-1460-08c0-707ae888324b/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1525339567">AirDroid Parental</a></td><td>2022</td><td class="num">2 381</td><td class="num">4.69</td><td>$/рік</td><td>ні</td><td>—</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b4/6a/67/b46a6788-df77-fe9a-aa12-ce70dc54cbfe/AppIcon-0-0-1x_U007emarketing-0-0-0-11-0-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1226900784">MMGuardian</a></td><td>2017</td><td class="num">1 067</td><td class="num">4.32</td><td>$/міс</td><td>ні</td><td>—</td></tr>
+<tr><td><span class="ic no"></span>Apple Screen Time · Google Family Link <span class="tag t-oth">безкоштовні</span></td><td>вбудовані</td><td class="num">—</td><td class="num">—</td><td>$0</td><td>ні — таймери без завдань</td><td class="wn">Головний «конкурент» будь-якого платного: відповідь ринку — платять за те, чого в них НЕМАЄ. «Завдання → розблокування» там немає</td></tr>
+</tbody></table></div>
+
+<h3>Суміжні табори: завдання без блокування + дорослий self-control</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th>Табір</th><th>Реліз</th><th class="num">Відгуків</th><th class="num">★</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/86/f7/9886f758-1172-6a70-4443-f838d9c90bd5/joon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1482225056">Joon</a></td><td>завдання дітям</td><td>2020</td><td class="num"><b>6 560</b></td><td class="num">4.68</td><td class="ok">Батьки платять ~$15/міс за квести дитині (ADHD-кут). Доказ, що ЗАВДАННЯ монетизуються — але морквина без палиці: блокування немає</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/02/63/b2/0263b277-fe37-ad74-927d-90d837fd6ee0/AppIcon-0-0-1x_U007epad-0-1-0-P3-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1611068600">Chorsee</a></td><td>завдання дітям</td><td>2022</td><td class="num">11 779</td><td class="num">4.58</td><td>Чек-листи справ для сім'ї</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/ed/d1/18edd154-8bac-f46b-fade-5938e9c07598/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6448482826">Lil Planner</a> <span class="tag t-new">04.2024</span></td><td>розклади дітям</td><td>04.2024</td><td class="num">4 142</td><td class="num">4.87</td><td class="ok">Свіжий і швидкий: візуальні розклади для дітей ростуть без реклами</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/3b/f8/fa3bf81b-1689-d191-e5bf-7bce0f797990/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id629797415">Chores &amp; Allowance Bot</a></td><td>завдання дітям</td><td>2013</td><td class="num">10 924</td><td class="num">4.52</td><td>Ветеран кишенькових грошей</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/79/42/92/7942925f-138e-3e65-5cba-e7d5617f4cbe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1474508509">BusyKid</a></td><td>завдання дітям</td><td>2019</td><td class="num">1 507</td><td class="num bd">3.39</td><td class="bd">Гроші за справи + банкінг: рейтинг каже, що виконання підводить</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/58/13/ae58136c-4020-d81b-773d-4160068a486a/AppIcon-0-0-1x_U007ephone-0-0-0-1-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1497465230">Opal</a></td><td>self-control</td><td>2020</td><td class="num"><b>88 579</b></td><td class="num">4.72</td><td class="ok">Найбільший платний блокувальник; публічно звітував про мільйони ARR. Стеля механіки — висока</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c3/67/84/c3678458-2cc0-f41f-af3f-d0d67dd8703b/Modern_Icon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1644737181">BePresent</a></td><td>self-control</td><td>2022</td><td class="num">64 779</td><td class="num">4.84</td><td>Виріс на TikTok-челенджах і командних стріках</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/03/15/f5/0315f533-e904-530d-caa0-3acbbdd4a094/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6448794069">Brick</a></td><td>self-control + залізо</td><td>2023</td><td class="num">55 255</td><td class="num ok">4.94</td><td class="ok">NFC-цеглинка за ~$60: фізичний ритуал розблокування. Найвищий рейтинг у всій вибірці — «тертя» продається</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/c8/de/89c8deef-2a7e-5abf-c5ec-ac3ffa343494/AppIcon-0-0-1x_U007emarketing-0-11-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1541027222">ScreenZen</a></td><td>self-control</td><td>2021</td><td class="num">50 416</td><td class="num">4.86</td><td class="wn">Безкоштовний (донати) — тисне на ціни всієї категорії</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/82/f1/a682f1bf-ca85-71d2-4b7d-7e47c6e1192d/one_sec_Default_App_Icon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1532875441">one sec</a> · <a href="https://apps.apple.com/us/app/id1645639057">Refocus</a> · <a href="https://apps.apple.com/us/app/id1609960918">Jomo</a> · <a href="https://apps.apple.com/us/app/id6446800962">Roots</a> · <a href="https://apps.apple.com/us/app/id1572515807">ClearSpace</a></td><td>self-control</td><td>2020–23</td><td class="num">2–24K</td><td class="num">4.6–4.8</td><td>Щільний другий ешелон — механіка блокування давно комодитизована</td></tr>
+</tbody></table></div>
+
+<h2>Хвиля запусків: чому таймер цокає</h2>
+<div class="card">
+<div class="cmp">
+  <div class="row"><div>2024 (рік)</div><div class="tr"><i style="width:18%"></i></div><div class="val">2 релізи</div></div>
+  <div class="row"><div>2025 (рік)</div><div class="tr"><i style="width:27%"></i></div><div class="val">3 релізи</div></div>
+  <div class="row"><div>2026 (9 місяців)</div><div class="tr"><i style="width:100%"></i></div><div class="val">11 релізів</div></div>
+</div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:10px">Застосунки з «earn screen time / chores &amp; screen time» у назві, за датою релізу в App Store (живі дані). Історія повторює нішу карток: у 10.2025 StarSnap був один — за пів року стало п'ятеро. Тут поки нуль великих — але четверо з одинадцяти вийшли за одне літо 2026.</div>
+</div>
+
+<h2>Маркетинг: хто купує батьків і за що</h2>
+<div class="sub" style="margin-top:-4px">Прапорці нижче — публічні бібліотеки реклами (посилання живі, лічильники дивитись там). TikTok-зріз, як і у зведенні по 5 нішах, ще не міряний — скрипт робиться карткою t3a7473.</div>
+<div class="scroll"><table>
+<thead><tr><th>Хто</th><th>Канал</th><th>Що в креативі</th><th>Як довго</th></tr></thead>
+<tbody>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Bark%20parental&amp;media_type=all">Bark</a></td><td>Meta + TV + партнерки зі школами</td><td>страх-кут: «дізнайся, з ким листується дитина»</td><td>роками, великий бюджет</td></tr>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Qustodio&amp;media_type=all">Qustodio</a></td><td>Meta + Google/ASA</td><td>контроль-кут: звіти, ліміти, локація</td><td>роками</td></tr>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Kids360&amp;media_type=all">Kids360 / Findmykids</a></td><td>Meta, агресивний перформанс</td><td>тривога-кут + «завдання за хвилини»</td><td>роками</td></tr>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Kidslox&amp;media_type=all">Kidslox</a></td><td>Meta + контент-SEO</td><td>«один тап — усі пристрої дітей заблоковано»</td><td>періодами</td></tr>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Joon%20kids&amp;media_type=all">Joon</a></td><td>TikTok/IG UGC + ADHD-ком'юніті, подкасти батьків</td><td>«дитина САМА просить зробити справи» + питомець росте</td><td>з 2021</td></tr>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Opal%20screen%20time&amp;media_type=all">Opal</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=BePresent&amp;media_type=all">BePresent</a></td><td>TikTok-нативний: челенджі, стріки, скріни «до/після»</td><td>ідентичність-кут: «поверни собі життя»</td><td>2–4 роки</td></tr>
+<tr><td>Уся свіжа хвиля (Nudge, taskr, Piggy, Chirp, ACT+EARN…)</td><td class="bd"><b>нічого</b></td><td>—</td><td>—</td><td></td></tr>
+</tbody></table></div>
+<div class="verdict">
+<b>Розстановка каналів = карта входу.</b> Велетні купують батьків на СТРАХ (Bark) і КОНТРОЛЬ (Qustodio) — дорогі, вигорілі кути з CPI, який тягнуть лише $50+/рік підписки. Незайнятий кут — ПОЛЕГШЕННЯ: «я більше не сварюся з дитиною за телефон — телефон сам каже, що треба зробити». Це той самий формат, що виграв у прибиранні (до/після + мікрокроки) і в Joon (дитина сама просить): UGC-відео мами, яка показує віджет із завданням на локскріні дитини і тишу в домі. Ніхто з ≥6 точних збігів так не робить — вони взагалі не роблять нічого.
+</div>
+
+<h2>ASO-зріз: складність ключів у видачі App Store <span class="tag t-core">пораховано наживо 27.09.2026</span></h2>
+<div class="sub" style="margin-top:-4px">Складність = 20 × log10(1 + медіана відгуків топ-10 видачі) — та сама формула, що у зведенні по 5 нішах. Обсяг пошуку Apple Ads по цій ніші наш трекер ПОКИ не віддає: він знімає лише жанри вже заведених ніш (FINANCE/LIFESTYLE/SPORTS) — щоб з'явились числа попиту, нішу треба завести в Apprism кнопкою «+ ніша» з жанром UTILITIES/PRODUCTIVITY.</div>
+<div class="scroll"><table>
+<thead><tr><th>Ключ</th><th class="num">Складність</th><th class="num">Медіана відгуків топ-10</th><th>Хто у видачі</th><th>Вердикт</th></tr></thead>
+<tbody>
+<tr><td><b>earn screen time</b></td><td class="num ok"><b>30</b></td><td class="num">~29</td><td>уся свіжа хвиля з 0–226 відгуками (+ Unrot)</td><td class="ok"><b>Легко.</b> Головний ключ ідеї майже порожній: топ пробивається десятками відгуків</td></tr>
+<tr><td><b>chores for screen time</b></td><td class="num ok"><b>63</b></td><td class="num">~1 400</td><td>суміш chore-апок і хвилі</td><td class="ok">Реально — і це найточніший intent-ключ батьківського кута</td></tr>
+<tr><td>screen time rewards kids</td><td class="num wn">77</td><td class="num">~6 700</td><td>велетні поруч (Amazon Kids, YouTube Kids)</td><td class="wn">Важко через сусідство гігантів, але вони не про це — брендові позиції пробиваються збоку</td></tr>
+<tr><td>parental control screen time</td><td class="num wn">79</td><td class="num">~9 100</td><td>Kidslox, OurPact, Bark, Qustodio…</td><td class="wn">Важко: категорійний ключ комбайнів — не наш перший бій</td></tr>
+<tr><td>app blocker</td><td class="num bd">87</td><td class="num">~23 600</td><td>Opal, Brick, BePresent, ScreenZen</td><td class="bd">Дуже важко: поле дорослого self-control, туди не йти</td></tr>
+</tbody></table></div>
+<div class="verdict">
+<b>ASO-план очевидний і дешевий:</b> назва/сабтайтл під <code>earn screen time</code> + <code>chores</code> (складність 30 і 63), категорійні «parental control» лишити платному ASA пізніше. Свіжа хвиля цих позицій НЕ тримає — у них по 5 відгуків, обійти можна за перший місяць рев'ю-велосіті рівня Amelia (~450/міс досяжно з UGC-трафіку).
+</div>
+
+<h2>Технічна правда: що в цій ідеї найдорожче <span class="tag t-adj">читати перед оцінкою строків</span></h2>
+<div class="grid g2">
+<div class="card"><b>iOS — можливо, але з трьома «але»</b><ul>
+<li><b>Family Controls entitlement.</b> Блокування ЧУЖИХ застосунків — лише через Screen Time API (FamilyControls + ManagedSettings + DeviceActivity, iOS 16+). На дистрибуцію потрібен окремий дозвіл Apple — форма запиту, чекають тижнями, дають не всім. Це перший критичний шлях проєкту: подаватись у день старту розробки.</li>
+<li><b>Вибір «що блокувати» — тільки системний пікер</b> (FamilyActivityPicker, SwiftUI): токени застосунків непрозорі, свій список брендів намалювати не можна. Для Flutter це означає нативні модулі й нативні екрани в критичних місцях — тут Swift-частина неминуча за побудовою.</li>
+<li><b>Пульт батьків з іншого телефона</b> — через власний бекенд між батьківським і дитячим застосунком (усі так роблять: OurPact, Kidslox). Плюс Family Sharing для авторизації дитини. Це ДВА застосунки і синк — не один екран із таймером.</li>
+<li><b>Віджети є:</b> WidgetKit на локскрін і хоумскрін, з iOS 17 кнопки в віджеті (App Intents) — «✓ Зробив» просто з локскріна реальний. Фіча власника технічно чиста.</li></ul></div>
+<div class="card"><b>Android + правила сторів</b><ul>
+<li><b>Android простіший:</b> UsageStats + Accessibility/Device Admin, оверлеї. Але Google Play жорстко модерує Accessibility-дозволи — декларації і рев'ю довші за звичайні.</li>
+<li><b>Дитяча аудиторія = Kids-правила:</b> Apple 5.1.4 і COPPA — жодного трекінгу/реклами в дитячому застосунку, аналітика лише знеособлена. У батьківському — можна все.</li>
+<li><b>Гонка з дитиною:</b> головна скарга у відгуках УСІХ конкурентів — «дитина обійшла» (видалила застосунок, змінила час, factory reset). Захист = комбінація Screen Time restrictions + пін. Планувати як вічну статтю беклогу, а не разову фічу.</li>
+<li><b>Підтвердження завдання:</b> фото «я прибрав» на перевірку батькам (як в Amelia) — це асинхронний флоу і пуші, теж не один екран.</li></ul></div>
+</div>
+<div class="verdict warn">
+<b>Оцінка строків проти прибирання:</b> розклад прибирання — 4–6 тижнів соло до MVP. Тут — <b>3–4 місяці мінімум</b>: два застосунки (батько/дитина), бекенд-синк, entitlement-очікування, Kids-рев'ю, і Swift-частина обов'язкова навіть у Flutter-проєкті. Це найдорожчий за виконанням продукт з усіх, що ми розбирали — і саме тому в шести точних збігів нуль результату: соло-розробники добігають до MVP і лишаються без сил на дистрибуцію.
+</div>
+
+<h2>Потенціал: скільки ринку не зайнято</h2>
+<div class="pot">
+  <div class="m"><div class="k">Ринок категорії</div><div class="v">$1B+/рік</div><div class="n">Parental control глобально (Bark сам ~$100M ARR). Але це ринок КОМБАЙНІВ — наш клин у ньому грошима ще не поміряний: ST-прогону по ніші не було</div></div>
+  <div class="m"><div class="k">Лідер клину і вільна частка</div><div class="v">немає / <span class="bl">~100%</span></div><div class="share"><span class="lead" style="width:4%"></span><span class="free"></span></div><div class="n">У точному «завдання → розблокування» для дітей лідера НЕ ІСНУЄ: найбільший — 29 відгуків. Найближчий великий — Kidslox, у якого це фіча, а не продукт</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v ok">ключ за 30</div><div class="n"><code>earn screen time</code> — складність 30: головний запит ідеї відкритий для органіки. 6 із 6 точних збігів не роблять ані реклами, ані ASO</div></div>
+  <div class="m"><div class="k">Швидкість валідації</div><div class="v ok">3 міс</div><div class="n">Amelia: 0 → 1 566 відгуків за літо на тій самій петлі «завдання → нагорода». Unrot: 57K за 15 міс на механіці «заслужи»</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage ok">🟢 Рання, вікно звужується</div><div class="n">11 релізів за 9 міс 2026 — кут уже помітили. Рік тому було б «порожньо», через рік буде «пізно»</div></div>
+</div>
+
+<h2>Вердикт і місце серед наших ніш</h2>
+<div class="verdict">
+<b>Ідея робоча, і вона краща за середню з наших п'яти — але це інша вагова категорія за виконанням.</b><br><br>
+<b>За:</b> біль вічний і платоспроможний (батьки платять Bark'у $14/міс за СТРАХ — за ТИШУ ВДОМА заплатять не менше); механіка двічі валідована свіжими грошима (Unrot, Amelia); точний кут нічий — шість спроб без жодного переможця; головний ключ відкритий (складність 30); безкоштовні Apple/Google цього НЕ вміють — тобто платити є за що; віджет на локскріні дитини — легальна й реальна фіча, готовий гачок для UGC-креативу.<br><br>
+<b>Проти:</b> 3–4 місяці до MVP (два застосунки + бекенд + entitlement) проти 4–6 тижнів у прибирання; Swift-частина неминуча; Kids-правила подовжують кожне рев'ю; вічна гонка «дитина обходить»; і таймер вікна — 11 релізів за 9 місяців.<br><br>
+<b>Рекомендація NS:</b> НЕ замість прибирання, а після або паралельно другим треком. Прибирання лишається найшвидшим «$ за 6 тижнів» (і його аудиторія — ті самі батьки: готовий крос-сел). Якщо власник хоче ставити на велику ставку року — це вона, але тоді план такий: (1) подача на Family Controls entitlement у ПЕРШИЙ день; (2) MVP = Android-first або iOS «light» без блокування (завдання + віджет + таймери вручну через Apple Screen Time), щоб канал дистрибуції будувався, поки їде entitlement; (3) UGC-канал «мама показує віджет» з дня нуль — бо в цій ніші програють не продуктом, а тишею.
+</div>
+
+<h2>Наступні кроки по конвеєру</h2>
+<div class="card" style="font-size:13.5px">
+<ul style="margin-top:0">
+<li><b>ST-прогін ніші</b> — щоб дістати $/міс, як у зведенні по 5 нішах: додати нішу «screen time / parental» у наступний deep-dive бази Niche Scout.</li>
+<li><b>Завести нішу в Apprism</b> («+ ніша», жанр UTILITIES/PRODUCTIVITY, seed-ключі: earn screen time, chores for screen time, screen time for kids, app blocker for kids, parental control) — тоді з'являться обсяги Apple Ads і щоденний трекер видачі по цих ключах.</li>
+<li><b>TikTok-зріз</b> — та сама картка t3a7473: ключі цієї ніші додаються рядком у tiktok-watch.json.</li>
+<li><b>Глибокий розбір відгуків</b> Kidslox/OurPact (скарги = беклог диференціації) — окремим прогоном.</li>
+</ul>
+</div>
+
+<h2>Методологія і чесні застереження</h2>
+<div class="card" style="font-size:13.5px">
+<ul style="margin-top:0">
+<li><b>Відгуки, рейтинги, дати релізів, іконки, посилання</b> — живий iTunes Search API (US) станом на 27.09.2026; іконки віддаються прямо з CDN Apple.</li>
+<li><b>$/міс НЕМАЄ навмисно:</b> база Niche Scout цю нішу ще не копала, тож цифр SensorTower тут нуль. Названі гроші — лише публічні орієнтири компаній (Bark ~$100M ARR — з їхніх власних заяв/преси; Opal — публічні згадки про мільйони ARR) і тарифи зі сторінок сторів (~). Швидкість відгуків/міс — наш проксі трафіку, не доходу.</li>
+<li><b>Складність ключів</b> порахована з живої видачі (медіана відгуків топ-10, формула трекера). <b>Обсяг пошуку Apple Ads не мірявся:</b> ендпоінт віддає лише жанри вже заведених в Apprism ніш — «parental control» відповів <code>below_genre_top</code>, що означає «цим зрізом не дістати», а не «не шукають».</li>
+<li><b>Meta Ad Library</b> — посилання живі, лічильники оголошень дивитись за посиланнями: сторінка малюється JS і з цієї машини без headless-прогону не знімається. TikTok — не міряний (картка t3a7473).</li>
+<li>Пошук гравців ішов запитами earn screen time · chores for screen time · screen time rewards kids · parental control screen time · app blocker + точкові добори (Joon, BusyKid, Goally, Jomo). Android-only гравців у вибірці немає — Google Play пошукового API не має; це біла пляма дослідження.</li>
+</ul>
+</div>
+
+<div class="foot">
+Niche Scout · deep-dive складено 27.09.2026 на живих даних App Store · споріднене: <a href="top_niches_research.html">зведення 5 ніш</a> (прибирання — там), <a href="fishing_apps_research.html">риболовля</a>, <a href="split_expenses_research.html">спліт витрат</a>
+</div>
+
+</div>
+</body>
+</html>
