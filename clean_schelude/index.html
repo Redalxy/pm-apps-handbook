@@ -83,6 +83,16 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:13.5px;columns:2;column-gap:30px}
 @media(max-width:700px){.toc{columns:1}}
 .toc a{display:block;padding:2px 0}
+/* Розкадровка: кадр-референс поруч із розбором */
+.frame{display:grid;grid-template-columns:260px 1fr;gap:22px;align-items:start;margin-top:14px}
+@media(max-width:800px){.frame{grid-template-columns:1fr}}
+.frame img{width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:0 2px 8px rgba(24,36,48,.10);display:block}
+.frame .cap{color:var(--dim);font-size:12px;margin-top:7px;text-align:center}
+.sw{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px}
+.sw i{display:block;width:52px;height:52px;border-radius:9px;border:1px solid var(--line)}
+.sw div{text-align:center;font-size:11px;color:var(--dim);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.take{border-left:3px solid var(--accent);background:rgba(14,159,110,.05);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+.leave{border-left:3px solid var(--bad);background:rgba(220,38,38,.05);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
 </style>
 </head>
 <body>
@@ -110,6 +120,7 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 <a href="#naming">6. Назва: варіанти й перевірка</a>
 <a href="#mascot">7. Маскот та ігровий дизайн</a>
 <a href="#shots">7а. Shot list для дизайн-сесії</a>
+<a href="#frames">7б. Розкадровка референсів</a>
 <a href="#potential">8. Потенціал ніші</a>
 <a href="#method">9. Методологія</a>
 </div>
@@ -348,6 +359,45 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 </div>
 
 <div class="verdict"><b>Пейвол-спліт:</b> із цього списку виходить 5 різних структур пейволу під майбутній A/B — Sweepy (дешевий рік $19.99, мʼякий), Chorefriend (тижневий $6.99, агресивний), HomeTasker (lifetime-якір $109), Finch (емоційний «заради пташки»), Unrot (гумор). У кожного знімати: екран одразу після онбордингу · що показують після «пропустити» · таймлайн тріалу.</div>
+
+<h2 id="frames">7б. Розкадровка референсів <span class="tag t-new">поповнюється</span></h2>
+<div class="sub" style="margin-top:-4px">Живі кадри, зняті власником з реальних застосунків. Кожен — із розбором «що беремо / чого не беремо», щоб дизайн-промт спирався на факт, а не на переказ. Кадри лежать у <code>clean_schelude/refs/</code> цього ж репо.</div>
+
+<h3>Chorefriend · Пейвол (знято 27.09.2026)</h3>
+<div class="frame">
+  <div>
+    <img src="refs/chorefriend_paywall_01.png" alt="Пейвол Chorefriend: маскот-губка, заголовок, 4 бенефіти, два тарифи, кнопка Continue">
+    <div class="cap">chorefriend_paywall_01 · iPhone</div>
+  </div>
+  <div>
+    <b>Що на кадрі:</b> акварельний маскот-губка з обличчям і пшикалкою · серіфний заголовок «Unlock Your Personalized Micro-Cleaning Companion» · соцдоказ у лаврах («5 Stars» + «1M+ users on our apps») · 4 бенефіти з зеленими галочками · два тарифи · «No commitment, cancel anytime» · велика кнопка «Continue» · під нею ціна.
+    <div class="sw">
+      <div><i style="background:#FAF1E4"></i>#FAF1E4<br>фон</div>
+      <div><i style="background:#3B2E26"></i>#3B2E26<br>чорнило/CTA</div>
+      <div><i style="background:#7A9367"></i>#7A9367<br>галочки</div>
+      <div><i style="background:#F2B233"></i>#F2B233<br>зірки</div>
+    </div>
+    <div class="take"><b>БЕРЕМО:</b>
+      <ul style="margin-top:4px">
+        <li><b>Маскот — герой пейволу, а не логотип у кутку.</b> Він угорі, великий, дивиться на тебе. Рівно те, що ми плануємо з Moppy.</li>
+        <li><b>Тепла кремова палітра + темно-коричневий замість чорного.</b> Домашньо, не «продуктивно-корпоративно». Прямо в наш бренд-гайд.</li>
+        <li><b>Серіфний заголовок</b> — рідкість у категорії, дає відчуття «книжкової» теплоти проти звичних гротесків конкурентів.</li>
+        <li><b>Бенефіти — мовою стану, не фіч:</b> «Finally have a calm &amp; clean space», «Do chores one thing at a time». Те саме, чим люди пишуть 5★ у відгуках.</li>
+        <li><b>«Break down ANY chore into tiny steps»</b> — підтвердження, що мікрокроки вони самі вважають головним аргументом до оплати.</li>
+      </ul>
+    </div>
+    <div class="leave"><b>НЕ БЕРЕМО:</b>
+      <ul style="margin-top:4px">
+        <li><b>Предвибраний ДОРОЖЧИЙ план.</b> Жирна рамка стоїть на Weekly, кнопка каже «Just 7,99 USD per week» — тобто тап по «Continue» без роздумів купує тижневий за <b>$415/рік</b>, тоді як річний коштує $49.99. Бейдж «BEST VALUE» висить при цьому на річному — виглядає чесно, працює навпаки. Це прямий шлях до 1★ «charged me not cool», які ми вже бачили в їхніх же відгуках.</li>
+        <li><b>«1M+ users on our apps»</b> — не про цей застосунок, а про портфель студії. Ми таких формулювань не пишемо.</li>
+        <li>Тріал без явного «нагадаємо за 2 дні до списання» — наше правило з розділу відгуків.</li>
+      </ul>
+    </div>
+    <b class="bl">Нова фіча, якої не було в матриці:</b> «<b>Audio body-doubling while you clean</b>» — аудіо-компаньйон, що «складає компанію» поки прибираєш (ADHD-техніка body doubling). Для нас це природне продовження маскота: голос Moppy, який веде по мікрокроках. Кандидат у Premium, дешевий у реалізації (аудіо + таймер), сильний у креативі.
+  </div>
+</div>
+
+<div class="verdict warn"><b>Ціновий факт для нашої лінії:</b> річний Chorefriend — $49.99, тижневий — $7.99. Це вище за Sweepy ($19.99/рік) і вище за коридор, який ми записали ($29–39). Ніша тримає $50/рік, якщо є AI-фіча й маскот. Пропоную у спліт додати третю точку — $49.99/рік — і перевіряти її проти $29.99 і $39.99.</div>
 
 <h2 id="potential">8. Потенціал: скільки ринку не зайнято</h2>
 <div class="pot">
