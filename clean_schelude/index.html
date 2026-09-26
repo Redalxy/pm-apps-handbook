@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean Schedule — LLM Wiki проєкту: ніша, конкуренти, фічі, назва, маскот (27.09.2026)</title>
+<link rel="icon" type="image/svg+xml" href="../redlabs-favicon.svg">
+<style>
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --panel2:#eef2f6; --line:#dde5ec;
+  --ink:#182430; --dim:#5b6b7a; --accent:#0e9f6e; --warn:#d97706; --bad:#dc2626;
+  --blue:#2563eb;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 22px 90px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:22px;margin:52px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+h3{font-size:16px;margin:26px 0 10px;color:var(--accent)}
+.sub{color:var(--dim);font-size:14px;margin-bottom:26px}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.card .lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.card .val{font-size:26px;font-weight:650;letter-spacing:-.02em}
+.card .note{color:var(--dim);font-size:13px;margin-top:6px}
+.ok{color:var(--accent)} .wn{color:var(--warn)} .bd{color:var(--bad)} .bl{color:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--panel)}
+tr:hover td{background:var(--panel2)}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.scroll table{margin:0}
+.ic{width:22px;height:22px;border-radius:5px;vertical-align:-6px;margin-right:7px;border:1px solid var(--line);flex:none}
+.ic.no{display:inline-block;background:var(--panel2)}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em;vertical-align:middle}
+.t-core{background:rgba(14,159,110,.12);color:var(--accent)}
+.t-adj{background:rgba(217,119,6,.12);color:var(--warn)}
+.t-oth{background:rgba(220,38,38,.10);color:var(--bad)}
+.t-new{background:rgba(37,99,235,.10);color:var(--blue)}
+.verdict{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin:14px 0}
+.verdict.warn{border-left-color:var(--warn)}
+.verdict.bad{border-left-color:var(--bad)}
+.verdict b{color:var(--ink)}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.rl-mark{display:flex;align-items:flex-end;gap:1px;margin-bottom:18px}
+.rl-mark .wm{height:19px;width:86px;display:grid}
+.rl-mark .fl{height:38px;width:32px;display:grid;margin-bottom:-2px}
+.rl-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.pot{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:12px}
+.pot .m{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.pot .m .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.07em}
+.pot .m .v{font-size:21px;font-weight:650;letter-spacing:-.02em;margin-top:4px}
+.pot .m .n{color:var(--dim);font-size:12.5px;margin-top:5px;line-height:1.5}
+.share{height:11px;border-radius:6px;margin-top:9px;display:flex;gap:2px}
+.share span{display:block;height:100%;border-radius:6px}
+.share .lead{background:var(--blue)}
+.share .free{background:#cdd9e6;flex:1}
+.stage{display:inline-block;font-size:13px;font-weight:650;margin-top:2px}
+.cmp{display:grid;gap:11px;margin-top:6px}
+.cmp .row{display:grid;grid-template-columns:250px 1fr 90px;align-items:center;gap:12px;font-size:13.5px}
+.cmp .tr{height:13px;background:var(--panel2);border-radius:7px;overflow:hidden}
+.cmp .tr i{display:block;height:100%;border-radius:7px;background:var(--blue)}
+.cmp .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:650}
+@media(max-width:700px){.cmp .row{grid-template-columns:130px 1fr 70px;font-size:12.5px}}
+.app{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.app img{width:56px;height:56px;border-radius:13px;flex:none;border:1px solid var(--line)}
+.app .nm{font-weight:650;font-size:14.5px;line-height:1.3}
+.app .by{color:var(--dim);font-size:12px;margin-top:1px}
+.app .rev{font-size:19px;font-weight:700;margin-top:6px;letter-spacing:-.02em}
+.app .meta{color:var(--dim);font-size:12.5px;margin-top:4px;line-height:1.5}
+.star{color:var(--warn);font-size:12.5px}
+.q{border-left:3px solid var(--line);padding:6px 12px;margin:8px 0;color:var(--dim);font-size:13px;font-style:italic}
+.q b{color:var(--ink);font-style:normal}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:13.5px;columns:2;column-gap:30px}
+@media(max-width:700px){.toc{columns:1}}
+.toc a{display:block;padding:2px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="rl-mark" title="RedLabs">
+  <span class="wm"><img src="../logo/redlabs-word-light.svg" alt="RedLabs"></span>
+  <span class="fl"><img src="../logo/redlabs-flame-anim-light.svg" alt=""></span>
+</span>
+<div class="kicker">Niche Scout · LLM Wiki проєкту «Clean Schedule»</div>
+<div style="display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;margin-bottom:12px;box-shadow:0 1px 2px rgba(24,36,48,.04)">
+  <b>Оновлено: 27.09.2026</b> · <span style="color:var(--dim)">база: deep-dive NS 01.09.2026 (SensorTower) + жива видача й ВІДГУКИ App Store 27.09.2026 + Apple Ads 08.2026 · це робочий документ проєкту — кожна сесія, що працює над застосунком, читає його першим</span>
+</div>
+<h1>Розклад домашнього прибирання: усе, що знаємо, в одному місці</h1>
+<div class="sub">Рішення власника: робимо застосунок у цій ніші. Ігровий дизайн, вигаданий МАСКОТ-друг, підхід Chorefriend (фото безладу → мікрокроки), платить доросла аудиторія. Нижче — ринок, конкуренти, їхні фічі, біль із відгуків, ASO-ключі, варіанти назви й напрям маскота.</div>
+
+<div class="toc">
+<b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Зміст</b>
+<a href="#market">1. Ринок і гравці (цифри)</a>
+<a href="#marketing">2. Маркетинг: хто купує трафік</a>
+<a href="#aso">3. ASO: ключі, складність, популярність</a>
+<a href="#reviews">4. Відгуки: за що платять і на що лаються</a>
+<a href="#features">5. Фічі конкурентів + що робимо ми</a>
+<a href="#naming">6. Назва: варіанти й перевірка</a>
+<a href="#mascot">7. Маскот та ігровий дизайн</a>
+<a href="#potential">8. Потенціал ніші</a>
+<a href="#method">9. Методологія</a>
+</div>
+
+<div class="grid g4" style="margin-top:22px">
+  <div class="card"><div class="lbl">Ринок ядра</div><div class="val">$330K/міс</div><div class="note">16 гравців · SensorTower, deep-dive 01.09.2026</div></div>
+  <div class="card"><div class="lbl">Лідер</div><div class="val bl">Sweepy 33%</div><div class="note">$110K/міс найдешевшим чеком $19.99/рік — велетня в ніші немає</div></div>
+  <div class="card"><div class="lbl">Доведений темп</div><div class="val ok">$26K / 2 міс</div><div class="note">Chorefriend: реліз 30.06.2026 → #41 US House&amp;Home за 60 днів</div></div>
+  <div class="card"><div class="lbl">Аукціон Meta</div><div class="val ok">2 з 16</div><div class="note">стільки гравців реально купують трафік — вхід дешевий</div></div>
+</div>
+
+<h2 id="market">1. Ринок і гравці</h2>
+<div class="verdict">
+<b>Chorefriend: реліз 30.06.2026 → $26K/міс і #41 US House&amp;Home за 60 днів, без бренду.</b> Ринок ≈$330K/міс, велетня немає (лідер Sweepy $110K = 33%), у Meta реально лише 2 рекламодавці на 16 додатків — аукціон майже порожній. Контрольна група вбудована в саму нішу: Homsy і Home Routines без платного трафіку сидять під $5–10K у тих самих гео. Правила входу з бази: чек $20–40/рік (не $100+), тільки tier-1 гео, креатив «фото безладу → мікрокроки з таймінгом». Вільне суміжне вікно — дитячі chores (NeatKid $6K/міс органікою, аукціон нуль).
+</div>
+<div class="grid g4">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/24/ac/4924acbf-9e2e-8cde-936f-b7c93805dc49/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6780871586">Chorefriend</a> <span class="tag t-new">3 місяці</span></div><div class="by">System Two GmbH · <span class="star">★ 4.77</span> · 257</div><div class="rev ok">$26K/міс</div><div class="meta">Реліз 06.2026 · $14.99/міс, рік $29.99–69.99 · ~4 оголошення · НАШ ЗРАЗОК підходу</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/75/41/73/75417386-9b6e-b482-a074-90268da822fb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id1498897320">Sweepy</a></div><div class="by">Sweepy · <span class="star">★ 4.71</span> · 10 564</div><div class="rev">$110K/міс</div><div class="meta">Лідер із НАЙДЕШЕВШИМ чеком ($19.99/рік) — виграє обсягом; ~10–12 оголошень із січня 2025</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/89/7a/27897a32-9000-3e43-9bd8-78e8a536d82b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id595339588">Tody</a></div><div class="by">LoopLoop (DK) · <span class="star">★ 4.82</span> · 10 684</div><div class="rev">$50K/міс</div><div class="meta">13 років, 0 реклами — все органіка. Не атакувати в лоб: трафік дістається йому даром</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/15/72/651572d2-97b3-e088-8ed0-31a696bfaf04/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id1427750529">TOM: The Organised Method</a></div><div class="by">Джемма Брей · <span class="star">★ 4.02</span> · 48 (US)</div><div class="rev">$20K/міс</div><div class="meta">&lt;5K завантажень → $20K на одному тарифі $3.99: контент-бренд б'є платний трафік</div></div></div>
+</div>
+
+<h3>Уся ніша (SensorTower-цифри — deep-dive 01.09.2026; іконки й посилання живі)</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th class="num">Дохід/міс</th><th class="num">Завант./міс</th><th>Реліз</th><th>Монетизація</th><th>Реклама</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/75/41/73/75417386-9b6e-b482-a074-90268da822fb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1498897320">Sweepy</a></td><td class="num"><b>$110K</b></td><td class="num">40K</td><td>2020</td><td>$3.99/міс, $19.99/рік</td><td>~10–12</td><td>Ревеню-лідер (39% ядра) найдешевшим чеком</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/89/7a/27897a32-9000-3e43-9bd8-78e8a536d82b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id595339588">Tody</a></td><td class="num">$50K</td><td class="num">30K</td><td>2013</td><td>$9.99–79.99/рік</td><td>0</td><td>Найсильніший moat: бренд + рейтинг 4.82</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/38/9a/e4/389ae42f-5fbd-3f52-7588-4dba03eae046/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1604578415">HomeTasker</a></td><td class="num">$30K</td><td class="num">35K</td><td>2022</td><td>До $109.99 lifetime</td><td>Active iOS</td><td class="wn">Найдорожчий чек дає втричі менше за Sweepy: вирішує гео, не ціна</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/24/ac/4924acbf-9e2e-8cde-936f-b7c93805dc49/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt=""><b><a href="https://apps.apple.com/us/app/id6780871586">Chorefriend</a></b></td><td class="num ok"><b>$26K</b></td><td class="num">14K</td><td><b>06.2026</b></td><td>$6.99/тиж – $69.99/рік</td><td>~4</td><td>Головний доказ відкритого вікна</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/b4/20/a8b4206e-31d8-09a4-a260-02c3326bf61e/AppIcon-prod-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1115477521">FlyLady</a></td><td class="num">$22K</td><td class="num">&lt;10K</td><td>2016</td><td>$1.99/тиж – $37.99/рік</td><td>Active iOS</td><td>Контент-моат: найвища монетизація на завантаження</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/15/72/651572d2-97b3-e088-8ed0-31a696bfaf04/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1427750529">TOM</a> <span class="tag t-adj">суміжний</span></td><td class="num">$20K</td><td class="num">&lt;5K</td><td>2019</td><td>$3.99/міс</td><td>0</td><td>Медійний бренд — індикатор попиту, не конкурент</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ee/a0/a1/eea0a19a-b490-cff8-c20a-3f5c1a04cf0e/AppIcon-0-0-1x_U007ephone-0-0-0-1-0-85-220.jpeg/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6468808266">BeTidy</a></td><td class="num">$15K</td><td class="num">&lt;10K</td><td>2023–24</td><td>$23.90–35.90/рік</td><td>Active iOS</td><td>DACH-вікно: німець платить без US-конкуренції</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/84/fc/0c84fc4e-a116-bcdc-9dc0-f27a92558398/AppIcon-0-0-1x_U007epad-0-9-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id840810742">Flatastic</a></td><td class="num">$12K</td><td class="num">~10K</td><td>2015</td><td>$18.49–34.99/рік</td><td>Active iOS</td><td>Суто DACH flat-share; за 10 років не вийшов за DE</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/30/4c/ac/304cac38-b075-c9b5-05a7-c58aa0e00541/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1504877473">Nipto</a></td><td class="num bd">&lt;$10K</td><td class="num">~10K</td><td>2020</td><td>$12.99/рік</td><td>Active iOS</td><td class="bd">671K інсталів без грошей: кут «хто винен» не платить</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/a7/d6/faa7d69b-570c-9e0c-5620-77195896a32a/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt="">Housy / <a href="https://apps.apple.com/us/app/id1564891793">Tidy</a></td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>2021–22</td><td>$0.99–34.99</td><td>—</td><td>Згасають: хаос тарифів / трафік із RU</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/22/e6/7b/22e67b6a-3724-2eb5-f9a5-bdc5362f441e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6480269902">NeatKid</a> <span class="tag t-adj">дитяча вертикаль</span></td><td class="num">$6K</td><td class="num">5K</td><td>2024</td><td>$3.99–69.99</td><td>0</td><td class="ok">Платить батько → вищий ARPU; аукціон порожній</td></tr>
+<tr><td><span class="ic no"></span>Homsy <span class="tag t-new">01.2026</span></td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>01.2026</td><td>$19.99/рік</td><td>0</td><td>Контроль: без UA удвічі повільніше за Chorefriend</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/d8/c4/9fd8c4b2-4856-53bc-f839-4633e9382afa/HomeRoutines-iOS-AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id1448556668">Home Routines</a></td><td class="num bd">&lt;$5K</td><td class="num">&lt;5K</td><td>04.2025</td><td>$19.99/рік</td><td>Active</td><td class="bd">Ніша карає слабкий UA, а не пускає всіх підряд</td></tr>
+<tr><td><img class="ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/eb/6b/d5/eb6bd59a-78c6-3010-3de4-9ae8eb03747d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt=""><a href="https://apps.apple.com/us/app/id6451423379">Chore Focus</a> (ADHD)</td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>2023</td><td>$29.99/рік</td><td>0</td><td class="bd">⚠️ ADHD-таргет у Meta = бан акаунта; кут формулювати через «перевантаженість»</td></tr>
+<tr><td><span class="ic no"></span>Дозняте живою видачею 27.09: Chorsee (11,8K відгуків), Squeaky: Cleaning Schedule, Chorly, ChoreBuddy</td><td class="num">поза базою ST</td><td class="num">—</td><td>2022–25</td><td>підписки</td><td>—</td><td class="wn">Chorsee — сильний chore-трекер для сімей, у deep-dive не потрапив; занести в наступний прогін ST</td></tr>
+</tbody></table></div>
+
+<h2 id="marketing">2. Маркетинг: найпорожніший аукціон із топ-5 ніш</h2>
+<div class="scroll"><table>
+<thead><tr><th>Хто</th><th>Канал</th><th class="num">Обсяг</th><th>Як довго</th><th>Контент</th></tr></thead>
+<tbody>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;search_type=keyword_exact_phrase&amp;q=%22Sweepy%22">Sweepy</a> ($110K)</td><td>Meta, iOS-install</td><td class="num">~10–12</td><td class="ok">безперервно з січня 2025</td><td>сторінка «Sweepy - home cleaning app»</td></tr>
+<tr><td><b><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;search_type=keyword_exact_phrase&amp;q=%22Chorefriend%22">Chorefriend</a></b> ($26K/2 міс)</td><td>Meta, обидві платформи</td><td class="num">~4</td><td>з липня, свіжі креативи 31.08</td><td><b>«фото безладу → 7–12 мікрокроків із таймінгом»</b> — готовий шаблон</td></tr>
+<tr><td><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;search_type=keyword_exact_phrase&amp;q=%22FlyLady%22">FlyLady</a> ($22K)</td><td>—</td><td class="num">0 своїх</td><td>—</td><td class="wn">чужа сторінка «Kristina Cook» (TidyMinds) крутить ~5 оголошень ПРОТИ FlyLady/Sweepy</td></tr>
+<tr><td>решта 13 гравців</td><td>—</td><td class="num">0</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<div class="verdict" style="margin-top:10px">2 реальні рекламодавці на 16 додатків. ⚠️ ADHD-кут конвертить (відгуки нижче це доводять), але прямий ADHD-таргет = бан акаунта Meta — формулювати через «перевантаженість», не діагноз. TikTok по ніші ще не міряний (прогін t3a7473 на дошці Spilno; ключі ніші вже в списку).</div>
+
+<h2 id="aso">3. ASO: ключі, складність, популярність — одна таблиця</h2>
+<div class="sub" style="margin-top:-4px">Складність — <code>20 × log10(1 + медіана відгуків топ-10 видачі)</code>, жива видача iTunes (26–27.09.2026). Популярність — Apple Search Ads, зріз 08.2026, наш трекер (перевірено 27.09: <code>cleaning</code>, <code>chores</code>, <code>cleaning schedule</code>).</div>
+<div class="scroll"><table>
+<thead><tr><th>Ключ</th><th class="num">Складність</th><th class="num">Медіана відгуків топ-10</th><th>Популярність (Apple Ads)</th><th>Читання</th></tr></thead>
+<tbody>
+<tr><td><b>house cleaning checklist</b></td><td class="num ok"><b>68</b></td><td class="num">~2 400</td><td>нижче топу жанру*</td><td class="ok">Найкращий вхідний ключ: досяжний з перших місяців, точний біль</td></tr>
+<tr><td><b>chore chart for family</b></td><td class="num ok"><b>66</b></td><td class="num">~1 900</td><td>нижче топу жанру*</td><td class="ok">Другий вхідний; у топі велетні-«сімейні органайзери», але пів топу — карлики до 3K відгуків</td></tr>
+<tr><td>chore app</td><td class="num wn">81</td><td class="num">~10 700</td><td>нижче топу жанру*</td><td>Видача брудна: Chrome-розширення, дитячі чарти, Sweepy/Tody. На другий рік</td></tr>
+<tr><td>cleaning schedule</td><td class="num wn">80</td><td class="num">~10 600</td><td>нижче топу жанру*</td><td class="wn">Головний ключ ніші, у топі всі лідери. АЛЕ: у тому ж топі «ADHD Cleaning Checklist» із 4 відгуками і «Routinely» з 0 — Apple пускає свіжих за релевантністю. Ключ у НАЗВУ з першого дня</td></tr>
+<tr><td>cleaning / chores (однослівні)</td><td class="num bd">—</td><td class="num">—</td><td>нижче топу жанру*</td><td class="bd">Однослівники з'їдають іграшки-клікери (Chores! від Lion Studios — 109K відгуків). Не наша земля</td></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:8px">* «нижче топу жанру» — НЕ нуль пошуку: Apple Ads віддає рівень лише словам із топ-~500 свого жанру, і ЖОДЕН ключ прибирання туди не входить (перевірено і вчора по всьому ядру, і сьогодні точково). Це добре для нас: означає, що й конкуренти не бачать цих обсягів у кабінеті — гра йде на органіці й Meta, а не в ASA-аукціоні.</div>
+
+<h2 id="reviews">4. Відгуки: за що люблять, на що лаються, що просять</h2>
+<div class="sub" style="margin-top:-4px">Прочитано найсвіжіші відгуки App Store US (по Flatastic — DE): Chorefriend, Sweepy, Tody, Nipto, HomeTasker, Flatastic — ~150 відгуків, знято 27.09.2026 живим RSS-каналом Apple. Google Play цим каналом не читається — його відгуки додасть агент власника разом із SensorTower-прогоном. Цитати нижче — дослівні.</div>
+
+<h3>За що ЛЮБЛЯТЬ і платять (це ядро нашого продукту)</h3>
+<div class="grid g2">
+<div class="card">
+<b>1. «Скажи мені, що робити СЬОГОДНІ»</b> — тема №1 у всіх лідерів. Люди платять не за список справ, а за зняту з голови відповідальність планувати.
+<div class="q">«I don't have to remember anything, Sweepy just tells me what to do every day» · «takes the guesswork out of who-does-what and when» (Tody)</div>
+<b>2. Мікрокроки проти перевантаження (ADHD-мова без діагнозу)</b> — друга за частотою тема; саме вона в топових 5★.
+<div class="q">«helps my brain feel less overwhelmed instead of giving me another thing to manage» (Sweepy) · «bite-sized pieces… executive dysfunction. Genuinely life changing!» (Tody) · «As someone who has raging adhd… this is my #1 pick. Worth the money 100%» (Chorefriend)</div>
+<b>3. Дім без сварок: розподіл між партнерами/сусідами</b>
+<div class="q">«my partner and I were looking for ways to split the chores… It couldn't have came at a better time» (Sweepy) · «No more nagging, gamified house cleanup» · «Schützt die Ehe» (Flatastic — «рятує шлюб»)</div>
+</div>
+<div class="card">
+<b>4. Гейміфікація, що ПІДНІМАЄ настрій</b> — люблять монети, кімнату маскота Sweepy, «перемогти клубок пилу» в Tody, порівнюють Nipto з Finch (пташеня-компаньйон — головний доказ сили маскота в self-care).
+<div class="q">«you get coins and make the little Sweepy character a room» · «you do chores to defeat this dust ball thing» (Tody) · «It's kind of like Finch» (Nipto)</div>
+<b>5. Фото безладу → готовий план</b> — фіча Chorefriend, яку просять ЧУЖІ користувачі у Sweepy.
+<div class="q">«I was hoping for… take a picture of your room and give steps like ChatGPT does» (відгук у Sweepy!) · «The picture taking is cool but I kind of wish that was more the feature» (Chorefriend)</div>
+<b>6. Відчуття прогресу</b>
+<div class="q">«Feels good to check items off my list» · «It gives you a sense of accomplishment» (Tody)</div>
+</div>
+</div>
+
+<h3>На що ЛАЮТЬСЯ (наші заборонені граблі)</h3>
+<div class="card">
+<ul style="margin-top:0">
+<li><b>Білінг-пастки — джерело майже всіх 1★:</b> тріал, що мовчки списує рік ($70 у HomeTasker), «charged me not cool» (Chorefriend), сапорт не відповідає. <b>Правило нам:</b> тріал із нагадуванням перед списанням, чек $20–40/рік, видимий шлях скасування. Це не етика, це ASO: одна хвиля таких відгуків топить рейтинг назавжди.</li>
+<li><b>Сімʼя за пейволом:</b> у Sweepy +$20 за кожного члена сімʼї — найзліші 2★. Спільний дім — це і є продукт; ділити його на платні місця не можна.</li>
+<li><b>Зламані віджети:</b> «the widget is completely broken and displays nothing» (Sweepy, 1★). Віджет — вітрина продукту; глючний гірше, ніж жодного.</li>
+<li><b>Рахунок-суперництво для подружжя:</b> «it seemed to keep score — not great for spouses» (Tody). Лідерборд — опція для сусідів по квартирі, НЕ типовий режим для пар.</li>
+<li><b>Обіцяні інтеграції, що не працюють</b> (Alexa у Nipto) — не обіцяти, поки не працює.</li>
+<li><b>Доступність за пейволом</b> (Tody: змінити кольори — платно; людина з поганим зором пише 1★). Теми/контраст — безкоштовно.</li>
+</ul>
+</div>
+
+<h3>Що ПРОСЯТЬ (готовий беклог від ринку)</h3>
+<div class="card">
+<ul style="margin-top:0">
+<li>Разові задачі з конкретною датою (найчастіше прохання у Sweepy й Tody — досі не зроблено!)</li>
+<li>Vacation mode, який нормально повертає в ритм після відпустки (Sweepy «really struggles to get us back on track»)</li>
+<li>Монети, що мають СЕНС: «would love a feature where we can add our own incentives or coupons» — власні нагороди сімʼї</li>
+<li>Групування задач по кімнаті + «закрити кімнату одним тапом»</li>
+<li>Не тільки прибирання: «We also add other daily tasks… just to make it more fun» — люди самі розтягують продукт на побут</li>
+<li>Дитячі профілі, де дитина БАЧИТЬ свій прогрес і нагороду (скарги в Sweepy і Tody, що дитячі акаунти урізані)</li>
+</ul>
+</div>
+
+<h2 id="features">5. Фічі конкурентів і що робимо ми</h2>
+<h3>Матриця: хто що має</h3>
+<div class="scroll"><table>
+<thead><tr><th>Фіча</th><th>Sweepy</th><th>Tody</th><th>Chorefriend</th><th>HomeTasker</th><th>Nipto</th><th>Flatastic</th><th>FlyLady/TOM</th></tr></thead>
+<tbody>
+<tr><td><b>Авторозклад «що сьогодні»</b> (рівень бруду, не дати)</td><td>✅ ядро</td><td>✅ ядро</td><td>частково</td><td>✅</td><td>—</td><td>—</td><td>метод, не двигун</td></tr>
+<tr><td><b>Кімнати/зони</b></td><td>✅</td><td>✅</td><td>✅</td><td>✅ + room scan (платно)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><b>Фото безладу → AI-план мікрокроків</b></td><td>❌ (просять!)</td><td>❌</td><td>✅ УТП</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+<tr><td><b>Маскот/гра</b></td><td>частково: монети, кімнатка Sweepy</td><td>ворог-«клубок пилу»</td><td>тон «друга», без персонажа</td><td>❌</td><td>очки-змагання</td><td>❌</td><td>❌</td></tr>
+<tr><td><b>Сімʼя/сусіди, ролі</b></td><td>✅ але за $</td><td>✅ зі «score»-проблемою</td><td>❌ соло</td><td>✅</td><td>✅ ядро</td><td>✅ WG + покупки + витрати</td><td>❌</td></tr>
+<tr><td><b>Дитячі профілі/нагороди</b></td><td>урізані</td><td>очки→центи, криво</td><td>❌</td><td>❌</td><td>✅ дітям заходить</td><td>❌</td><td>❌</td></tr>
+<tr><td><b>Віджети</b></td><td>є, ЗЛАМАНІ</td><td>є</td><td>є</td><td>є</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><b>Разові задачі з датою</b></td><td>❌ (топ-прохання)</td><td>слабко</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>—</td></tr>
+<tr><td><b>Контент-програма</b> (готові рутини-методики)</td><td>❌</td><td>❌</td><td>❌</td><td>пресети</td><td>❌</td><td>❌</td><td>✅ уся цінність</td></tr>
+</tbody></table></div>
+
+<h3>За що реально підписуються — вага теми у прочитаних відгуках</h3>
+<div class="card">
+<div class="cmp">
+  <div class="row"><span><b>«Скажи, що робити сьогодні»</b> — авторозклад</span><div class="tr"><i style="width:100%"></i></div><span class="val">10/10</span></div>
+  <div class="row"><span><b>Мікрокроки проти перевантаження</b></span><div class="tr"><i style="width:90%"></i></div><span class="val">9/10</span></div>
+  <div class="row"><span><b>Дім без сварок</b> (пара/сусіди)</span><div class="tr"><i style="width:80%"></i></div><span class="val">8/10</span></div>
+  <div class="row"><span><b>Маскот + гра з сенсом</b></span><div class="tr"><i style="width:70%"></i></div><span class="val">7/10</span></div>
+  <div class="row"><span><b>Фото безладу → план</b> (AI)</span><div class="tr"><i style="width:60%"></i></div><span class="val">6/10</span></div>
+  <div class="row"><span>Живий віджет «одна наступна справа»</span><div class="tr"><i style="width:45%"></i></div><span class="val">4/10</span></div>
+  <div class="row"><span>Разові задачі + дати (гігієна)</span><div class="tr"><i style="width:40%"></i></div><span class="val">4/10</span></div>
+  <div class="row"><span>Дитячі профілі з нагородами</span><div class="tr"><i style="width:30%"></i></div><span class="val">3/10</span></div>
+</div>
+<div class="note" style="color:var(--dim);font-size:12.5px;margin-top:10px">Вага = частота теми у ~150 прочитаних відгуках (одна серія, один відтінок; джерело — App Store 27.09.2026). Перші пʼять — за них ПЛАТЯТЬ; наступні три — «гігієна», без якої лаються, але окремо за них не підписуються.</div>
+</div>
+
+<div class="verdict">
+<b>Формула нашого MVP із цього графіка:</b> авторозклад по кімнатах (двигун Sweepy/Tody) + фото-безладу→мікрокроки (УТП Chorefriend, яке просять у Sweepy) + МАСКОТ-друг, чия кімната прибирається разом із твоєю (Finch-механіка, якої нема ні в кого повноцінно) + чесна сімʼя без доплат за людину. Гігієна з першого дня: разові задачі, робочий віджет, vacation mode, теми безкоштовно. НЕ робимо: лідерборд для пар, інтеграції з колонками, ADHD-слово в таргетингу.
+</div>
+
+<h2 id="naming">6. Назва: варіанти під ключі й маскота</h2>
+<div class="sub" style="margin-top:-4px">Правила з ASO-зрізу: у назві мають жити ключі «cleaning schedule» / «chores» (формат стора: «Ім'я: House Cleaning Schedule»); ім'я — коротке, вимовне, з характером маскота. Патерн ніші: Sweepy, Tody, Nipto, Homsy — двоскладові з -y. Зайнятість перевірено живою видачею US 27.09.2026.</div>
+<div class="scroll"><table>
+<thead><tr><th>Назва</th><th>Маскот, що з неї народжується</th><th>Зайнятість у сторі</th><th>Вердикт</th></tr></thead>
+<tbody>
+<tr><td><b>Moppy</b> <span class="tag t-core">фаворит</span></td><td>Швабра-цуцик: вухата швабра, що метляє «хвостом»-ганчіркою, радіє чистій підлозі</td><td class="ok">вільно (є лише «Moppy: Swipe Photo Cleaner» — чистка фото, інша категорія)</td><td class="ok">Коротко, мило, звучить як друг, легко анімувати. «Moppy: House Cleaning Schedule»</td></tr>
+<tr><td><b>Dusty</b></td><td>Клубок пилу, який ПЕРЕВИХОВУЄМО: був ворогом (як у Tody) — став помічником</td><td class="ok">вільно в категорії</td><td>Сильна історія персонажа; мінус — англійською «dusty» = «брудний», подвійне читання</td></tr>
+<tr><td>Sparky / Sparkle</td><td>Іскринка чистоти, зіронька</td><td class="wn">Sparky зайнятий іншими категоріями, Sparkle — email-апка з базою</td><td>Живі асоціації «sparkling clean», але буде плутанина</td></tr>
+<tr><td>Squeaky</td><td>Мишеня «squeaky clean»</td><td class="bd">ЗАЙНЯТО: «Squeaky: Cleaning Schedule» вже в сторі</td><td class="bd">Викреслено — і це підтвердження, що хід думки правильний: хтось уже дійшов</td></tr>
+<tr><td>TidyBee / Broomy</td><td>бджілка / мітла</td><td class="bd">зайнято обидва («TidyBee: Organize Your Home», «Broomy», «Broomie»)</td><td class="bd">Викреслено</td></tr>
+<tr><td>ChorePal / CleanPal</td><td>прямий «друг»</td><td class="wn">варіації існують</td><td>Запасний шлях: максимально keyword, мінімум характеру</td></tr>
+</tbody></table></div>
+<div class="verdict"><b>Рекомендація MARK: Moppy.</b> Підзаголовок для стора: «Moppy: House Cleaning Schedule» (ключ зі складністю 80 — у назву, ключ 68 «cleaning checklist» — у підзаголовок/keywords). Перед фіксацією: перевірити товарний знак у US/EU і вільний домен/хендли — це разова робота агенту власника.</div>
+
+<h2 id="mascot">7. Маскот та ігровий дизайн — рішення власника</h2>
+<div class="verdict">
+<b>Власник затвердив напрям: ігровий дизайн, вигаданий маскот-друг, який милий, підіймає настрій і подобається клієнткам. Зразок тону — Chorefriend.</b> Ринок цей напрям уже довів:
+<ul>
+<li><b>Finch-механіка — найсильніший приклад у self-care:</b> користувачі Nipto самі порівнюють його з Finch. Пташеня, яке росте від твоїх справ, тримає ретеншн краще за будь-які streak'и. У нашій ніші ПОВНОЦІННОГО такого персонажа немає ні в кого — у Sweepy лише кімнатка, у Tody персонаж узагалі ворог.</li>
+<li><b>Механіка Moppy:</b> у маскота є СВІЙ дім, який прибирається разом із твоїм. Закрила кімнату — у Moppy посвітлішала його; тиждень стріку — він отримує обновку (за монети, які просили «щоб мали сенс»). Занедбала — він НЕ картає і не бруднішає назло, а сумно чекає з ганчіркою: із відгуків видно, що присоромлення = видалення.</li>
+<li><b>Тон друга, не наглядача:</b> «клінінг-поліція» — головна причина, чому кидають Tody-подібні. Маскот каже «зробімо разом 10 хвилин», а не «прострочено 3 дні» (червоних бейджів прострочення не існує в принципі).</li>
+<li><b>Фото-фіча через маскота:</b> сфотографувала безлад — Moppy «дивиться» на фото й пропонує 7–12 мікрокроків із таймінгом (шаблон креативу Chorefriend, який уже конвертить у Meta: «фото → кроки» і є нашим головним рекламним відео).</li>
+<li><b>Аудиторія й мова:</b> ядро платників — жінки 25–45, tier-1 гео; мова болю з відгуків: overwhelmed, mental load, «my brain feels less overwhelmed». Слова «лінь» і «брудно» в текстах заборонені.</li>
+</ul>
+</div>
+
+<h2 id="potential">8. Потенціал: скільки ринку не зайнято</h2>
+<div class="pot">
+  <div class="m"><div class="k">Ринок ядра</div><div class="v">$330K<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n"><b>Найменший із топ-5</b> — але й найдоступніший</div></div>
+  <div class="m"><div class="k">Лідер і вільна частка</div><div class="v">33% / <span class="bl">67%</span></div><div class="share"><span class="lead" style="width:33%"></span><span class="free"></span></div><div class="n">Sweepy — і виграє він ОБСЯГОМ на найдешевшому чеку ($19.99/рік), а не продуктом: у його ж відгуках лежить список того, чого йому бракує</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v">14 з 16</div><div class="n">Стільки гравців не купують трафік узагалі. Плюс Nipto: 671K інсталів і &lt;$10K — соціальний кут без грошей</div></div>
+  <div class="m"><div class="k">Новачок дійшов за</div><div class="v ok">2 міс</div><div class="n">Chorefriend: 0 → $26K/міс за 60 днів на ~4 оголошеннях</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage ok">🟢 Рання</div><div class="n">Велетня немає; жодного повноцінного маскота-компаньйона в ніші</div></div>
+</div>
+
+<h2 id="method">9. Методологія і статус даних</h2>
+<div class="card" style="font-size:13.5px">
+<ul style="margin-top:0">
+<li><b>Доходи й завантаження</b> — SensorTower із deep-dive бази Niche Scout, знято 01.09.2026 (Worldwide, Last Month). Chorsee/Squeaky/Chorly у той прогін не потрапили — додати в наступний запит агенту.</li>
+<li><b>Видача, іконки, рейтинги, кількість відгуків</b> — iTunes Search API, живі, 26–27.09.2026.</li>
+<li><b>Відгуки</b> — офіційний RSS App Store, найсвіжіші ~150 штук по 6 застосунках, прочитано 27.09.2026. Google Play цим каналом не покривається — чекає агента власника (SensorTower-промт уже в нього).</li>
+<li><b>Популярність ключів</b> — Apple Search Ads 08.2026 через наш трекер; усе ядро ніші — «нижче топу жанру» (це обмеження методу, не нуль попиту).</li>
+<li><b>Ваги фіч у графіку</b> — частота теми в прочитаних відгуках; це якісна вага, не статистика.</li>
+<li><b>Маркетинг</b> — Meta Ad Library (липень–вересень 2026); TikTok знімає картка t3a7473.</li>
+</ul>
+</div>
+
+<div class="foot">
+Niche Scout · LLM Wiki проєкту Clean Schedule · складено 27.09.2026 · споріднене: <a href="../top_niches_research.html">зведення топ-5 ніш</a> · <a href="../kids_task_lock_research.html">дитячий замок-за-завдання</a> · <a href="../fishing_apps_research.html">риболовля</a>
+</div>
+
+</div>
+</body>
+</html>
