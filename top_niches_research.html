@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niche Scout — Зведення: ніші з доведеними грошима (26.09.2026)</title>
+<style>
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --panel2:#eef2f6; --line:#dde5ec;
+  --ink:#182430; --dim:#5b6b7a; --accent:#0e9f6e; --warn:#d97706; --bad:#dc2626;
+  --blue:#2563eb;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 22px 90px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:22px;margin:52px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+h3{font-size:16px;margin:26px 0 10px;color:var(--accent)}
+.sub{color:var(--dim);font-size:14px;margin-bottom:26px}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.card .lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.card .val{font-size:26px;font-weight:650;letter-spacing:-.02em}
+.card .note{color:var(--dim);font-size:13px;margin-top:6px}
+.ok{color:var(--accent)} .wn{color:var(--warn)} .bd{color:var(--bad)} .bl{color:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--panel)}
+tr:hover td{background:var(--panel2)}
+td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.scroll table{margin:0}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em;vertical-align:middle}
+.t-core{background:rgba(14,159,110,.12);color:var(--accent)}
+.t-adj{background:rgba(217,119,6,.12);color:var(--warn)}
+.t-oth{background:rgba(220,38,38,.10);color:var(--bad)}
+.t-new{background:rgba(37,99,235,.10);color:var(--blue)}
+.verdict{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin:14px 0}
+.verdict.warn{border-left-color:var(--warn)}
+.verdict.bad{border-left-color:var(--bad)}
+.verdict b{color:var(--ink)}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+/* картка застосунку з іконкою зі стора */
+.app{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.app img{width:56px;height:56px;border-radius:13px;flex:none;border:1px solid var(--line)}
+.app .ph{width:56px;height:56px;border-radius:13px;flex:none;background:var(--panel2);color:var(--dim);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;border:1px solid var(--line)}
+.app .nm{font-weight:650;font-size:14.5px;line-height:1.3}
+.app .by{color:var(--dim);font-size:12px;margin-top:1px}
+.app .rev{font-size:19px;font-weight:700;margin-top:6px;letter-spacing:-.02em}
+.app .meta{color:var(--dim);font-size:12.5px;margin-top:4px;line-height:1.5}
+.star{color:var(--warn);font-size:12.5px}
+.bar{height:9px;border-radius:5px;background:var(--panel2);overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="kicker">Niche Scout · зведення по всій базі</div>
+<h1>Де реально заробити: ніші з доведеними свіжими грошима</h1>
+<div class="sub">26 вересня 2026 · база Niche Scout: 40 deep-dive'ів, 716 записів, ~200 застосунків із цифрами · фільтр: <b>реліз ≤ 2 роки</b> (після 09.2024) <b>і дохід ≥ $10K/міс</b> · джерела: SensorTower (Downloads &amp; Revenue), Google Play, App Store, Meta Ad Library · іконки й рейтинги — живі, з iTunes API (26.09.2026)</div>
+
+<div class="grid g4">
+  <div class="card"><div class="lbl">Пройшло фільтр</div><div class="val ok">16 застосунків</div><div class="note">у 10 нішах — свіжий гравець уже заробляє $10K+/міс</div></div>
+  <div class="card"><div class="lbl">Найшвидший кейс</div><div class="val bl">$26K / 2 міс</div><div class="note">Chorefriend: з нуля до #41 US House&amp;Home за 60 днів</div></div>
+  <div class="card"><div class="lbl">Найбільший свіжий</div><div class="val ok">$530K/міс</div><div class="note">HairApp — 19 місяців від релізу</div></div>
+  <div class="card"><div class="lbl">Без реклами взагалі</div><div class="val wn">$100K / 6 міс</div><div class="note">Hairify: нуль оголошень у Meta, чиста органіка + ASO</div></div>
+</div>
+
+<h2>Головний висновок за 30 секунд</h2>
+<div class="verdict">
+<b>З усієї бази лише 5 ніш мають подвійний доказ: і великі гроші, і СВІЖИЙ гравець, який дійшов до них швидко.</b> Решта — або гіганти, до яких пізно, або ніші, де навіть той, хто робить усе правильно, сидить під $5K/міс.
+<ul>
+<li><b>1. Сканер спортивних карток</b> — два незалежні входи по $100K/міс за 10 і 5 місяців; Spoly зробив це на 13 оголошеннях.</li>
+<li><b>2. AI-примірка зачісок</b> — чотири свіжі гравці $40–530K/міс; Hairify: $100K за 6 міс <i>без реклами</i>. Але вікно закривається: копіювальники вже в Meta.</li>
+<li><b>3. Пари й стосунки</b> — Candle: 0 → $200K/міс за 18 міс, тільки iOS, тільки підписка, тижневий чек $4.99.</li>
+<li><b>4. AI-риболовля</b> — Fish AI: $230K/міс при живому Fishbrain; прямо зараз два соло-запуски тестують той самий кут.</li>
+<li><b>5. Розклад прибирання</b> — найменші гроші, але найкращий темп ($26K за 60 днів) і найдешевший вхід: аукціон Meta майже порожній.</li>
+</ul>
+</div>
+
+<h2>Хто скільки заробляє серед свіжих (реліз ≤ 2 роки, $/міс)</h2>
+<div class="card">
+<div style="font-size:13.5px">
+<div style="margin:10px 0"><b>HairApp</b> <span style="float:right" class="ok">$530 000</span><div class="bar"><i style="width:100%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Glowify</b> <span style="float:right">$400 000</span><div class="bar"><i style="width:75%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Fish AI</b> <span style="float:right">$230 000</span><div class="bar"><i style="width:43%;background:var(--blue)"></i></div></div>
+<div style="margin:10px 0"><b>Candle: Couples</b> <span style="float:right">$200 000</span><div class="bar"><i style="width:38%;background:var(--blue)"></i></div></div>
+<div style="margin:10px 0"><b>Farm Manager 2026</b> <span style="float:right">$200 000</span><div class="bar"><i style="width:38%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>StarSnap</b> <span style="float:right">$100 000</span><div class="bar"><i style="width:19%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Spoly</b> <span style="float:right">$100 000</span><div class="bar"><i style="width:19%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Hairify</b> <span style="float:right">$100 000</span><div class="bar"><i style="width:19%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Atlas Photo</b> <span style="float:right">$100 000</span><div class="bar"><i style="width:19%;background:var(--blue)"></i></div></div>
+<div style="margin:10px 0"><b>Hair AI</b> <span style="float:right">$70 000</span><div class="bar"><i style="width:13%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>iFizz</b> <span style="float:right">$40 000</span><div class="bar"><i style="width:7.5%;background:var(--accent)"></i></div></div>
+<div style="margin:10px 0"><b>Chorefriend</b> <span style="float:right">$26 000</span><div class="bar"><i style="width:4.9%;background:var(--blue)"></i></div></div>
+<div style="margin:10px 0"><b>RevMod AI</b> <span style="float:right">$13 000</span><div class="bar"><i style="width:2.5%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>RepairBuddy</b> <span style="float:right">$10–15 000</span><div class="bar"><i style="width:2.4%;background:var(--warn)"></i></div></div>
+<div style="margin:10px 0"><b>Mealia</b> <span style="float:right">$10 000</span><div class="bar"><i style="width:1.9%;background:var(--warn)"></i></div></div>
+</div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:14px"><span class="ok">Зеленим</span> — ніші з кількома свіжими переможцями. <span class="bl">Синім</span> — переможець-одинак у своїй ніші. Farming Simulator 26 ($200K, GIANTS) виключено: бренд-інкумбент, не орієнтир.</div>
+</div>
+
+<!-- ═══════════════ 1. КАРТКИ ═══════════════ -->
+<h2>1. Сканер спортивних карток з AI-оцінкою <span class="tag t-core">найчистіший доказ</span></h2>
+<div class="verdict">
+<b>Два незалежні свіжі входи по $100K/міс — за 10 і за 5 місяців.</b> Spoly зробив це на ~13 оголошеннях проти ~100 у StarSnap: вирішує не бюджет, а хук «наведи камеру → AI-grade + ринкова ціна». Гроші лише в US/CA (Shiny поплив у Малайзію — і монетизація просіла). Антиприклад у ніші теж є: CardSnap із тим самим шаблоном сидить під $5K — виграє якість розпізнавання, а не факт входу. Прихований велетень Card Ladder ($1.1M/міс) грає в іншу гру — цінові дані, не сканування.
+</div>
+<div class="grid g3">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f9/10/c5/f910c527-ccbe-9e45-b47b-26dcbcb7ce30/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6752947519">StarSnap: Sports Card Scanner</a> <span class="tag t-new">≤1 року</span></div><div class="by">Next Vision Limited · <span class="star">★ 4.68</span> · 27 381 оцінка</div><div class="rev ok">~$100K/міс</div><div class="meta">Реліз 10.2025 → $100K за 10 міс · weekly-підписка $3.99–6.99 · ~100 Meta-оголошень — найагресивніший у ніші</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/69/d3/0b69d3b5-c7f4-fd6a-d17f-cb2dd0ee542d/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6760181919">Sports Card Scanner: Spoly</a> <span class="tag t-new">5 місяців</span></div><div class="by">Scaling Engine (HK) · <span class="star">★ 4.59</span> · 4 649 оцінок</div><div class="rev ok">~$100K/міс</div><div class="meta">Реліз 03.2026 → $100K за 5 міс на ~13 оголошеннях · найкращий орієнтир юніт-економіки для соло-входу</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/8e/3c/558e3cbe-6093-efa5-1c2a-17df1ff9198c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6593663349">Shiny: Card Value Scanner</a> <span class="tag t-adj">межа 2 років</span></div><div class="by">Shiny · <span class="star">★ 4.88</span> · 3 566 оцінок</div><div class="rev">~$30K/міс</div><div class="meta">Реліз 08.2024 · 1 оголошення · урок ніші: broad-таргет тягне дешеве гео й розмиває LTV</div></div></div>
+</div>
+<h3>Уся ніша з бази Niche Scout (deep-dive 24.08.2026)</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th class="num">Дохід/міс</th><th class="num">Завант./міс</th><th>Реліз iOS</th><th>Монетизація</th><th>Реклама</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td><a href="https://apps.apple.com/us/app/id1541535971">Card Ladder</a> <span class="tag t-oth">прихований велетень</span></td><td class="num"><b>$1.1M</b></td><td class="num">60K</td><td>2021</td><td>PRO $19.99/міс–$199.99/рік</td><td>0</td><td>59% доходу ядра з нульовим UA; продає фінансовий термінал колекціонера, moat — цінові дані</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id1581164444">CollX</a></td><td class="num">$280K</td><td class="num">120K</td><td>2022</td><td>Freemium + маркетплейс 10%</td><td>~30 оголошень</td><td>Переріс сканер у маркетплейс — шлях для того, у кого є капітал</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id1616691213">LUDEX</a></td><td class="num">$250K</td><td class="num">80K</td><td>2022</td><td>Freemium, платні скани</td><td>~30</td><td>Еталон performance-моделі: чистий сканер на Meta-трафіку з одним хуком</td></tr>
+<tr><td><b>StarSnap</b></td><td class="num ok"><b>$100K</b></td><td class="num">60K</td><td><b>10.2025</b></td><td>Weekly $3.99–6.99</td><td>~100</td><td>Головний доказ відкритого вікна</td></tr>
+<tr><td><b>Spoly</b></td><td class="num ok"><b>$100K</b></td><td class="num">40K</td><td><b>03.2026</b></td><td>Weekly-підписка</td><td>~13</td><td>$100K за 5 міс на малому бюджеті</td></tr>
+<tr><td>Shiny</td><td class="num">$30K</td><td class="num">10–15K</td><td>08.2024</td><td>Підписка + free-trial</td><td>1</td><td>Середняк; Android-трафік поплив у Малайзію</td></tr>
+<tr><td>CardSnap</td><td class="num bd">&lt;$5K</td><td class="num">&lt;5K</td><td>03.2026</td><td>Підписка + web-funnel</td><td>~30</td><td class="bd">Провал того самого шаблону — «ще один сканер» сам по собі не конвертує</td></tr>
+<tr><td>Sports Card Investor</td><td class="num bd">&lt;$5K</td><td class="num">9K</td><td>2020</td><td>Free</td><td>0</td><td>Згасає — аудиторію віддав Card Ladder</td></tr>
+<tr><td>Collectr <span class="tag t-adj">суміжний, TCG</span></td><td class="num">$800K</td><td class="num">400K</td><td>2022</td><td>Підписка + шеринг</td><td>офлайн-спонсорство</td><td>TCG/Pokémon-зріз монетизується краще за спортивний</td></tr>
+<tr><td>PriceCharting <span class="tag t-adj">суміжний</span></td><td class="num">$70K</td><td class="num">130K</td><td>2023</td><td>Підписка на прайс-дані</td><td>Active</td><td>Стеля «просто довідника» без портфельної аналітики</td></tr>
+<tr><td>PSA <span class="tag t-adj">суміжний</span></td><td class="num bd">&lt;$10K</td><td class="num">140K</td><td>2015</td><td>Грейдинг поза стором</td><td>0</td><td>Бренд-велетень за трафіком, нуль у сторі; «оцінка як у PSA» — валідний хук</td></tr>
+<tr><td>Arena Club <span class="tag t-adj">суміжний</span></td><td class="num bd">&lt;$10K</td><td class="num">70K</td><td>2024</td><td>Vault/комісія поза стором</td><td>Active iOS</td><td>Трафік є, in-app доходу нема</td></tr>
+</tbody></table></div>
+
+<!-- ═══════════════ 2. ВОЛОССЯ ═══════════════ -->
+<h2>2. AI-примірка зачісок по селфі <span class="tag t-core">найбагатша · вікно закривається</span></h2>
+<div class="verdict warn">
+<b>Ядро ніші ~$1.24M/міс, і 9 з 14 гравців увійшли після січня 2025.</b> Ключовий кейс — Hairify: $100K/міс за 6 місяців з нуля, на найдорожчому тижневому прайсі й <b>без жодного оголошення в Meta</b>. Але годинник цокає: HaircutAI вже дослівно копіює креативи лідера — база фіксує, що вікно «дешевого Meta» закриється за місяці, не роки. Окреме вільне вікно — Android: Vit Corp. збирає 1M завантажень/міс і монетизує &lt;$5K, чоловічий сегмент (fade/beard) на дорогих гео не монетизує ніхто.
+</div>
+<div class="grid g4">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/4f/89/944f897d-5b7e-1bef-5682-7051a751d397/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6740919592">HairApp: AI Hairstyle Try On</a></div><div class="by">xLabs Dijital (TR) · <span class="star">★ 4.15</span> · 8 398</div><div class="rev ok">~$530K/міс</div><div class="meta">Реліз 02.2025 · тижнева $7.99–14.99 · ~120 оголошень 3 міс поспіль · задає CPI ніші</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8f/da/6c/8fda6c9d-2292-8bba-a813-3afe16f9cd02/AppIcon-0-0-1x_U007epad-0-1-0-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6751491972">Glowify — AI Hairstyle Try On</a> <span class="tag t-new">≤1 року</span></div><div class="by">Flarial Interactive · <span class="star">★ 4.74</span> · 12 125</div><div class="rev ok">~$400K/міс</div><div class="meta">Реліз 08.2025 · $400K за ~13 міс · ~130 оголошень · «пилосос» попиту згори (широкий AI-editor)</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/12/24/e5/1224e5dd-98bb-a197-e3f7-ab83c6ee8180/AppIcon-0-0-1x_U007epad-0-1-0-P3-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6758685096">Hairify — AI Hairstyle Try On</a> <span class="tag t-new">6 місяців</span></div><div class="by">Techbot Co. (CN) · <span class="star">★ 4.59</span> · 1 449</div><div class="rev ok">~$100K/міс</div><div class="meta"><b>0 оголошень у Meta.</b> Реліз 02.2026, найвищий тижневий прайс $12.99 · кейс, який слід копіювати</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ee/d2/f8/eed2f84e-ae28-1bbc-252b-b49609dd1845/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.jpeg/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6695743833">Hair AI: Hairstyle Filter, Cut</a></div><div class="by">Spark Dynamic (TR) · <span class="star">★ 4.35</span> · 5 549</div><div class="rev">~$70K/міс</div><div class="meta">Реліз 10.2024 · $70K при &lt;5K завантажень/міс — LTV підписки в ніші дуже високий</div></div></div>
+</div>
+<h3>Уся ніша з бази Niche Scout (deep-dive 20.08.2026)</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th class="num">Дохід/міс</th><th class="num">Завант./міс</th><th>Реліз</th><th>Монетизація</th><th>Реклама</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td><b>HairApp</b> (iOS+And)</td><td class="num ok"><b>$530K</b></td><td class="num">600K</td><td>02.2025</td><td>Тижн. $7.99–14.99, рік $18.99–39.99</td><td>~120 Meta</td><td>Лідер і прихований revenue-велетень: 43% виторгу ядра</td></tr>
+<tr><td><b>Glowify</b> (iOS)</td><td class="num ok"><b>$400K</b></td><td class="num">200K</td><td>08.2025</td><td>Тижн. $9.99, рік $39.99</td><td>~130 Meta</td><td>№2: paid UA дає швидкий масштаб</td></tr>
+<tr><td><b>Hairify</b> (iOS)</td><td class="num ok"><b>$100K</b></td><td class="num">80K</td><td>02.2026</td><td>Тижн. $12.99, рік $39.99</td><td><b>0</b></td><td>Найважливіший доказ вікна: $100K/6 міс без Meta</td></tr>
+<tr><td><b>Hair AI</b> (iOS)</td><td class="num">$70K</td><td class="num">&lt;5K</td><td>10.2024</td><td>Тижн. $9.99–19.99, рік до $69.99</td><td>0</td><td>Аномалія: виторг тримає легасі-база на топ-прайсі</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id6742491720">iFizz</a> (iOS)</td><td class="num">$40K</td><td class="num">70K</td><td>03.2025</td><td>Тижн. $5.99–9.99, рік $79.99</td><td>0 у Meta</td><td>Тригер ніші; купує трафік поза Meta — Meta не єдиний канал</td></tr>
+<tr><td>AI Hairstyle Try On &amp; Color (Vit Corp., And)</td><td class="num bd">&lt;$5K</td><td class="num"><b>1M</b></td><td>05.2026</td><td>IAP $19.99–38.99</td><td>Active</td><td class="ok">Найбільше вільне вікно: install-лідер ядра не монетизує</td></tr>
+<tr><td>Modiface Haircut (And)</td><td class="num">$30K</td><td class="num">300K</td><td>2023</td><td>IAP $0.99–99.99</td><td>—</td><td>RPD ~$0.10 — стеля «дешевий трафік + слабкий пейвол»</td></tr>
+<tr><td>Hair Styler App (And)</td><td class="num">$30K</td><td class="num">50K</td><td>2023</td><td>IAP $2.99–49.99</td><td>0</td><td>Найкращий RPD Android (~$0.60) — еталон Android-монетизації</td></tr>
+<tr><td>Hairstyle Try On – AI Haircut (And)</td><td class="num">$20K</td><td class="num">100K</td><td>2021</td><td>IAP $9.99–49</td><td>0</td><td>Старий SKU тримає $20K органікою — попит стабільний</td></tr>
+<tr><td>Hair Color &amp; Hairstyle Try On (And)</td><td class="num">$20K</td><td class="num">70K</td><td>04.2025</td><td>Тижн./річна $6.99–59.99</td><td>—</td><td>Свіжий UK-видавець: вхід 2025–26 не закритий</td></tr>
+<tr><td>HAIR U (And)</td><td class="num bd">&lt;$5K</td><td class="num">80K</td><td>03.2026</td><td>IAP $0.99–99.99</td><td>—</td><td class="bd">Антиприклад гео: трафік IN/BD/PK не платить</td></tr>
+<tr><td>AI Men's Hairstyle (And)</td><td class="num bd">&lt;$5K</td><td class="num">40K</td><td>12.2025</td><td>IAP до $6.49</td><td>—</td><td class="ok">Чоловічий pure-play порожній — найвужче чисте вікно</td></tr>
+<tr><td>Moggr — Looksmax AI</td><td class="num bd">&lt;$5K</td><td class="num">&lt;10K</td><td>2022</td><td>IAP + тижн. $3.99–6.99</td><td>0</td><td>Розмив позиціонування в looksmaxxing — і згас</td></tr>
+<tr><td>HaircutAI (Musargu Labs)</td><td class="num bd">&lt;$5K</td><td class="num">&lt;5K</td><td>02.2025</td><td>Тижн. $9.99–14.99</td><td>~6, тест</td><td class="wn">Копіює креативи HairApp дослівно — вікно закривається</td></tr>
+<tr><td>FaceApp <span class="tag t-adj">суміжний велетень</span></td><td class="num">$2M</td><td class="num">1M</td><td>2017</td><td>IAP $4.99–99.99</td><td>0</td><td>Generic face-editor; забирає верхівку попиту органічно</td></tr>
+<tr><td>Facetune (Lightricks) <span class="tag t-adj">суміжний</span></td><td class="num">$300K</td><td class="num">100K</td><td>2018</td><td>IAP до $199.99</td><td>Active</td><td class="wn">Поставив «Hair» у назву — платформи вже визнали попит</td></tr>
+</tbody></table></div>
+
+<!-- ═══════════════ 3. ПАРИ ═══════════════ -->
+<h2>3. Ігри-питання та зв'язок для пар <span class="tag t-core">США вільні · composite 15/18</span></h2>
+<div class="verdict">
+<b>Candle: 0 → $200K/міс і 11 174 оцінки за 18 місяців. Тільки iOS, тільки підписка, тижневий чек $4.99.</b> Ринок ≈$790K/міс без велетня: найбільший Couple Joy (29%) купує LatAm і за США не бореться. Американський Meta-аукціон тримає один гравець (Cozy Couples, ~85 оголошень). Вільне вікно назване базою прямо: чиста механіка «колода питань» — DeepQ доводить RPD $2.5, 21 Questions доводить $40K/міс узагалі без реклами. Терапевтичний кут («робота над стосунками») перевірений трьома гравцями і не масштабується — заходити через розвагу.
+</div>
+<div class="grid g4">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/4b/d5/e64bd58b-c876-e1df-de05-fe1a8e4fc286/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6743355635">Candle: Couples &amp; Relationship</a> <span class="tag t-new">≤2 років</span></div><div class="by">Encore AI Labs · <span class="star">★ 4.76</span> · 11 303</div><div class="rev ok">$200K/міс</div><div class="meta">Реліз 03.2025 · рік $39.99–49.99, тижд $4.99 · купує поза Meta · головний доказ вікна</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/7f/f5/9c7ff5b3-eb1f-2964-29d4-c881d9e52f08/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id1624758651">Couple Joy</a></div><div class="by">HEARTBIT S.R.L. · <span class="star">★ 4.85</span> · 37 967</div><div class="rev">$230K/міс</div><div class="meta">Лідер виторгу, але купує LatAm: 300K Android-завантажень дають лише $30K</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/41/4a/bd414ae6-b5d9-bd4d-7583-0aa9872cd281/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6463766369">Cozy Couples</a></div><div class="by">Clarity Applications · <span class="star">★ 4.84</span> · 45 221</div><div class="rev">$110K/міс</div><div class="meta">Єдиний, хто викуповує US-аукціон: ~85 оголошень 22 міс поспіль — економіка сходиться</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/ac/86/b2ac8682-b682-b881-52c8-bbf73490ef7e/AppIcon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6451279804">Couple Games Questions · DeepQ</a></div><div class="by">SMAK APPS · <span class="star">★ 4.45</span> · 4 114</div><div class="rev">$100K/міс</div><div class="meta">Найвищий RPD ядра (~$2.5/завантаження): чиста колода питань б'є комбайни — референс-продукт</div></div></div>
+</div>
+<h3>Уся ніша з бази Niche Scout (deep-dive 21.09.2026)</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th class="num">Дохід/міс</th><th class="num">Завант./міс</th><th>Реліз</th><th>Монетизація</th><th>Реклама</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td>Couple Joy</td><td class="num">$230K</td><td class="num">500K</td><td>2022</td><td>Рік $29.99–39.99, тижд</td><td>1 у US</td><td>Лідер, але за США не бореться</td></tr>
+<tr><td><b>Candle</b></td><td class="num ok"><b>$200K</b></td><td class="num">200K</td><td><b>03.2025</b></td><td>Рік $39.99–49.99, тижд $4.99</td><td>поза Meta</td><td>0 → $200K за 18 міс, iOS-only</td></tr>
+<tr><td>Cozy Couples</td><td class="num">$110K</td><td class="num">99K</td><td>2023</td><td>Рік $23.99–39.99 + Stars</td><td>~85</td><td>Головний конкурент за CPM і доказ каналу</td></tr>
+<tr><td>DeepQ</td><td class="num">$100K</td><td class="num">40K</td><td>2023</td><td>Тижнева $5.99–9.99</td><td>Active</td><td>RPD $2.5 — механіка «колода питань» перемагає</td></tr>
+<tr><td>Couples Games &amp; Challenges (Chouic)</td><td class="num">$50K</td><td class="num">60K</td><td>2014</td><td>Рік лише $14.99</td><td>0</td><td class="wn">Старожил із заниженим чеком — вразливий до перехоплення</td></tr>
+<tr><td>SumOne</td><td class="num">$50K</td><td class="num">100K</td><td>2019</td><td>Рік $29.99</td><td>Active</td><td>Весь у KR/JP/TW — американський зріз вільний</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id6451004192">21 Questions</a></td><td class="num">$40K</td><td class="num">25K</td><td>2023</td><td>Тижд $3.99–14.99, рік $19.99</td><td><b>0</b></td><td class="ok">$40K/міс чистою органікою — вільне вікно: додай UA</td></tr>
+<tr><td>Lovify</td><td class="num bd">&lt;$10K</td><td class="num">90K</td><td>2023</td><td>Лише разові $0.99–11.99</td><td>0</td><td class="bd">Ціна помилки з моделлю: той самий обсяг у Cozy дає $110K</td></tr>
+<tr><td>Evergreen</td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>2021</td><td>Рік до $69.99</td><td>Active</td><td>Преміум-позиціонування не тримає обсяг</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id6759009985">Dovey</a> <span class="tag t-new">7 міс</span></td><td class="num bd">&lt;$5K</td><td class="num">6K</td><td>02.2026</td><td>Рік $19.99–39.99, тижд $4.99</td><td>0</td><td>Наш профіль (соло, iOS, tier-1): стільки дає органіка без Meta</td></tr>
+<tr><td>Couple Game: Relationship Quiz</td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>2018</td><td>Міс $7.99–10.99</td><td>0</td><td>Стара база не захищає — мережевого ефекту в ніші немає</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id1469609343">Paired</a> <span class="tag t-adj">суміжний велетень</span></td><td class="num">$200K</td><td class="num">50K</td><td>2020</td><td>Рік $36.99–74.99</td><td>Active</td><td>RPD $4 — але це «терапія», не гра; не конкурувати в лоб</td></tr>
+<tr><td>Lasting / Agapé / Couples (Codeway) <span class="tag t-adj">суміжні</span></td><td class="num bd">&lt;$5K кожен</td><td class="num">&lt;5K</td><td>2017–2022</td><td>Рік $29.99–99.99</td><td>вимкнули</td><td class="bd">Терапевтичний кут тричі перевірено — не масштабується</td></tr>
+</tbody></table></div>
+
+<!-- ═══════════════ 4. РИБОЛОВЛЯ ═══════════════ -->
+<h2>4. AI-риболовля: прогноз клювання + «на що ловити» <span class="tag t-core">є окремий deep-dive</span></h2>
+<div class="verdict">
+<b>Fish AI: реліз січень 2025 → $230K/міс і 150K завантажень/міс за 20 місяців, у tier-1 EN, при живому Fishbrain ($2.3M/міс).</b> Виграв не повнотою, а вузьким кутом: карта + «на що ловити» + журнал, AI-обгортка й платний UA. І прямо зараз ніша перезапускається: два соло-запуски (Catch і Fishing Club AI) увімкнули Meta-рекламу з різницею в 11 днів — живий A/B-тест гіпотези «bite score». Повний розбір із матрицею фіч — на окремій сторінці: <a href="fishing_apps_research.html">Риболовля: точки, клювання, погода, принада</a>.
+</div>
+<div class="grid g3">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5d/3a/93/5d3a93c2-fadc-440b-6978-f7aef2cfa477/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6740141927">Fish AI - AI Fishing App</a> <span class="tag t-new">≤2 років</span></div><div class="by">Fish AI · <span class="star">★ 4.74</span> · 26 341</div><div class="rev ok">~$230K/міс</div><div class="meta">Реліз 01.2025 · підписка $9.99–12.99/міс · активний рекламодавець на обох платформах</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/c4/39/37c439cc-08de-968b-5c46-c98de9b71af5/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6774666774">Catch: Fishing Forecast</a> <span class="tag t-new">2 міс</span></div><div class="by">Соло-розробник (TR) · реліз 07.2026</div><div class="rev wn">&lt;$5K/міс</div><div class="meta">«Вітер+хвилі+тиск+таблиці → один bite score» · увімкнув Meta 16.09 із TikTok-хуками · живий тест гіпотези</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9b/33/4d/9b334d4e-50aa-bb02-0ca5-6ccf6c5c49f9/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id477967747">Fishbrain</a> <span class="tag t-oth">велетень</span></div><div class="by">Fishbrain AB · <span class="star">★ 4.65</span> · 74 292</div><div class="rev bd">$2.3M/міс</div><div class="meta">70% грошей ніші, 10–50M інсталів, соцграф уловів · в лоб не заходити — лише новим кутом</div></div></div>
+</div>
+<h3>Ядро ніші з бази Niche Scout (deep-dive 18.09.2026)</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th class="num">Дохід/міс</th><th>Роль у ніші</th></tr></thead>
+<tbody>
+<tr><td>Fishbrain</td><td class="num bd">$2 300 000</td><td>Велетень із мережевим ефектом — 70% усіх грошей</td></tr>
+<tr><td>Fishing Points</td><td class="num">$270 000</td><td>№2, карти й точки</td></tr>
+<tr><td><b>Fish AI</b></td><td class="num ok"><b>$230 000</b></td><td><b>Свіжий переможець: новий кут пробиває і при велетні</b></td></tr>
+<tr><td>Fish Deeper</td><td class="num">$170 000</td><td>Прив'язаний до залізяки (сонар)</td></tr>
+<tr><td>Fishbox</td><td class="num">$140 000</td><td>Прогнози, старий гравець</td></tr>
+<tr><td>Fishbuddy</td><td class="num">$70 000</td><td>Лідер DE — без прогнозу клювання й тиску</td></tr>
+<tr><td>FishAngler / onWater / ALLE ANGELN</td><td class="num">$30–50K</td><td>Середняки; ALLE ANGELN — рівень, досяжний соло</td></tr>
+<tr><td>Catch: Fishing Forecast <span class="tag t-new">07.2026</span></td><td class="num wn">&lt;$5K</td><td>Соло-вхід, реклама з 16.09.2026 — стежити як за живим A/B</td></tr>
+<tr><td>Fishing Club AI <span class="tag t-new">08.2026</span></td><td class="num wn">&lt;$5K</td><td>Другий соло-вхід за місяць, той самий меседж BiteScore</td></tr>
+</tbody></table></div>
+
+<!-- ═══════════════ 5. ПРИБИРАННЯ ═══════════════ -->
+<h2>5. Розклад домашнього прибирання <span class="tag t-core">рекомендовано NS · composite 16/18</span></h2>
+<div class="verdict">
+<b>Chorefriend: реліз 30.06.2026 → $26K/міс і #41 US House&amp;Home за 60 днів, без бренду.</b> Ринок ≈$330K/міс, велетня немає (лідер Sweepy $110K = 33%), в Meta реально лише 2 рекламодавці на 16 додатків — аукціон майже порожній. Контрольна група вбудована в саму нішу: Homsy і Home Routines без платного трафіку сидять під $5–10K у тих самих гео. Правила входу з бази: чек $20–40/рік (не $100+), тільки tier-1 гео, креатив «фото безладу → мікрокроки з таймінгом». Вільне суміжне вікно — дитячі chores (NeatKid $6K/міс органікою, аукціон нуль).
+</div>
+<div class="grid g4">
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/24/ac/4924acbf-9e2e-8cde-936f-b7c93805dc49/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6780871586">Chorefriend</a> <span class="tag t-new">2 місяці</span></div><div class="by">System Two GmbH · <span class="star">★ 4.77</span> · 257</div><div class="rev ok">$26K/міс</div><div class="meta">Реліз 06.2026 · $14.99/міс, рік $29.99–69.99 · ~4 оголошення на обох платформах · готовий шаблон запуску</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/75/41/73/75417386-9b6e-b482-a074-90268da822fb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id1498897320">Sweepy</a></div><div class="by">Sweepy · <span class="star">★ 4.71</span> · 10 564</div><div class="rev">$110K/міс</div><div class="meta">Лідер із НАЙДЕШЕВШИМ чеком ($19.99/рік) — виграє обсягом; ~10–12 оголошень із січня 2025</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/89/7a/27897a32-9000-3e43-9bd8-78e8a536d82b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id595339588">Tody</a></div><div class="by">LoopLoop (DK) · <span class="star">★ 4.82</span> · 10 684</div><div class="rev">$50K/міс</div><div class="meta">13 років, 0 реклами — все органіка. Не атакувати в лоб: він отримує трафік даром</div></div></div>
+  <div class="app"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/15/72/651572d2-97b3-e088-8ed0-31a696bfaf04/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id1427750529">TOM: The Organised Method</a></div><div class="by">Джемма Брей · <span class="star">★ 4.02</span> · 48 (US)</div><div class="rev">$20K/міс</div><div class="meta">&lt;5K завантажень → $20K на одному тарифі $3.99: контент-бренд б'є платний трафік</div></div></div>
+</div>
+<h3>Уся ніша з бази Niche Scout (deep-dive 01.09.2026, зі знятими цифрами ST)</h3>
+<div class="scroll"><table>
+<thead><tr><th>Додаток</th><th class="num">Дохід/міс</th><th class="num">Завант./міс</th><th>Реліз</th><th>Монетизація</th><th>Реклама</th><th>Вердикт NS</th></tr></thead>
+<tbody>
+<tr><td>Sweepy</td><td class="num"><b>$110K</b></td><td class="num">40K</td><td>2020</td><td>$3.99/міс, $19.99/рік</td><td>~10–12</td><td>Ревеню-лідер (39% ядра) найдешевшим чеком</td></tr>
+<tr><td>Tody</td><td class="num">$50K</td><td class="num">30K</td><td>2013</td><td>$9.99–79.99/рік</td><td>0</td><td>Найсильніший moat: бренд + рейтинг 4.83</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id1604578415">HomeTasker</a></td><td class="num">$30K</td><td class="num">35K</td><td>2022</td><td>До $109.99 lifetime</td><td>Active iOS</td><td class="wn">Найдорожчий чек дає втричі менше за Sweepy: вирішує гео, не ціна</td></tr>
+<tr><td><b>Chorefriend</b></td><td class="num ok"><b>$26K</b></td><td class="num">14K</td><td><b>06.2026</b></td><td>$6.99/тиж – $69.99/рік</td><td>~4</td><td>Головний доказ відкритого вікна</td></tr>
+<tr><td><a href="https://apps.apple.com/us/app/id1115477521">FlyLady</a></td><td class="num">$22K</td><td class="num">&lt;10K</td><td>2016</td><td>$1.99/тиж – $37.99/рік</td><td>Active iOS</td><td>Контент-моат: найвища монетизація на завантаження</td></tr>
+<tr><td>TOM <span class="tag t-adj">суміжний</span></td><td class="num">$20K</td><td class="num">&lt;5K</td><td>2019</td><td>$3.99/міс</td><td>0</td><td>Медійний бренд — індикатор попиту, не конкурент</td></tr>
+<tr><td>BeTidy</td><td class="num">$15K</td><td class="num">&lt;10K</td><td>2023–24</td><td>$23.90–35.90/рік</td><td>Active iOS</td><td>DACH-вікно: німець платить без US-конкуренції</td></tr>
+<tr><td>Flatastic</td><td class="num">$12K</td><td class="num">~10K</td><td>2015</td><td>$18.49–34.99/рік</td><td>Active iOS</td><td>Суто DACH flat-share; за 10 років не вийшов за DE</td></tr>
+<tr><td>Nipto</td><td class="num bd">&lt;$10K</td><td class="num">~10K</td><td>2020</td><td>$12.99/рік</td><td>Active iOS</td><td class="bd">671K інсталів без грошей: кут «хто винен» не платить</td></tr>
+<tr><td>Housy / Tidy</td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>2021–22</td><td>$0.99–34.99</td><td>—</td><td>Згасають: хаос тарифів / трафік із RU</td></tr>
+<tr><td>NeatKid <span class="tag t-adj">дитяча вертикаль</span></td><td class="num">$6K</td><td class="num">5K</td><td>2024</td><td>$3.99–69.99</td><td>0</td><td class="ok">Платить батько → вищий ARPU; аукціон порожній</td></tr>
+<tr><td>Homsy <span class="tag t-new">01.2026</span></td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>01.2026</td><td>$19.99/рік</td><td>0</td><td>Контроль: без UA удвічі повільніше за Chorefriend</td></tr>
+<tr><td>Home Routines</td><td class="num bd">&lt;$5K</td><td class="num">&lt;5K</td><td>04.2025</td><td>$19.99/рік</td><td>Active</td><td class="bd">Ніша карає слабкий UA, а не пускає всіх підряд</td></tr>
+<tr><td>Chore Focus (ADHD)</td><td class="num bd">&lt;$10K</td><td class="num">&lt;10K</td><td>2023</td><td>$29.99/рік</td><td>0</td><td class="bd">⚠️ ADHD-таргет у Meta = бан акаунта; кут формулювати через «перевантаженість»</td></tr>
+</tbody></table></div>
+
+<!-- ═══════════════ ДРУГИЙ ЕШЕЛОН ═══════════════ -->
+<h2>Другий ешелон: свіжі гроші є, але з застереженнями</h2>
+<div class="grid g2">
+
+<div class="card">
+<h3 style="margin-top:0">AI-тюнінг авто <span class="tag t-adj">конверсія — вузьке місце</span></h3>
+<div class="app" style="border:none;padding:0;box-shadow:none;margin-bottom:10px"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6a/ba/5a/6aba5ac0-30df-86f7-9b8c-e9fb7be5517f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6523376299">Mody: AI Car Modifications</a></div><div class="by"><span class="star">★ 4.50</span> · 6 177 · реліз 08.2024 (межа 2 років)</div><div class="rev">~$90K/міс</div><div class="meta">Єдиний, хто монетизує по-справжньому — чиста органіка/ASO без реклами</div></div></div>
+<div style="font-size:13.5px;color:var(--dim)">Уся ніша (24.07.2026): <a href="https://apps.apple.com/us/app/id6762351065">RevMod</a> — 260K завантажень/міс за 3 місяці, але лише $13K (конверсія не тягне CPI); CarMod (02.2026, ~15K/міс, &lt;$10K) щойно увімкнув рекламу; AI Car Designer (05.2025, &lt;$10K); Gendi AI зайшов у Meta в день перевірки. Ринок сформувався за 12 міс, гіганта немає, стандарт — тижнева підписка $6.99–12.99. Трафік масштабується, гроші — поки лише в Mody.</div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Ферма-менеджер (гра) <span class="tag t-adj">ігровий конвеєр, не соло</span></h3>
+<div class="app" style="border:none;padding:0;box-shadow:none;margin-bottom:10px"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/37/95/603795c1-205c-aca3-e0f7-a7d8435cbdb1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.jpeg/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6739125379">Farm Manager 2026</a> <span class="tag t-new">14 міс</span></div><div class="by">Trophy Games · <span class="star">★ 4.84</span> · 5 403</div><div class="rev">~$200K/міс</div><div class="meta">Реліз 06.2025 → 10–50M інсталів за 14 міс, активний UA на обох платформах</div></div></div>
+<div style="font-size:13.5px;color:var(--dim)">Група «тайкунів» (24.08.2026) жива й без велетнів: <a href="https://apps.apple.com/us/app/id1583061098">Farmington</a> $390K/міс без реклами (Україна в топ-3 гео iOS!), Harvest Land $140K, Bud Farm $110K на &lt;10K завантажень, Milk Farm $50K. Середній чек групи ≈$111K/міс — «життя поза Playrix є». Але це ігри: контент-конвеєр і LiveOps, інший клас витрат, ніж утиліта.</div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">AI-продуктовий помічник <span class="tag t-adj">мала стеля, зате порожньо</span></h3>
+<div class="app" style="border:none;padding:0;box-shadow:none;margin-bottom:10px"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/64/ed/2c/64ed2c1b-43a8-f54c-3f24-5d05cf0826c1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/gb/app/id6475587257">Mealia — AI Grocery Assistant</a> <span class="tag t-new">6 міс</span></div><div class="by">UK · <span class="star">★ 4.78</span> · 4 382 (GB)</div><div class="rev">~$10K/міс</div><div class="meta">Реліз 02.2026 → $10K за 6 міс на чистому Meta app-install у GB, ~50 оголошень</div></div></div>
+<div style="font-size:13.5px;color:var(--dim)">Ніша порівняння цін (04.09.2026): <a href="https://apps.apple.com/au/app/id1586901735">Supermarket Swap</a> (AU) — $20K/міс із &lt;5K завантажень і нулем реклами (не масштабує лише тому, що власник не купує трафік); Zyft збирає 40K/міс і не монетизує; install-велетні Bring!/Listonic (10–50M) роблять $9–20K — «широкий список» безкоштовний, «скільки коштує МОЯ корзина» — платний. Ринок малий у грошах, але структурно найздоровіший: велетня немає взагалі.</div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">«Де зняти фото» — Atlas-модель <span class="tag t-adj">гроші поруч із мертвою нішею</span></h3>
+<div class="app" style="border:none;padding:0;box-shadow:none;margin-bottom:10px"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/99/6e/91996e97-5923-7754-4880-5d4b40210b86/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt=""><div><div class="nm"><a href="https://apps.apple.com/us/app/id6751760948">Atlas Photo – Photo Companion</a> <span class="tag t-new">12 міс</span></div><div class="by">Atlas Photo · <span class="star">★ 4.36</span> · 2 732</div><div class="rev">≈$100K/міс</div><div class="meta">Реліз 09.2025 · $14.99/міс — у 3–5× дорожче за «камери композиції» · ~54 оголошення</div></div></div>
+<div style="font-size:13.5px;color:var(--dim)">Найповчальніша пара бази (10.09.2026): усе ядро «камер-тренерів композиції» (Framed 20K завантажень/міс, Aurea, GridCam, Griddr…) сидить під $5K — попит є, платити нема за що. А сусід Atlas продає не «композицію», а «ЗНАЙТИ ДЕ ЗНЯТИ» — і заробляє втричі більше за все ядро разом. Урок: у слабкій ніші шукати сусідній JTBD, за який платять.</div>
+</div>
+
+</div>
+
+<!-- ═══════════════ КУДИ НЕ ЙТИ ═══════════════ -->
+<h2>Куди НЕ йти — попри гучні цифри або привабливу порожнечу</h2>
+<div class="verdict bad">
+<ul style="margin-top:0">
+<li><b>AI-дизайн інтер'єру ($4.5M/міс ядро).</b> Три гравці вже по $1M+/міс кожен — HUBX ($1.1M), DecAI ($1.3M), PulseApps ($1.1M, ~220 мультимовних оголошень) + Planner 5D ($800K, 53M інсталів). Це капіталомісткий турнір паблішерів: заходити пізно й дорого.</li>
+<li><b>Ремонт за фото (AI fix).</b> Лідер RepairBuddy лише $10–15K/міс при 110 оголошеннях; решта п'ятірки під $10K. Ніша молода, але поки що всі разом заробляють менше за одного середняка сусідніх ніш.</li>
+<li><b>Камери-тренери композиції.</b> 7 SKU, усі &lt;$5K/міс, включно з тим, хто рекламується і хто №1 у видачі — «це фіча, а не продукт».</li>
+<li><b>Nail-журнали, б'юті-планери, pose-коучі, експорт Snapchat Memories, халяль-сканери, туалет-файндери, металокалькулятори.</b> У кожній базі є гравець, який робить усе правильно (tier-1, підписка, реклама) — і все одно &lt;$5K/міс. Це найчесніший негативний сигнал: платоспроможність не доведена.</li>
+<li><b>Казуальні ферми.</b> $73M/міс, але три компанії тримають $65M; Zynga з безмежним бюджетом у 2021 вийшла лише на $600K. Продукт-женеться-за-Playrix не окупається навіть велетню.</li>
+</ul>
+</div>
+
+<h2>Методологія і чесні застереження</h2>
+<div class="card" style="font-size:13.5px">
+<ul style="margin-top:0">
+<li><b>Фільтр відбору:</b> у ніші є застосунок із релізом після вересня 2024 (пріоритет — після вересня 2025) і доходом ≥ $10 000/міс за SensorTower (Worldwide, Last Month, iOS+Android).</li>
+<li><b>Усі доходи — оцінки SensorTower.</b> Вони систематично занижують DTC-моделі (кейс Crumb: &lt;$5K у сторі при 470 живих Meta-оголошеннях — гроші йдуть через сайт) і marketplace-моделі (Astrotalk).</li>
+<li><b>Іконки, посилання й рейтинги</b> — живі дані iTunes Search API станом на 26.09.2026; іконки віддаються прямо з CDN Apple, своєї копії чужої графіки сторінка не тримає.</li>
+<li><b>Межа 2 років — з допуском:</b> Mody (08.2024), Shiny (08.2024) та Interio (08.2024) старші за поріг на кілька тижнів — позначені як «межа».</li>
+<li>У базі знайдено дублі рядків (блок 31.07 про repair-нішу продубльований) — на підсумки не впливає, але Niche Scout варто навчити прибирати повтори.</li>
+</ul>
+</div>
+
+<div class="foot">
+Niche Scout · зведення складено 26.09.2026 із <a href="https://docs.google.com/spreadsheets/d/1bMZGNX0dCRvI23UHDW5YZy7vY6WGElqA3UuECC3jlac/">бази deep-dive'ів</a> (40 днів, 716 записів) · споріднене: <a href="fishing_apps_research.html">риболовля (deep-dive)</a>, <a href="split_expenses_research.html">спліт витрат</a>
+</div>
+
+</div>
+</body>
+</html>
