@@ -92,6 +92,15 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 .sw i{display:block;width:52px;height:52px;border-radius:9px;border:1px solid var(--line)}
 .sw div{text-align:center;font-size:11px;color:var(--dim);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .take{border-left:3px solid var(--accent);background:rgba(14,159,110,.05);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+/* стрічка кадрів онбордингу: скрін + підпис під кожним */
+.strip{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:14px}
+.strip figure{margin:0}
+.strip img{width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:0 2px 6px rgba(24,36,48,.09);display:block}
+.strip figcaption{font-size:12.5px;color:var(--dim);margin-top:7px;line-height:1.45}
+.strip b{color:var(--ink)}
+.step{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.step:last-child{border-bottom:0}
+.step .t{color:var(--dim);font-variant-numeric:tabular-nums;font-size:12.5px;padding-top:1px}
 .leave{border-left:3px solid var(--bad);background:rgba(220,38,38,.05);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
 </style>
 </head>
@@ -408,6 +417,51 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 <h2 id="frames">7б. Розкадровка референсів <span class="tag t-new">поповнюється</span></h2>
 <div class="sub" style="margin-top:-4px">Живі кадри, зняті власником з реальних застосунків. Кожен — із розбором «що беремо / чого не беремо», щоб дизайн-промт спирався на факт, а не на переказ. Кадри лежать у <code>clean_schelude/refs/</code> цього ж репо.</div>
 
+<h3>Chorefriend · ВЕСЬ ОНБОРДИНГ від першого екрана до пейволу <span class="tag t-core">розкадровка 6-хв відео</span></h3>
+<div class="sub" style="margin-top:-4px">Відео власника (5 хв 57 с) нарізано на кадри ffmpeg 27.09.2026. Нижче — карта воронки й девʼять ключових кадрів. Головне, що видно: <b>людину доводять до оплати ЩЕ ДО першого використання застосунку</b>, а весь шлях займає близько шести хвилин.</div>
+
+<div class="card">
+<div class="step"><span class="t">0:00</span><span><b>Три слайди знайомства.</b> Маскот у намальованій ізометричній кімнаті · «Get started» / «I already have an account»</span></div>
+<div class="step"><span class="t">0:40</span><span><b>Квіз починається.</b> Вік → склад дому → що саме виснажує → як часто звинувачуєш себе. Прогрес-бар угорі, маскот у шапці</span></div>
+<div class="step"><span class="t">1:50</span><span><b>Пояснення-полегшення посеред квізу:</b> «це не брак мотивації, це <i>household overwhelm</i>»</span></div>
+<div class="step"><span class="t">3:10</span><span><b>Псевдо-аналіз із соцдоказом:</b> чотири смужки «аналізуємо твої патерни…» + відгук 5★ під час очікування</span></div>
+<div class="step"><span class="t">3:40</span><span><b>Обіцянка числом:</b> «перший крок займе 4 хвилини» — дві смуги, тиждень тягаря проти 4 хвилин</span></div>
+<div class="step"><span class="t">4:40</span><span><b>Демонстрація фіч:</b> before/after кімнати, стрік, похвала маскота</span></div>
+<div class="step"><span class="t">5:10</span><span><b>План готовий — і заблюрений.</b> Перший крок видно, решта розмита, «+5 more steps», кнопка «Unlock Your Plan»</span></div>
+<div class="step"><span class="t">5:40</span><span><b>Пейвол.</b> Тріал 7 днів, $49.99/рік</span></div>
+</div>
+
+<div class="strip">
+  <figure><img src="refs/onb/01_together.jpg" alt="Перший слайд: маскот у намальованій кімнаті"><figcaption><b>0:00 · «Clean together, not alone»</b><br>«chorefriend cleans right alongside you and cheers on every little thing you finish». Маскот — кухонна РУКАВИЧКА (не губка) у намальованій ізометричній кімнаті.</figcaption></figure>
+  <figure><img src="refs/onb/02_voice.jpg" alt="Слайд про аудіо-компаньйона"><figcaption><b>0:10 · «A voice in your corner»</b><br>Плеєр із підписом «Cleaning company» — гра слів: і клінінг-фірма, і товариство. Аудіо-компаньйон винесений в один із ТРЬОХ головних аргументів.</figcaption></figure>
+  <figure><img src="refs/onb/03_overwhelm.jpg" alt="Екран про household overwhelm"><figcaption><b>1:50 · Знімають провину</b><br>«Це не брак мотивації чи тайм-менеджменту, це <i>household overwhelm</i>. Ми знайшли техніку». Дати проблемі НАЗВУ — і людина перестає винити себе.</figcaption></figure>
+  <figure><img src="refs/onb/04_blame.jpg" alt="Питання про самозвинувачення"><figcaption><b>2:30 · Питання в сором</b><br>«Як часто ти звинувачуєш себе за стан свого простору?» — підзаголовок «називаєш себе лінивою, нечупарою, «просто неохайною»».</figcaption></figure>
+  <figure><img src="refs/onb/05_building.jpg" alt="Екран генерації плану з відгуком"><figcaption><b>3:10 · Псевдо-аналіз + соцдоказ</b><br>Чотири смужки («аналізуємо патерни», «оцінюємо стартове тертя»…) і відгук 5★ просто під ними. Саме з цього екрана доганяє Live Activity.</figcaption></figure>
+  <figure><img src="refs/onb/06_4min.jpg" alt="Прогноз 4 хвилини"><figcaption><b>3:40 · Найсильніший слайд воронки</b><br>Довга червона смуга — «тисне на тебе десь тиждень». Коротка зелена — «перший крок 4 хв». Одна картинка замість абзацу тексту.</figcaption></figure>
+  <figure><img src="refs/onb/07_transform.jpg" alt="Before/after кімнати і стрік"><figcaption><b>4:40 · Винагорода</b><br>«All done · Living room · 43s · 8 steps», before/after МАЛЬОВАНОЇ кімнати, стрік тижня, похвала маскота «That looks so much better. Proud of you.»</figcaption></figure>
+  <figure><img src="refs/onb/08_unlock.jpg" alt="План із розмитими кроками"><figcaption><b>5:10 · Момент конверсії</b><br>План складено на очах. Крок 01 видно повністю («Put away loose items · 2 min»), кроки 02–05 РОЗМИТІ, «+5 MORE STEPS» → «Unlock Your Plan».</figcaption></figure>
+  <figure><img src="refs/onb/09_paywall_b.jpg" alt="Пейвол з тріалом"><figcaption><b>5:40 · Пейвол, варіант Б</b><br>Тут предвибраний РІЧНИЙ із тріалом, кнопка «Start my 7-day free trial», «No payment due now». Порівняй із варіантом А нижче — вони тестують.</figcaption></figure>
+</div>
+
+<div class="take"><b>ЩО БЕРЕМО — сім прийомів, кожен окремо:</b>
+<ul style="margin-top:4px">
+<li><b>Квіз як онбординг.</b> Людина відповідає на питання про СЕБЕ — і тому план сприймається персональним. Наш скан кімнати сильніший за їхній квіз (камера бачить реальний стан), але сама рамка «спершу зрозуміємо тебе, потім дамо план» працює.</li>
+<li><b>Зняти провину, давши проблемі назву.</b> «Household overwhelm» — не діагноз і не звинувачення. Це те саме, чим люди пишуть 5★ у відгуках; ми вже поклали цю мову в основу тону.</li>
+<li><b>Обіцянка ЧИСЛОМ, а не словами.</b> «Перший крок — 4 хвилини» проти «тижня тягаря», двома смугами. Найсильніший слайд усієї воронки.</li>
+<li><b>Соцдоказ саме в момент очікування</b> — коли людина й так дивиться на екран і не може нічого робити.</li>
+<li><b>Показати результат ДО роботи:</b> before/after і стрік демонструють ще до першого прибирання.</li>
+<li><b>Before/after — МАЛЬОВАНА кімната, не фото.</b> Хитро: фото «після» ніхто не робить, а ілюстрація завжди гарна. Для нас — просто, бо в нас і так буде своя графіка.</li>
+<li><b>Заблюрений план.</b> Перший крок видно (доказ, що план реальний і дрібний), решта розмита. Це не «купи кота в мішку» — це «кіт уже твій, лишилось відкрити».</li>
+</ul>
+</div>
+<div class="leave"><b>ЧОГО НЕ БЕРЕМО:</b>
+<ul style="margin-top:4px">
+<li><b>Оплата ДО першого використання.</b> Уся воронка веде до пейволу, а застосунком людина ще не користувалась. Це дає конверсію, але й ті самі 1★ «charged me not cool», які ми читали в їхніх відгуках. Наше рішення лишається: 1–2 безкоштовні скани, щоб перше «вау» сталось БЕЗ гаманця.</li>
+<li><b>Шість хвилин до цінності.</b> Довгий квіз — це відвал. Нам вистачить чотирьох-пʼяти питань, бо решту скаже фото.</li>
+<li><b>Питання в сором</b> («називаєш себе лінивою?»). Мова болю — так, тикання в сором — ні: у відгуках видно, що присоромлення веде до видалення.</li>
+</ul>
+</div>
+
 <h3>Chorefriend · Live Activity на лок-екрані — ЯК ВОНИ ДОГАНЯЮТЬ ДО ПОКУПКИ <span class="tag t-core">головний прийом</span></h3>
 <div class="frame">
   <div>
@@ -430,14 +484,15 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
   </div>
 </div>
 
-<h3>Chorefriend · Пейвол (знято 27.09.2026)</h3>
+<h3>Chorefriend · Пейвол, ВАРІАНТ А (знято 27.09.2026) <span class="tag t-adj">вони тестують пейволи</span></h3>
+<div class="sub" style="margin-top:-4px">Порівняй із кадром 5:40 вище — це той самий екран у ДВОХ різних варіантах: там предвибраний річний із тріалом і кнопкою «Start my 7-day free trial», тут — предвибраний тижневий і кнопка «Continue». Отже Chorefriend жене A/B-тест пейволу, і нижчий розбір стосується конкретно варіанта А.</div>
 <div class="frame">
   <div>
     <img src="refs/chorefriend_paywall_01.png" alt="Пейвол Chorefriend: маскот-губка, заголовок, 4 бенефіти, два тарифи, кнопка Continue">
     <div class="cap">chorefriend_paywall_01 · iPhone</div>
   </div>
   <div>
-    <b>Що на кадрі:</b> акварельний маскот-губка з обличчям і пшикалкою · серіфний заголовок «Unlock Your Personalized Micro-Cleaning Companion» · соцдоказ у лаврах («5 Stars» + «1M+ users on our apps») · 4 бенефіти з зеленими галочками · два тарифи · «No commitment, cancel anytime» · велика кнопка «Continue» · під нею ціна.
+    <b>Що на кадрі:</b> акварельний маскот — кухонна РУКАВИЧКА з обличчям і пшикалкою · серіфний заголовок «Unlock Your Personalized Micro-Cleaning Companion» · соцдоказ у лаврах («5 Stars» + «1M+ users on our apps») · 4 бенефіти з зеленими галочками · два тарифи · «No commitment, cancel anytime» · велика кнопка «Continue» · під нею ціна.
     <div class="sw">
       <div><i style="background:#FAF1E4"></i>#FAF1E4<br>фон</div>
       <div><i style="background:#3B2E26"></i>#3B2E26<br>чорнило/CTA</div>
@@ -455,7 +510,7 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
     </div>
     <div class="leave"><b>НЕ БЕРЕМО:</b>
       <ul style="margin-top:4px">
-        <li><b>Предвибраний ДОРОЖЧИЙ план.</b> Жирна рамка стоїть на Weekly, кнопка каже «Just 7,99 USD per week» — тобто тап по «Continue» без роздумів купує тижневий за <b>$415/рік</b>, тоді як річний коштує $49.99. Бейдж «BEST VALUE» висить при цьому на річному — виглядає чесно, працює навпаки. Це прямий шлях до 1★ «charged me not cool», які ми вже бачили в їхніх же відгуках.</li>
+        <li><b>Предвибраний ДОРОЖЧИЙ план (лише у варіанті А).</b> Жирна рамка стоїть на Weekly, кнопка каже «Just 7,99 USD per week» — тобто тап по «Continue» без роздумів купує тижневий за <b>$415/рік</b>, тоді як річний коштує $49.99. Бейдж «BEST VALUE» висить при цьому на річному — виглядає чесно, працює навпаки. Це прямий шлях до 1★ «charged me not cool», які ми вже бачили в їхніх же відгуках. У варіанті Б (кадр 5:40) вони роблять навпаки — предвибраний річний із тріалом; отже самі ще не вирішили, і нам є з чого вибирати чесніший.</li>
         <li><b>«1M+ users on our apps»</b> — не про цей застосунок, а про портфель студії. Ми таких формулювань не пишемо.</li>
         <li>Тріал без явного «нагадаємо за 2 дні до списання» — наше правило з розділу відгуків.</li>
       </ul>
