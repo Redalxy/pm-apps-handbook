@@ -55,6 +55,27 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 .rl-mark .wm{height:19px;width:86px;display:grid}
 .rl-mark .fl{height:38px;width:32px;display:grid;margin-bottom:-2px}
 .rl-mark img{display:block;width:100%;height:100%;object-fit:contain}
+/* ── Потенціал ніші: плитки метрик + смуга «лідер / поза лідером» ──
+   Одна серія на діаграму = один відтінок; судження несе підпис словом,
+   а не колір (вимога доступності: ніколи не лише кольором). */
+.pot{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:12px}
+.pot .m{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.pot .m .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.07em}
+.pot .m .v{font-size:21px;font-weight:650;letter-spacing:-.02em;margin-top:4px}
+.pot .m .n{color:var(--dim);font-size:12.5px;margin-top:5px;line-height:1.5}
+/* смуга частки: ліворуч лідер, праворуч вільне; 2px розриву між заливками */
+.share{height:11px;border-radius:6px;margin-top:9px;display:flex;gap:2px}
+.share span{display:block;height:100%;border-radius:6px}
+.share .lead{background:var(--blue)}
+.share .free{background:#cdd9e6;flex:1}
+.stage{display:inline-block;font-size:13px;font-weight:650;margin-top:2px}
+/* Порівняння однією серією: підпис — значення просто на смузі, без легенди */
+.cmp{display:grid;gap:11px;margin-top:6px}
+.cmp .row{display:grid;grid-template-columns:132px 1fr 92px;align-items:center;gap:12px;font-size:13.5px}
+.cmp .tr{height:13px;background:var(--panel2);border-radius:7px;overflow:hidden}
+.cmp .tr i{display:block;height:100%;border-radius:7px;background:var(--blue)}
+.cmp .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:650}
+@media(max-width:700px){.cmp .row{grid-template-columns:104px 1fr 76px;font-size:12.5px}}
 /* картка застосунку з іконкою зі стора */
 .app{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
 .app img{width:56px;height:56px;border-radius:13px;flex:none;border:1px solid var(--line)}
@@ -151,6 +172,15 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 <tr><td>Arena Club <span class="tag t-adj">суміжний</span></td><td class="num bd">&lt;$10K</td><td class="num">70K</td><td>2024</td><td>Vault/комісія поза стором</td><td>Active iOS</td><td>Трафік є, in-app доходу нема</td></tr>
 </tbody></table></div>
 
+<h3>Потенціал: скільки ринку не зайнято</h3>
+<div class="pot">
+  <div class="m"><div class="k">Ринок ядра</div><div class="v">$1,87M<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n">із них чисті сканери — ≈$760K; решта в цінових даних</div></div>
+  <div class="m"><div class="k">Лідер і вільна частка</div><div class="v">59% / <span class="bl">41%</span></div><div class="share"><span class="lead" style="width:59%"></span><span class="free"></span></div><div class="n">Card Ladder тримає 59%, але грає в іншу гру — продає цінові дані, не сканер</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v">140K<span style="font-size:13px;font-weight:400;color:var(--dim)"> завант./міс</span></div><div class="n">PSA: величезний трафік і &lt;$10K у сторі — монетизує грейдинг офлайн. Попит є, у сторі його ніхто не продає</div></div>
+  <div class="m"><div class="k">Новачок дійшов за</div><div class="v">5 міс</div><div class="n">Spoly: 0 → $100K/міс на 13 оголошеннях</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage wn">🟡 Середина</div><div class="n">Вікно ще є, але аукціон гарячий: у лідера ~100 живих оголошень</div></div>
+</div>
+
 <!-- ═══════════════ 2. ВОЛОССЯ ═══════════════ -->
 <h2>2. AI-примірка зачісок по селфі <span class="tag t-core">найбагатша · вікно закривається</span></h2>
 <div class="verdict warn">
@@ -184,6 +214,15 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 <tr><td>Facetune (Lightricks) <span class="tag t-adj">суміжний</span></td><td class="num">$300K</td><td class="num">100K</td><td>2018</td><td>IAP до $199.99</td><td>Active</td><td class="wn">Поставив «Hair» у назву — платформи вже визнали попит</td></tr>
 </tbody></table></div>
 
+<h3>Потенціал: скільки ринку не зайнято</h3>
+<div class="pot">
+  <div class="m"><div class="k">Ринок ядра</div><div class="v">$1,24M<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n">90% грошей на iOS; Android майже не монетизований</div></div>
+  <div class="m"><div class="k">Лідер і вільна частка</div><div class="v">43% / <span class="bl">57%</span></div><div class="share"><span class="lead" style="width:43%"></span><span class="free"></span></div><div class="n">HairApp $530K; другий гравець забирає ще 32% — разом 75% у двох руках</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v">1M<span style="font-size:13px;font-weight:400;color:var(--dim)"> завант./міс</span></div><div class="n">Vit Corp (Android): install-лідер усього ядра й &lt;$5K виторгу. Плюс чоловічий сегмент (fade/beard) не монетизує ніхто</div></div>
+  <div class="m"><div class="k">Новачок дійшов за</div><div class="v">6 міс</div><div class="n">Hairify: 0 → $100K/міс БЕЗ жодного оголошення</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage wn">🟡 Вікно закривається</div><div class="n">Копіювання креативів лідера вже почалось — рахунок на місяці, не роки</div></div>
+</div>
+
 <!-- ═══════════════ 3. ПАРИ ═══════════════ -->
 <h2>3. Ігри-питання та зв'язок для пар <span class="tag t-core">США вільні · composite 15/18</span></h2>
 <div class="verdict">
@@ -214,6 +253,15 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 <tr><td>Lasting / Agapé / Couples (Codeway) <span class="tag t-adj">суміжні</span></td><td class="num bd">&lt;$5K кожен</td><td class="num">&lt;5K</td><td>2017–2022</td><td>Рік $29.99–99.99</td><td>вимкнули</td><td class="bd">Терапевтичний кут тричі перевірено — не масштабується</td></tr>
 </tbody></table></div>
 
+<h3>Потенціал: скільки ринку не зайнято</h3>
+<div class="pot">
+  <div class="m"><div class="k">Ринок ядра</div><div class="v">$790K<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n">плюс суміжна полиця $215K, з яких 93% тримає один Paired</div></div>
+  <div class="m"><div class="k">Лідер і вільна частка</div><div class="v">29% / <span class="bl">71%</span></div><div class="share"><span class="lead" style="width:29%"></span><span class="free"></span></div><div class="n"><b>Найфрагментованіша з п'яти</b> — і лідер Couple Joy купує LatAm, а не США</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v">90K<span style="font-size:13px;font-weight:400;color:var(--dim)"> завант./міс</span></div><div class="n">Lovify: той самий обсяг, що дає конкуренту $110K, у нього дає &lt;$10K — разові покупки замість підписки</div></div>
+  <div class="m"><div class="k">Новачок дійшов за</div><div class="v">18 міс</div><div class="n">Candle: 0 → $200K/міс, тільки iOS, тільки підписка</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage ok">🟢 Приймає новачків</div><div class="n">US-аукціон викуповує ОДИН гравець; 21 Questions бере $40K/міс узагалі без реклами</div></div>
+</div>
+
 <!-- ═══════════════ 4. РИБОЛОВЛЯ ═══════════════ -->
 <h2>4. AI-риболовля: прогноз клювання + «на що ловити» <span class="tag t-core">є окремий deep-dive</span></h2>
 <div class="verdict">
@@ -238,6 +286,15 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 <tr><td>Catch: Fishing Forecast <span class="tag t-new">07.2026</span></td><td class="num wn">&lt;$5K</td><td>Соло-вхід, реклама з 16.09.2026 — стежити як за живим A/B</td></tr>
 <tr><td>Fishing Club AI <span class="tag t-new">08.2026</span></td><td class="num wn">&lt;$5K</td><td>Другий соло-вхід за місяць, той самий меседж BiteScore</td></tr>
 </tbody></table></div>
+
+<h3>Потенціал: скільки ринку не зайнято</h3>
+<div class="pot">
+  <div class="m"><div class="k">Ринок ядра</div><div class="v">$3,26M<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n"><b>Найбільший із п'яти</b> — і це головна пастка ніші</div></div>
+  <div class="m"><div class="k">Лідер і вільна частка</div><div class="v">70% / <span class="bl">30%</span></div><div class="share"><span class="lead" style="width:70%"></span><span class="free"></span></div><div class="n">Fishbrain — не просто велетень, а велетень із МЕРЕЖЕВИМ ефектом: точки додають самі користувачі</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v">DE / PL</div><div class="n">Аукціон Meta там порожній (0 оголошень), локальні лідери роблять лише $30–70K/міс, а в німецького немає навіть прогнозу клювання</div></div>
+  <div class="m"><div class="k">Новачки дійшли за</div><div class="v bd">не дійшли</div><div class="n">Catch і Fishing Club AI запустились улітку, увімкнули рекламу у вересні — обидва досі &lt;$5K/міс</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage bd">🔴 Пізня</div><div class="n">Tier-1 EN закритий; заходити лише новим кутом (як Fish AI) або в порожнє гео</div></div>
+</div>
 
 <!-- ═══════════════ 5. ПРИБИРАННЯ ═══════════════ -->
 <h2>5. Розклад домашнього прибирання <span class="tag t-core">рекомендовано NS · composite 16/18</span></h2>
@@ -379,10 +436,43 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 </ul>
 </div>
 
+<h3>Потенціал: скільки ринку не зайнято</h3>
+<div class="pot">
+  <div class="m"><div class="k">Ринок ядра</div><div class="v">$330K<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n"><b>Найменший із п'яти</b> — але й найдоступніший</div></div>
+  <div class="m"><div class="k">Лідер і вільна частка</div><div class="v">39% / <span class="bl">61%</span></div><div class="share"><span class="lead" style="width:39%"></span><span class="free"></span></div><div class="n">Sweepy — і виграє він ОБСЯГОМ на найдешевшому чеку ($19.99/рік), а не ціною</div></div>
+  <div class="m"><div class="k">Незайнятий попит</div><div class="v">14 з 16</div><div class="n">Стільки гравців не купують трафік узагалі. Плюс Nipto: 671K інсталів і &lt;$10K — соціальний кут дає завантаження, але не платежі</div></div>
+  <div class="m"><div class="k">Новачок дійшов за</div><div class="v ok">2 міс</div><div class="n">Chorefriend: 0 → $26K/міс за 60 днів на ~4 оголошеннях</div></div>
+  <div class="m"><div class="k">Стадія</div><div class="stage ok">🟢 Рання</div><div class="n">Велетня немає взагалі: жодного гравця навіть з 5M інсталів</div></div>
+</div>
+
 <!-- ═══════════════ ЩО БРАТИ ПЕРШИМ ═══════════════ -->
 <h2>Що робити першим: порівняння «легко зробити × легко зайти» <span class="tag t-core">рішення</span></h2>
 <div class="verdict">
 <b>«Найлегший» і «найшвидший» — різні питання, і відповіді в них різні.</b> Найпростіший ПРОДУКТ — колода питань для пар (екран картки, категорії, стрік, пейвол; ні AI, ні камери, ні зовнішніх даних — «фічі» тут пишуться, а не програмуються; 2–3 тижні соло). Але найкращий ВИБІР — розклад прибирання: трохи складніший продукт при помітно слабшій конкуренції й найсвіжішому доведеному шаблоні запуску.
+</div>
+
+<h3>Скільки грошей ніші лежить ПОЗА лідером</h3>
+<div class="card">
+<div class="cmp">
+  <div class="row"><span>Пари</span><span class="tr"><i style="width:71%"></i></span><span class="val">71%</span></div>
+  <div class="row"><span>Прибирання</span><span class="tr"><i style="width:61%"></i></span><span class="val">61%</span></div>
+  <div class="row"><span>Зачіски</span><span class="tr"><i style="width:57%"></i></span><span class="val">57%</span></div>
+  <div class="row"><span>Картки</span><span class="tr"><i style="width:41%"></i></span><span class="val">41%</span></div>
+  <div class="row"><span>Риболовля</span><span class="tr"><i style="width:30%"></i></span><span class="val">30%</span></div>
+</div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:14px">Частка виторгу ядра, яку НЕ тримає лідер: чим довша смуга, тим фрагментованіший ринок і тим більше місця новому гравцю. Орієнтир: понад 60% — ринок без господаря, менш як 35% — winner-take-most. Абсолютний розмір тут навмисно не показаний: він у плитці «Ринок ядра» кожної ніші, бо велика сума при короткій смузі (риболовля: $3,26M і 30%) — це не можливість, а зайнятий ринок.</div>
+</div>
+
+<h3>Скільки часу новачку знадобилось на свої гроші</h3>
+<div class="card">
+<div class="cmp">
+  <div class="row"><span>Прибирання</span><span class="tr"><i style="width:11%"></i></span><span class="val">2 міс</span></div>
+  <div class="row"><span>Картки</span><span class="tr"><i style="width:28%"></i></span><span class="val">5 міс</span></div>
+  <div class="row"><span>Зачіски</span><span class="tr"><i style="width:33%"></i></span><span class="val">6 міс</span></div>
+  <div class="row"><span>Пари</span><span class="tr"><i style="width:100%"></i></span><span class="val">18 міс</span></div>
+  <div class="row"><span>Риболовля</span><span class="tr"><i style="width:11%;background:var(--bad)"></i></span><span class="val bd">не дійшов</span></div>
+</div>
+<div class="note" style="color:var(--dim);font-size:13px;margin-top:14px">Скільки місяців від релізу найшвидшому свіжому гравцю знадобилось, щоб вийти на свої гроші: Chorefriend $26K за 2 міс · Spoly $100K за 5 · Hairify $100K за 6 · Candle $200K за 18. Риболовля — єдиний випадок, де новачки (Catch, Fishing Club AI) через 2 місяці й увімкнену рекламу досі під $5K: смуга червона, бо це не «швидко», а «не сталося». Коротка смуга = ніша ще винагороджує вхід.</div>
 </div>
 
 <div class="scroll"><table>
