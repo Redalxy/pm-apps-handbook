@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Запуск нового продукту RedLabs — що робить машина, що робиш ти, і в якому порядку (28.09.2026)</title>
+<link rel="icon" type="image/svg+xml" href="../redlabs-favicon.svg">
+<style>
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --panel2:#eef2f6; --line:#dde5ec;
+  --ink:#182430; --dim:#5b6b7a; --accent:#0e9f6e; --warn:#d97706; --bad:#dc2626;
+  --blue:#2563eb;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 22px 90px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:22px;margin:52px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+h3{font-size:16px;margin:26px 0 10px;color:var(--accent)}
+.sub{color:var(--dim);font-size:14px;margin-bottom:26px}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.card .lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.card .val{font-size:26px;font-weight:650;letter-spacing:-.02em}
+.card .note{color:var(--dim);font-size:13px;margin-top:6px}
+.ok{color:var(--accent)} .wn{color:var(--warn)} .bd{color:var(--bad)} .bl{color:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--panel)}
+tr:hover td{background:var(--panel2)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.scroll table{margin:0}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em;vertical-align:middle}
+.t-auto{background:rgba(14,159,110,.12);color:var(--accent)}
+.t-hand{background:rgba(217,119,6,.12);color:var(--warn)}
+.t-gap{background:rgba(220,38,38,.10);color:var(--bad)}
+.t-new{background:rgba(37,99,235,.10);color:var(--blue)}
+.verdict{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin:14px 0}
+.verdict.warn{border-left-color:var(--warn)}
+.verdict.bad{border-left-color:var(--bad)}
+.verdict b{color:var(--ink)}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+ol{margin:8px 0 0;padding-left:22px} ol li{margin:7px 0}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px;word-break:break-word}
+pre{background:#11171d;color:#d7dde5;border-radius:10px;padding:13px 15px;overflow-x:auto;font-size:12.5px;line-height:1.5;margin:10px 0}
+pre code{background:none;color:inherit;padding:0;font-size:inherit}
+.kicker{color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.rl-mark{display:flex;align-items:flex-end;gap:1px;margin-bottom:18px}
+.rl-mark .wm{height:19px;width:86px;display:grid}
+.rl-mark .fl{height:38px;width:32px;display:grid;margin-bottom:-2px}
+.rl-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:22px 0 10px}
+.toc a{display:inline-block;margin:4px 14px 4px 0;font-size:13.5px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.step h4{margin:0 0 8px;font-size:15px;display:flex;align-items:center;gap:9px}
+.step h4 .n{background:var(--panel2);border:1px solid var(--line);border-radius:999px;width:24px;height:24px;display:grid;place-items:center;font-size:12px;color:var(--dim);flex:none}
+.why{color:var(--dim);font-size:13px;margin-top:8px;border-left:2px solid var(--line);padding-left:11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="rl-mark" title="RedLabs">
+  <span class="wm"><img src="../logo/redlabs-word-light.svg" alt="RedLabs"></span>
+  <span class="fl"><img src="../logo/redlabs-flame-anim-light.svg" alt=""></span>
+</span>
+<div class="kicker">RedLabs · конвеєр продуктів</div>
+<h1>Запуск нового застосунку: що робить машина, що робиш ти, і в якому порядку</h1>
+<div class="sub">Робочий документ лінійки. Складений 28.09.2026 за фактом трьох запусків — Spilno, Apprism, Moppy. Кожен крок тут або команда, яку можна виконати як є, або інструкція «куди піти й що натиснути» з ЖИВОЮ пробою в кінці. Сесія, що працює над інфраструктурою лінійки, читає його першим.</div>
+
+<div class="grid g4">
+  <div class="card"><div class="lbl">Spilno</div><div class="val">перший</div><div class="note">Конвеєр будувався разом із продуктом: дошка, раннери, ферма, релізи. Усе, що нижче, — досвід звідти</div></div>
+  <div class="card"><div class="lbl">Apprism</div><div class="val">2-й</div><div class="note">Перша дошка «за зразком». Досі без кроку релізу в паспорті — розгортання руками</div></div>
+  <div class="card"><div class="lbl">Moppy</div><div class="val ok">26 год</div><div class="note">46 карток, 11 завершено. Від першої картки 26.09 22:53 до живої бази 28.09</div></div>
+  <div class="card"><div class="lbl">Мета</div><div class="val bl">&lt; 2 год</div><div class="note">Від «є ніша» до «перший APK на телефоні», без згадування деталей напам'ять</div></div>
+</div>
+
+<div class="toc">
+  <b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Зміст</b><br>
+  <a href="#model">1. З чого складається продукт</a>
+  <a href="#auto">2. Що вже робиться командою</a>
+  <a href="#hands">3. Що робиться руками — покроково</a>
+  <a href="#order">4. Порядок і залежності</a>
+  <a href="#rakes">5. Граблі, які коштували днів</a>
+  <a href="#build">6. Чого бракує: три речі, які треба збудувати</a>
+  <a href="#check">7. Чек-лист «продукт запущений»</a>
+</div>
+
+<h2 id="model">1. З чого складається продукт RedLabs</h2>
+
+<p>Кожен наш застосунок — це чотири шари. Плутанина в запусках бралася з того, що вони ставляться <b>в різному темпі</b>: перший робиться за хвилини, другий за годину, третій залежить від чужих людей і днів очікування, четвертий взагалі фізичний.</p>
+
+<div class="grid g4">
+  <div class="card"><div class="lbl">Шар 1 · Репозиторій</div><div class="val" style="font-size:18px">хвилини</div><div class="note">Код, паспорт дошки, <code>CLAUDE.md</code>, дозволи сесій, скрипти збірки</div></div>
+  <div class="card"><div class="lbl">Шар 2 · Дошка</div><div class="val" style="font-size:18px">одна команда</div><div class="note">Канбан, раннери, знімки, підшлях на домені, токени чату</div></div>
+  <div class="card"><div class="lbl">Шар 3 · Кабінети</div><div class="val wn" style="font-size:18px">години–дні</div><div class="note">Supabase, Apple, Google, RevenueCat, PostHog, домен і пошта</div></div>
+  <div class="card"><div class="lbl">Шар 4 · Ферма</div><div class="val wn" style="font-size:18px">фізичне</div><div class="note">Телефони, SIM, акаунти, встановлення конкурентів</div></div>
+</div>
+
+<div class="verdict">
+<b>Головний висновок трьох запусків.</b> Шари 1–2 в нас уже майже автоматичні, і саме їх ми щоразу обговорюємо найдовше. А витрачається час на шарі 3: не тому, що там багато роботи, а тому що <b>кроки забуваються між запусками</b> і кожен з'ясовується наново — методом падіння картки. Цей документ існує, щоб шар 3 перестав бути дослідженням.
+</div>
+
+<h2 id="auto">2. Що вже робиться командою</h2>
+
+<p>Усе нижче виконується як є, з <code>/redlabs/spilno-app</code> (там живе код дошки — він один на всі проєкти).</p>
+
+<div class="scroll">
+<table>
+<tr><th>Що</th><th>Команда</th><th>Що робить</th></tr>
+<tr>
+  <td><b>Дошка проєкту</b> <span class="tag t-auto">авто</span></td>
+  <td><code>bash scripts/setup-board.sh &lt;проєкт&gt;</code></td>
+  <td>Тека проєкту, origin (GitHub або локальний bare), дерева раннерів, юніти systemd, тека даних, env-файл, підшлях <code>kanban.spilnoapp.com/&lt;проєкт&gt;/</code>, порт. Ідемпотентний; <code>--check</code> — суха перевірка. <code>--slots N</code> — скільки раннерів</td>
+</tr>
+<tr>
+  <td>Знімки дошки <span class="tag t-auto">авто</span></td>
+  <td><code>… --backup same</code></td>
+  <td>Репозиторій знімків ОДИН на машину, дошки розділені гілками. Без адреси таймер не вмикається навмисно</td>
+</tr>
+<tr>
+  <td>Перейменування <span class="tag t-auto">авто</span></td>
+  <td><code>bash scripts/rename-board.sh &lt;стара&gt; &lt;нова&gt;</code></td>
+  <td>Тека, bare-origin, дерева раннерів, дані (з копією й звіркою кількості карток), env, юніти, гілки знімків, <code>board.user</code>. Підшлях і назва змінної з токеном виводяться з назви самі</td>
+</tr>
+<tr>
+  <td>Міграції бази <span class="tag t-auto">авто</span></td>
+  <td><code>node scripts/db/db.mjs --migrate</code></td>
+  <td>У проєкті: накат на живу Supabase через Management API. Поруч <code>--check</code> (схема = git), <code>--rls-probe</code> (чи закрита база), <code>--auth-check</code> (ключі й адреси повернення)</td>
+</tr>
+<tr>
+  <td>Збірка Android <span class="tag t-auto">авто</span></td>
+  <td><code>bash scripts/build-apk.sh</code> · <code>build-aab.sh</code></td>
+  <td>APK і підписаний бандл; підпис лежить у gradle, ключ поза репозиторієм</td>
+</tr>
+<tr>
+  <td>Телефони ферми <span class="tag t-auto">авто</span></td>
+  <td><code>node scripts/farm/farm.mjs</code></td>
+  <td><code>devices · lock · unlock · record · shot</code> — замок на апарат спільний зі Spilno</td>
+</tr>
+<tr>
+  <td>Smoke перед релізом <span class="tag t-auto">авто</span></td>
+  <td><code>node scripts/farm/smoke.mjs</code></td>
+  <td>Сценарії на живих телефонах; упав — реліз стоїть, ферма недоступна — «пропущено» й реліз іде далі</td>
+</tr>
+<tr>
+  <td>Розгортання вебу <span class="tag t-auto">авто</span></td>
+  <td><code>bash scripts/deploy.sh</code></td>
+  <td>Для продукту-сайта (Apprism): збірка, юніт, nginx, Caddy, наскрізна перевірка свіжості статики</td>
+</tr>
+</table>
+</div>
+
+<div class="verdict warn">
+<b>А ось чого в цьому списку НЕМАЄ — і це й є вузьке місце.</b> Немає команди, яка заводить САМ ПРОЄКТ: скелет застосунку, паспорт із перевірками, <code>CLAUDE.md</code>, <b>файл дозволів сесій</b>, теку ключів. Усе це щоразу складали картками — і щоразу по-різному. Див. <a href="#build">розділ 6</a>.
+</div>
+
+<h2 id="hands">3. Що робиться руками — покроково</h2>
+
+<p>Тут те, де немає API або де доступ принципово не віддається машині. Порядок усередині розділу — той, у якому їх варто робити. Кожен крок кінчається <b>пробою</b>: поки проба не зелена, крок не зроблений.</p>
+
+<h3>3.1 Домен і пошта продукту</h3>
+
+<div class="step">
+<h4><span class="n">1</span> Зареєструвати домен продукту</h4>
+<p>Найпростіше — одразу в <b>Cloudflare Registrar</b> (<code>dash.cloudflare.com</code> → Domain Registration): тоді не треба міняти NS. Домен уже є деінде — <b>Add a site</b> → план <b>Free</b> → вписати два NS-сервери Cloudflare у реєстратора.</p>
+<div class="why"><b>Навіщо так рано.</b> Без публічної політики приватності Google Play не відкриє жодного треку, а App Store не прийме заявку. Плюс на адреси цього домену заводяться всі кабінети — щоб особиста пошта власника в них не фігурувала.</div>
+</div>
+
+<div class="step">
+<h4><span class="n">2</span> Увімкнути Email Routing</h4>
+<p>Cloudflare → домен → <b>Email</b> → <b>Email Routing</b> → <b>Get started</b> → погодитись на записи MX/TXT. Далі <b>Destination addresses</b> → додати наявну скриньку й <b>підтвердити лист</b>. Тоді <b>Routing rules</b> → <b>Create address</b>:</p>
+<ul>
+<li><code>hello@</code> — кабінети сервісів, листи Apple/Google;</li>
+<li><code>farm1@</code>, <code>farm2@</code> — реєстрації на телефонах ферми (по одній на апарат).</li>
+</ul>
+<div class="why"><b>Чому не нові поштові акаунти.</b> Gmail при реєстрації вимагає номер телефона, і на кожен новий ящик його немає. Cloudflare Email Routing дає скільки завгодно адрес БЕЗ реєстрації пошти взагалі — вони просто пересилають у наявну скриньку, а розрізняються заголовком <code>To:</code>.</div>
+<p><b>Проба:</b> надіслати лист на <code>farm1@…</code> з будь-якої іншої пошти — має прийти.</p>
+</div>
+
+<h3>3.2 Supabase</h3>
+
+<div class="step">
+<h4><span class="n">3</span> Створити проєкт</h4>
+<p><code>supabase.com</code> → <b>New project</b>. Name — назва продукту, Plan — Free, <b>Database Password</b> → <b>Generate</b> і одразу в менеджер паролів (вдруге не покажуть).</p>
+<p><b>Region обирається один раз і назавжди</b> — під ринок, а не під нашу машину. Застосунок ходить у базу з телефонів; сервер до неї не ходить узагалі. US + CA → <b>East US (North Virginia)</b>. Тільки Європа → Frankfurt.</p>
+</div>
+
+<div class="step">
+<h4><span class="n">4</span> Забрати ключі</h4>
+<p><b>Project Settings → API</b>: <b>Project URL</b> і <b>anon / public</b>. Покласти на машину:</p>
+<pre><code>ssh root@spilnoapp.com 'F=/root/.config/&lt;проєкт&gt;/app-build.env; mkdir -p /root/.config/&lt;проєкт&gt;; touch $F;
+grep -v "^SUPABASE_" $F &gt; $F.new;
+printf "SUPABASE_URL=%s\nSUPABASE_ANON_KEY=%s\n" "https://xxx.supabase.co" "eyJ…" &gt;&gt; $F.new;
+mv $F.new $F; chmod 600 $F; sed "s/=.*/=…/" $F'</code></pre>
+<p><b>Проба (дві):</b> ключ справді <code>anon</code>, і пара робоча:</p>
+<pre><code># має вивести "role":"anon"
+echo "$SUPABASE_ANON_KEY" | cut -d. -f2 | tr "_-" "/+" | base64 -d | grep -o '"role":"[a-z_]*"'
+# має вивести 200
+curl -sS -o /dev/null -w "%{http_code}\n" "$SUPABASE_URL/auth/v1/settings" -H "apikey: $SUPABASE_ANON_KEY"</code></pre>
+<div class="why"><b>Чому перевіряти роль.</b> <code>anon</code> і <code>service_role</code> на вигляд однакові (<code>eyJ…</code>). Другий дає повний доступ повз усі політики, і в збірку він не їде ніколи.</div>
+</div>
+
+<div class="step">
+<h4><span class="n">5</span> Персональний токен — для міграцій</h4>
+<p><code>supabase.com/dashboard/account/tokens</code> → <b>Generate new token</b> → рядок <code>sbp_…</code> (показується один раз) у <code>/root/.config/&lt;проєкт&gt;/supabase.env</code> разом із <code>SUPABASE_PROJECT_REF</code> (ref із адреси проєкту).</p>
+<div class="why"><b>Чому окремий ключ.</b> Схему не змінюють через PostgREST у принципі — жоден ключ проєкту не виконає <code>create table</code>. Міграції йдуть Management API, а він хоче персональний токен акаунта.</div>
+<p><b>Проба:</b> <code>curl … https://api.supabase.com/v1/projects/$SUPABASE_PROJECT_REF -H "Authorization: Bearer $SUPABASE_PAT"</code> → <b>200</b>.</p>
+</div>
+
+<div class="step">
+<h4><span class="n">6</span> Повернення після входу</h4>
+<p><b>Authentication → URL Configuration</b>: <b>Site URL</b> і <b>Redirect URLs</b> = <code>com.redlabs.&lt;продукт&gt;://login-callback</code>. Не <code>localhost</code>.</p>
+<div class="why">У Spilno саме <code>localhost</code> кидав людину на сторінку помилки в браузері замість застосунку.</div>
+</div>
+
+<h3>3.3 Apple</h3>
+
+<div class="step">
+<h4><span class="n">7</span> Developer Program</h4>
+<p><code>developer.apple.com</code> → <b>Account</b> → <b>Enroll</b>. Apple ID з 2FA обов'язково. <b>Individual</b> — швидше; <b>Organization</b> — показує назву компанії, але потребує D-U-N-S і триває довше. ~$99/рік, пошта — <code>hello@</code> домену продукту.</p>
+<div class="why"><b>Починати першим.</b> Верифікація може зайняти дні, і все iOS-гілка чекає саме на неї.</div>
+</div>
+
+<div class="step">
+<h4><span class="n">8</span> App ID і запис у App Store Connect</h4>
+<p><b>Certificates, Identifiers &amp; Profiles → Identifiers → +</b> → App IDs → App → Bundle ID <b>Explicit</b>: <code>com.redlabs.&lt;продукт&gt;</code> (той самий рядок, що пакет Android). Якщо буде вхід — позначити <b>Sign In with Apple</b>.</p>
+<p>Далі <code>appstoreconnect.apple.com</code> → <b>My Apps → + → New App</b>: платформа iOS, назва, мова, Bundle ID, SKU.</p>
+<p><b>Проба:</b> на маці відкрити <code>ios/Runner.xcworkspace</code> → <b>Signing &amp; Capabilities</b> → Team підтягнувся, червоного немає.</p>
+</div>
+
+<div class="step">
+<h4><span class="n">9</span> Провайдер Apple у Supabase</h4>
+<p><b>Authentication → Providers → Apple</b>: у <b>Client IDs</b> — <code>com.redlabs.&lt;продукт&gt;</code> (Bundle ID, НЕ назва). <b>Secret Key лишити порожнім</b>.</p>
+<div class="why">Секрет-JWT із ключа <code>.p8</code> потрібен лише браузерному потоку Sign in with Apple. У нас вхід нативний: шторка віддає <code>id_token</code>, сервер обмінює його на сесію. Тому ані Services ID, ані <code>.p8</code> не заводимо, і попередження «keys expire every 6 months» до нас не стосується.</div>
+</div>
+
+<h3>3.4 Google Play</h3>
+
+<div class="step">
+<h4><span class="n">10</span> Застосунок і ключ завантаження</h4>
+<ol>
+<li><code>play.google.com/console</code> → <b>Create app</b>: назва, мова, тип «App», безкоштовний;</li>
+<li>пакет <code>com.redlabs.&lt;продукт&gt;</code> — визначається ПЕРШИМ завантаженим бандлом і не міняється вже ніколи;</li>
+<li><b>Play App Signing лишити ВВІМКНЕНИМ</b> (типово так): тоді наш ключ лише ключ завантаження, і Google скидає його через підтримку. З вимкненим втрата ключа = застосунок не оновити ніколи;</li>
+<li><b>App content</b> заповнити ДО першого релізу: політика приватності, Data safety, вікова аудиторія, рейтинг, реклама. Без цього кнопка релізу просто неактивна — і це не помилка збірки;</li>
+<li>перший реліз: <b>Test and release → Testing → Internal testing → Create new release</b>;</li>
+<li>ключ для дошки: <code>console.cloud.google.com</code> → увімкнути <b>Google Play Android Developer API</b> → IAM → Service accounts → ключ <b>JSON</b>; далі в Play Console <b>Users and permissions</b> запросити пошту акаунта з правом <b>Release to testing tracks</b>. Файл — у <code>/root/.config/&lt;проєкт&gt;/play-service-account.json</code> (chmod 600).</li>
+</ol>
+<p><b>І окремо:</b> зняти копію релізного ключа Android з машини на свій ноутбук. Копія на тому ж диску копією не є.</p>
+</div>
+
+<h3>3.5 RevenueCat і PostHog</h3>
+
+<div class="step">
+<h4><span class="n">11</span> RevenueCat — після Apple</h4>
+<p>Проєкт → <b>Apps → + New</b> (App Store, Bundle ID). Потрібні з App Store Connect: <b>In-App Purchase Key</b> (<code>.p8</code>, дається один раз) і <b>App-Specific Shared Secret</b>. Продукти заводяться в ASC, у RevenueCat — <b>Entitlement</b> <code>premium</code> із прикріпленими продуктами.</p>
+<p>У збірку їде лише <b>публічний</b> ключ SDK (<code>appl_…</code>) — у той самий <code>app-build.env</code>.</p>
+<div class="why">Застосунок питає <code>premium</code>, а не назви продуктів — тоді зміна цін і складу тарифів не потребує релізу.</div>
+</div>
+
+<div class="step">
+<h4><span class="n">12</span> PostHog — регіон важливіший за ключ</h4>
+<p>Реєстрація → вибір <b>Data region EU / US</b> → проєкт → <b>Settings → Project</b>: <b>Project API Key</b> (<code>phc_…</code>) і <b>Host</b> (<code>https://eu.i.posthog.com</code> або <code>us.i.posthog.com</code>). Обидва — у <code>app-build.env</code> <b>парою</b>.</p>
+<div class="why"><b>Найчастіша мовчазна поломка аналітики:</b> ключ правильний, події «надсилаються успішно», а в кабінеті порожньо — бо застосунок стукає не в той регіон. Тому ключ і хост ніколи не ходять окремо.</div>
+<p><b>Проба:</b> надіслати тестову подію й побачити її в <b>Activity</b>.</p>
+</div>
+
+<h3>3.6 Ферма</h3>
+
+<div class="step">
+<h4><span class="n">13</span> Google-акаунт на телефонах</h4>
+<p>Окремий акаунт (не особистий), вхід <b>руками</b> на кожному апараті. Автоматизувати не можна: Google відповідає капчею й підтвердженням пристрою, а за спробу блокує акаунт.</p>
+</div>
+
+<div class="step">
+<h4><span class="n">14</span> SIM і прийом SMS</h4>
+<p>Дві передплачені SIM у телефони ферми. Навіщо: половина конкурентів реєструє через номер, а не пошту.</p>
+<div class="why"><b>Чому не сервіси прийому SMS</b> (<code>sms-activate</code> тощо): це обхід антифроду чужих сервісів, та й номери там «спалені» тисячами реєстрацій. <b>Чому не Twilio:</b> VoIP-номери відхиляють на реєстрації частіше за все. Фізична SIM — легально, дешево й проходить скрізь. Передплачений номер «засинає» без активності: раз на кілька місяців його треба ворушити.</div>
+</div>
+
+<h2 id="order">4. Порядок і залежності</h2>
+
+<div class="scroll">
+<table>
+<tr><th>Черга</th><th>Крок</th><th>Чекає на</th><th>Що розблоковує</th></tr>
+<tr><td>1</td><td>Ніша і рішення робити <span class="tag t-hand">руками</span></td><td>—</td><td>Усе. Джерело — Apprism / Niche Scout, підсумок — LLM-вікі продукту</td></tr>
+<tr><td>2</td><td>Домен + Email Routing</td><td>—</td><td>Кабінети, пошту ферми, політику приватності</td></tr>
+<tr><td>3</td><td><b>Apple Developer</b></td><td>—</td><td>iOS-гілку цілком. <b>Починати паралельно з усім</b>: верифікація триває днями</td></tr>
+<tr><td>4</td><td>Дошка проєкту <span class="tag t-auto">команда</span></td><td>—</td><td>Будь-яку роботу картками</td></tr>
+<tr><td>5</td><td>Скелет застосунку + дозволи сесій</td><td>дошка</td><td>Усі наступні картки</td></tr>
+<tr><td>6</td><td>Supabase: проєкт, ключі, токен</td><td>домен (пошта)</td><td>Міграції, вхід, синк</td></tr>
+<tr><td>7</td><td>Android-збірка й підпис</td><td>скелет</td><td>APK на телефон, Play</td></tr>
+<tr><td>8</td><td>Ферма: акаунт, SIM, пошта</td><td>домен</td><td>Референси конкурентів, автотести</td></tr>
+<tr><td>9</td><td>Реліз кнопкою (кроки в паспорті)</td><td>збірка</td><td>Публікації без ручних команд</td></tr>
+<tr><td>10</td><td>Play Console</td><td>бандл + політика</td><td>Internal testing</td></tr>
+<tr><td>11</td><td>RevenueCat</td><td>Apple + продукти</td><td>Монетизацію</td></tr>
+<tr><td>12</td><td>PostHog</td><td>—</td><td>Воронку й A/B без релізу</td></tr>
+</table>
+</div>
+
+<h2 id="rakes">5. Граблі, які коштували днів</h2>
+
+<div class="verdict bad">
+<b>1. Дозволи сесій не діяли — і ніхто не розумів чому.</b> Claude Code читає проєктний <code>.claude/settings.json</code> лише в теці, <b>позначеній довіреною на машині</b>. Для свіжого репозиторію такої позначки немає, і CLI мовчки відкидає ВЕСЬ список дозволів: правки файлів проходять, а <code>curl</code> до власної дошки й <code>adb</code> — ні. У картці це виглядає як «сесія нічого не зробила», а причина лежить у журналі systemd. <b>Лікується прапорцем</b> <code>--settings &lt;абсолютний шлях&gt;</code> при запуску сесії — джерело командного рядка застави довіри не має. Коштувало це: три доби простою дошки Moppy.
+</div>
+
+<div class="verdict bad">
+<b>2. Домен показував учорашній код.</b> Next тримає перелік файлів збірки в пам'яті з моменту старту — збірка без перезапуску юніта лишає сайт на попередній верстці. Симптом: «я не бачу нову фічу», хоча коміт у <code>main</code>. Лікується перевіркою, яка звіряє імена файлів статики <b>на домені</b> з поточною збіркою (є в <code>deploy.sh</code> Apprism), і кроком релізу в паспорті, щоб цього не робили руками.
+</div>
+
+<div class="verdict warn">
+<b>3. Картка «На релізі» не зливає гілку.</b> Раннер зливає роботу наприкінці КАРТКИ, а не після релізу. Якщо в паспорті немає <code>release.steps</code>, картка застрягає, гілка живе вічно, і в шапці накопичуються плашки «не злито». Ознака здоров'я: плашок немає.
+</div>
+
+<div class="verdict warn">
+<b>4. Дрібниці, кожна з яких валить реліз мовчки.</b>
+<ul>
+<li><b>iOS:</b> ключ <code>UISupportedInterfaceOrientations~ipad</code> мусить лишатись із <b>усіма чотирма</b> орієнтаціями навіть у портретного застосунку — звужений валить завантаження бандла кодом <b>90474</b>;</li>
+<li><b>Apple у Supabase:</b> у <code>Client IDs</code> — Bundle ID, а не назва; <code>Secret Key</code> — порожній;</li>
+<li><b>Android:</b> OAuth-клієнт із SHA-1 ключа підпису — без нього нативний вхід Google мовчки йде в браузер;</li>
+<li><b>Номер збірки</b> один на реліз і спільний для обох сторів: обидва відхиляють номер, який уже бачили;</li>
+<li><b>Регіон Supabase</b> і <b>регіон PostHog</b> після створення не міняються.</li>
+</ul>
+</div>
+
+<h2 id="build">6. Чого бракує: три речі, які треба збудувати</h2>
+
+<p>Нижче — пропозиція, як звести запуск до двох команд і одного чек-листа. Усе будується на тому, що вже є, і нових сервісів не потребує: <b>жодна LLM-вікі чи зовнішній інструмент проблему не вирішить</b>, бо проблема не в пам'яті, а в тому, що кроки ніде не виконуються однаково.</p>
+
+<div class="grid g3">
+<div class="card">
+<div class="lbl">Річ 1 <span class="tag t-new">нове</span></div>
+<div class="val" style="font-size:19px">new-product.sh</div>
+<div class="note">Одна команда, що заводить ШАР 1 і 2 разом: репозиторій, скелет застосунку (Flutter + наш стек), паспорт із живими перевірками, <code>CLAUDE.md</code>, <b>дозволи сесій</b>, теку ключів <code>/root/.config/&lt;проєкт&gt;/</code> із порожніми заготовками, і викликає <code>setup-board.sh</code>. Ідемпотентна, з <code>--check</code>.</div>
+</div>
+<div class="card">
+<div class="lbl">Річ 2 <span class="tag t-new">нове</span></div>
+<div class="val" style="font-size:19px">doctor.sh</div>
+<div class="note">«Що ще не зроблено» одним викликом: перевіряє ключі (роль anon, 200 від Supabase, токен Management API), дозволи сесій, свіжість домену, наявність кроків релізу, стан ферми — і друкує таблицю з ✓/✗, як <code>deploy.sh --check</code>. Саме цього бракувало: ми дізнавалися про поломки випадково.</div>
+</div>
+<div class="card">
+<div class="lbl">Річ 3 <span class="tag t-new">нове</span></div>
+<div class="val" style="font-size:19px">скіл «новий продукт»</div>
+<div class="note">Навичка Claude Code (<code>.claude/skills/</code>), яка веде запуск діалогом: питає назву й ринок, виконує команди, а на кожному ручному кроці дає рівно цю інструкцію й ЧЕКАЄ на пробу. Тобто цей документ стає виконуваним, а не тільки читабельним.</div>
+</div>
+</div>
+
+<div class="verdict">
+<b>Чому саме так, а не «підключити зовнішній сервіс».</b> У нас уже є все, що потрібно: дошка, раннери, ферма, скрипти. Болить не брак інструмента, а те, що <b>знання живе в голові й у переписці</b>. Тому ліки — не новий сервіс, а три файли: один заводить, другий перевіряє, третій пояснює. Документ, який ви читаєте, — джерело для всіх трьох, і саме його читає сесія, коли запускає наступний продукт.
+</div>
+
+<h2 id="check">7. Чек-лист «продукт запущений»</h2>
+
+<div class="scroll">
+<table>
+<tr><th>#</th><th>Готово, коли</th><th>Перевірка</th></tr>
+<tr><td>1</td><td>Дошка відкривається на своєму підшляху, раннер бере картки</td><td>картка з «Готово до роботи» доїхала до «Рев'ю»</td></tr>
+<tr><td>2</td><td>Сесії мають дозволи</td><td>сесія зробила <code>curl</code> у власну картку</td></tr>
+<tr><td>3</td><td>Перевірки справжні</td><td><code>analyze</code> і <code>test</code> у паспорті, обидва зелені</td></tr>
+<tr><td>4</td><td>База жива</td><td><code>db.mjs --check</code> і <code>--rls-probe</code> зелені</td></tr>
+<tr><td>5</td><td>Ключі на місці</td><td><code>role=anon</code>, 200 від Supabase, 200 від Management API</td></tr>
+<tr><td>6</td><td>APK ставиться на телефон</td><td>збірка з чистого дерева без ручних кроків</td></tr>
+<tr><td>7</td><td>Релізний ключ у копії поза машиною</td><td>файл на ноутбуці власника</td></tr>
+<tr><td>8</td><td>Реліз кнопкою</td><td>кроки в паспорті, невдача зупиняє реліз</td></tr>
+<tr><td>9</td><td>Домен і політика приватності</td><td>публічне посилання відкривається</td></tr>
+<tr><td>10</td><td>Плашок «не злито» немає</td><td>шапка дошки чиста</td></tr>
+</table>
+</div>
+
+<div class="foot">
+RedLabs · робочий документ лінійки продуктів · складено 28.09.2026 за фактом запусків Spilno, Apprism і Moppy.<br>
+Сусідній документ: <a href="../clean_schelude/">LLM-вікі Moppy (Clean Schedule)</a>
+</div>
+
+</div>
+</body>
+</html>
