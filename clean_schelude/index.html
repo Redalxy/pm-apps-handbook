@@ -102,6 +102,19 @@ code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px
 .step:last-child{border-bottom:0}
 .step .t{color:var(--dim);font-variant-numeric:tabular-nums;font-size:12.5px;padding-top:1px}
 .leave{border-left:3px solid var(--bad);background:rgba(220,38,38,.05);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+/* Черга MVP: галочки живі, стан лежить у localStorage цього браузера */
+.mvp ul{list-style:none;padding-left:0;margin:6px 0 14px}
+.mvp li{margin:0}
+.mvp label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:6px 8px;border-radius:8px;transition:background .12s}
+.mvp label:hover{background:var(--panel2)}
+.mvp input{flex:none;width:17px;height:17px;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}
+.mvp input:checked+span{opacity:.45;text-decoration:line-through;text-decoration-thickness:1px}
+.mvp-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:13px;color:var(--dim)}
+.mvp-head b{color:var(--ink);font-variant-numeric:tabular-nums}
+.mvp-bar{flex:1;height:7px;background:var(--panel2);border-radius:5px;overflow:hidden}
+.mvp-bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:5px;transition:width .2s}
+#mvp-reset{border:1px solid var(--line);background:var(--panel);color:var(--dim);font:inherit;font-size:12px;padding:3px 10px;border-radius:999px;cursor:pointer}
+#mvp-reset:hover{color:var(--bad);border-color:var(--bad)}
 </style>
 </head>
 <body>
@@ -1086,36 +1099,37 @@ at the bottom, plain white background."
 <div class="take"><b>Порядок, який виходить із цього:</b> спринт 1 — онбординг із демо-сканом і екраном входу; спринт 2 — пейвол і підписка (RevenueCat або StoreKit 2); спринт 3 — Today / Rooms / план кроків / результат, разом із локальною базою й нагадуваннями; спринт 4 — справжній скан із дозволами, лімітами й станами помилки. Маскот і всі його стани готові вже зараз і не блокують жоден спринт.</div>
 
 <h3>Черга задач MVP — 14 карток на дошці Moppy <span class="tag t-new">заведено 30.09.2026</span></h3>
-<div class="sub" style="margin-top:-4px">Картки лежать в «Інбоксі» дошки Moppy (<code>kanban.spilnoapp.com/moppy/</code>) саме в цьому порядку, зверху вниз. Галочки нижче ставимо тут, коли картка доїхала до «Завершено» — щоб на одній сторінці було видно весь стан розробки, не відкриваючи дошку.</div>
-<div class="card">
+<div class="sub" style="margin-top:-4px">Картки лежать в «Інбоксі» дошки Moppy (<code>kanban.spilnoapp.com/moppy/</code>) саме в цьому порядку, зверху вниз. Галочки ЖИВІ — тисни їх тут, коли картка доїхала до «Завершено». Стан зберігається у твоєму браузері, тож переживає перезавантаження сторінки; на чужому пристрої він свій.</div>
+<div class="card mvp">
+<div class="mvp-head">Пройдено <b id="mvp-count">0 з 14</b><span class="mvp-bar"><i id="mvp-fill"></i></span><button type="button" id="mvp-reset">скинути</button></div>
 <b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Фундамент — без цього не почати</b>
-<ul style="margin-top:6px;list-style:none;padding-left:0">
-<li>☐ <b>MVP-01 · Вихідники дизайну в репозиторій</b> — токени, маскот, іконки, знак E2. ПЕРША в черзі: на неї спирається все інше.</li>
-<li>☐ <b>MVP-02 · Дизайн-система в код</b> — тема, типографіка Lora+Nunito, компоненти, іконки, світла й темна. Сирого hex в екранах бути не може.</li>
-<li>☐ <b>MVP-03 · Каркас навігації</b> — go_router, таббар на 5 місць, порожні екрани, лише портрет.</li>
-<li>☐ <b>MVP-04 · Дані</b> — Drift-схема, freezed-моделі, Supabase-міграції, offline-first синк. Перший запуск build_runner у проєкті.</li>
+<ul>
+<li><label><input type="checkbox" data-mvp="01"><span><b>MVP-01 · Вихідники дизайну в репозиторій</b> — токени, маскот, іконки, знак E2. ПЕРША в черзі: на неї спирається все інше.</span></label></li>
+<li><label><input type="checkbox" data-mvp="02"><span><b>MVP-02 · Дизайн-система в код</b> — тема, типографіка Lora+Nunito, компоненти, іконки, світла й темна. Сирого hex в екранах бути не може.</span></label></li>
+<li><label><input type="checkbox" data-mvp="03"><span><b>MVP-03 · Каркас навігації</b> — go_router, таббар на 5 місць, порожні екрани, лише портрет.</span></label></li>
+<li><label><input type="checkbox" data-mvp="04"><span><b>MVP-04 · Дані</b> — Drift-схема, freezed-моделі, Supabase-міграції, offline-first синк. Перший запуск build_runner у проєкті.</span></label></li>
 </ul>
 <b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 1 · Онбординг</b>
-<ul style="margin-top:6px;list-style:none;padding-left:0">
-<li>☐ <b>MVP-05 · Авторизація</b> — вхід, реєстрація паролем, код із листа, веб-сторінки. Граблі Spilno — у CLAUDE.md проєкту.</li>
-<li>☐ <b>MVP-06 · Онбординг ч.1</b> — три слайди знайомства і обидва блоки квізу.</li>
-<li>☐ <b>MVP-07 · Онбординг ч.2</b> — ядро воронки, генерація плану, слайд «4 хвилини», заблюрений план.</li>
+<ul>
+<li><label><input type="checkbox" data-mvp="05"><span><b>MVP-05 · Авторизація</b> — вхід, реєстрація паролем, код із листа, веб-сторінки. Граблі Spilno — у CLAUDE.md проєкту.</span></label></li>
+<li><label><input type="checkbox" data-mvp="06"><span><b>MVP-06 · Онбординг ч.1</b> — три слайди знайомства і обидва блоки квізу.</span></label></li>
+<li><label><input type="checkbox" data-mvp="07"><span><b>MVP-07 · Онбординг ч.2</b> — ядро воронки, генерація плану, слайд «4 хвилини», заблюрений план.</span></label></li>
 </ul>
 <b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 2 · Пейвол</b>
-<ul style="margin-top:6px;list-style:none;padding-left:0">
-<li>☐ <b>MVP-08 · Пейвол і покупки</b> — тріал, стани оплати, керування підпискою і ПРАПОРЕЦЬ freemium (закладається одразу, не потім).</li>
+<ul>
+<li><label><input type="checkbox" data-mvp="08"><span><b>MVP-08 · Пейвол і покупки</b> — тріал, стани оплати, керування підпискою і ПРАПОРЕЦЬ freemium (закладається одразу, не потім).</span></label></li>
 </ul>
 <b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 3 · Розклад</b>
-<ul style="margin-top:6px;list-style:none;padding-left:0">
-<li>☐ <b>MVP-09 · Today</b> — одна справа великою карткою, черга «Up next», авторозклад.</li>
-<li>☐ <b>MVP-10 · Rooms</b> — вісім кімнат у своїх пастелях, стани, редагування, порожні стани.</li>
-<li>☐ <b>MVP-11 · План кроків</b> — виконання, таймер, All done із before/after, цикл Wash Moppy.</li>
-<li>☐ <b>MVP-12 · Progress, Profile, Household, нагадування</b> — без жодного лічильника пропущеного.</li>
+<ul>
+<li><label><input type="checkbox" data-mvp="09"><span><b>MVP-09 · Today</b> — одна справа великою карткою, черга «Up next», авторозклад.</span></label></li>
+<li><label><input type="checkbox" data-mvp="10"><span><b>MVP-10 · Rooms</b> — вісім кімнат у своїх пастелях, стани, редагування, порожні стани. <i style="color:var(--warn)">чекає ілюстрацій кімнат</i></span></label></li>
+<li><label><input type="checkbox" data-mvp="11"><span><b>MVP-11 · План кроків</b> — виконання, таймер, All done із before/after, цикл Wash Moppy. <i style="color:var(--warn)">чекає відра, бульбашок і дверей</i></span></label></li>
+<li><label><input type="checkbox" data-mvp="12"><span><b>MVP-12 · Progress, Profile, Household, нагадування</b> — без жодного лічильника пропущеного.</span></label></li>
 </ul>
 <b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 4 · Скан і поверхні</b>
-<ul style="margin-top:6px;list-style:none;padding-left:0">
-<li>☐ <b>MVP-13 · Скан</b> — камера, дозволи своєю шторкою, галерея, AI-вузол на сервері з лімітами й собівартістю.</li>
-<li>☐ <b>MVP-14 · Віджети, Live Activity, аналітика</b> — чотири стани віджета, лок-екран, події воронки.</li>
+<ul>
+<li><label><input type="checkbox" data-mvp="13"><span><b>MVP-13 · Скан</b> — камера, дозволи своєю шторкою, галерея, AI-вузол на сервері з лімітами й собівартістю.</span></label></li>
+<li><label><input type="checkbox" data-mvp="14"><span><b>MVP-14 · Віджети, Live Activity, аналітика</b> — чотири стани віджета, лок-екран, події воронки. <i style="color:var(--warn)">чекає композицій віджетів</i></span></label></li>
 </ul>
 </div>
 <div class="verdict" style="border-left-color:var(--blue)">
@@ -1151,5 +1165,52 @@ Niche Scout · LLM Wiki проєкту Clean Schedule · складено 27.09.
 </div>
 
 </div>
+
+<script>
+/* Галочки черги MVP. Стан лежить у localStorage цього браузера: сторінка
+   статична (GitHub Pages), сервера для збереження немає, тож на іншому
+   пристрої прогрес буде свій. Ключ із версією — якщо перелік задач
+   зміниться, старий стан не переплутає номери. */
+(function () {
+  var KEY = 'moppy.mvp.v1';
+  var boxes = document.querySelectorAll('.mvp input[type=checkbox]');
+  if (!boxes.length) return;
+
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function paint() {
+    var done = 0;
+    boxes.forEach(function (b) { if (b.checked) done++; });
+    var count = document.getElementById('mvp-count');
+    var fill = document.getElementById('mvp-fill');
+    if (count) count.textContent = done + ' з ' + boxes.length;
+    if (fill) fill.style.width = (done / boxes.length * 100) + '%';
+  }
+
+  boxes.forEach(function (box) {
+    box.checked = !!state[box.dataset.mvp];
+    box.addEventListener('change', function () {
+      state[box.dataset.mvp] = box.checked;
+      save();
+      paint();
+    });
+  });
+
+  var reset = document.getElementById('mvp-reset');
+  if (reset) reset.addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    state = {};
+    save();
+    paint();
+  });
+
+  paint();
+})();
+</script>
 </body>
 </html>
