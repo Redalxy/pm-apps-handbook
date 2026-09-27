@@ -1085,6 +1085,44 @@ at the bottom, plain white background."
 
 <div class="take"><b>Порядок, який виходить із цього:</b> спринт 1 — онбординг із демо-сканом і екраном входу; спринт 2 — пейвол і підписка (RevenueCat або StoreKit 2); спринт 3 — Today / Rooms / план кроків / результат, разом із локальною базою й нагадуваннями; спринт 4 — справжній скан із дозволами, лімітами й станами помилки. Маскот і всі його стани готові вже зараз і не блокують жоден спринт.</div>
 
+<h3>Черга задач MVP — 14 карток на дошці Moppy <span class="tag t-new">заведено 30.09.2026</span></h3>
+<div class="sub" style="margin-top:-4px">Картки лежать в «Інбоксі» дошки Moppy (<code>kanban.spilnoapp.com/moppy/</code>) саме в цьому порядку, зверху вниз. Галочки нижче ставимо тут, коли картка доїхала до «Завершено» — щоб на одній сторінці було видно весь стан розробки, не відкриваючи дошку.</div>
+<div class="card">
+<b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Фундамент — без цього не почати</b>
+<ul style="margin-top:6px;list-style:none;padding-left:0">
+<li>☐ <b>MVP-01 · Вихідники дизайну в репозиторій</b> — токени, маскот, іконки, знак E2. ПЕРША в черзі: на неї спирається все інше.</li>
+<li>☐ <b>MVP-02 · Дизайн-система в код</b> — тема, типографіка Lora+Nunito, компоненти, іконки, світла й темна. Сирого hex в екранах бути не може.</li>
+<li>☐ <b>MVP-03 · Каркас навігації</b> — go_router, таббар на 5 місць, порожні екрани, лише портрет.</li>
+<li>☐ <b>MVP-04 · Дані</b> — Drift-схема, freezed-моделі, Supabase-міграції, offline-first синк. Перший запуск build_runner у проєкті.</li>
+</ul>
+<b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 1 · Онбординг</b>
+<ul style="margin-top:6px;list-style:none;padding-left:0">
+<li>☐ <b>MVP-05 · Авторизація</b> — вхід, реєстрація паролем, код із листа, веб-сторінки. Граблі Spilno — у CLAUDE.md проєкту.</li>
+<li>☐ <b>MVP-06 · Онбординг ч.1</b> — три слайди знайомства і обидва блоки квізу.</li>
+<li>☐ <b>MVP-07 · Онбординг ч.2</b> — ядро воронки, генерація плану, слайд «4 хвилини», заблюрений план.</li>
+</ul>
+<b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 2 · Пейвол</b>
+<ul style="margin-top:6px;list-style:none;padding-left:0">
+<li>☐ <b>MVP-08 · Пейвол і покупки</b> — тріал, стани оплати, керування підпискою і ПРАПОРЕЦЬ freemium (закладається одразу, не потім).</li>
+</ul>
+<b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 3 · Розклад</b>
+<ul style="margin-top:6px;list-style:none;padding-left:0">
+<li>☐ <b>MVP-09 · Today</b> — одна справа великою карткою, черга «Up next», авторозклад.</li>
+<li>☐ <b>MVP-10 · Rooms</b> — вісім кімнат у своїх пастелях, стани, редагування, порожні стани.</li>
+<li>☐ <b>MVP-11 · План кроків</b> — виконання, таймер, All done із before/after, цикл Wash Moppy.</li>
+<li>☐ <b>MVP-12 · Progress, Profile, Household, нагадування</b> — без жодного лічильника пропущеного.</li>
+</ul>
+<b style="color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em">Спринт 4 · Скан і поверхні</b>
+<ul style="margin-top:6px;list-style:none;padding-left:0">
+<li>☐ <b>MVP-13 · Скан</b> — камера, дозволи своєю шторкою, галерея, AI-вузол на сервері з лімітами й собівартістю.</li>
+<li>☐ <b>MVP-14 · Віджети, Live Activity, аналітика</b> — чотири стани віджета, лок-екран, події воронки.</li>
+</ul>
+</div>
+<div class="verdict" style="border-left-color:var(--blue)">
+<b>Чого в цій черзі свідомо НЕМАЄ:</b> інфраструктура (збірки, реліз, ферма, реєстрація в Apple/Google/Supabase/RevenueCat/PostHog, іконка стора) вже покрита окремими картками на тій самій дошці — дублювати не треба. Дві фічі з беклогу — «маю 15/30/60 хвилин» і безкоштовна бібліотека порад — у MVP не входять: вони поза чергою перших чотирьох спринтів і не блокують реліз.
+<br><br><b>Скан в онбордингу — демонстраційний.</b> MVP-07 показує готове фото з готовим списком, справжня камера приходить аж у MVP-13. Це навмисно: інакше скан тягнеться в перший спринт і блокує всю воронку.
+</div>
+
 <h2 id="potential">9. Потенціал: скільки ринку не зайнято</h2>
 <div class="pot">
   <div class="m"><div class="k">Ринок ядра</div><div class="v">$330K<span style="font-size:13px;font-weight:400;color:var(--dim)">/міс</span></div><div class="n"><b>Найменший із топ-5</b> — але й найдоступніший</div></div>
