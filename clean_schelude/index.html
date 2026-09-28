@@ -788,109 +788,157 @@ MOPPY — цуцик-комондор, пухнастий (окремі м'як�
 а не провину — і насадка швабри на хвості лишається видною навіть тут.
 </pre>
 
-<h3>Промти для Leonardo.Ai — генерація готових файлів персонажа <span class="tag t-new">29.09.2026</span></h3>
-<div class="sub" style="margin-top:-4px">Це ІНШИЙ формат промтів, ніж розділ вище: там текст для Claude Design (бренд-макети), тут — прямі промти для image-generation моделі (Leonardo.Ai, модель «GPT Image 2.5 Flare»), по одному на кожен файл персонажа. Налаштування Leonardo: Style — Illustration (або 3D Render, якщо доступний), Private Mode вимкнено на безкоштовному плані — зображення можуть бути публічними. <b>Генерувати ПО ОДНІЙ картинці за раз</b>, не сіткою 2×2 — так контролюється консистентність хвоста-швабри в кожному кадрі, і кожен новий результат звіряти з попереднім (та сама порода морди, той самий хвіст, та сама бандана). Референс — уже вдалий кадр <code>refs/moppy_mascot_final.jpg</code> і одиничний вдалий кадр хвоста: підвантажувати як Image Reference/Character Reference, де це можливо.</div>
+<h3>Промти для Leonardo.Ai — генерація готових файлів персонажа <span class="tag t-new">v2 · 28.09.2026</span></h3>
+<div class="sub" style="margin-top:-4px">Це ІНШИЙ формат промтів, ніж розділ вище: там текст для Claude Design (бренд-макети), тут — прямі промти для image-generation моделі (Leonardo.Ai), по одному на кожен файл персонажа. <b>Генерувати ПО ОДНІЙ картинці за раз</b>, не сіткою 2×2 — так контролюється консистентність хвоста-швабри в кожному кадрі, і кожен новий результат звіряти з попереднім (та сама морда, той самий хвіст, та сама бандана). Референс підвантажувати як Image Reference / Character Reference, де це можливо.</div>
+
+<div class="verdict" style="border-left-color:var(--blue)">
+<b>СТРАТЕГІЯ ДВОХ ДЖЕРЕЛ (рішення власника 28.09.2026).</b> Векторний маскот від Claude Design іде в продакшен ЗАРАЗ — він потрібен для екранів, віджетів і Live Activity, де важлива читабельність у 32 pt. Паралельно власник робить у Leonardo АКВАРЕЛЬНУ, деталізовану версію того самого персонажа — тепліша й «книжкова», для місць, де розмір великий: герой онбордингу, порожні стани, сторінка стора, маркетингові матеріали.
+<br><br>Тобто це не заміна, а два регістри одного персонажа. Спільне, що мусить збігатись в обох: порода (кошлатий комондор-пудель), кремово-сіра шерсть, коралова бандана, <b>хвіст-швабра</b>.
+</div>
 
 <div class="verdict warn">
-<b>Граблі, на яких уже стояли (не повторювати):</b>
+<b>Граблі, на яких уже стояли — не повторювати:</b>
 <ul style="margin-top:0">
 <li><b>Ніколи не пиши hex-код кольору в текст промта</b> (<code>#FF4D6A</code> тощо) — модель малює його як видимий напис на картинці. Лише словесний опис: «coral pink bandana».</li>
-<li><b>Не пиши просто «mop head»</b> — модель може прочитати це як частину голови собаки. Писати розгорнуто: «a mop head attachment where the tail should be, made of thick cotton strands, clearly a cleaning tool texture, not fur».</li>
-<li>У промт для будь-якого кадру ЗАВЖДИ додавати «no text, no logo, no watermark, no signature» — інакше моделі схильні домальовувати підписи.</li>
+<li><b>Не пиши просто «mop head»</b> — модель читає це як частину голови собаки. Треба розгорнуто, з матеріалом і місцем кріплення.</li>
+<li><b>ШВАБРА ВИДІЛЯЄТЬСЯ ЯК ЧУЖИЙ ПРЕДМЕТ</b> (знайдено 28.09.2026 на перших акварельних кадрах): модель малює її холодно-білою, гладкою, з правильними канатними пасмами — і вона читається як інвентар, який пес тримає, а не як його хвіст. Лікується КОЛЬОРОМ: пасма мусять бути того ж кремово-сірого тону, що шерсть.</li>
+<li><b>ШВАБРА ВИРОСТАЄ ЗІ СПИНИ АБО З-ЗА ТІЛА</b> — та сама партія кадрів: у позі «вітає» держак виходить з-за спини, ніби собака тримає його лапою. У промті треба явно казати, що хвіст росте З КРУПА, з основи хребта, і що лапи при цьому ВІЛЬНІ.</li>
+<li>У промт будь-якого кадру ЗАВЖДИ додавати «no text, no logo, no watermark, no signature» — інакше моделі домальовують підписи.</li>
 </ul>
+<b>Застереження до виправлення кольору:</b> якщо зробити пасма ТОЧНО того ж тону, що шерсть, швабра перестане читатись як швабра. Різницю тримає не колір, а ТЕКСТУРА — кручені мотузяні пасма проти кошлатої шерсті — плюс держак і муфта. Тому в промті колір спільний, а фактура протиставлена явно.
 </div>
 
 <pre style="white-space:pre-wrap;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;font-size:13px;line-height:1.6;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">
-БАЗОВИЙ ОПИС ПЕРСОНАЖА — додавай ЦЕЙ АБЗАЦ до кожного промту нижче, перед
-описом конкретної пози/емоції:
+БАЗОВИЙ ОПИС ПЕРСОНАЖА (v2, 28.09.2026) — додавай ЦЕЙ АБЗАЦ до кожного
+промту нижче, перед описом конкретної пози/емоції. Він переписаний за
+результатами перших акварельних кадрів: три абзаци, і середній — саме про
+швабру, бо там була вся біда.
 
-"Fluffy Komondor puppy character named Moppy, round friendly proportions,
-small warm brown eyes, soft rounded ears, a coral pink bandana tied around
-the neck. CRITICAL DETAIL: instead of a tail he has a mop head attachment
-where the tail should be — a short wooden handle with a gray metal cuff,
-ending in thick beige/cream cotton mop strands hanging down, clearly
-thicker and stringier than the body fur, unmistakably a cleaning tool
-texture, not fur, not a fluffy tail. This mop-tail attachment MUST be
-fully visible and recognizable in the image. Warm children's-book
-watercolor illustration style, soft flat shading, clean thick outlines,
-plain white background, single character, no text, no logo, no
-watermark, no signature, high resolution."
+"Fluffy shaggy dog character named Moppy, round friendly proportions,
+long soft cream-and-warm-grey fur that falls in loose shaggy locks over
+the body, small warm brown eyes barely peeking through the fur, soft
+rounded ears, a coral pink bandana tied around the neck.
+
+CRITICAL DETAIL — THE MOP TAIL: where a tail would be, GROWING OUT OF
+HIS RUMP at the base of the spine, he has a mop head. IT IS PART OF HIM,
+NOT AN OBJECT HE CARRIES: it is never held in a paw, never tucked behind
+his back, never resting against his side like a tool leaning on a wall —
+the connection point at the rump is visible, and both front paws stay
+completely free for whatever he is doing. The mop strands are THE SAME
+CREAM AND WARM GREY as his fur, dyed from the same palette, so the tail
+reads as a natural continuation of the dog. What makes it read as a mop
+is TEXTURE, NOT COLOUR: the strands are long, straight, twisted and
+rope-like, hanging in even parallel cords, clearly smoother and more
+uniform than the loose shaggy locks of the body fur. Between the rump
+and the strands there is a SHORT warm honey-wood handle with a soft
+brass-toned cuff — small, unobtrusive, warm in tone, never a cold grey
+metal ring.
+
+Warm children's-book watercolour illustration style, soft washes with
+visible paper texture, gentle warm lighting, clean soft outlines, plain
+white background, single character, no text, no logo, no watermark, no
+signature, high resolution."
 
 ───────────────────────────────────────────────────────────────────────
+ЩО ЗМІНИЛОСЬ ПРОТИ v1 (щоб не відкотити випадково):
+· було «beige/cream cotton strands … not fur» → стало «той самий колір,
+  що шерсть; різниця в ТЕКСТУРІ» (швабра переставала бути частиною пса);
+· було «gray metal cuff» → стало «brass-toned cuff, never cold grey»
+  (холодний метал притягував до себе око сильніше за морду);
+· додано явну заборону «не в лапі, не з-за спини, не збоку» + вимогу
+  показати місце кріплення на крупі й лишити обидві лапи вільними.
+───────────────────────────────────────────────────────────────────────
+
 №1 · ІКОНКА ЗАСТОСУНКУ (морда крупно)
 [базовий опис] + "Extreme close-up of just the head and face, cropped
 tight so the face fills the entire frame and is slightly cut off by the
 edges, front-facing, warm gentle smile, square composition, centered."
+ПРИМІТКА: тут хвоста не видно взагалі, і це нормально — єдиний кадр, де
+абзац про швабру можна прибрати цілком.
 
-№2 · БАЗОВА ПОЗА
-[базовий опис] + "Full body, standing on all four paws, front three-
-quarter angle, gentle happy expression, mop-tail resting naturally on
-the ground behind him, simple flat shadow underneath, plain white
-background."
+№2 · БАЗОВА ПОЗА (контрольний кадр — генерувати ПЕРШИМ)
+[базовий опис] + "Full body, standing on all four paws, side-on
+three-quarter angle chosen specifically so the mop tail growing from his
+rump is fully visible in silhouette, gentle happy expression, the mop
+strands hanging down and just touching the ground behind him, simple
+soft shadow underneath, plain white background."
+ПРИМІТКА: саме цей кадр далі підвантажується як Character Reference у
+всі решта. Не вийшов хвіст — перегенеруй, поки не вийде, і не рухайся
+далі: решта дев'яти успадкують помилку.
 
-№3 · ЕМОЦІЯ: вітає зранку
-[базовий опис] + "Standing on hind legs waving one front paw in a
-cheerful greeting, big warm smile, eyes bright, mop-tail visible and
-swaying behind him, plain white background."
+№3 · ЕМОЦІЯ: вітає зранку  ← ТУТ ЛАМАЛОСЬ НАЙЧАСТІШЕ
+[базовий опис] + "Standing up on his hind legs, waving one front paw
+high in a cheerful greeting, the other front paw open and empty at his
+side, big warm smile, eyes bright. IMPORTANT: the mop tail hangs down
+and slightly to the side FROM HIS RUMP, clearly behind and below his
+hips, in full view — it must not appear from behind his back or over his
+shoulder, and neither paw touches it. Plain white background."
 
 №4 · ЕМОЦІЯ: чекає з ганчіркою
-[базовий опис] + "Sitting patiently, holding a small cleaning rag in
-one front paw, head tilted slightly, calm patient expression, mop-tail
-resting on the floor beside him, plain white background."
+[базовий опис] + "Sitting patiently, holding a small folded cleaning
+cloth in one front paw, head tilted slightly, calm patient expression,
+the mop tail spread out on the floor beside his hip, plain white
+background."
+ПРИМІТКА: це єдиний кадр, де в лапі СПРАВДІ є предмет — саме тому
+ганчірка мусить бути маленька, складена й іншого кольору, ніж хвіст
+(наприклад, бліда мʼятна), інакше два предмети зіллються.
 
 №5 · ЕМОЦІЯ: працює (метушиться)
-[базовий опис] + "Mid-motion, running or scurrying energetically to one
-side, slight motion blur lines behind the paws, focused determined
-expression, small dust puffs near the paws, mop-tail trailing behind
-mid-motion, plain white background."
+[базовий опис] + "Mid-motion, scurrying energetically to one side, front
+paws lifted in stride and empty, focused determined expression, small
+soft dust puffs near the paws, the mop tail streaming out behind him
+with the strands fanned by the movement, plain white background."
 
 №6 · ЕМОЦІЯ: запилюжений/замурзаний
-[базовий опис] + "Fur looks slightly disheveled and dusty with light
-gray smudge marks, mop-tail strands tangled and dusty too but still
-clearly a mop attachment (not fur), tired but endearing expression,
-plain white background."
+[базовий опис] + "His fur looks slightly dishevelled and dusty with soft
+grey smudges, the mop strands tangled and dusty too but still hanging in
+their twisted rope-like cords, tired but endearing expression, plain
+white background."
 
 №7 · ЕМОЦІЯ: щойно помитий, пухнастий
-[базовий опис] + "Freshly washed, fur extra fluffy and clean, a few
-small soap bubbles or sparkle marks around him, bright joyful
-expression, mop strands on the tail damp and clean, plain white
-background."
+[базовий опис] + "Freshly washed, fur extra fluffy and clean, a few soft
+soap bubbles floating around him, bright joyful expression, the mop
+strands damp, clean and neatly combed straight, plain white background."
 
 №8 · ЕМОЦІЯ: святкує закриту кімнату
 [базовий опис] + "Celebrating pose, both front paws raised up in a tiny
-cheer, big happy smile, a simple closed door illustrated behind him,
-a few small confetti pieces in the air, mop-tail raised too, plain
-white background."
+cheer and clearly empty, big happy smile, a simple closed door softly
+painted behind him, a few small confetti pieces in the air, the mop tail
+flicked upward in excitement but still attached at the rump, plain white
+background."
 
 №9 · ЕМОЦІЯ: спить
 [базовий опис] + "Curled up asleep on the floor, eyes closed, peaceful
-expression, the mop-tail tucked underneath him but still partly
-visible, plain white background."
+expression, the mop tail curled around his own body like a blanket with
+the strands still visible and recognisable, plain white background."
 
-№10 · ВІЗИРАЄ З-ЗА КАРТКИ — варіант 1 (знизу)
+№10 · ВИЗИРАЄ З-ЗА КАРТКИ — варіант 1 (знизу)
 [базовий опис] + "Only the head and two front paws are visible, peeking
 up from behind the bottom edge of a plain white rounded rectangle card
 that fills the lower half of the frame, curious friendly expression,
 rest of the body hidden behind the card, plain white background behind
 the character."
 
-№10 · ВІЗИРАЄ З-ЗА КАРТКИ — варіант 2 (збоку)
+№10 · ВИЗИРАЄ З-ЗА КАРТКИ — варіант 2 (збоку)
 [базовий опис] + "Only the head and one front paw are visible, peeking
-around the right edge of a plain white rounded rectangle card that
-fills most of the frame, playful curious expression, rest of the body
-hidden behind the card, plain white background behind the character."
+around the right edge of a plain white rounded rectangle card that fills
+most of the frame, playful curious expression, rest of the body hidden
+behind the card, plain white background behind the character."
 
 №11 · ПОРТРЕТ ДЛЯ LIVE ACTIVITY
 [базовий опис] + "Close-up bust portrait, head and upper shoulders only,
-three-quarter angle, holding a small cleaning rag near his chin, gentle
-attentive expression as if waiting for you to come back, cropped tight
-at the bottom, plain white background."
+three-quarter angle, holding a small cleaning cloth near his chin,
+gentle attentive expression as if waiting for you to come back, cropped
+tight at the bottom, plain white background."
 
 ───────────────────────────────────────────────────────────────────────
-ІНСТРУКЦІЯ: генерувати по одному промту за раз, у порядку номерів. Після
-кожного результату звіряти з попередніми — та сама морда, той самий
-хвіст-швабра, та сама бандана. Розбіжність (звичайний хвіст замість
-швабри, інша порода морди) — перегенерувати той самий номер, не йти далі.
+ПОРЯДОК РОБОТИ: спершу №2 (контрольний кадр), і лише коли хвіст на ньому
+правильний — решта, підвантажуючи №2 як Character Reference. Після
+кожного результату звіряти ТРИ речі:
+  1. хвіст росте з крупа, а не тримається в лапі й не виходить з-за спини;
+  2. пасма того ж кремово-сірого тону, що шерсть, а відрізняються фактурою;
+  3. муфта тепла (латунь/дерево), а не холодний сірий метал.
+Не збіглось — перегенерувати ТОЙ САМИЙ номер, не йти далі.
 </pre>
 
 <h2 id="frames">7б. Розкадровка референсів <span class="tag t-new">поповнюється</span></h2>
