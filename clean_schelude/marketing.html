@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moppy — план відеомаркетингу</title>
+<link rel="icon" type="image/svg+xml" href="../redlabs-favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito:wght@600;700;800&display=swap">
+<style>
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --panel2:#eef2f6; --line:#dde5ec;
+  --ink:#182430; --dim:#5b6b7a; --accent:#0e9f6e; --warn:#d97706; --blue:#2563eb;
+  --coral:#FF4D6A; --coral-ink:#C8243F; --tint:#FFE1E7; --violet:#4338CA;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 22px 90px}
+@media(max-width:600px){.wrap{padding:24px 16px 60px}}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:22px;margin:52px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line);letter-spacing:-.01em}
+h3{font-size:19px;margin:0;letter-spacing:-.01em;line-height:1.3}
+.h3s{margin-top:22px;font-size:15px;color:var(--dim)}
+.sub{color:var(--dim);font-size:14px;margin-bottom:26px;max-width:880px}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.grid{display:grid;gap:14px} .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 2px rgba(24,36,48,.04)}
+.lbl{color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;font-weight:600}
+.val{font-size:24px;font-weight:650;letter-spacing:-.02em}
+.note{color:var(--dim);font-size:13px;margin-top:6px}
+.kicker{color:var(--coral-ink);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.stamp{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;margin-bottom:12px}
+.rl-mark{display:flex;align-items:flex-end;gap:1px;margin-bottom:18px}
+.rl-mark .wm{height:19px;width:86px;display:grid} .rl-mark .fl{height:38px;width:32px;display:grid;margin-bottom:-2px}
+.rl-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:650;white-space:nowrap}
+.b-magic{background:#E0E7FF;color:var(--violet)} .b-pain{background:#FDEBC8;color:#8A5A0F} .b-mascot{background:var(--tint);color:#A8203B}
+.w-now{background:rgba(14,159,110,.12);color:var(--accent)} .w-live{background:rgba(37,99,235,.1);color:var(--blue)} .w-scan{background:rgba(217,119,6,.13);color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+q{quotes:"«" "»"}
+.verdict{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:14px 18px;margin:0}
+.verdict.warn{border-left-color:var(--warn)} .verdict.coral{border-left-color:var(--coral);margin-top:16px}
+ul{margin:8px 0 0;padding-left:20px} li{margin:5px 0}
+code{background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12.5px}
+.tree{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+@media(max-width:700px){.tree{grid-template-columns:1fr}}
+.node{border-radius:12px;padding:12px 16px;font-weight:650;text-align:center}
+.q{grid-column:1/-1;background:#3ECF8E;color:#0b2a1c;justify-self:center;max-width:420px;width:100%}
+.yes{background:var(--violet);color:#fff;outline:3px solid var(--coral);outline-offset:3px}
+.no{background:var(--panel);border:1px solid var(--line)}
+.node small{display:block;font-weight:600;opacity:.85;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.node .us{display:block;font-weight:500;font-size:13px;margin-top:6px}
+.ad{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 20px 16px;margin:22px 0;box-shadow:0 1px 2px rgba(24,36,48,.04);scroll-margin-top:16px}
+.adh{display:flex;gap:14px;align-items:center}
+.adid{width:46px;height:46px;border-radius:13px;background:var(--tint);color:var(--coral-ink);font-weight:800;display:grid;place-items:center;font-size:15px;flex:none}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:5px}
+.mx{color:var(--dim);font-size:12.5px}
+.hook{margin:14px 0 10px;font-family:Lora,Georgia,serif;font-size:19px;color:#2C252A}
+.hook q{background:var(--tint);padding:1px 8px;border-radius:6px}
+.info{font-size:14px;color:#2b3947}
+.strip{display:flex;gap:12px;overflow-x:auto;padding:16px 2px 6px;scroll-snap-type:x proximity}
+.fr{margin:0;flex:0 0 172px;scroll-snap-align:start}
+.sb{width:172px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sb svg{display:block;width:100%;height:100%}
+.fr figcaption{font-size:12.5px;line-height:1.45;color:#3a4856;margin-top:8px}
+.fr figcaption b{display:block;color:var(--coral-ink);font-size:11.5px;letter-spacing:.04em;margin-bottom:2px}
+.phase{border-left:3px solid var(--line);padding:4px 0 4px 16px;margin:14px 0}
+.phase.p0{border-color:var(--accent)} .phase.p1{border-color:var(--blue)} .phase.p2{border-color:var(--warn)}
+.hooks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:10px}
+.hooks div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-family:Lora,Georgia,serif;font-size:15.5px}
+.hooks span{display:block;font-family:-apple-system,"Segoe UI",sans-serif;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+.ref{display:flex;gap:10px;overflow-x:auto;padding:6px 0}
+.ref img{height:220px;border-radius:12px;border:1px solid var(--line)}
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="rl-mark" title="RedLabs">
+  <span class="wm"><img src="../logo/redlabs-word-light.svg" alt="RedLabs"></span>
+  <span class="fl"><img src="../logo/redlabs-flame-anim-light.svg" alt=""></span>
+</span>
+<div class="kicker">Moppy · маркетинг · відеокреативи</div>
+<div class="stamp"><b>Оновлено: 03.10.2026</b> · <span style="color:var(--dim)">робочий план, поповнюється · поруч — <a href="index.html">вікі проєкту Clean Schedule</a></span></div>
+<h1>План відеомаркетингу Moppy: 11 роликів із розкадровками</h1>
+<div class="sub">Що знімаємо для Meta (Reels, Stories), TikTok і Apple Search Ads, щоб людина зупинилась на першій секунді, встановила застосунок і почала тріал. У кожного ролика — хук, чому він чіпляє, і розкадровка: живі кадри з нашого ASO-ролика плюс ескізи сцен, які треба зняти. Ескізи показують композицію й дію, а не фінальну картинку.</div>
+
+<div class="grid g3">
+  <div class="card"><div class="lbl">Роликів у плані</div><div class="val">11</div><div class="note">5 — чарівний момент, 4 — біль → краще життя, 2 — маскот і звичка</div></div>
+  <div class="card"><div class="lbl">Можна вже зараз</div><div class="val" style="color:var(--accent)">3 без зйомок · 5 зі зйомкою</div><div class="note">анімація з наявного Remotion-проєкту і живі сцени про план, кроки й Today</div></div>
+  <div class="card"><div class="lbl">Чекають справжній скан</div><div class="val" style="color:var(--warn)">3</div><div class="note">«наведи камеру на свою кімнату» — лише після MVP-13</div></div>
+</div>
+
+<h2 id="tree">1. Який формат: дерево рішень</h2>
+<div class="tree">
+  <div class="node q">Чи є в застосунку «чарівний момент»?</div>
+  <div class="node yes"><small>Так → вести з віральності</small>Плавно показати чарівний момент
+    <span class="us">Moppy: фото безладу → за секунду піни на твоїх речах і план «4 кроки · 23 хв». Друге «вау» — повзунок до/після на справжній кухні.</span></div>
+  <div class="node no"><small>Ні → чи вирішує болючу проблему?</small>Біль → продукт → краще життя
+    <span class="us" style="color:var(--dim)">Для нас це ДРУГИЙ ешелон: холодніші аудиторії й ретаргет. Біль ніші з відгуків — «не знаю, з чого почати», перевантаженість, провина.</span></div>
+</div>
+<div class="verdict coral"><b>Висновок:</b> головна гілка — «Так». Перша секунда кожного ролика гілки A — піни на безладі або повзунок до/після. Гілка B відкривається болем словами глядача й закривається тим самим «вау». Гілка C (маскот) — наша третя ставка, якої немає в конкурентів.</div>
+
+<h3 class="h3s">Що вже є для монтажу — кадри з ASO-ролика (29.5 с) і скрінів</h3>
+<div class="ref">
+  <img src="marketing/aso-1.0.jpg" alt="" loading="lazy"><img src="marketing/aso-6.0.jpg" alt="" loading="lazy"><img src="marketing/aso-9.6.jpg" alt="" loading="lazy"><img src="marketing/aso-13.0.jpg" alt="" loading="lazy"><img src="marketing/aso-16.0.jpg" alt="" loading="lazy"><img src="marketing/aso-18.4.jpg" alt="" loading="lazy"><img src="marketing/aso-21.5.jpg" alt="" loading="lazy"><img src="marketing/shot06-widgets.jpg" alt="" loading="lazy"><img src="marketing/shot05-day-week.jpg" alt="" loading="lazy"><img src="marketing/aso-28.0.jpg" alt="" loading="lazy">
+</div>
+
+<h2 id="rules">2. Рамки, які не порушуємо</h2>
+<div class="grid g2">
+  <div class="verdict warn"><b>Скан поки демонстраційний.</b> Справжня камера приходить з MVP-13. Ролики, де людина наводить телефон на СВОЮ кімнату (A1–A3), запускаємо лише після нього. Інакше реклама обіцяє те, чого застосунок не робить: однозіркові «it doesn’t scan my room» і ризик відмови модерації Meta та Apple.</div>
+  <div class="verdict warn"><b>Без діагнозів у таргеті й тексті.</b> Кут «ADHD» конвертить, але прямий таргет на ADHD — бан рекламного акаунта Meta. Формулюємо через «overwhelmed», «can’t start», «too much».</div>
+  <div class="verdict"><b>Чесний фінал.</b> Hard paywall: на кінцевій картці «Try 7 days free · yearly plan · cancel anytime», а не «free app» чи «unlimited». Інакше — відгуки «I go to try it, it charges me», як у Chorefriend.</div>
+  <div class="verdict"><b>Жодних вигаданих відгуків і нагород.</b> UGC знімають реальні люди, що користувались застосунком, з позначкою «Paid partnership». Ніяких «№1», зірок і цитат, яких ніхто не казав. Музика — лише ліцензована (Meta Sound Collection, TikTok Commercial Music Library).</div>
+  <div class="verdict"><b>Секундомір лише вперед.</b> У Moppy немає «не встиг», тому зворотних відліків і червоних «overdue» під нашим брендом у роликах немає.</div>
+  <div class="verdict"><b>Показуємо лише те, що є в застосунку.</b> Чату немає — у роликах його теж немає. Маскот — лише затверджені PNG, без перемальовування. Чужих брендів і логотипів у кадрі немає.</div>
+</div>
+
+<h2 id="matrix">3. Усі ролики одним списком</h2>
+<div class="scroll"><table>
+<thead><tr><th>#</th><th>Ролик</th><th>Гілка</th><th>Формат</th><th>Коли</th><th>Хук (перша секунда)</th></tr></thead>
+<tbody><tr><td><a href="#A1"><b>A1</b></a></td><td>Посуд під музику</td><td><span class="tag b-magic">Чарівний момент</span></td><td>UGC · 9:16 · 18–22 с</td><td><span class="tag w-scan">Після MVP-13 (справжній скан)</span></td><td><q>POV: your kitchen just told you where to start</q></td></tr><tr><td><a href="#A2"><b>A2</b></a></td><td>«I let an app judge my kitchen»</td><td><span class="tag b-magic">Чарівний момент</span></td><td>UGC-серія · 9:16 · 20–30 с</td><td><span class="tag w-scan">Після MVP-13 (справжній скан)</span></td><td><q>I let an app judge my kitchen 😬</q></td></tr><tr><td><a href="#A3"><b>A3</b></a></td><td>«Drop your mess» — відповіді на коментарі</td><td><span class="tag b-magic">Чарівний момент</span></td><td>Відповідь відео на коментар · 15–20 с</td><td><span class="tag w-scan">Після MVP-13 (справжній скан)</span></td><td><q>“do my room next 😭” — ok, let’s see</q></td></tr><tr><td><a href="#A4"><b>A4</b></a></td><td>Повзунок першим — «Same kitchen»</td><td><span class="tag b-magic">Чарівний момент</span></td><td>Перемонтаж ASO-ролика · 9:16 · 15 с</td><td><span class="tag w-now">Можна вже зараз</span></td><td><q>Same kitchen. 23 minutes.</q></td></tr><tr><td><a href="#A5"><b>A5</b></a></td><td>Спідран «4 steps. Go.»</td><td><span class="tag b-magic">Чарівний момент</span></td><td>Таймлапс · 9:16 · 15–20 с</td><td><span class="tag w-live">Зараз · потрібна зйомка</span></td><td><q>4 steps. Go. ⏱</q></td></tr><tr><td><a href="#B6"><b>B6</b></a></td><td>«Where do I even start»</td><td><span class="tag b-pain">Біль → продукт → краще життя</span></td><td>UGC / постановка · 9:16 · 20–25 с</td><td><span class="tag w-live">Зараз · потрібна зйомка</span></td><td><q>For when the mess is so big you can’t start</q></td></tr><tr><td><a href="#B7"><b>B7</b></a></td><td>«Guests in 20 minutes»</td><td><span class="tag b-pain">Біль → продукт → краще життя</span></td><td>Постановка · 9:16 · 15–20 с</td><td><span class="tag w-live">Зараз · потрібна зйомка</span></td><td><q>They’re 20 minutes away. 😱</q></td></tr><tr><td><a href="#B8"><b>B8</b></a></td><td>Субота проти 8 хвилин на день</td><td><span class="tag b-pain">Біль → продукт → краще життя</span></td><td>Розділений екран · 9:16 · 15 с</td><td><span class="tag w-live">Зараз · потрібна зйомка</span></td><td><q>Stop losing your weekends to cleaning</q></td></tr><tr><td><a href="#B9"><b>B9</b></a></td><td>«This app never says you’re behind»</td><td><span class="tag b-pain">Біль → продукт → краще життя</span></td><td>Справжня користувачка · 9:16 · 20 с</td><td><span class="tag w-live">Зараз · потрібна зйомка</span></td><td><q>Every chore app made me feel guilty. This one doesn’t.</q></td></tr><tr><td><a href="#C10"><b>C10</b></a></td><td>Moppy брудніє замість твого дому</td><td><span class="tag b-mascot">Маскот і звичка</span></td><td>Повна анімація Remotion · 9:16 · 15 с</td><td><span class="tag w-now">Можна вже зараз</span></td><td><q>He gets dusty so your home doesn’t</q></td></tr><tr><td><a href="#C11"><b>C11</b></a></td><td>«One small thing before coffee»</td><td><span class="tag b-mascot">Маскот і звичка</span></td><td>Анімація або UGC · 9:16 · 12–15 с</td><td><span class="tag w-now">Можна вже зараз</span></td><td><q>One small thing before coffee ☕</q></td></tr></tbody></table></div>
+
+<h2 id="a">4. Гілка A — показати чарівний момент</h2>
+
+<section class="ad" id="A1">
+  <div class="adh">
+    <div class="adid">A1</div>
+    <div><h3>Посуд під музику</h3>
+      <div class="meta"><span class="tag b-magic">Чарівний момент</span> <span class="tag w-scan">Після MVP-13 (справжній скан)</span> <span class="mx">UGC · 9:16 · 18–22 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>POV: your kitchen just told you where to start</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Найчистіша подача «чарівного моменту»: піни з’являються на СПРАВЖНЬОМУ безладі, а далі людина з гарним настроєм просто миє посуд. Той самий шаблон, на якому Chorefriend зробив $26K/міс («фото безладу → мікрокроки з таймінгом»), тільки з атмосферою замість скрінкасту.</div><div><div class="lbl">Аудиторія</div>жінки 25–44, US/UK, інтереси home, cozy, organizing<div class="lbl" style="margin-top:10px">Звук і голос</div>Без голосу — ліцензований трендовий трек; уся історія в тексті на екрані.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/>
+  <g stroke="#9DB4C8" stroke-width="1.6" fill="#F4F7FA">
+    <ellipse cx="124" cy="176" rx="22" ry="5"/><ellipse cx="126" cy="170" rx="20" ry="5"/>
+    <ellipse cx="122" cy="164" rx="18" ry="4.5"/><rect x="134" y="150" width="10" height="14" rx="2"/>
+    <rect x="110" y="152" width="9" height="12" rx="2"/></g><g font-family="Nunito,system-ui,sans-serif"><path d="M124 160V138" stroke="#fff" stroke-width="1.2"/>
+    <circle cx="124" cy="160" r="7" fill="#FF4D6A" opacity=".3"/><circle cx="124" cy="160" r="3.6" fill="#FF4D6A" stroke="#fff" stroke-width="1.6"/>
+    <rect x="67.6" y="131" width="108.4" height="14" rx="7" fill="#fff"/>
+    <circle cx="74.6" cy="138" r="4.6" fill="#FF4D6A"/><text x="74.6" y="140.2" font-size="6" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+    <text x="81.6" y="140.4" font-size="6.4" font-weight="800" fill="#2C252A">Wash the dishes · 10 min</text></g><g font-family="Nunito,system-ui,sans-serif"><path d="M40 176V198" stroke="#fff" stroke-width="1.2"/>
+    <circle cx="40" cy="176" r="7" fill="#FF4D6A" opacity=".3"/><circle cx="40" cy="176" r="3.6" fill="#FF4D6A" stroke="#fff" stroke-width="1.6"/>
+    <rect x="4" y="191" width="112" height="14" rx="7" fill="#fff"/>
+    <circle cx="11" cy="198" r="4.6" fill="#FF4D6A"/><text x="11" y="200.2" font-size="6" font-weight="800" fill="#fff" text-anchor="middle">4</text>
+    <text x="18" y="200.4" font-size="6.4" font-weight="800" fill="#2C252A">Clear the counter · 5 min</text></g><g font-family="Nunito,system-ui,sans-serif"><path d="M150 290V268" stroke="#fff" stroke-width="1.2"/>
+    <circle cx="150" cy="290" r="7" fill="#FF4D6A" opacity=".3"/><circle cx="150" cy="290" r="3.6" fill="#FF4D6A" stroke="#fff" stroke-width="1.6"/>
+    <rect x="78.39999999999999" y="261" width="97.60000000000001" height="14" rx="7" fill="#fff"/>
+    <circle cx="85.39999999999999" cy="268" r="4.6" fill="#FF4D6A"/><text x="85.39999999999999" y="270.2" font-size="6" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+    <text x="92.39999999999999" y="270.4" font-size="6.4" font-weight="800" fill="#2C252A">Mop the floor · 5 min</text></g><rect x="19.75" y="16.5" width="140.5" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">POV: your kitchen just</text><rect x="16.875" y="35" width="146.25" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="46.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">told you where to start</text></svg></div><figcaption><b>0–1.5 с</b>Широкий план кухні: гора посуду, крихти. Над речами одна за одною вистрибують коралові піни з номерами.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/>
+  <g stroke="#9DB4C8" stroke-width="1.6" fill="#F4F7FA">
+    <ellipse cx="124" cy="176" rx="22" ry="5"/><ellipse cx="126" cy="170" rx="20" ry="5"/>
+    <ellipse cx="122" cy="164" rx="18" ry="4.5"/><rect x="134" y="150" width="10" height="14" rx="2"/>
+    <rect x="110" y="152" width="9" height="12" rx="2"/></g><g>
+    <rect x="46" y="60" width="88" height="190" rx="14.08" fill="#2B2B2E"/>
+    <clipPath id="clip1"><rect x="49" y="63" width="82" height="184" rx="11.440000000000001"/></clipPath>
+    <g clip-path="url(#clip1)"><rect x="49" y="63" width="82" height="184" fill="#FFF5F7"/>
+    <image href="marketing/aso-9.6.jpg" x="49" y="63" width="82" height="184" preserveAspectRatio="xMidYMin slice"/></g></g><g font-family="Nunito,system-ui,sans-serif"><rect x="27.499999999999993" y="281" width="125.00000000000001" height="18" rx="9" fill="rgba(44,37,42,.86)"/>
+  <path d="M36.49999999999999 290l3 3 6 -6" stroke="#7FD6A0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="96" y="292.7" text-anchor="middle" font-size="7.5" font-weight="800" fill="#fff">Spotted 4 things to tidy</text></g></svg></div><figcaption><b>1.5–4 с</b>Через плече: телефон над мийкою, Moppy сканує — лінія йде згори вниз, піни лягають на ті самі місця.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip2"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip2)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-13.0.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><rect x="37" y="294.5" width="106" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="306" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">only 23 minutes?</text></svg></div><figcaption><b>4–6 с</b>Екран плану: «Your kitchen, in 4 tiny steps · About 23 min». Тап «Start with step 1».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/><g>
+    <rect x="140" y="36" width="30" height="60" rx="4.8" fill="#2B2B2E"/>
+    <clipPath id="clip3"><rect x="143" y="39" width="24" height="54" rx="3.9000000000000004"/></clipPath>
+    <g clip-path="url(#clip3)"><rect x="143" y="39" width="24" height="54" fill="#FFF5F7"/>
+    <image href="marketing/aso-16.0.jpg" x="143" y="39" width="24" height="54" preserveAspectRatio="xMidYMin slice"/></g></g><g>
+    <path d="M62 128q-4 18 10 26M94 128q4 18 -10 26" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="60" y="120" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="78" cy="104" r="13" fill="#E9B795"/>
+    <path d="M64 104a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M90 98q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="73" cy="103" r="1.4" fill="#2C252A"/><circle cx="83" cy="103" r="1.4" fill="#2C252A"/>
+    <path d="M74 109q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g>
+  <g stroke="#9DB4C8" stroke-width="1.6" fill="#F4F7FA">
+    <ellipse cx="112" cy="176" rx="22" ry="5"/><ellipse cx="114" cy="170" rx="20" ry="5"/>
+    <ellipse cx="110" cy="164" rx="18" ry="4.5"/><rect x="122" y="150" width="10" height="14" rx="2"/>
+    <rect x="98" y="152" width="9" height="12" rx="2"/></g><g fill="#EAF5FC" stroke="#8EC5E8" stroke-width="1.2"><circle cx="112" cy="172" r="4"/><circle cx="121" cy="162" r="3"/><circle cx="106" cy="156" r="2.4"/><circle cx="116" cy="148" r="1.8"/></g><g fill="#FF4D6A" font-size="14" font-family="sans-serif"><text x="28" y="110">♪</text><text x="40" y="98" font-size="11">♫</text></g><rect x="39.875" y="288.5" width="100.25" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="300" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">step 1 · 10 min</text></svg></div><figcaption><b>6–14 с</b>Головна частина: телефон на підвіконні (таймер іде вгору), музика, вона миє посуд і пританцьовує. Бульбашки, ноти, теплий ранковий світ.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="30" y="22" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip4"><rect x="33" y="25" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip4)"><rect x="33" y="25" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-18.4.jpg" x="33" y="25" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><g font-family="Nunito,system-ui,sans-serif"><rect x="44" y="289" width="92" height="18" rx="9" fill="rgba(44,37,42,.86)"/>
+  <path d="M53 298l3 3 6 -6" stroke="#7FD6A0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="96" y="300.7" text-anchor="middle" font-size="7.5" font-weight="800" fill="#fff">1 done · 3 to go</text></g></svg></div><figcaption><b>14–17 с</b>Крупно телефон: «Mark done» — галочка, Moppy підстрибує, конфеті, «1 done · 3 to go».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-1.0.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/><rect x="51.375" y="266.5" width="77.25" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="278" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">23 minutes.</text><rect x="54.25" y="285" width="71.5" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="296.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">That's it.</text></svg></div><figcaption><b>17–20 с</b>Повзунок до/після по тій самій кухні + кінцева картка.</figcaption></figure></div>
+</section>
+<section class="ad" id="A2">
+  <div class="adh">
+    <div class="adid">A2</div>
+    <div><h3>«I let an app judge my kitchen»</h3>
+      <div class="meta"><span class="tag b-magic">Чарівний момент</span> <span class="tag w-scan">Після MVP-13 (справжній скан)</span> <span class="mx">UGC-серія · 9:16 · 20–30 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>I let an app judge my kitchen 😬</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Реакція живої людини на результат скану робить «вау» правдоподібним. Серія (кухня → спальня → «та сама шафа») дає привід підписатись, а кожна серія — новий креатив без нового сценарію.</div><div><div class="lbl">Аудиторія</div>широка, 22–40; найкраще в TikTok<div class="lbl" style="margin-top:10px">Звук і голос</div>Живий голос авторки, субтитри обов’язково.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/><g>
+    <path d="M64.4 177.6l-6.4 51.2M115.6 177.6l6.4 51.2" stroke="#E9B795" stroke-width="11.200000000000001" stroke-linecap="round" fill="none"/>
+    <rect x="61.2" y="164.8" width="57.6" height="99.2" rx="22.400000000000002" fill="#B9A3DC"/>
+    <circle cx="90" cy="139.2" r="20.8" fill="#E9B795"/>
+    <path d="M67.6 139.2a22.400000000000002 22.400000000000002 0 0 1 44.800000000000004 0q-9.600000000000001 -9.600000000000001 -22.400000000000002 -6.4q-12.8 1.6 -22.400000000000002 6.4z" fill="#5A3E36"/>
+    <path d="M109.2 129.6q12.8 16 3.2 41.6" stroke="#5A3E36" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle cx="82" cy="137.6" r="2.2399999999999998" fill="#2C252A"/><circle cx="98" cy="137.6" r="2.2399999999999998" fill="#2C252A"/>
+    <path d="M85.2 148.8h9.600000000000001" stroke="#2C252A" stroke-width="1.4" stroke-linecap="round"/></g><rect x="48.5" y="16.5" width="83" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">I let an app</text><rect x="28.375" y="35" width="123.25" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="46.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">judge my kitchen 😬</text></svg></div><figcaption><b>0–2 с</b>Селфі-кадр: авторка дивиться в камеру з виразом «ну, давай», за спиною розгардіяш.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#2C252A"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip5"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip5)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-6.0.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g></svg></div><figcaption><b>2–6 с</b>Запис екрана: камера Moppy, бульбашка «Show me the mess…», тап по затвору.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-9.6.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/><circle cx="140" cy="250" r="30" fill="#FCE6D6" stroke="#fff" stroke-width="3"/><g>
+    <path d="M126.4 258.6l-3.4 27.2M153.6 258.6l3.4 27.2" stroke="#E9B795" stroke-width="5.95" stroke-linecap="round" fill="none"/>
+    <rect x="124.7" y="251.8" width="30.599999999999998" height="52.699999999999996" rx="11.9" fill="#B9A3DC"/>
+    <circle cx="140" cy="238.2" r="11.049999999999999" fill="#E9B795"/>
+    <path d="M128.1 238.2a11.9 11.9 0 0 1 23.8 0q-5.1 -5.1 -11.9 -3.4q-6.8 0.85 -11.9 3.4z" fill="#5A3E36"/>
+    <path d="M150.2 233.1q6.8 8.5 1.7 22.099999999999998" stroke="#5A3E36" stroke-width="4.25" fill="none" stroke-linecap="round"/>
+    <circle cx="135.75" cy="237.35" r="1.19" fill="#2C252A"/><circle cx="144.25" cy="237.35" r="1.19" fill="#2C252A"/>
+    <ellipse cx="140" cy="243.3" rx="2.125" ry="2.55" fill="#2C252A"/></g><rect x="51.375" y="292.5" width="77.25" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="304" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">only FOUR??</text></svg></div><figcaption><b>6–10 с</b>Піни вистрибують. Врізка обличчя в кутку: «…only FOUR? and 23 minutes??»</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <path d="M40 285l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M150 165.1l1.4 3.5 3.5 1.4-3.5 1.4-1.4 3.5-1.4-3.5-3.5-1.4 3.5-1.4z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><g>
+    <path d="M54 132l-10 -22M86 132l10 -22" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="52" y="124" width="36" height="62" rx="14" fill="#B9A3DC"/>
+    <circle cx="70" cy="108" r="13" fill="#E9B795"/>
+    <path d="M56 108a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M82 102q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="65" cy="107" r="1.4" fill="#2C252A"/><circle cx="75" cy="107" r="1.4" fill="#2C252A"/>
+    <path d="M66 113q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><text x="130" y="140" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="22" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">14:52</text></svg></div><figcaption><b>10–22 с</b>Таймлапс прибирання з таймером Moppy в кутку (секундомір уперед, не відлік).</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-1.0.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/><rect x="68.625" y="280.5" width="42.75" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="292" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">23:04</text></svg></div><figcaption><b>22–26 с</b>Повзунок до/після.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#E4DDF6"/><rect x="62" y="86" width="56" height="20" rx="4" fill="#fff"/>
+  <text x="90" y="100" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="14" fill="#2C252A">Day 2:</text><rect x="34" y="107" width="112" height="20" rx="4" fill="#fff"/>
+  <text x="90" y="121" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="14" fill="#2C252A">the bedroom 👀</text><image href="marketing/m-11-looking-magnifier.png" x="40" y="160" width="100" height="100" preserveAspectRatio="xMidYMax meet" /></svg></div><figcaption><b>26–30 с</b>Тизер серії: «Day 2: the bedroom 👀» + «follow for day 2».</figcaption></figure></div>
+</section>
+<section class="ad" id="A3">
+  <div class="adh">
+    <div class="adid">A3</div>
+    <div><h3>«Drop your mess» — відповіді на коментарі</h3>
+      <div class="meta"><span class="tag b-magic">Чарівний момент</span> <span class="tag w-scan">Після MVP-13 (справжній скан)</span> <span class="mx">Відповідь відео на коментар · 15–20 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>“do my room next 😭” — ok, let’s see</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Цикл залученості: кожен коментар із фото — готовий наступний ролик. Глядач бачить скан на ЧУЖОМУ, тобто будь-якому, безладі — це доводить, що працює не лише на постановочній кухні.</div><div><div class="lbl">Аудиторія</div>органіка TikTok/Reels → найкращі в Spark Ads<div class="lbl" style="margin-top:10px">Звук і голос</div>Голос авторки. ⚠️ Беремо лише фото, які люди надіслали самі й погодились показати.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <rect x="30" y="250" width="26" height="10" rx="3" fill="#86AFCF" transform="rotate(-12 43 255)"/><rect x="100" y="262" width="20" height="14" rx="3" fill="#F4A6A6"/><circle cx="140" cy="285" r="7" fill="#E9C46A"/><rect x="60" y="282" width="30" height="8" rx="3" fill="#8FC1A9" transform="rotate(8 75 286)"/><rect x="118" y="154" width="30" height="16" rx="5" fill="#F7D79B"/><g font-family="Nunito,sans-serif"><rect x="14" y="30" width="152" height="34" rx="10" fill="#fff"/><circle cx="30" cy="47" r="9" fill="#F4A6A6"/><text x="44" y="44" font-size="7" font-weight="800" fill="#2C252A">Reply to @sam.k</text><text x="44" y="56" font-size="8.5" fill="#2C252A">do my room next 😭</text></g></svg></div><figcaption><b>0–2 с</b>Наліпка-коментар «do my room next 😭» поверх фото кімнати підписниці.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <rect x="30" y="250" width="26" height="10" rx="3" fill="#86AFCF" transform="rotate(-12 43 255)"/><rect x="100" y="262" width="20" height="14" rx="3" fill="#F4A6A6"/><circle cx="140" cy="285" r="7" fill="#E9C46A"/><rect x="60" y="282" width="30" height="8" rx="3" fill="#8FC1A9" transform="rotate(8 75 286)"/><rect x="118" y="154" width="30" height="16" rx="5" fill="#F7D79B"/><g font-family="Nunito,system-ui,sans-serif"><path d="M130 162V184" stroke="#fff" stroke-width="1.2"/>
+    <circle cx="130" cy="162" r="7" fill="#FF4D6A" opacity=".3"/><circle cx="130" cy="162" r="3.6" fill="#FF4D6A" stroke="#fff" stroke-width="1.6"/>
+    <rect x="67.6" y="177" width="108.4" height="14" rx="7" fill="#fff"/>
+    <circle cx="74.6" cy="184" r="4.6" fill="#FF4D6A"/><text x="74.6" y="186.2" font-size="6" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+    <text x="81.6" y="186.4" font-size="6.4" font-weight="800" fill="#2C252A">Fold the blanket · 3 min</text></g><g font-family="Nunito,system-ui,sans-serif"><path d="M44 254V232" stroke="#fff" stroke-width="1.2"/>
+    <circle cx="44" cy="254" r="7" fill="#FF4D6A" opacity=".3"/><circle cx="44" cy="254" r="3.6" fill="#FF4D6A" stroke="#fff" stroke-width="1.6"/>
+    <rect x="4" y="225" width="112" height="14" rx="7" fill="#fff"/>
+    <circle cx="11" cy="232" r="4.6" fill="#FF4D6A"/><text x="11" y="234.2" font-size="6" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+    <text x="18" y="234.4" font-size="6.4" font-weight="800" fill="#2C252A">Pick up the floor · 5 min</text></g><g font-family="Nunito,system-ui,sans-serif"><path d="M140 286V264" stroke="#fff" stroke-width="1.2"/>
+    <circle cx="140" cy="286" r="7" fill="#FF4D6A" opacity=".3"/><circle cx="140" cy="286" r="3.6" fill="#FF4D6A" stroke="#fff" stroke-width="1.6"/>
+    <rect x="74.8" y="257" width="101.2" height="14" rx="7" fill="#fff"/>
+    <circle cx="81.8" cy="264" r="4.6" fill="#FF4D6A"/><text x="81.8" y="266.2" font-size="6" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+    <text x="88.8" y="266.4" font-size="6.4" font-weight="800" fill="#2C252A">Clear the toys · 4 min</text></g><g font-family="Nunito,system-ui,sans-serif"><rect x="27.499999999999993" y="19" width="125.00000000000001" height="18" rx="9" fill="rgba(44,37,42,.86)"/>
+  <path d="M36.49999999999999 28l3 3 6 -6" stroke="#7FD6A0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="96" y="30.7" text-anchor="middle" font-size="7.5" font-weight="800" fill="#fff">Spotted 3 things to tidy</text></g></svg></div><figcaption><b>2–7 с</b>Те саме фото в Moppy: лінія скану, піни на речах.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip6"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip6)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-13.0.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><rect x="37" y="294.5" width="106" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="306" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">12 minutes, Sam.</text></svg></div><figcaption><b>7–13 с</b>План із кроками і хвилинами, авторка коментує: «12 minutes, Sam. You got this».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/><rect x="48" y="86" width="84" height="20" rx="4" fill="#fff"/>
+  <text x="90" y="100" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="14" fill="#2C252A">Your turn.</text><rect x="23.5" y="107" width="133" height="20" rx="4" fill="#fff"/>
+  <text x="90" y="121" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="14" fill="#2C252A">Drop your mess 👇</text><image href="marketing/m-08-peek-paws-on-edge.png" x="30" y="160" width="120" height="120" preserveAspectRatio="xMidYMax meet" /></svg></div><figcaption><b>13–18 с</b>Заклик: «Drop yours 👇» — зі стрілкою в коментарі.</figcaption></figure></div>
+</section>
+<section class="ad" id="A4">
+  <div class="adh">
+    <div class="adid">A4</div>
+    <div><h3>Повзунок першим — «Same kitchen»</h3>
+      <div class="meta"><span class="tag b-magic">Чарівний момент</span> <span class="tag w-now">Можна вже зараз</span> <span class="mx">Перемонтаж ASO-ролика · 9:16 · 15 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>Same kitchen. 23 minutes.</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Найсильніший кадр, який у нас уже Є — справжня кухня до/після. Ставимо його в першу секунду, а потім «перемотуємо» й показуємо, як це сталося. Нічого знімати не треба: перемонтаж Remotion-проєкту.</div><div><div class="lbl">Аудиторія</div>холодна широка; також Apple Search Ads<div class="lbl" style="margin-top:10px">Звук і голос</div>Тиха музика без слів; працює й без звуку.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-1.0.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/><rect x="45.625" y="16.5" width="88.75" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">Same kitchen.</text><rect x="51.375" y="35" width="77.25" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="46.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">23 minutes.</text></svg></div><figcaption><b>0–2 с</b>Повзунок їде зліва направо по справжній кухні власника.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-6.0.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/><rect width="180" height="320" fill="#2C252A" opacity=".25"/><path d="M106 140l-30 20 30 20zM76 140l-30 20 30 20z" fill="#fff"/></svg></div><figcaption><b>2–3 с</b>Ефект перемотки — кадри біжать назад до безладу.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-9.6.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/></svg></div><figcaption><b>3–7 с</b>Скан: піни на кухні, «Spotted 4 things to tidy».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="8" y="40" width="80" height="172" rx="12.8" fill="#2B2B2E"/>
+    <clipPath id="clip7"><rect x="11" y="43" width="74" height="166" rx="10.4"/></clipPath>
+    <g clip-path="url(#clip7)"><rect x="11" y="43" width="74" height="166" fill="#FFF5F7"/>
+    <image href="marketing/aso-13.0.jpg" x="11" y="43" width="74" height="166" preserveAspectRatio="xMidYMin slice"/></g></g><g>
+    <rect x="92" y="70" width="80" height="172" rx="12.8" fill="#2B2B2E"/>
+    <clipPath id="clip8"><rect x="95" y="73" width="74" height="166" rx="10.4"/></clipPath>
+    <g clip-path="url(#clip8)"><rect x="95" y="73" width="74" height="166" fill="#FFF5F7"/>
+    <image href="marketing/aso-16.0.jpg" x="95" y="73" width="74" height="166" preserveAspectRatio="xMidYMin slice"/></g></g><rect x="48.5" y="270.5" width="83" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="282" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">4 tiny steps</text></svg></div><figcaption><b>7–10 с</b>План у 4 кроки + Moppy миє посуд разом із тобою.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/>
+  <image href="marketing/m-01-good-morning.png" x="40" y="56" width="100" height="100" preserveAspectRatio="xMidYMax meet" />
+  <image href="marketing/app-icon.png" x="38" y="184" width="26" height="26"/>
+  <text x="70" y="206" font-family="Lora,Georgia,serif" font-weight="600" font-size="24" fill="#2C252A">Moppy</text>
+  <text x="90" y="228" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="700" font-size="9" fill="#6E6068">Tiny steps to a calmer home</text>
+  <rect x="34" y="248" width="112" height="24" rx="8" fill="#FF4D6A"/>
+  <text x="90" y="264" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="800" font-size="9" fill="#fff">Try 7 days free</text>
+  <text x="90" y="286" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-size="6.4" fill="#6E6068">yearly plan · cancel anytime</text></svg></div><figcaption><b>10–15 с</b>Кінцева картка: Moppy махає, «Try 7 days free».</figcaption></figure></div>
+</section>
+<section class="ad" id="A5">
+  <div class="adh">
+    <div class="adid">A5</div>
+    <div><h3>Спідран «4 steps. Go.»</h3>
+      <div class="meta"><span class="tag b-magic">Чарівний момент</span> <span class="tag w-live">Зараз · потрібна зйомка</span> <span class="mx">Таймлапс · 9:16 · 15–20 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>4 steps. Go. ⏱</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Спідрани утримують до кінця: глядач хоче побачити фінальний час. Секундомір іде ВПЕРЕД — у Moppy немає «не встиг». Кроки вже є в плані, тож ролик знімається й без справжнього скану.</div><div><div class="lbl">Аудиторія</div>молодша, 18–34, TikTok<div class="lbl" style="margin-top:10px">Звук і голос</div>Ритмічний трек; удари на кожне «Mark done».</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/>
+  <g stroke="#9DB4C8" stroke-width="1.6" fill="#F4F7FA">
+    <ellipse cx="124" cy="176" rx="22" ry="5"/><ellipse cx="126" cy="170" rx="20" ry="5"/>
+    <ellipse cx="122" cy="164" rx="18" ry="4.5"/><rect x="134" y="150" width="10" height="14" rx="2"/>
+    <rect x="110" y="152" width="9" height="12" rx="2"/></g><text x="90" y="140" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="44" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">00:00</text><rect x="42.75" y="16.5" width="94.5" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">4 steps. Go. ⏱</text></svg></div><figcaption><b>0–1 с</b>Великий секундомір 00:00 поверх безладу, текст «4 steps. Go.»</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/><g>
+    <path d="M44 136q-4 18 10 26M76 136q4 18 -10 26" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="42" y="128" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="60" cy="112" r="13" fill="#E9B795"/>
+    <path d="M46 112a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M72 106q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="55" cy="111" r="1.4" fill="#2C252A"/><circle cx="65" cy="111" r="1.4" fill="#2C252A"/>
+    <path d="M56 117q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><g fill="#EAF5FC" stroke="#8EC5E8" stroke-width="1.2"><circle cx="90" cy="175" r="4"/><circle cx="99" cy="165" r="3"/><circle cx="84" cy="159" r="2.4"/><circle cx="94" cy="151" r="1.8"/></g><rect x="24" y="18" width="30" height="6" rx="3" fill="#FF4D6A"/><rect x="58" y="18" width="30" height="6" rx="3" fill="#FF4D6A"/><rect x="92" y="18" width="30" height="6" rx="3" fill="#EFD5DC"/><rect x="126" y="18" width="30" height="6" rx="3" fill="#EFD5DC"/><text x="118" y="140" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="24" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">11:40</text></svg></div><figcaption><b>1–12 с</b>Чотири швидкі таймлапси (крок — свій кадр), зверху смуга з 4 сегментів заповнюється.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip9"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip9)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-18.4.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><g><circle cx="146" cy="40" r="14" fill="#2E6B45"/><path d="M139.7 40l4.2 4.48 8.4 -8.68" stroke="#fff" stroke-width="3.64" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><figcaption><b>12–15 с</b>Кожне «Mark done» — галочка й конфеті Moppy.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/aso-3.2.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/><text x="90" y="150" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="40" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">23:04</text><g font-family="Nunito,system-ui,sans-serif"><rect x="25.4375" y="281" width="129.125" height="18" rx="9" fill="rgba(44,37,42,.86)"/>
+  <path d="M34.4375 290l3 3 6 -6" stroke="#7FD6A0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="96" y="292.7" text-anchor="middle" font-size="7.5" font-weight="800" fill="#fff">All 4 steps done · 23 min</text></g></svg></div><figcaption><b>15–18 с</b>Фінал: «23:04 · All 4 steps done» на чистій кухні.</figcaption></figure></div>
+</section>
+
+<h2 id="b">5. Гілка B — біль → продукт → краще життя</h2>
+
+<section class="ad" id="B6">
+  <div class="adh">
+    <div class="adid">B6</div>
+    <div><h3>«Where do I even start»</h3>
+      <div class="meta"><span class="tag b-pain">Біль → продукт → краще життя</span> <span class="tag w-live">Зараз · потрібна зйомка</span> <span class="mx">UGC / постановка · 9:16 · 20–25 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>For when the mess is so big you can’t start</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Найсильніший біль ніші з відгуків: ступор перед безладом. Ролик продає не «прибирання», а полегшення — «просто оце одне, 8 хвилин». Формулюємо через перевантаженість, без діагнозів.</div><div><div class="lbl">Аудиторія</div>25–44, «overwhelmed» (НЕ таргет на ADHD — бан Meta)<div class="lbl" style="margin-top:10px">Звук і голос</div>Внутрішній голос шепотом або лише текст; спокійна lo-fi музика.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <rect x="30" y="250" width="26" height="10" rx="3" fill="#86AFCF" transform="rotate(-12 43 255)"/><rect x="100" y="262" width="20" height="14" rx="3" fill="#F4A6A6"/><circle cx="140" cy="285" r="7" fill="#E9C46A"/><rect x="60" y="282" width="30" height="8" rx="3" fill="#8FC1A9" transform="rotate(8 75 286)"/><rect x="118" y="154" width="30" height="16" rx="5" fill="#F7D79B"/><g>
+    <path d="M74 162l-4 32M106 162l4 32" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="154" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="138" r="13" fill="#E9B795"/>
+    <path d="M76 138a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 132q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="137" r="1.4" fill="#2C252A"/><circle cx="95" cy="137" r="1.4" fill="#2C252A"/>
+    <path d="M86 145q4 -4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><g font-family="Nunito,system-ui,sans-serif"><rect x="10" y="40" width="48.4" height="16" rx="8" fill="#fff" opacity=".95"/><text x="17" y="51" font-size="7.6" font-weight="700" fill="#6E6068">laundry…</text></g><g font-family="Nunito,system-ui,sans-serif"><rect x="96" y="58" width="44.099999999999994" height="16" rx="8" fill="#fff" opacity=".95"/><text x="103" y="69" font-size="7.6" font-weight="700" fill="#6E6068">dishes…</text></g><g font-family="Nunito,system-ui,sans-serif"><rect x="30" y="86" width="57" height="16" rx="8" fill="#fff" opacity=".95"/><text x="37" y="97" font-size="7.6" font-weight="700" fill="#6E6068">that pile…</text></g><g font-family="Nunito,system-ui,sans-serif"><rect x="118" y="102" width="26.9" height="16" rx="8" fill="#fff" opacity=".95"/><text x="125" y="113" font-size="7.6" font-weight="700" fill="#6E6068">ugh</text></g></svg></div><figcaption><b>0–3 с</b>Людина на дивані дивиться на безлад. Над нею спливають думки: «laundry…», «dishes…», «that pile…», «ugh».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip10"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip10)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-21.5.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><rect x="42.75" y="294.5" width="94.5" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="306" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">Just this one.</text></svg></div><figcaption><b>3–8 с</b>Вона відкриває Moppy. Today: «One small thing today. Clear the kitchen counter · About 8 min».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/><g>
+    <path d="M54 132q-4 18 10 26M86 132q4 18 -10 26" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="52" y="124" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="70" cy="108" r="13" fill="#E9B795"/>
+    <path d="M56 108a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M82 102q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="65" cy="107" r="1.4" fill="#2C252A"/><circle cx="75" cy="107" r="1.4" fill="#2C252A"/>
+    <path d="M66 113q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><image href="marketing/m-16-wiping-counter.png" x="108" y="206" width="70" height="70" preserveAspectRatio="xMidYMax meet" /><text x="90" y="30" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="24" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">04:12</text></svg></div><figcaption><b>8–15 с</b>Вона витирає стільницю, Moppy з ганчіркою в кутку кадру; таймер іде вгору.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <path d="M150 255l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M40 269.4l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><g>
+    <path d="M74 162q-4 18 10 26M106 162q4 18 -10 26" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="154" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="138" r="13" fill="#E9B795"/>
+    <path d="M76 138a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 132q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="137" r="1.4" fill="#2C252A"/><circle cx="95" cy="137" r="1.4" fill="#2C252A"/>
+    <path d="M86 143q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><rect x="83" y="188" width="14" height="14" rx="3" fill="#fff" stroke="#6E6068"/><rect x="28.375" y="266.5" width="123.25" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="278" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">Done before I could</text><rect x="45.625" y="285" width="88.75" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="296.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">overthink it.</text></svg></div><figcaption><b>15–20 с</b>Вона сидить із чаєм біля чистого куточка й усміхається.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/>
+  <image href="marketing/m-01-good-morning.png" x="40" y="56" width="100" height="100" preserveAspectRatio="xMidYMax meet" />
+  <image href="marketing/app-icon.png" x="38" y="184" width="26" height="26"/>
+  <text x="70" y="206" font-family="Lora,Georgia,serif" font-weight="600" font-size="24" fill="#2C252A">Moppy</text>
+  <text x="90" y="228" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="700" font-size="9" fill="#6E6068">One small thing a day</text>
+  <rect x="34" y="248" width="112" height="24" rx="8" fill="#FF4D6A"/>
+  <text x="90" y="264" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="800" font-size="9" fill="#fff">Try 7 days free</text>
+  <text x="90" y="286" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-size="6.4" fill="#6E6068">yearly plan · cancel anytime</text></svg></div><figcaption><b>20–24 с</b>Кінцева картка.</figcaption></figure></div>
+</section>
+<section class="ad" id="B7">
+  <div class="adh">
+    <div class="adid">B7</div>
+    <div><h3>«Guests in 20 minutes»</h3>
+      <div class="meta"><span class="tag b-pain">Біль → продукт → краще життя</span> <span class="tag w-live">Зараз · потрібна зйомка</span> <span class="mx">Постановка · 9:16 · 15–20 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>They’re 20 minutes away. 😱</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Ситуація, яку впізнає кожен, із чіткою напругою й розв’язкою. Показує, що Moppy допомагає не «колись», а прямо зараз: план за секунди, кроки по 3–5 хвилин.</div><div><div class="lbl">Аудиторія</div>25–44, сім’ї й пари<div class="lbl" style="margin-top:10px">Звук і голос</div>Текст на екрані + звук дзвінка; секундомір уперед у кутку.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <rect x="30" y="250" width="26" height="10" rx="3" fill="#86AFCF" transform="rotate(-12 43 255)"/><rect x="100" y="262" width="20" height="14" rx="3" fill="#F4A6A6"/><circle cx="140" cy="285" r="7" fill="#E9C46A"/><rect x="60" y="282" width="30" height="8" rx="3" fill="#8FC1A9" transform="rotate(8 75 286)"/><rect x="118" y="154" width="30" height="16" rx="5" fill="#F7D79B"/><g>
+    <path d="M74 166l-10 -22M106 166l10 -22" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="158" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="142" r="13" fill="#E9B795"/>
+    <path d="M76 142a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 136q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="141" r="1.4" fill="#2C252A"/><circle cx="95" cy="141" r="1.4" fill="#2C252A"/>
+    <ellipse cx="90" cy="148" rx="2.5" ry="3" fill="#2C252A"/></g><g font-family="Nunito,system-ui,sans-serif"><rect x="12" y="30" width="156" height="38" rx="12" fill="rgba(255,255,255,.95)"/>
+  <rect x="20" y="39" width="20" height="20" rx="6" fill="#7FD6A0"/><text x="46" y="46" font-size="7" font-weight="800" fill="#2C252A">Mia</text>
+  <text x="46" y="58" font-size="8" fill="#2C252A">we're 20 min away 🥳</text></g></svg></div><figcaption><b>0–2 с</b>Сповіщення поверх безладної вітальні: «we’re 20 min away 🥳». Паніка.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip11"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip11)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-13.0.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><rect x="48.5" y="294.5" width="83" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="306" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">Moppy, help.</text></svg></div><figcaption><b>2–6 с</b>Moppy: план із кроків із хвилинами, тап «Start».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <path d="M150 255l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M40 269.4l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><g>
+    <path d="M44 156q-4 18 10 26M76 156q4 18 -10 26" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="42" y="148" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="60" cy="132" r="13" fill="#E9B795"/>
+    <path d="M46 132a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M72 126q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="55" cy="131" r="1.4" fill="#2C252A"/><circle cx="65" cy="131" r="1.4" fill="#2C252A"/>
+    <path d="M56 137q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><g><circle cx="140" cy="60" r="14" fill="#2E6B45"/><path d="M133.7 60l4.2 4.48 8.4 -8.68" stroke="#fff" stroke-width="3.64" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g><circle cx="140" cy="96" r="14" fill="#2E6B45"/><path d="M133.7 96l4.2 4.48 8.4 -8.68" stroke="#fff" stroke-width="3.64" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g><circle cx="140" cy="132" r="14" fill="#2E6B45"/><path d="M133.7 132l4.2 4.48 8.4 -8.68" stroke="#fff" stroke-width="3.64" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><figcaption><b>6–14 с</b>Швидкі нарізки кроків під ритм, кожен закінчується галочкою.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/><rect x="0" y="250" width="180" height="70" fill="#E5D6C6"/><rect x="26" y="40" width="80" height="220" rx="4" fill="#C9A27E"/><rect x="20" y="40" width="10" height="220" fill="#B08765"/><circle cx="96" cy="156" r="4" fill="#F5B301"/><g>
+    <path d="M118 166l-4 32M150 166l4 32" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="116" y="158" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="134" cy="142" r="13" fill="#E9B795"/>
+    <path d="M120 142a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M146 136q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="129" cy="141" r="1.4" fill="#2C252A"/><circle cx="139" cy="141" r="1.4" fill="#2C252A"/>
+    <path d="M130 147q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><rect x="25.5" y="288.5" width="129" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="300" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">16 minutes to spare.</text></svg></div><figcaption><b>14–18 с</b>Дзвінок у двері, вона відчиняє — спокійна, кімната чиста.</figcaption></figure></div>
+</section>
+<section class="ad" id="B8">
+  <div class="adh">
+    <div class="adid">B8</div>
+    <div><h3>Субота проти 8 хвилин на день</h3>
+      <div class="meta"><span class="tag b-pain">Біль → продукт → краще життя</span> <span class="tag w-live">Зараз · потрібна зйомка</span> <span class="mx">Розділений екран · 9:16 · 15 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>Stop losing your weekends to cleaning</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Чесне порівняння двох стратегій в одному кадрі: «генеральне в суботу» проти «одна дрібниця щодня». Продає головну ідею Today — одну справу на день, без перевантаження.</div><div><div class="lbl">Аудиторія</div>працюючі 28–45<div class="lbl" style="margin-top:10px">Звук і голос</div>Без голосу.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><svg x="0" y="0" width="90" height="320" viewBox="45 0 90 320"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <rect x="30" y="250" width="26" height="10" rx="3" fill="#86AFCF" transform="rotate(-12 43 255)"/><rect x="100" y="262" width="20" height="14" rx="3" fill="#F4A6A6"/><circle cx="140" cy="285" r="7" fill="#E9C46A"/><rect x="60" y="282" width="30" height="8" rx="3" fill="#8FC1A9" transform="rotate(8 75 286)"/><rect x="118" y="154" width="30" height="16" rx="5" fill="#F7D79B"/><g>
+    <path d="M74 162l-4 32M106 162l4 32" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="154" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="138" r="13" fill="#E9B795"/>
+    <path d="M76 138a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 132q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="137" r="1.4" fill="#2C252A"/><circle cx="95" cy="137" r="1.4" fill="#2C252A"/>
+    <path d="M86 145q4 -4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g></svg><svg x="90" y="0" width="90" height="320" viewBox="45 0 90 320"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <path d="M150 255l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M40 269.4l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><g>
+    <path d="M74 162l-4 32M106 162l4 32" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="154" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="138" r="13" fill="#E9B795"/>
+    <path d="M76 138a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 132q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="137" r="1.4" fill="#2C252A"/><circle cx="95" cy="137" r="1.4" fill="#2C252A"/>
+    <path d="M86 143q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g></svg><path d="M90 0v320" stroke="#fff" stroke-width="2.5"/><rect x="60" y="16.5" width="60" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">Saturday</text><rect x="42.75" y="35" width="94.5" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="46.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">vs 8 min a day</text></svg></div><figcaption><b>0–2 с</b>Розділений екран. Зліва «Saturday», справа «8 min a day».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><svg x="0" y="0" width="90" height="320" viewBox="45 0 90 320">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/><g>
+    <path d="M74 186l-4 32M106 186l4 32" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="178" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="162" r="13" fill="#E9B795"/>
+    <path d="M76 162a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 156q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="161" r="1.4" fill="#2C252A"/><circle cx="95" cy="161" r="1.4" fill="#2C252A"/>
+    <path d="M86 169q4 -4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g></svg><svg x="90" y="0" width="90" height="320" viewBox="45 0 90 320"><rect width="180" height="320" fill="#FFF5F7"/><image href="marketing/shot06-widgets.jpg" x="30" y="-120" width="120" height="440" preserveAspectRatio="xMidYMax slice"/></svg><path d="M90 0v320" stroke="#fff" stroke-width="2.5"/></svg></div><figcaption><b>2–9 с</b>Зліва — відра, втома. Справа — ранок, віджет «Wash the dishes · ~10 min», зроблено до кави.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><svg x="0" y="0" width="90" height="320" viewBox="45 0 90 320">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/><g>
+    <path d="M74 196l-4 32M106 196l4 32" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="188" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="172" r="13" fill="#E9B795"/>
+    <path d="M76 172a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 166q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="171" r="1.4" fill="#2C252A"/><circle cx="95" cy="171" r="1.4" fill="#2C252A"/>
+    <path d="M86 179q4 -4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><text x="90" y="130" text-anchor="middle" font-family="Lora,serif" font-size="17" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">5:12:40</text></svg><svg x="90" y="0" width="90" height="320" viewBox="45 0 90 320"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <path d="M150 255l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M40 269.4l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><g>
+    <path d="M74 156l-10 -22M106 156l10 -22" stroke="#E9B795" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="72" y="148" width="36" height="62" rx="14" fill="#86AFCF"/>
+    <circle cx="90" cy="132" r="13" fill="#E9B795"/>
+    <path d="M76 132a14 14 0 0 1 28 0q-6 -6 -14 -4q-8 1 -14 4z" fill="#5A3E36"/>
+    <path d="M102 126q8 10 2 26" stroke="#5A3E36" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="85" cy="131" r="1.4" fill="#2C252A"/><circle cx="95" cy="131" r="1.4" fill="#2C252A"/>
+    <path d="M86 137q4 4 8 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><text x="90" y="100" text-anchor="middle" font-family="Lora,serif" font-size="17" fill="#2C252A" stroke="#fff" stroke-width="3" paint-order="stroke">08:10</text></svg><path d="M90 0v320" stroke="#fff" stroke-width="2.5"/></svg></div><figcaption><b>9–13 с</b>Зліва секундомір показує 5 годин. Справа людина вже гуляє — вдома спокійно.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/>
+  <image href="marketing/m-01-good-morning.png" x="40" y="56" width="100" height="100" preserveAspectRatio="xMidYMax meet" />
+  <image href="marketing/app-icon.png" x="38" y="184" width="26" height="26"/>
+  <text x="70" y="206" font-family="Lora,Georgia,serif" font-weight="600" font-size="24" fill="#2C252A">Moppy</text>
+  <text x="90" y="228" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="700" font-size="9" fill="#6E6068">One small thing a day</text>
+  <rect x="34" y="248" width="112" height="24" rx="8" fill="#FF4D6A"/>
+  <text x="90" y="264" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-weight="800" font-size="9" fill="#fff">Try 7 days free</text>
+  <text x="90" y="286" text-anchor="middle" font-family="Nunito,system-ui,sans-serif" font-size="6.4" fill="#6E6068">yearly plan · cancel anytime</text></svg></div><figcaption><b>13–15 с</b>Кінцева картка «One small thing a day».</figcaption></figure></div>
+</section>
+<section class="ad" id="B9">
+  <div class="adh">
+    <div class="adid">B9</div>
+    <div><h3>«This app never says you’re behind»</h3>
+      <div class="meta"><span class="tag b-pain">Біль → продукт → краще життя</span> <span class="tag w-live">Зараз · потрібна зйомка</span> <span class="mx">Справжня користувачка · 9:16 · 20 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>Every chore app made me feel guilty. This one doesn’t.</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Відмінність, якої немає в конкурентів: у Moppy НЕМАЄ прострочень — незроблене переїжджає на завтра, а тиждень рахує кожен маленький день. Знімає реальна людина, що користувалась застосунком, з позначкою партнерства.</div><div><div class="lbl">Аудиторія</div>ті, хто кидав chore-трекери (ретаргет, look-alike)<div class="lbl" style="margin-top:10px">Звук і голос</div>Живий голос; підпис «Paid partnership». Жодних вигаданих відгуків.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#F3F3F3"/><g font-family="Nunito,sans-serif"><rect x="30" y="90" width="120" height="150" rx="14" fill="#fff" stroke="#ddd"/><text x="42" y="114" font-size="9" font-weight="800" fill="#2C252A">Chores</text><rect x="96" y="104" width="44" height="14" rx="7" fill="#8E8E8E"/><text x="118" y="114" font-size="6.6" fill="#fff" text-anchor="middle">Overdue 14</text><rect x="42" y="130" width="96" height="16" rx="5" fill="#F2F2F2"/><rect x="42" y="154" width="96" height="16" rx="5" fill="#F2F2F2"/><rect x="42" y="178" width="96" height="16" rx="5" fill="#F2F2F2"/><rect x="42" y="202" width="96" height="16" rx="5" fill="#F2F2F2"/></g><rect x="39.875" y="16.5" width="100.25" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">Every chore app</text><rect x="25.5" y="35" width="129" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="46.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">made me feel guilty.</text></svg></div><figcaption><b>0–3 с</b>Безіменний «застосунок-докір» (вигаданий, без чужих брендів) із лічильником «Overdue 14».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/><g>
+    <rect x="30" y="20" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip12"><rect x="33" y="23" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip12)"><rect x="33" y="23" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-16.0.jpg" x="33" y="23" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g><g font-family="Nunito,system-ui,sans-serif"><rect x="44.875" y="291" width="90.25" height="18" rx="9" fill="#FFE1E7"/>
+  
+  <text x="90" y="302.7" text-anchor="middle" font-size="7.5" font-weight="800" fill="#A8203B">Move to tomorrow →</text></g></svg></div><figcaption><b>3–9 с</b>Moppy: свайп по кроку — «Move to tomorrow», «Undo». Нічого не червоніє.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><image href="marketing/shot05-day-week.jpg" x="0" y="0" width="180" height="320" preserveAspectRatio="xMidYMid slice"/></svg></div><figcaption><b>9–14 с</b>Тиждень крапками: «3 days this week · Every small day counts».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#EFE4F6"/>
+  <rect x="0" y="230" width="180" height="90" fill="#E5D6C6"/>
+  <rect x="18" y="60" width="44" height="54" rx="3" fill="#fff" stroke="#D6C8E6" stroke-width="3"/>
+  <rect x="10" y="170" width="160" height="56" rx="16" fill="#B7A2D6"/><rect x="18" y="150" width="144" height="34" rx="14" fill="#C9B7E4"/>
+  <rect x="4" y="176" width="20" height="54" rx="9" fill="#A68FCB"/><rect x="156" y="176" width="20" height="54" rx="9" fill="#A68FCB"/>
+  <path d="M150 255l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M40 269.4l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><g>
+    <path d="M66 154l-6 48M114 154l6 48" stroke="#E9B795" stroke-width="10.5" stroke-linecap="round" fill="none"/>
+    <rect x="63" y="142" width="54" height="93" rx="21" fill="#B9A3DC"/>
+    <circle cx="90" cy="118" r="19.5" fill="#E9B795"/>
+    <path d="M69 118a21 21 0 0 1 42 0q-9 -9 -21 -6q-12 1.5 -21 6z" fill="#5A3E36"/>
+    <path d="M108 109q12 15 3 39" stroke="#5A3E36" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+    <circle cx="82.5" cy="116.5" r="2.0999999999999996" fill="#2C252A"/><circle cx="97.5" cy="116.5" r="2.0999999999999996" fill="#2C252A"/>
+    <path d="M84 125.5q6 6 12 0" stroke="#2C252A" stroke-width="1.4" fill="none" stroke-linecap="round"/></g><rect x="37" y="266.5" width="106" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="278" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">It just moves it</text><rect x="48.5" y="285" width="83" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="296.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">to tomorrow.</text></svg></div><figcaption><b>14–20 с</b>Обличчя авторки, спокійно: «It just moves it to tomorrow. That’s it.» + кінцева картка.</figcaption></figure></div>
+</section>
+
+<h2 id="c">6. Гілка C — маскот і звичка</h2>
+
+<section class="ad" id="C10">
+  <div class="adh">
+    <div class="adid">C10</div>
+    <div><h3>Moppy брудніє замість твого дому</h3>
+      <div class="meta"><span class="tag b-mascot">Маскот і звичка</span> <span class="tag w-now">Можна вже зараз</span> <span class="mx">Повна анімація Remotion · 9:16 · 15 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>He gets dusty so your home doesn’t</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Механіка, якої немає ні в кого: бруд на маскоті — слід ТВОЄЇ зробленої роботи, а миття з бульбашками — винагорода. Затишний формат «тамагочі» чіпляє аудиторію cozy-ігор. Робиться з наявних PNG маскота, без зйомок.</div><div><div class="lbl">Аудиторія</div>cozy-ігри, тамагочі, 18–34<div class="lbl" style="margin-top:10px">Звук і голос</div>Мила мелодія + звуки бульбашок.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/><image href="marketing/m-05-freshly-washed.png" x="30" y="90" width="120" height="120" preserveAspectRatio="xMidYMax meet" /><rect x="45.625" y="16.5" width="88.75" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="28" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">He gets dusty</text><rect x="25.5" y="35" width="129" height="17.5" rx="4" fill="#fff"/>
+  <text x="90" y="46.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#2C252A">so your home doesn't</text></svg></div><figcaption><b>0–2 с</b>Чистий пухнастий Moppy: «He gets dusty so your home doesn’t».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/><image href="marketing/m-04-dusty.png" x="30" y="90" width="120" height="120" preserveAspectRatio="xMidYMax meet" /><g><circle cx="60" cy="50" r="10" fill="#2E6B45"/><path d="M55.5 50l3 3.2 6 -6.2" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g><circle cx="90" cy="50" r="10" fill="#2E6B45"/><path d="M85.5 50l3 3.2 6 -6.2" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g><circle cx="120" cy="50" r="10" fill="#2E6B45"/><path d="M115.5 50l3 3.2 6 -6.2" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g fill="#B79C82" opacity=".7"><circle cx="50" cy="150" r="2"/><circle cx="130" cy="130" r="1.6"/><circle cx="140" cy="190" r="2.2"/></g><rect x="45.625" y="284.5" width="88.75" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="296" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">12 steps done</text></svg></div><figcaption><b>2–7 с</b>Кожен твій виконаний крок — галочка зверху, а на Moppy осідає трохи пилу.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#D5E9F7"/><image href="marketing/m-05-freshly-washed.png" x="40" y="90" width="100" height="100" preserveAspectRatio="xMidYMax meet" /><image href="marketing/foam.svg" x="20" y="180" width="140" height="80"/><g fill="#EAF5FC" stroke="#8EC5E8" stroke-width="1.2"><circle cx="36" cy="120" r="4"/><circle cx="45" cy="110" r="3"/><circle cx="30" cy="104" r="2.4"/><circle cx="40" cy="96" r="1.8"/></g><g fill="#EAF5FC" stroke="#8EC5E8" stroke-width="1.2"><circle cx="146" cy="140" r="4"/><circle cx="155" cy="130" r="3"/><circle cx="140" cy="124" r="2.4"/><circle cx="150" cy="116" r="1.8"/></g><g fill="#EAF5FC" stroke="#8EC5E8" stroke-width="1.2"><circle cx="96" cy="80" r="4"/><circle cx="105" cy="70" r="3"/><circle cx="90" cy="64" r="2.4"/><circle cx="100" cy="56" r="1.8"/></g></svg></div><figcaption><b>7–12 с</b>Тап по Moppy → миття: піна, бульбашки злітають і лопаються.</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFF5F7"/><image href="marketing/m-06-room-done.png" x="30" y="70" width="120" height="120" preserveAspectRatio="xMidYMax meet" /><path d="M36 73l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M150 93l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M134 51.1l1.4 3.5 3.5 1.4-3.5 1.4-1.4 3.5-1.4-3.5-3.5-1.4 3.5-1.4z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><rect x="31.25" y="254.5" width="117.5" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="266" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">Your home's clean.</text><rect x="57.125" y="273" width="65.75" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="284.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">So is he.</text></svg></div><figcaption><b>12–15 с</b>Сяючий чистий Moppy: «Your home’s clean. So is he.» + кінцева картка.</figcaption></figure></div>
+</section>
+<section class="ad" id="C11">
+  <div class="adh">
+    <div class="adid">C11</div>
+    <div><h3>«One small thing before coffee»</h3>
+      <div class="meta"><span class="tag b-mascot">Маскот і звичка</span> <span class="tag w-now">Можна вже зараз</span> <span class="mx">Анімація або UGC · 9:16 · 12–15 с</span></div>
+    </div>
+  </div>
+  <div class="hook">Хук: <q>One small thing before coffee ☕</q></div>
+  <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>Показує звичку, а не разову дію: віджет нагадує сам, справа на 10 хвилин закінчується раніше, ніж закипить чайник. Продає Today, віджети й Live Activity, які вже є на ASO-скрінах.</div><div><div class="lbl">Аудиторія</div>ранкові рутини, 22–38<div class="lbl" style="margin-top:10px">Звук і голос</div>ASMR-звуки ранку: чайник, вода, тап.</div></div>
+  <div class="strip"><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#2C252A"/><image href="marketing/shot06-widgets.jpg" x="-20" y="-150" width="220" height="470" preserveAspectRatio="xMidYMax slice"/><rect x="39.875" y="14.5" width="100.25" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="26" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">One small thing</text><rect x="39.875" y="33" width="100.25" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="44.5" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">before coffee ☕</text></svg></div><figcaption><b>0–2 с</b>Ранок, на заблокованому екрані віджет Moppy «Wash the dishes · ~10 min».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <ellipse cx="60" cy="300" rx="16" ry="4" fill="#B79C82" opacity=".6"/><circle cx="30" cy="290" r="3" fill="#B79C82"/><rect x="18" y="168" width="10" height="14" rx="2" fill="#E9C46A"/><rect x="32" y="172" width="14" height="10" rx="2" fill="#F4A6A6"/><rect x="58" y="170" width="8" height="12" rx="2" fill="#8FC1A9"/>
+  <g stroke="#9DB4C8" stroke-width="1.6" fill="#F4F7FA">
+    <ellipse cx="122" cy="176" rx="22" ry="5"/><ellipse cx="124" cy="170" rx="20" ry="5"/>
+    <ellipse cx="120" cy="164" rx="18" ry="4.5"/><rect x="132" y="150" width="10" height="14" rx="2"/>
+    <rect x="108" y="152" width="9" height="12" rx="2"/></g><image href="marketing/m-15-washing-dishes.png" x="18" y="96" width="100" height="100" preserveAspectRatio="xMidYMax meet" transform="translate(136 0) scale(-1 1)"/><g fill="#EAF5FC" stroke="#8EC5E8" stroke-width="1.2"><circle cx="128" cy="146" r="4"/><circle cx="137" cy="136" r="3"/><circle cx="122" cy="130" r="2.4"/><circle cx="132" cy="122" r="1.8"/></g></svg></div><figcaption><b>2–7 с</b>Чайник ставиться; поруч — 10 хвилин посуду (в анімованій версії Moppy миє в ілюстрованій кухні).</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="180" height="320" fill="#FFE1E7"/><g>
+    <rect x="30" y="24" width="120" height="258" rx="19.2" fill="#2B2B2E"/>
+    <clipPath id="clip13"><rect x="33" y="27" width="114" height="252" rx="15.600000000000001"/></clipPath>
+    <g clip-path="url(#clip13)"><rect x="33" y="27" width="114" height="252" fill="#FFF5F7"/>
+    <image href="marketing/aso-18.4.jpg" x="33" y="27" width="114" height="252" preserveAspectRatio="xMidYMin slice"/></g></g></svg></div><figcaption><b>7–10 с</b>«Mark done» — галочка, віджет оновлюється на «1/4».</figcaption></figure><figure class="fr"><div class="sb"><svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect width="180" height="320" fill="#FCE6D6"/>
+  <rect x="104" y="34" width="62" height="58" rx="4" fill="#D7E9F5" stroke="#fff" stroke-width="3"/>
+  <path d="M135 34v58M104 63h62" stroke="#fff" stroke-width="3"/>
+  <rect x="8" y="22" width="84" height="44" rx="3" fill="#9A6A48"/>
+  <path d="M50 22v44" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="182" width="180" height="10" fill="#D9B48F"/>
+  <rect x="0" y="192" width="180" height="72" fill="#9A6A48"/>
+  <path d="M45 192v72M90 192v72M135 192v72" stroke="#7F5638" stroke-width="2"/>
+  <rect x="0" y="264" width="180" height="56" fill="#EAD9C8"/>
+  <rect x="96" y="178" width="58" height="8" rx="3" fill="#B8C2CB"/>
+  <path d="M40 285l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><path d="M150 165.1l1.4 3.5 3.5 1.4-3.5 1.4-1.4 3.5-1.4-3.5-3.5-1.4 3.5-1.4z" fill="#fff" stroke="#F5B301" stroke-width=".8"/><rect x="60" y="160" width="20" height="22" rx="4" fill="#fff" stroke="#6E6068"/><path d="M80 166q8 2 0 10" stroke="#6E6068" fill="none"/><path d="M66 152q3-6 0-10M74 152q3-6 0-10" stroke="#bbb" fill="none"/><image href="marketing/m-01-good-morning.png" x="100" y="184" width="76" height="76" preserveAspectRatio="xMidYMax meet" /><rect x="16.875" y="288.5" width="146.25" height="17.5" rx="4" fill="rgba(44,37,42,.86)"/>
+  <text x="90" y="300" text-anchor="middle" font-family="Lora,Georgia,serif" font-weight="600" font-size="11.5" fill="#fff">Done before the kettle.</text></svg></div><figcaption><b>10–13 с</b>Кава в чистій кухні, Moppy махає з кутка.</figcaption></figure></div>
+</section>
+
+<h2 id="hooks">7. Бібліотека хуків для тестів</h2>
+<div class="sub" style="margin-bottom:6px">Хук — це перша 1–1.5 с: текст на екрані плюс перший кадр. Переможний хук потім ставимо на інші тіла роликів.</div>
+<div class="hooks"><div>I asked my phone what to clean first<span>магія</span></div><div>This is your sign to do just ONE thing<span>біль</span></div><div>4 things. 23 minutes. My whole kitchen.<span>магія</span></div><div>Cleaning app for people who hate cleaning apps<span>біль</span></div><div>Rate my mess: an app counted 4 things<span>магія</span></div><div>The pile on your chair has a 6-minute fix<span>біль</span></div><div>POV: you stopped cleaning the whole house and did step 1<span>магія</span></div><div>My cleaning buddy is a very fluffy dog<span>маскот</span></div><div>You don’t need motivation. You need step 1.<span>біль</span></div><div>Watch this kitchen go from 😩 to 😌<span>магія</span></div><div>No streaks. No guilt. Just one small thing.<span>біль</span></div><div>He gets dirty when YOU clean<span>маскот</span></div></div>
+
+<h2 id="specs">8. Вимоги до кожного ролика</h2>
+<div class="grid g2">
+  <div class="card"><div class="lbl">Формат</div><ul>
+    <li>9:16, 1080×1920, 15–25 с для Reels і TikTok; окремо 886×1920 до 30 с — App Preview і Apple Search Ads.</li>
+    <li>Хук за 1.5 с; перший кадр уже з рухом, без логотипа й заставки.</li>
+    <li>Субтитри й текст на екрані завжди — більшість дивиться без звуку.</li>
+    <li>Важливе — у безпечній зоні: не в нижніх ~20% (там підпис і кнопки) і не в правій смузі з лайками.</li></ul></div>
+  <div class="card"><div class="lbl">Бренд</div><ul>
+    <li>Корал <code>#FF4D6A</code>, тло <code>#FFF5F7</code>, «done» <code>#2E6B45</code>; заголовки Lora, інтерфейс Nunito.</li>
+    <li>Одна коралова дія на кадр; червоного для помилок немає.</li>
+    <li>Кінцева картка: Moppy махає + іконка + «Tiny steps to a calmer home» + «Try 7 days free».</li></ul></div>
+</div>
+
+<h2 id="test">9. Як запускаємо й міряємо</h2>
+<div class="phase p0"><b>Хвиля 0 — зараз, без зйомок:</b> A4, C10, C11 (анімована версія). Монтуємо в наявному Remotion-проєкті <code>/redlabs/moppy-video/moppy-remotion</code> з того, що вже намальовано. Мета — побачити, яка гілка дає найкращий hook rate, ще до витрат на креаторів.</div>
+<div class="phase p1"><b>Хвиля 1 — живі зйомки без скану:</b> A5, B6, B7, B8, B9. 2–3 UGC-креатори, по 2–3 хуки на ролик. Ці історії тримаються на плані, кроках, Today і віджеті — усе вже працює в застосунку.</div>
+<div class="phase p2"><b>Хвиля 2 — після MVP-13:</b> A1, A2, A3 — головні вірусні ролики зі справжнім сканом. A2 і A3 ведемо як органічні серії, найкращі піднімаємо в Spark Ads і partnership ads.</div>
+<div class="card" style="margin-top:16px"><div class="lbl">Схема тесту й метрики</div><ul>
+  <li><b>3 хуки × 2 тіла</b> на гілку; один креатив — одне оголошення, бюджет рівномірно, 3–4 дні до рішення.</li>
+  <li><b>Hook rate</b> (перегляди 3 с ÷ покази) — фільтр хуків; <b>hold rate</b> (15 с ÷ 3 с) — фільтр тіла.</li>
+  <li><b>CTR → встановлення → старт тріалу → оплата</b> — фінальний суддя; масштабуємо за вартістю старту тріалу, а не за кліками.</li>
+  <li>Цільові пороги ставимо після хвилі 0 за власними даними — готових цифр ніші в нас немає, вигадувати їх не будемо.</li>
+  <li>Переможець хвилі → 3–5 варіацій хука на те саме тіло → масштаб.</li></ul></div>
+
+<h2 id="next">10. Що потрібно, щоб почати</h2>
+<ul>
+  <li><b>Від нас:</b> змонтувати A4, C10, C11 у Remotion (окремі композиції 1080×1920 поруч з App Preview).</li>
+  <li><b>Від власника:</b> рекламні кабінети Meta й TikTok під Moppy; 2–3 UGC-креатори (US/UK), які справді користуються застосунком; бюджет хвилі 0.</li>
+  <li><b>Для хвилі 2:</b> реліз MVP-13 (справжній скан) — після нього A1–A3 знімаються за цією розкадровкою.</li>
+</ul>
+
+<div class="foot">Moppy — House Cleaning Schedule · RedLabs · план складено 03.10.2026 на основі ASO-ролика й скріншотів (<code>moppy-video/moppy-remotion/out</code>) і <a href="index.html#marketing">розділу «Маркетинг» вікі ніші</a>. Ескізи в розкадровках — схеми композиції, не фінальний арт.</div>
+</div>
+</body>
+</html>

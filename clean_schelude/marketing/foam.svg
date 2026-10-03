@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="204" viewBox="72 176 240 204">
+<title>Moppy · foam cluster (Wash I2)</title>
+<g id="foam" fill="#FFFFFF" stroke="#8EC5E8" stroke-width="2.5">
+<circle cx="150" cy="230" r="26"/>
+<circle cx="186" cy="212" r="20"/>
+<circle cx="220" cy="228" r="28"/>
+<circle cx="250" cy="250" r="18"/>
+<circle cx="130" cy="290" r="20"/>
+<circle cx="200" cy="300" r="24"/>
+<circle cx="244" cy="304" r="16"/>
+<circle cx="168" cy="340" r="22"/>
+<circle cx="226" cy="352" r="20"/>
+<circle cx="110" cy="360" r="14"/>
+<circle cx="96" cy="330" r="12"/>
+</g>
+<g id="float" fill="#EAF5FC" stroke="#8EC5E8" stroke-width="2">
+<circle cx="120" cy="190" r="10"/>
+<circle cx="276" cy="200" r="8"/>
+<circle cx="300" cy="260" r="12"/>
+<circle cx="84" cy="250" r="7"/>
+</g>
+</svg>
