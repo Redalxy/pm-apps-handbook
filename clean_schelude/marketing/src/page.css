@@ -86,3 +86,8 @@ td.num{white-space:nowrap}
 .vhook{font-family:Lora,Georgia,serif;font-size:14px;color:#2C252A}
 .vplan{color:#3a4856}
 .vfoot{color:var(--dim);font-size:12px}
+.vgal{display:flex;gap:12px;overflow-x:auto;padding:8px 2px 10px}
+.vgal figure{margin:0;flex:0 0 200px}
+.gvid{width:200px;aspect-ratio:9/16;border-radius:12px;background:#111;display:block;object-fit:cover}
+.vgal figcaption{font-size:12px;line-height:1.45;color:#3a4856;margin-top:6px}
+.cvid{height:150px;aspect-ratio:9/16;border-radius:9px;background:#111;flex:none}

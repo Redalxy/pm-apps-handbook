@@ -7,7 +7,8 @@ import { variantsHtml } from './gen-d.mjs';
 when.later = { t: 'Після фічі «Household»', cls: 'w-scan' };
 const allAds = [...ads, ...compAds];
 const days = (n) => n + ' ' + (n % 10 === 1 && n % 100 !== 11 ? 'день' : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? 'дні' : 'днів');
-const compRef = (c) => `<div class="compref"><div class="crh"><span class="compbadge">✓ На основі топ-конкурента</span> <b>${esc(c.brand)}</b> · ${esc(c.hook)} · крутиться <b>${days(c.days)}</b> (з ${c.since})${c.active ? '' : ', знято'} · копій: ${esc(c.copies)} · <a href="https://www.facebook.com/ads/library/?id=${c.id}" target="_blank" rel="noopener">оголошення в Ad Library</a></div><div class="crs">${c.frames.map((f) => `<img src="${f}" alt="" loading="lazy">`).join('')}<div class="crw">${esc(c.what)}</div></div></div>`;
+const vid = (c, cls = 'cvid') => `<video class="${cls}" src="${A}comp/video/${c.id}.mp4" poster="${A}comp/video/${c.id}.jpg" controls preload="none" playsinline></video>`;
+const compRef = (c) => `<div class="compref"><div class="crh"><span class="compbadge">✓ На основі топ-конкурента</span> <b>${esc(c.brand)}</b> · ${esc(c.hook)} · крутиться <b>${days(c.days)}</b> (з ${c.since})${c.active ? '' : ', знято'} · копій: ${esc(c.copies)} · <a href="https://www.facebook.com/ads/library/?id=${c.id}" target="_blank" rel="noopener">оголошення в Ad Library</a></div><div class="crs">${vid(c)}${c.frames.map((f) => `<img src="${f}" alt="" loading="lazy">`).join('')}<div class="crw">${esc(c.what)}</div></div></div>`;
 
 const OUT = '/redlabs/pm-apps-handbook/clean_schelude/marketing.html';
 const frameHtml = (f) => `<figure class="fr"><div class="sb">${f.s}</div><figcaption><b>${f.t}</b>${esc(f.d)}</figcaption></figure>`;
@@ -106,6 +107,9 @@ ${section('mascot')}
   <div class="card"><div class="lbl">Chorefriend</div><div class="val">154 оголошення</div><div class="note">з 04.07.2026; тестують швидко (більшість живе 1–3 тижні), переможця дублюють ×9: «фото → кроки з хвилинами»</div></div>
   <div class="card"><div class="lbl">TidyMinds · «Kristina Cook»</div><div class="val">75 оголошень</div><div class="note">паперовий ADHD-планер (Shopify), не застосунок; один ролик — <b>351 день</b>, 28+ дублікатів</div></div>
 </div>
+<h3 class="h3s">Самі ролики — дивитись тут, без Ad Library</h3>
+<div class="vgal">${comps.map((c) => `<figure>${vid(c, 'gvid')}<figcaption><b>${esc(c.brand.split(' (')[0])}</b> · ${days(c.days)}${c.active ? '' : ' (знято)'} · ${c.len}<br>${esc(c.hook)}<br>→ ${allAds.filter((a) => a.comp === c.key).map((a) => `<a href="#${a.id}">${a.id}</a>`).join(', ')}</figcaption></figure>`).join('')}</div>
+<div class="note">Копії оголошень для внутрішнього розбору (стиснуті до 854p), зняті з публічної Meta Ad Library 03.10.2026. Права на ролики — в їхніх авторів; у нашій рекламі не використовуємо жодного кадру, лише структуру.</div>
 <div class="scroll" style="margin-top:14px"><table>
 <thead><tr><th>Бренд</th><th>Креатив (хук)</th><th>Крутиться</th><th>Копій</th><th>Довжина</th><th>Наш сценарій</th></tr></thead>
 <tbody>${comps.map((c) => `<tr><td><b>${esc(c.brand)}</b></td><td><a href="https://www.facebook.com/ads/library/?id=${c.id}" target="_blank" rel="noopener">${esc(c.hook)}</a></td><td class="num">${days(c.days)}${c.active ? '' : ' <span class="mx">(знято)</span>'}</td><td>${esc(c.copies)}</td><td>${c.len}</td><td>${allAds.filter((a) => a.comp === c.key).map((a) => `<a href="#${a.id}">${a.id}</a>`).join(', ')}</td></tr>`).join('')}</tbody></table></div>
