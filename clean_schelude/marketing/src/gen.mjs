@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import { A, esc } from './gen-a.mjs';
 import { ads, branches, when, hooks } from './gen-b.mjs';
 import { comps, compBy, compAds } from './gen-c.mjs';
+import { variantsHtml } from './gen-d.mjs';
 when.later = { t: 'Після фічі «Household»', cls: 'w-scan' };
 const allAds = [...ads, ...compAds];
 const days = (n) => n + ' ' + (n % 10 === 1 && n % 100 !== 11 ? 'день' : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? 'дні' : 'днів');
@@ -21,6 +22,7 @@ const adHtml = (a) => `
   ${a.comp ? compRef(compBy[a.comp]) : ''}<div class="hook">${a.comp ? 'Наш хук' : 'Хук'}: <q>${esc(a.hook)}</q></div>
   <div class="grid g2 info"><div><div class="lbl">Чому чіпляє</div>${esc(a.why)}</div><div><div class="lbl">Аудиторія</div>${esc(a.aud)}<div class="lbl" style="margin-top:10px">Звук і голос</div>${esc(a.vo)}</div></div>
   <div class="strip">${a.frames.map(frameHtml).join('')}</div>
+  ${variantsHtml(a)}
 </section>`;
 const rows = allAds.map((a) => `<tr><td><a href="#${a.id}"><b>${a.id}</b></a></td><td>${esc(a.name)}${a.comp ? ' <span class="compbadge sm" title="на основі топ-конкурента">✓</span>' : ''}</td><td><span class="tag ${branches[a.branch].cls}">${branches[a.branch].tag}</span></td><td>${esc(a.fmt)}</td><td><span class="tag ${when[a.when].cls}">${when[a.when].t}</span></td><td><q>${esc(a.hook)}</q></td></tr>`).join('');
 const count = (f) => allAds.filter(f).length;
@@ -55,6 +57,8 @@ ${css}</style>
   <div class="card"><div class="lbl">Можна вже зараз</div><div class="val" style="color:var(--accent)">${count(a => a.when === 'now')} без зйомок · ${count(a => a.when === 'live')} зі зйомкою</div><div class="note">анімація з наявного Remotion-проєкту і живі сцени про план, кроки й Today</div></div>
   <div class="card"><div class="lbl">Чекають фічу</div><div class="val" style="color:var(--warn)">${count(a => a.when === 'scan' || a.when === 'later')}</div><div class="note">скан своєї кімнати — після MVP-13; спільний дім — після Household</div></div>
 </div>
+
+<div class="verdict coral" style="margin-top:16px"><b>Кожен ролик — у трьох кімнатах.</b> Розкадровка нижче показує ролик на одній кімнаті, а під нею — три версії для тесту: <b>v1 Kitchen</b>, <b>v2 Bedroom</b>, <b>v3 Living room</b>. Хук, кроки й хвилини підлаштовані під кімнату й узяті з реальних шаблонів застосунку (Today: «Clear the kitchen counter» 8 хв, «Make the bed and clear the chair» 6 хв, «Clear the coffee table» 7 хв), тож реклама не обіцяє того, чого немає. Ключові кадри версій — на ілюстраціях кімнат із дизайн-хендофа.</div>
 
 <h2 id="tree">1. Який формат: дерево рішень</h2>
 <div class="tree">
@@ -137,6 +141,7 @@ ${compAds.map(adHtml).join('')}
 <div class="phase p1"><b>Хвиля 1 — живі зйомки без скану:</b> A5, B6, B7, B8, B9 і K2–K6, K8 (B7 і K8 — одне тіло з двома хуками; K5 — сезонний, запускати до листопада). 2–3 UGC-креатори, по 2–3 хуки на ролик. Ці історії тримаються на плані, кроках, Today і віджеті — усе вже працює в застосунку.</div>
 <div class="phase p2"><b>Хвиля 2 — після MVP-13:</b> A1, A2, A3, K1 (копія головного креативу Chorefriend); K9 — після фічі «Household»; — головні вірусні ролики зі справжнім сканом. A2 і A3 ведемо як органічні серії, найкращі піднімаємо в Spark Ads і partnership ads.</div>
 <div class="card" style="margin-top:16px"><div class="lbl">Схема тесту й метрики</div><ul>
+  <li><b>Кімната — окрема змінна тесту.</b> Спершу v1/v2/v3 одного ролика з тим самим хуком в одній групі оголошень: так видно, яка кімната чіпляє аудиторію, не змішуючи це з хуком. Кімнату-переможця далі ставимо в тести хуків; програвші кімнати не викидаємо — перевіряємо ще раз на іншій гілці (біль ≠ магія).</li>
   <li><b>3 хуки × 2 тіла</b> на гілку; один креатив — одне оголошення, бюджет рівномірно, 3–4 дні до рішення.</li>
   <li><b>Hook rate</b> (перегляди 3 с ÷ покази) — фільтр хуків; <b>hold rate</b> (15 с ÷ 3 с) — фільтр тіла.</li>
   <li><b>CTR → встановлення → старт тріалу → оплата</b> — фінальний суддя; масштабуємо за вартістю старту тріалу, а не за кліками.</li>
@@ -147,6 +152,7 @@ ${compAds.map(adHtml).join('')}
 <ul>
   <li><b>Від нас:</b> змонтувати A4, C10, C11 у Remotion (окремі композиції 1080×1920 поруч з App Preview).</li>
   <li><b>Від власника:</b> рекламні кабінети Meta й TikTok під Moppy; 2–3 UGC-креатори (US/UK), які справді користуються застосунком (кого брати — <a href="#creators">розділ 11</a>); бюджет хвилі 0.</li>
+  <li><b>Фото для v2/v3:</b> «до» і «після» спальні й вітальні власника з одного кадру — як кухня в ASO-ролику. Без них A4 і повзунки до/після є лише в кухонній версії.</li>
   <li><b>Для хвилі 2:</b> реліз MVP-13 (справжній скан) — після нього A1–A3 знімаються за цією розкадровкою.</li>
 </ul>
 
